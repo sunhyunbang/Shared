@@ -1,0 +1,18 @@
+D:\konan\ks5\script\paid_products[볼륨명]\ddl.kql
+1.CREATE TABLE paid_products 에 
+,area_count INT64 NULL 
+필드 추가
+
+2.CREATE INDEX idx_int64 에 
+area_count 
+필드 추가
+
+3.CREATE GATEWAY gw_paid_products ON paid_products 
+area_count =	"<__area_count__>";
+에 필드 추가
+
+D:\konan\ks5\ext\connector\conf\include\mapping.rc
+
+field_mapping paid_products = { 
+area_count	=	AREA_COUNT
+에 필드 추가
