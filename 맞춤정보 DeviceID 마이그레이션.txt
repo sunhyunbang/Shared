@@ -1,0 +1,22 @@
+
+select a.DeviceID, d.DeviceNewID
+  from PP_MATCH_AD_TB a WITH(NOLOCK)  
+  left join MOBILE_SERVICE.dbo._MOBILE_PUSH_DEVICE_INFO_20211025 AS D WITH(NOLOCK) on d.DeviceID = a.DeviceID
+ where a.DeviceID not in (
+        select DeviceID
+          from MOBILE_SERVICE.dbo.MOBILE_PUSH_DEVICE_INFO
+         where DeviceType = 'android'
+           and SiteCD = 'JOB'
+           and not (DeviceNewID = '' Or DeviceNewID is null)
+       )
+   and a.DeviceID <> ''
+   and a.DeviceID <> '47'
+   and d.DeviceID is not null
+
+
+
+
+
+
+
+ EXEC MB_PUSH_MATCH_SET_JOB 'ANDROID'  
