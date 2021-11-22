@@ -1,0 +1,15 @@
+<rewrite>
+
+   <outboundRules>
+
+       <rule name="AddSameSiteCookieFlag">
+
+           <match serverVariable="RESPONSE_Set-Cookie" pattern="^(.*)(CFID|CFTOKEN|JSESSIONID)(=.*)$" />
+
+           <action type="Rewrite" value="{R:0};SameSite=lax" />
+
+       </rule>
+
+   </outboundRules>
+
+</rewrite>
