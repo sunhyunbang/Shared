@@ -1,0 +1,1 @@
+https://test.member.findjob.co.kr/common/oauth/auth_Kakao.asp?sns_id=2003477450&snstype=K&profile=http%3A%2F%2Fk.kakaocdn.net%2Fdn%2Fhgedi%2Fbtqv7Grbzjo%2Fb1G7pSoGb1Fi1AkGkGGhH1%2Fimg_640x640.jpg&returl=http%3A%2F%2Ftest.www.findjob.co.kr%2F&callback=?
