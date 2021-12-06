@@ -1,0 +1,635 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Configuration;
+using System.Net;
+using System.IO;
+using Newtonsoft.Json.Linq;
+using System.Collections.Specialized;
+using System.Data;
+
+namespace SendMail_ADInfoEnd
+{
+  class Program
+  {
+    static void Main(string[] args)
+    {
+      SendMail.SendMain();
+    }
+  }
+
+  class SendMail
+  {
+    public static string sDir = @"d:\MailLog";
+    public static string sUrl = "https://mail.findjob.co.kr";
+    public static string sUser_ID = "findjob";
+    public static int intMaxTargetAddCnt = 0;
+    public static int intMaxTargetSendCnt = 0;
+    
+
+    public static void SendMain()
+    {
+      //sDir = ConfigurationManager.AppSettings["LogDir"].ToString() + DateTime.Now.ToShortDateString() + ".dat";
+      sUrl = ConfigurationManager.AppSettings["MailUrl"].ToString(); //https://mail.findjob.co.kr
+      sUser_ID = ConfigurationManager.AppSettings["User_ID"].ToString(); //findjob (API 권한 계정)
+      //intMaxTargetAddCnt
+      int.TryParse(ConfigurationManager.AppSettings["intMaxTargetAddCnt"].ToString(), out intMaxTargetAddCnt);
+      //intMaxTargetSendCnt
+      int.TryParse(ConfigurationManager.AppSettings["intMaxTargetSendCnt"].ToString(), out intMaxTargetSendCnt);
+
+      string sTargetID = ""; //타겟 ID
+      string strHtml = String.Empty;
+      string strFromEmail = "goodjobTest@findjob.co.kr"; //발신자 정보 고정
+      string sEmail = string.Empty;
+      string sUserName = string.Empty;
+      string sCuid = string.Empty;
+
+      string SendCuid = "";
+      string SendEmail = string.Empty;
+      string SendUserName = string.Empty;
+      string SendHtml = string.Empty;
+
+
+      bool bNewTargetID = true;
+      int intToTalTargetCnt = 0;
+      int intToTalTargetAddCnt = 0;
+      int intToTalTargetSendCnt = 0;
+
+      DateTime ToDay = DateTime.Now;
+
+      NameValueCollection Insertnvc;
+
+      DataSet dsJob = GetJobList();
+
+      LogWrite("========================================== " + ToDay + "============================================================");
+      LogWrite("List Count : " + dsJob.Tables[0].Rows.Count.ToString());
+
+      #region Html 생성
+
+      for (int i = 0; i < dsJob.Tables[0].Rows.Count; i++)
+      {
+        strHtml += "<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>" + "\r\n";
+        strHtml += "<html xmlns='http://www.w3.org/1999/xhtml'>" + "\r\n";
+        strHtml += "<head>" + "\r\n";
+        strHtml += "<title>[벼룩시장구인구직] 등록하신 구인광고가 내일 게재 종료될 예정입니다.</title>" + "\r\n";
+        strHtml += "</head><!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>" + "\r\n";
+        strHtml += "<body>" + "\r\n";
+
+        strHtml += "<table width='700' border='0' cellspacing='0' cellpadding='0' align='center'>" + "\r\n";
+        strHtml += "	<!-- header -->" + "\r\n";
+        strHtml += "	<tr>" + "\r\n";
+        strHtml += "	<td valign='top' style='line-height:0'><a href='http://www.findjob.co.kr/' target='_blank'><img src='http://image.findall.co.kr/FAImage/Job/advertiser/email/logo.gif' border='0' alt='벼룩시장 구인구직' /></a></td>" + "\r\n";
+        strHtml += "	<td align='right' style='line-height:0'>" + "\r\n";
+        strHtml += "		<table border='0' cellspacing='0' cellpadding='0'>" + "\r\n";
+        strHtml += "			<tr>" + "\r\n";
+        strHtml += "			<td style='line-height:0'><img src='http://image.findall.co.kr/FAImage/Job/advertiser/email/gnb_bar1.gif' alt='' /></td>" + "\r\n";
+        strHtml += "			<td style='line-height:0'><a href='http://www.findjob.co.kr/job/advertiser/JobAdInfo.asp' target='_blank'><img src='http://image.findall.co.kr/FAImage/Job/advertiser/email/gnb_btn1.gif' border='0' alt='구인광고 등록' /></a></td>" + "\r\n";
+        strHtml += "			<td style='line-height:0'><img src='http://image.findall.co.kr/FAImage/Job/advertiser/email/gnb_bar2.gif' alt='' /></td>" + "\r\n";
+        strHtml += "			<td style='line-height:0'><a href='http://www.findjob.co.kr/job/advertiser/AdList.asp' target='_blank'><img src='http://image.findall.co.kr/FAImage/Job/advertiser/email/gnb_btn2.gif' border='0' alt='구인광고 관리' /></a></td>" + "\r\n";
+        strHtml += "			<td style='line-height:0'><img src='http://image.findall.co.kr/FAImage/Job/advertiser/email/gnb_bar3.gif' alt='' /></td>" + "\r\n";
+        strHtml += "			<td style='line-height:0'><a href='http://www.findjob.co.kr/job/advertiser/mainbiz_chg.asp' target='_blank'><img src='http://image.findall.co.kr/FAImage/Job/advertiser/email/gnb_btn3.gif' border='0' alt='기업정보수정' /></a></td>" + "\r\n";
+        strHtml += "			<td style='line-height:0'><img src='http://image.findall.co.kr/FAImage/Job/advertiser/email/gnb_bar4.gif' alt='' /></td>" + "\r\n";
+        strHtml += "			<td style='line-height:0'><a href='http://customer.findall.co.kr/' target='_blank'><img src='http://image.findall.co.kr/FAImage/Job/advertiser/email/gnb_btn4.gif' border='0' alt='고객센터' /></a></td>" + "\r\n";
+        strHtml += "			<td style='line-height:0'><img src='http://image.findall.co.kr/FAImage/Job/advertiser/email/gnb_bar5.gif' alt='' /></td>" + "\r\n";
+        strHtml += "			</tr>" + "\r\n";
+        strHtml += "		</table>" + "\r\n";
+        strHtml += "	</td>" + "\r\n";
+        strHtml += "	</tr>" + "\r\n";
+        strHtml += "	<tr><td colspan='2' valign='bottom' style='line-height:0'><img src='http://image.findall.co.kr/FAImage/PaperNew/Job/Resume/resume/email2_top.gif' border='0' alt='' /></td></tr>" + "\r\n";
+        strHtml += "	<!-- //header -->" + "\r\n";
+        strHtml += "	<!-- containder -->" + "\r\n";
+        strHtml += "	<tr>" + "\r\n";
+        strHtml += "	<td colspan='2'>" + "\r\n";
+        strHtml += "		<table border='0' cellspacing='0' cellpadding='0' width='100%'>" + "\r\n";
+        strHtml += "			<tr>" + "\r\n";
+        strHtml += "			<td width='3' style='background:#4f9eec'></td>" + "\r\n";
+        strHtml += "			<td>" + "\r\n";
+        strHtml += "				<!-- content -->" + "\r\n";
+        strHtml += "				<table border='0' cellspacing='0' cellpadding='0' width='100%'>" + "\r\n";
+        strHtml += "					<tr><td height='25'></td></tr>" + "\r\n";
+        strHtml += "					<tr>" + "\r\n";
+        strHtml += "					<td align='center'><img src='http://image.findall.co.kr/FAImage/Job/advertiser/email/tit_insert.gif' alt='벼룩시장 구인광고 게재종료 안내' /></td>" + "\r\n";
+        strHtml += "					</tr>" + "\r\n";
+        strHtml += "					<tr><td height='35'></td><tr>" + "\r\n";
+        strHtml += "					<tr>" + "\r\n";
+        strHtml += "					<td style='background:#f5f5f5' align='center'>" + "\r\n";
+        strHtml += "						<table border='0' cellspacing='0' cellpadding='0' align='center'>" + "\r\n";
+        strHtml += "							<tr><td height='15'></td></tr>" + "\r\n";
+        strHtml += "							<tr>" + "\r\n";
+        strHtml += "							<td valign='top'>" + "\r\n";
+        strHtml += "								<table border='0' cellspacing='0' cellpadding='0'>" + "\r\n";
+        strHtml += "									<tr><td height='10'></td></tr>" + "\r\n";
+        strHtml += "									<tr>" + "\r\n";
+        strHtml += "									<td align='left' style='letter-spacing:-1px;font-weight:bold;font-family:dotum;font-size:14px;line-height:20px;color:#474747'>안녕하세요.<br/><strong style='font-family:dotum;font-size:16px;color:#f3750f'>" + dsJob.Tables[0].Rows[i]["USERNAME"].ToString() + "</strong>님의 구인광고가 <strong style='font-family:dotum;color:#316fe4'>내일 종료</strong>될 예정입니다.</td>" + "\r\n";
+        strHtml += "									</tr>" + "\r\n";
+        strHtml += "									<tr><td height='20'></td></tr>" + "\r\n";
+        strHtml += "									<tr>" + "\r\n";
+        strHtml += "									<td align='left' style='line-height:17px;font-family:dotum;font-family:dotum;font-size:11px;color:#666'>구인광고 게재기간 동안 만족하셨는지요?<br/>" + "\r\n";
+        strHtml += "									광고등록내역 및 기타정보는 <strong style='font-family:dotum;font-size:11px;color:#333'>구인구직>기업서비스></strong><strong style='font-family:dotum;font-size:11px;color:#316fe4'>광고관리</strong>에서 확인 가능하며,<br/>" + "\r\n";
+        strHtml += "									다음에도 벼룩시장구인구직을 꼭 이용해 주세요~ 감사합니다.</td>" + "\r\n";
+        strHtml += "									</tr>" + "\r\n";
+        strHtml += "								</table>" + "\r\n";
+        strHtml += "							</td>" + "\r\n";
+        strHtml += "							<td width='45'></td>" + "\r\n";
+        strHtml += "							<td><img src='http://image.findall.co.kr/FAImage/Job/advertiser/email/img_vg.jpg' alt='' /></td>" + "\r\n";
+        strHtml += "							</tr>" + "\r\n";
+        strHtml += "							<tr><td height='10'></td></tr>" + "\r\n";
+        strHtml += "						</table>" + "\r\n";
+        strHtml += "					</td>" + "\r\n";
+        strHtml += "					</tr>" + "\r\n";
+        strHtml += "					<tr><td height='20'></td></tr>" + "\r\n";
+        strHtml += "					<!-- 등록광고정보 -->" + "\r\n";
+        strHtml += "					<tr>" + "\r\n";
+        strHtml += "					<td align='center'>" + "\r\n";
+        strHtml += "						<table border='0' cellspacing='0' cellpadding='0' width='655' align='center'>" + "\r\n";
+        strHtml += "							<tr>" + "\r\n";
+        strHtml += "							<th align='left' style='line-height:0'><img src='http://image.findall.co.kr/FAImage/Job/advertiser/email/tits_adinfo.gif' alt='등록광고정보' /></th>" + "\r\n";
+        strHtml += "							<td align='right' valign='bottom' style='font-family:dotum;line-height:12px;font-size:11px;color:#666'>등록일자 : " + dsJob.Tables[0].Rows[i]["REG_DT"].ToString() + "</td>" + "\r\n";
+        strHtml += "							</tr>" + "\r\n";
+        strHtml += "						</table>" + "\r\n";
+        strHtml += "					</td>" + "\r\n";
+        strHtml += "					</tr>" + "\r\n";
+        strHtml += "					<tr><td height='10'></td></tr>" + "\r\n";
+        strHtml += "					<tr>" + "\r\n";
+        strHtml += "					<td align='center'>" + "\r\n";
+        strHtml += "						<table border='0' cellspacing='0' cellpadding='0' width='655' align='center'>" + "\r\n";
+        strHtml += "							<tr>" + "\r\n";
+        strHtml += "							<th style='padding:13px 0 11px;border-top:2px solid #79a1e6;border-bottom:1px solid #79a1e6;background:#dfe3f2;font-size:12px;font-family:dotum;color:#333'>" + dsJob.Tables[0].Rows[i]["TITLE"].ToString() + "</th>" + "\r\n";
+        strHtml += "							</tr>" + "\r\n";
+        strHtml += "							<tr>" + "\r\n";
+        strHtml += "							<td>" + "\r\n";
+        strHtml += "								<table border='0' cellspacing='0' cellpadding='0' width='100%'>" + "\r\n";
+        strHtml += "									<tr>" + "\r\n";
+        strHtml += "									<th width='98' height='34' align='left' style='padding-left:17px;border-bottom:1px solid #ddd;background:#f5f5f5;font-family:dotum;font-size:12px;color:#333'>광고상품</th>" + "\r\n";
+        strHtml += "									<td align='left' width='266' height='34' style='padding-left:17px;border-bottom:1px solid #ddd;font-family:dotum;font-size:12px;color:#333'>" + dsJob.Tables[0].Rows[i]["OPT_NAME"].ToString() + " (오늘무료+" + dsJob.Tables[0].Rows[i]["LIST_TERM"].ToString() + "일)</td>" + "\r\n";
+        strHtml += "									<th width='98' height='34' align='left' style='padding-left:17px;border-bottom:1px solid #ddd;;background:#f5f5f5;font-family:dotum;font-size:12px;color:#333'>광고번호</th>" + "\r\n";
+        strHtml += "									<td align='left' width='' height='34' style='padding-left:17px;border-bottom:1px solid #ddd;font-family:dotum;font-size:12px;color:#333'>" + dsJob.Tables[0].Rows[i]["LINEADID"].ToString() + "</td>" + "\r\n";
+        strHtml += "									</tr>" + "\r\n";
+        strHtml += "									<tr>" + "\r\n";
+        strHtml += "									<th width='98' height='34' align='left' style='padding-left:17px;border-bottom:1px solid #ddd;background:#f5f5f5;font-family:dotum;font-size:12px;color:#333'>게재기간</th>" + "\r\n";
+        strHtml += "									<td align='left' width='266' height='34' style='padding-left:17px;border-bottom:1px solid #ddd;font-family:dotum;font-size:12px;color:#333'>" + dsJob.Tables[0].Rows[i]["OPT_START_DT"].ToString() + "~" + dsJob.Tables[0].Rows[i]["OPT_END_DT"].ToString() + " (" + dsJob.Tables[0].Rows[i]["OPT_TERM"].ToString() + "일)</td>" + "\r\n";
+        strHtml += "									<th width='98' height='34' align='left' style='padding-left:17px;border-bottom:1px solid #ddd;;background:#f5f5f5;font-family:dotum;font-size:12px;color:#333'>광고현황</th>" + "\r\n";
+        strHtml += "									<td align='left' width='' height='34' style='padding-left:17px;border-bottom:1px solid #ddd;font-family:dotum;font-size:12px;color:#333'>게재 중</td>" + "\r\n";
+        strHtml += "									</tr>" + "\r\n";
+        strHtml += "									<tr>" + "\r\n";
+        strHtml += "									<th width='98' height='34' align='left' style='padding-left:17px;border-bottom:1px solid #ddd;background:#f5f5f5;font-family:dotum;font-size:12px;color:#333'>접수방법</th>" + "\r\n";
+        strHtml += "									<td align='left' width='266' height='34' colspan='3' style='padding-left:17px;border-bottom:1px solid #ddd;font-family:dotum;font-size:12px;color:#333'>" + dsJob.Tables[0].Rows[i]["ACCMETHOD"].ToString() + "</td>" + "\r\n";
+        strHtml += "									</tr>" + "\r\n";
+        strHtml += "									<tr>" + "\r\n";
+        strHtml += "									<th width='98' height='34' align='left' style='padding-left:17px;border-bottom:1px solid #ddd;background:#f5f5f5;font-family:dotum;font-size:12px;color:#333'>등록직종</th>" + "\r\n";
+        strHtml += "									<td align='left' width='266' height='34' colspan='3' style='padding-left:17px;border-bottom:1px solid #ddd;font-family:dotum;font-size:12px;color:#333'>" + dsJob.Tables[0].Rows[i]["CODENM3"].ToString() + "</td>" + "\r\n";
+        strHtml += "									</tr>" + "\r\n";
+        strHtml += "								</table>" + "\r\n";
+        strHtml += "							</td>" + "\r\n";
+        strHtml += "							</tr>" + "\r\n";
+        strHtml += "						</table>" + "\r\n";
+        strHtml += "					</td>" + "\r\n";
+        strHtml += "					</tr>" + "\r\n";
+        strHtml += "					<tr><td height='25'></td></tr>" + "\r\n";
+        strHtml += "					<tr>" + "\r\n";
+        strHtml += "					<td align='center'><a href='http://www.findjob.co.kr/job/advertiser/AdList.asp' target='_blank'><img src='http://image.findall.co.kr/FAImage/Job/advertiser/email/btn_skip.gif' border='0' alt='광고내역 확인' /></a></td>" + "\r\n";
+        strHtml += "					</tr>" + "\r\n";
+        strHtml += "					<!-- //등록광고정보 -->" + "\r\n";
+        strHtml += "					<tr><td height='25'></td></tr>" + "\r\n";
+        strHtml += "					<tr>" + "\r\n";
+        strHtml += "					<td align='center'>" + "\r\n";
+        strHtml += "						<table border='0' cellspacing='0' cellpadding='0' width='655' align='center'>" + "\r\n";
+        strHtml += "						<tr><td height='20' colspan='2' style='border-top:1px solid #ddd'></td></tr>" + "\r\n";
+        strHtml += "						<tr>" + "\r\n";
+        strHtml += "						<td><a href='http://www.findjob.co.kr/' target='_blank'><img src='http://image.findall.co.kr/FAImage/Job/advertiser/email/img_bn.jpg' alt='벼룩시장 유료 구인광고! 비용대비 효과 No.1' /></a></td>" + "\r\n";
+        strHtml += "						<td align='right'><a href='http://www.findall.co.kr/mobile/Mjapp.asp?menu=1&submenu=2' target='_blank'><img src='http://image.findall.co.kr/FAImage/Job/advertiser/email/img_bn2.jpg' alt='올포인트로 더위를 날리자' /></a></td>" + "\r\n";
+        strHtml += "						</tr>" + "\r\n";
+        strHtml += "						</table>" + "\r\n";
+        strHtml += "					</td>" + "\r\n";
+        strHtml += "					</tr>" + "\r\n";
+        strHtml += "					<tr><td height='20'></td></tr>" + "\r\n";
+        strHtml += "					<tr>" + "\r\n";
+        strHtml += "					<td align='center' style='background:#e9e9e9'>" + "\r\n";
+        strHtml += "						<table border='0' cellspacing='0' cellpadding='0' width='655' align='center'>" + "\r\n";
+        strHtml += "						<tr><td height='13'></td></tr>" + "\r\n";
+        strHtml += "						<tr>" + "\r\n";
+        strHtml += "						<td>" + "\r\n";
+        strHtml += "							<table border='0' cellspacing='0' cellpadding='0'>" + "\r\n";
+        strHtml += "								<tr>" + "\r\n";
+        strHtml += "								<td align='left' style='letter-spacing:-1px;font-family:dotum;font-size:11px;color:#888'><img src='http://image.findall.co.kr/FAImage/Job/advertiser/email/ico_bu.gif' alt='' align='absmiddle' /> 본 메일은 발신전용이며, 메일수신을 원치 않으시면 <a href='https://member.findall.co.kr/Join/business/Biz_ModForm.asp' target='_blank' style='text-decoration:none;font-weight:bold;font-family:dotum;font-size:11px;color:#316fe4'>[회원정보 수정]</a> 내 이메일 수신동의 ‘아니오’를 선택해 주시기 바랍니다.</td>" + "\r\n";
+        strHtml += "								</tr>" + "\r\n";
+        strHtml += "								<tr><td height='3'></td></tr>" + "\r\n";
+        strHtml += "								<tr>" + "\r\n";
+        strHtml += "								<td align='left' style='letter-spacing:-1px;font-family:dotum;font-size:11px;color:#888'><img src='http://image.findall.co.kr/FAImage/Job/advertiser/email/ico_bu.gif' alt='' align='absmiddle' /> 궁금하신 사항은 고객센터를 이용해 주시기 바랍니다. <a href='http://customer.findall.co.kr/cusque/cusqueform.asp' target='_blank' style='text-decoration:none;font-weight:bold;font-family:dotum;font-size:11px;color:#316fe4'>[고객센터문의하기]</a></td>" + "\r\n";
+        strHtml += "								</tr>" + "\r\n";
+        strHtml += "							</table>" + "\r\n";
+        strHtml += "						</td>" + "\r\n";
+        strHtml += "						</tr>" + "\r\n";
+        strHtml += "						</table>" + "\r\n";
+        strHtml += "					</td>" + "\r\n";
+        strHtml += "					</tr>" + "\r\n";
+        strHtml += "				</table>" + "\r\n";
+        strHtml += "				<!-- //content -->" + "\r\n";
+        strHtml += "			</td>" + "\r\n";
+        strHtml += "			<td width='3' style='background:#4f9eec'></td>" + "\r\n";
+        strHtml += "			</tr>" + "\r\n";
+        strHtml += "		</table>" + "\r\n";
+        strHtml += "	</td>" + "\r\n";
+        strHtml += "	</tr>" + "\r\n";
+        strHtml += "	<tr><td colspan='2'><img src='http://image.findall.co.kr/FAImage/Job/advertiser/email/btm.gif' alt='' /></td></tr>" + "\r\n";
+        strHtml += "	<!-- //container -->" + "\r\n";
+        strHtml += "	<!-- footer -->" + "\r\n";
+        strHtml += "	<tr><td height='15' colspan='2'></td></tr>" + "\r\n";
+        strHtml += "	<tr>" + "\r\n";
+        strHtml += "	<td colspan='2' align='center' style='letter-spacing:-1px;font-family:dotum;line-height:17px;font-size:11px;color:#888'>서울시 서초구 서초대로 301, 11층(서초동, 동익성봉빌딩)  |  대표이사 : 장영보<br/>사업자등록번호 : 206-85-26551  |  통신판매업 신고번호 : 제2016-서울서초-0759호  |  직업정보제공사업 : 서울청 제2016-21호  |  정보보호책임자 : 이종학</td>" + "\r\n";
+        strHtml += "	</tr>" + "\r\n";
+        strHtml += "	<tr>" + "\r\n";
+        strHtml += "	<td colspan='2' align='center'><img src='http://image.findall.co.kr/FAImage/Job/advertiser/email/copy.gif' width='360' height='19' alt='MEDIAWILL Copyright (c) MediaWill Co., Ltd. All rights reserved.' /></td>" + "\r\n";
+        strHtml += "	</tr>" + "\r\n";
+        strHtml += "	<!-- //footer -->" + "\r\n";
+        strHtml += "</table>" + "\r\n";
+        strHtml += "" + "\r\n";
+        strHtml += "</body>" + "\r\n";
+        strHtml += "</html>" + "\r\n";
+
+
+        // Target 정보 가져온다
+
+        if (bNewTargetID)
+        {
+          sTargetID = GetTargetID("ADInfoEnd " + ToDay);
+          if (string.IsNullOrEmpty(sTargetID))
+          {
+            for (int m = 0; m < 50; m++)
+            {
+              sTargetID = GetTargetID("ADInfoEnd " + ToDay);
+              if (!string.IsNullOrEmpty(sTargetID)) break;
+            }
+          }
+          bNewTargetID = false;
+        }
+        LogWrite("sTargetID : " + sTargetID);
+
+        sCuid = dsJob.Tables[0].Rows[i]["CUID"].ToString();
+        sUserName = dsJob.Tables[0].Rows[i]["USERNAME"].ToString();
+        if (string.IsNullOrEmpty(sUserName))
+        {
+          sUserName = "회원";
+        }
+        sEmail = dsJob.Tables[0].Rows[i]["EMAIL"].ToString();
+
+
+        if (string.IsNullOrEmpty(SendEmail))
+        {
+          SendCuid = sCuid.ToString();
+          SendEmail = sEmail.Replace(" ", "").ToString();
+          SendUserName = sUserName;
+          SendHtml = strHtml;
+        }
+        else
+        {
+          SendCuid = SendCuid + "æ" + sCuid.ToString();
+          SendEmail = SendEmail + "æ" + sEmail.Replace(" ", "").ToString();
+          SendUserName = SendUserName + "æ" + sUserName;
+          SendHtml = SendHtml + "æ" + strHtml;
+        }
+
+        #region TargetAdd_User
+        Insertnvc = new NameValueCollection();
+        Insertnvc["TARGET_ID"] = sTargetID;
+        Insertnvc["CUID"] = sCuid;
+        Insertnvc["USER_NM"] = sUserName;
+        Insertnvc["EMAIL"] = sEmail.Replace(" ", "").ToString();
+        Insertnvc["RESULT_CODE"] = "";
+        Insertnvc["RESULT_MESSAGE"] = "";
+
+        PubSendMailDailyLog(Insertnvc);
+        #endregion
+
+        intToTalTargetCnt = intToTalTargetCnt + 1;
+        intToTalTargetAddCnt = intToTalTargetAddCnt + 1;
+        intToTalTargetSendCnt = intToTalTargetSendCnt + 1;
+
+
+        if (!string.IsNullOrEmpty(sTargetID))
+        {
+          if (intToTalTargetAddCnt == intMaxTargetAddCnt || intToTalTargetCnt == dsJob.Tables[0].Rows.Count)
+          {
+            LogWrite("SendEmail : " + SendEmail);
+            LogWrite("SendHtml : " + SendHtml);
+            // Target 추가
+            //SetEMailAddTarget(sTargetID, SendUserName, SendEmail, SendHtml, "", intToTalTargetAddCnt, SendCuid);
+
+            SendEmail = "";
+            SendUserName = "";
+            SendHtml = "";
+            intToTalTargetAddCnt = 0;
+          }
+
+          if (intToTalTargetSendCnt == intMaxTargetSendCnt || intToTalTargetCnt == dsJob.Tables[0].Rows.Count)
+          {
+            // 메일 발송
+            //SetEMailSendTarget(sTargetID, "	[벼룩시장구인구직] 등록하신 구인광고가 내일 게재 종료될 예정입니다.", "벼룩시장구인구직", strFromEmail, intToTalTargetSendCnt);
+            bNewTargetID = true;
+            intToTalTargetSendCnt = 0;
+          }
+        } //End if
+
+      } //End For
+      #endregion
+    }
+
+
+
+
+    #region Target 생성
+    /// <summary>
+    /// Target 생성
+    /// </summary>
+    /// <param name="sTitle"></param>
+    /// <returns></returns>
+    private static string GetTargetID(string sTitle)
+    {
+      string sTargetID = "";
+      var resultJson = "";
+      try
+      {
+        WebRequest request = WebRequest.Create(sUrl + "/servlet/servletAPI.CosseMailAPINewTarget");
+        request.Method = "POST";
+
+        string sData = "";
+        sData = sData + "user_id=" + sUser_ID;
+        sData = sData + "&title=" + sTitle;
+
+        byte[] byteArray = Encoding.UTF8.GetBytes(sData);
+        request.ContentType = "application/x-www-form-urlencoded;charset=UTF-8";
+        request.ContentLength = byteArray.Length;
+        Stream dataStream = request.GetRequestStream();
+        dataStream.Write(byteArray, 0, byteArray.Length);
+        dataStream.Close();
+
+        WebResponse response = request.GetResponse();
+        HttpStatusCode ResponseCode = ((HttpWebResponse)response).StatusCode;
+        StreamReader reader = new StreamReader(response.GetResponseStream());
+        resultJson = reader.ReadToEnd();
+        reader.Close();
+
+        if (!string.IsNullOrEmpty(resultJson))
+        {
+          // Json 파싱
+          JObject objJson = JObject.Parse(resultJson);
+          objJson["result_code"].ToString();
+          sTargetID = objJson["result_body"]["target_id"].ToString();
+          LogWrite("target_id 신규 생성:" + sTargetID + " result_code:" + objJson["result_code"].ToString() + " result_Message:" + objJson["result_message"].ToString() + " DateTime :" + DateTime.Now);
+        }
+
+        response.Close();
+      }
+      catch (Exception ex)
+      {
+        sTargetID = "";
+        LogWrite("target_id 신규 생성 실패:" + sTargetID + " Exception:" + ex.Message + " DateTime :" + DateTime.Now);
+      }
+
+
+      return sTargetID;
+    }
+    #endregion Target 생성
+
+    #region Target 추가
+    /// Target 추가
+    /// </summary>
+    /// <param name="target_id"></param>
+    /// <param name="ToName"></param>
+    /// <param name="ToMail"></param>
+    /// <param name="text1"></param>
+    private static void SetEMailAddTarget(string target_id, string ToName, string ToMail, string text1, string text2, int cnt, string sCuid)
+    {
+      var resultJson = "";
+      string sReultCode = "";
+      string sReultMeassage = "";
+
+      NameValueCollection Updatenvc;
+      string[] sArryCuid = sCuid.Split('æ');
+      string[] sArryEmail = ToMail.Split('æ');
+
+      try
+      {
+        WebRequest request = WebRequest.Create(sUrl + "/servlet/servletAPI.CosseMailAPIAddTarget");
+        request.Method = "POST";
+
+        string sData = "";
+        sData = sData + "user_id=" + sUser_ID;
+        sData = sData + "&target_id=" + target_id;
+        sData = sData + "&email=" + ToMail;
+        sData = sData + "&name=" + ToName;
+        sData = sData + "&text1=" + WebUtility.UrlEncode(text1);
+        sData = sData + "&text2=" + text2;
+
+
+        byte[] byteArray = Encoding.UTF8.GetBytes(sData);
+        request.ContentType = "application/x-www-form-urlencoded;charset=UTF-8";
+        request.ContentLength = byteArray.Length;
+        Stream dataStream = request.GetRequestStream();
+        dataStream.Write(byteArray, 0, byteArray.Length);
+        dataStream.Close();
+
+        WebResponse response = request.GetResponse();
+        HttpStatusCode ResponseCode = ((HttpWebResponse)response).StatusCode;
+        StreamReader reader = new StreamReader(response.GetResponseStream());
+        resultJson = reader.ReadToEnd();
+        reader.Close();
+
+        if (!string.IsNullOrEmpty(resultJson))
+        {
+          // Json 파싱
+          JObject objJson = JObject.Parse(resultJson);
+          sReultCode = objJson["result_code"].ToString();
+          sReultMeassage = objJson["result_message"].ToString();
+
+          if (sArryCuid.Length > 0)
+          {
+
+            for (int i = 0; i < sArryCuid.Length; i++)
+            {
+              Updatenvc = new NameValueCollection();
+              Updatenvc["TARGET_ID"] = target_id;
+              Updatenvc["CUID"] = sArryCuid[i].ToString();
+              Updatenvc["EMAIL"] = sArryEmail[i].ToString();
+              Updatenvc["INSERT_DT"] = DateTime.Today.ToShortDateString();
+              Updatenvc["RESULT_CODE"] = sReultCode;
+              Updatenvc["RESULT_MESSAGE"] = sReultMeassage;
+              // 상태값 업데이트 
+              EditSendMailDailyLog(Updatenvc);
+
+            }
+          }
+
+          LogWrite("타겟추가: " + cnt.ToString() + "건 Email: " + ToMail + " target_id:" + target_id + " result_code:" + sReultCode + " result_Message:" + objJson["result_message"].ToString() + " DateTime :" + DateTime.Now);
+        }
+
+        response.Close();
+      }
+      catch (Exception ex)
+      {
+        string sException = ex.Message;
+        if (sArryCuid.Length > 0)
+        {
+          if (sException.Length > 500)
+          {
+            sException = sException.Substring(0, 499);
+          }
+
+          for (int i = 0; i < sArryCuid.Length; i++)
+          {
+            Updatenvc = new NameValueCollection();
+            Updatenvc["TARGET_ID"] = target_id;
+            Updatenvc["CUID"] = sArryCuid[i].ToString();
+            Updatenvc["EMAIL"] = sArryEmail[i].ToString();
+            Updatenvc["INSERT_DT"] = DateTime.Today.ToShortDateString();
+            Updatenvc["RESULT_CODE"] = "Exception";
+            Updatenvc["RESULT_MESSAGE"] = sException;
+            // 상태값 업데이트 
+            EditSendMailDailyLog(Updatenvc);
+
+          }
+        }
+        LogWrite("타겟추가 실패: " + cnt.ToString() + "건 Email: " + ToMail + " target_id:" + target_id + " sException:" + sException + " DateTime :" + DateTime.Now);
+      }
+
+
+    }
+    #endregion Target 추가
+
+    #region 메일발송
+    /// <summary>
+    /// Target 메일발송
+    /// </summary>
+    /// <param name="target_id"></param>
+    /// <param name="sTitle"></param>
+    /// <param name="sFrName"></param>
+    /// <param name="sFrMail"></param>
+    private static void SetEMailSendTarget(string target_id, string sTitle, string sFrName, string sFrMail, int cnt)
+    {
+      var resultJson = "";
+
+      string sContents = "[$text1]";
+
+      try
+      {
+        WebRequest request = WebRequest.Create(sUrl + "/servlet/servletAPI.CosseMailAPIByTarget");
+        request.Method = "POST";
+
+        string sData = "";
+        sData = sData + "user_id=" + sUser_ID;
+        sData = sData + "&target_id=" + target_id;
+        sData = sData + "&title=" + sTitle;
+        sData = sData + "&sender_email=" + sFrMail;
+        sData = sData + "&sender_name=" + sFrName;
+        sData = sData + "&receiver_name=[$name]";
+        sData = sData + "&mail_contents=" + WebUtility.UrlEncode(sContents);
+
+
+        byte[] byteArray = Encoding.UTF8.GetBytes(sData);
+        request.ContentType = "application/x-www-form-urlencoded;charset=UTF-8";
+        request.ContentLength = byteArray.Length;
+        Stream dataStream = request.GetRequestStream();
+        dataStream.Write(byteArray, 0, byteArray.Length);
+        dataStream.Close();
+
+        WebResponse response = request.GetResponse();
+        HttpStatusCode ResponseCode = ((HttpWebResponse)response).StatusCode;
+        StreamReader reader = new StreamReader(response.GetResponseStream());
+        resultJson = reader.ReadToEnd();
+        reader.Close();
+
+        if (!string.IsNullOrEmpty(resultJson))
+        {
+          // Json 파싱
+          JObject objJson = JObject.Parse(resultJson);
+          objJson["result_code"].ToString();
+          LogWrite("타겟발송 : " + cnt.ToString() + "건 target_id:" + target_id + " result_code:" + objJson["result_code"].ToString() + " result_Message:" + objJson["result_message"].ToString()  + " DateTime :" + DateTime.Now);
+        }
+
+        response.Close();
+      }
+      catch (Exception ex)
+      {
+        LogWrite("메일발송 실패: " + target_id + " Exception ex : " + ex.Message + " DateTime :" + DateTime.Now);
+      }
+
+
+    }
+    #endregion 메일발송
+
+
+    #region 내부 함수
+    /// <summary>
+    /// Log 생성 및 기록
+    /// </summary>
+    /// <param name="strLog"></param>
+    private static void LogWrite(string strLog)
+    {
+
+      string strDir = Path.GetDirectoryName(sDir);
+      DirectoryInfo diDir = new DirectoryInfo(strDir);
+
+      if (!diDir.Exists)
+      {
+        diDir.Create();
+        diDir = new DirectoryInfo(strDir);
+      }
+
+      if (diDir.Exists)
+      {
+        System.IO.StreamWriter swStream = File.AppendText(sDir);
+        swStream.WriteLine(strLog);
+        swStream.Close();
+      }
+    }
+    #endregion
+
+
+    #region 사용자 정보 가져오기
+
+    /// <summary>
+    /// 맞춤 일자리 정보 리스트 가져오기
+    /// </summary>
+    /// <param name="iCUID"></param>
+    /// <returns></returns>
+    private static DataSet GetJobList()
+    {
+      DataSet ds = new DataSet();
+      FindJobData findjobdt = new FindJobData();
+      ds = findjobdt.GET_ADINFO_END_LIST_PROC();
+      return ds;
+    }
+
+    #endregion
+
+    #region 구인구직 발송 대상 로그
+    
+    /// <summary>
+    /// 구인구직 DAILYMAIL 발송 대상 로그
+    /// </summary>
+    /// <param name="nvc"></param>
+    private static void PubSendMailDailyLog(NameValueCollection nvc)
+    {
+      FindJobData findjobdt = new FindJobData();
+      findjobdt.PUT_SEND_MAIL_DAILY_LOG_PROC(nvc);
+    }
+
+
+    /// <summary>
+    ///  구인구직 DAILYMAIL 발송 타겟 추가 결과 로그
+    /// </summary>
+    /// <param name="nvc"></param>
+    private static void EditSendMailDailyLog(NameValueCollection nvc)
+    {
+      FindJobData findjobdt = new FindJobData();
+      findjobdt.EDIT_SEND_MAIL_DAILY_LOG_PROC(nvc);
+    }
+
+    #endregion
+
+  }
+
+
+}
