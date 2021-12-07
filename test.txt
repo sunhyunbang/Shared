@@ -2,3 +2,13 @@ https://test.member.findjob.co.kr/common/oauth/auth_Kakao.asp?sns_id=2003477450&
 
 
 https://aem-collector.daumkakao.io/api/2854/store/?sentry_version=7&sentry_client=raven-js%2F2.1.1&sentry_key=205a87f2ea6e42dda068d782cef745a0
+
+
+- 텍스트 추가 : 고객센터 문의하기
+ - 링크 추가 :
+https://customer.findall.co.kr/cusque/cusqueform.asp?Section=13
+
+
+
+- 텍스트 추가 : 수신거부
+ - 링크 추가 : https://member.findall.co.kr/refusal/emailRefusal.asp?key=01000000F67538239CAB2F59E31FD296698F75C375DB65D00AAB165A68A8A6B1B188FBE5&Section=PAPER
