@@ -1,0 +1,271 @@
+<!-- 메일폼 시작 -->
+<div style="width:700px;padding:0;margin:0 auto;font-family:'Malgun Gothic','맑은고딕',sans-serif;font-size:12px;border:1px solid #ddd;box-sizing:border-box;">
+  <table width="700" cellpadding="0" cellspacing="0" style="table-layout:fixed;border-collapse:collapse;font-size:12px;">
+  <tr>
+    <td width="100%" height="60" valign="top" style="padding:22px 19px 13px;font-size:0;box-sizing:border-box;">
+      <a href="http://www.findall.co.kr" target="_blank" style="display:inline-block;width:94px;padding:0;font-size:1px;margin-right:299px;"><img src="http://image.findall.co.kr/FindAllImage/mail/subscription/img-logo-findall.png" style="width:94px;" border="0" alt="벼룩시장"></a>
+      <span style="color:#222;letter-spacing:-1px;font-size:11px;vertical-align:2px;"><strong style="color:#0065c9;vertical-align:0;">[$UserName$]</strong>님께 보내드리는 <strong style="vertical-align:0;">[$SENDYEAR$]년 [$SENDMONTH$]월 [$SENDDAY$]일</strong>자 벼룩시장입니다.</span>
+    </td>
+  </tr>
+  <tr>
+    <td width="700"  valign="top">
+    <!-- 컨텐츠 시작 -->
+    <table width="700" cellpadding="0" cellspacing="0">
+    <tr>
+      <td width="700" height="64" valign="top">
+        <a href="http://bit.ly/2syLvM3" target="_blank" style="width:349px;float:left;"><img  style="width:349px;" src="http://image.findall.co.kr/FindAllImage/mail/subscription/img-banner-findjobApp.png" alt="벼룩시장구인구직"></a>
+        <a href="https://www.findhouse.co.kr/linkMarket.jsp"" target="_blank"  style="width:349px;float:left;"><img style="width:349px;" src="http://image.findall.co.kr/FindAllImage/mail/subscription/img-banner-findhouseApp.png" alt="벼룩시장부동산"></a>
+      </td>
+    </tr>
+    <!--배너 삽입-->
+    <tr>
+      <td valign="top" style="padding:20px 19px 0;"><a href="http://www.findjob.co.kr/event/BannerRedirect_MyInfo.asp?chkidx=57" target="_blank"><img src="http://uimg.findjob.co.kr/UploadFilesJob/Job/Findjob/MyinfoBanner/2021/05/31/14_Gbn_E_NP5G6VJTU3GIG8B9MTPY.png"  alt="" width="662" height="92" style="cursor:pointer;" border="0"></a></td>
+    </tr>
+    <!--배너 삽입-->
+    <tr>
+      <td style="padding:30px 19px 0">
+        <table width="662" cellpadding="0" cellspacing="0" style="margin:0;table-layout:fixed;">
+          <tr>
+            <td style="font-size:14px;font-weight:bold;letter-spacing:-1.5px;color:#222;width:89px;">벼룩시장 보기</td>
+            <td style="font-size:12px;font-weight:bold;letter-spacing:-1.5px;color:#777;width:460px;">지역벼룩시장을 클릭하면 벼룩시장 신문을 바로 확인 하실 수 있습니다.</td>
+            <td style="text-align:right;"><a href="http://www.findjob.co.kr/job/advertiser/jobadinfo.asp" target="_blank" style="font-size:11px;font-weight:bold;letter-spacing:-1px;color:#288ae7;text-decoration:none;">온라인 채용상품 안내 ></a></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" style="padding:19px 19px 0">
+
+        <!-- 지역별 벼룩시장 테이블 시작 -->
+        <div style="width: 662px; height: 2px; padding: 0; margin: 0; font-size: 1px; background-color: #7a92dc;"></div>
+        <table width="662" cellpadding="0" cellspacing="1" bgcolor="#ccdaee" style="table-layout: fixed; font-size: 12px;">
+        <colgroup>
+          <col width="82">
+          <col width="*">
+        </colgroup>
+        <tr valign="top" align="left">
+          <th bgcolor="#eef5ff" style="padding: 10px 0 3px 10px; color: #344670; font-size: 12px;"><img src="http://image.findall.co.kr/FindAllImage/mail/subscription/icon_papermail_01.gif" style="vertical-align: -1px;" alt=""> 서울</th>
+          <td bgcolor="#ffffff" style="padding: 7px 0 8px 10px;">
+            <table cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;">
+            <colgroup>
+              <col width="183">
+              <col width="183">
+              <col width="*">
+            </colgroup>
+            <tr>
+              <td style="padding: 2px 0;">
+                [$BRANCH16_1$]<a href="http://www.findall.co.kr/category/epaper/epaper_mail_bridge_New.asp?MailBC=16" target="_blank" style="word-spacing: -1px; color: #[$BRANCH16_2$]; font-size: 11px; text-decoration: none; font-family: Dotum;"><strong style="font-size: 12px;[$BRANCH16_3$]">남부</strong> 강남 | 강동 | 구로  | 동작 | 영등포 <img src="http://image.findall.co.kr/FindAllImage/mail/subscription/icon_arr[$BRANCH16_4$].gif" border="0" style="vertical-align: 2px;[$BRANCH16_5$]" alt=""></a>[$BRANCH16_6$]
+              </td>
+              <td style="padding: 2px 0;">
+                [$BRANCH22_1$]<a href="http://www.findall.co.kr/category/epaper/epaper_mail_bridge_New.asp?MailBC=22" target="_blank" style="word-spacing: -1px; color: #[$BRANCH22_2$]; font-size: 11px; text-decoration: none; font-family: Dotum;"><strong style="font-size: 12px;[$BRANCH22_3$]">북부</strong> 강북 | 성동 | 마포 | 서대문 <img src="http://image.findall.co.kr/FindAllImage/mail/subscription/icon_arr[$BRANCH22_4$].gif" border="0" style="vertical-align: 2px;[$BRANCH22_5$]" alt=""></a>[$BRANCH22_6$]
+              </td>
+              <td style="padding: 2px 0;"> </td>
+            </tr>
+            <tr>
+              <td style="padding: 2px 0;"> </td>
+              <td style="padding: 2px 0;"> </td>
+              <td style="padding: 2px 0;"> </td>
+            </tr>
+            </table>
+          </td>
+        </tr>
+        <tr valign="top" align="left">
+          <th bgcolor="#eef5ff" style="padding: 10px 0 7px 10px; color: #344670; font-size: 12px;"><img src="http://image.findall.co.kr/FindAllImage/mail/subscription/icon_papermail_01.gif" style="vertical-align: -1px;" alt=""> 경기도</th>
+          <td bgcolor="#ffffff" style="padding: 7px 0 8px 10px;">
+            <table cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;">
+            <colgroup>
+              <col width="183">
+              <col width="183">
+              <col width="*">
+            </colgroup>
+            <tr>
+              <td style="padding: 2px 0;">
+                [$BRANCH28_1$]<a href="http://www.findall.co.kr/category/epaper/epaper_mail_bridge_New.asp?MailBC=28" target="_blank" style="word-spacing: -1px; color: #[$BRANCH28_2$]; font-size: 11px; text-decoration: none; font-family: Dotum;"><strong style="font-size: 12px;[$BRANCH28_3$]">구리</strong> 구리 | 남양주 | 가평 <img src="http://image.findall.co.kr/FindAllImage/mail/subscription/icon_arr[$BRANCH28_4$].gif" border="0" style="vertical-align: 2px;[$BRANCH28_5$]" alt=""></a>[$BRANCH28_6$]
+              </td>
+              <td style="padding: 2px 0;">
+                [$BRANCH10_1$]<a href="http://www.findall.co.kr/category/epaper/epaper_mail_bridge_New.asp?MailBC=10" target="_blank" style="word-spacing: -1px; color: #[$BRANCH10_2$]; font-size: 11px; text-decoration: none; font-family: Dotum;"><strong style="font-size: 12px;[$BRANCH10_3$]">부천</strong> 부천 | 시흥 <img src="http://image.findall.co.kr/FindAllImage/mail/subscription/icon_arr[$BRANCH10_4$].gif" border="0" style="vertical-align: 2px;[$BRANCH10_5$]" alt=""></a>[$BRANCH10_6$]
+              </td>
+              <td style="padding: 2px 0;">
+                <!-- [$BRANCH29_1$]<a href="http://www.findall.co.kr/category/epaper/epaper_mail_bridge_New.asp?MailBC=29" target="_blank" style="word-spacing: -1px; color: #[$BRANCH29_2$]; font-size: 11px; text-decoration: none; font-family: Dotum;"><strong style="font-size: 12px;[$BRANCH29_3$]">성남</strong> 성남 | 분당 | 광주<img src="http://image.findall.co.kr/FindAllImage/mail/subscription/icon_arr[$BRANCH29_4$].gif" border="0" style="vertical-align: 2px;[$BRANCH29_5$]" alt=""></a>[$BRANCH29_6$] -->
+              </td>
+            </tr>
+            <tr>
+              <td style="padding: 2px 0;">
+                [$BRANCH30_1$]<a href="http://www.findall.co.kr/category/epaper/epaper_mail_bridge_New.asp?MailBC=30" target="_blank" style="word-spacing: -1px; color: #[$BRANCH30_2$]; font-size: 11px; text-decoration: none; font-family: Dotum;"><strong style="font-size: 12px;[$BRANCH30_3$]">안산</strong> 안산 | 시화 <img src="http://image.findall.co.kr/FindAllImage/mail/subscription/icon_arr[$BRANCH30_4$].gif" border="0" style="vertical-align: 2px;[$BRANCH30_5$]" alt=""></a>[$BRANCH30_6$]
+              </td>
+              <td style="padding: 2px 0;">
+                <!-- [$BRANCH14_1$]<a href="http://www.findall.co.kr/category/epaper/epaper_mail_bridge_New.asp?MailBC=14" target="_blank" style="word-spacing: -1px; color: #[$BRANCH14_2$]; font-size: 11px; text-decoration: none; font-family: Dotum;"><strong style="font-size: 12px;[$BRANCH14_3$]">수원</strong> 수원 | 용인 | 화성 | 오산 <img src="http://image.findall.co.kr/FindAllImage/mail/subscription/icon_arr[$BRANCH14_4$].gif" border="0" style="vertical-align: 2px;[$BRANCH14_5$]" alt=""></a>[$BRANCH14_6$] -->
+              </td>
+              <td style="padding: 2px 0;"></td>
+            </tr>
+            <tr>
+              <td style="padding: 2px 0;">
+                [$BRANCH32_1$]<a href="http://www.findall.co.kr/category/epaper/epaper_mail_bridge_New.asp?MailBC=32" target="_blank" style="word-spacing: -1px; color: #[$BRANCH32_2$]; font-size: 11px; text-decoration: none; font-family: Dotum;"><strong style="font-size: 12px;[$BRANCH32_3$]">의정부</strong> 의정부 | 동두천 | 양주 <img src="http://image.findall.co.kr/FindAllImage/mail/subscription/icon_arr[$BRANCH32_4$].gif" border="0" style="vertical-align: 2px;[$BRANCH32_5$]" alt=""></a>[$BRANCH32_6$]
+              </td>
+              <td style="padding: 2px 0;"></td>
+              <td valign="top" style="padding: 2px 0;">
+                [$BRANCH27_1$]<a href="http://www.findall.co.kr/category/epaper/epaper_mail_bridge_New.asp?MailBC=27" target="_blank" style="word-spacing: -1px; color: #[$BRANCH27_2$]; font-size: 11px; text-decoration: none; font-family: Dotum;"><strong style="font-size: 12px;[$BRANCH27_3$]">인천</strong> 인천 전지역 <img src="http://image.findall.co.kr/FindAllImage/mail/subscription/icon_arr[$BRANCH27_4$].gif" border="0" style="vertical-align: 2px;[$BRANCH27_5$]" alt=""></a>[$BRANCH27_6$]
+              </td>
+            </tr>
+            <tr>
+              <td style="padding: 2px 0;">
+                <table cellpadding="0" cellspacing="0">
+                <tr>
+                  <td style="padding: 2px 0;">[$BRANCH33_1$]<span style="word-spacing: -1px; color: #[$BRANCH33_2$]; font-size: 11px; text-decoration: none; font-family: Dotum;"><strong style="font-size: 12px;[$BRANCH33_3$]">평택</strong> 평택 | 안성 | 송탄 | 안중 | 팽성 </span> [$BRANCH33_6$]</td>
+                </tr>
+                <tr>
+                  <td style="padding: 2px 0;">[$BRANCH33_1$]<img src="http://image.findall.co.kr/FindAllImage/mail/subscription/icon_dot.gif" style="vertical-align: 4px; margin-right: 2px; margin-left: 2px;"><a href="http://www.findall.co.kr/category/epaper/epaper_mail_bridge_New.asp?MailBC=33&MailID=pyeong" target="_blank" style="color: #[$BRANCH33_2$]; font-size: 12px; text-decoration: none; font-family: Dotum;">알뜰정보/부동산/자동차 <img src="http://image.findall.co.kr/FindAllImage/mail/subscription/icon_arr[$BRANCH33_4$].gif" border="0" style="vertical-align: 2px;[$BRANCH33_5$]" alt=""></a> [$BRANCH33_6$]</td>
+                </tr>
+                <tr>
+                  <td style="padding: 2px 0;">[$BRANCH33_1$]<img src="http://image.findall.co.kr/FindAllImage/mail/subscription/icon_dot.gif" style="vertical-align: 4px; margin-right: 2px; margin-left: 2px;"><a href="http://www.findall.co.kr/category/epaper/epaper_mail_bridge_New.asp?MailBC=33&MailID=pyeong1" target="_blank" style="color: #[$BRANCH33_2$]; font-size: 12px; text-decoration: none; font-family: Dotum;">구인구직/안내알림 <img src="http://image.findall.co.kr/FindAllImage/mail/subscription/icon_arr[$BRANCH33_4$].gif" border="0" style="vertical-align: 2px;[$BRANCH33_5$]" alt=""></a> [$BRANCH33_6$]</td>
+                </tr>
+                </table>
+              </td>
+              <td valign="top" style="padding: 2px 0;">
+                [$BRANCH36_1$]<a href="http://www.findall.co.kr/category/epaper/epaper_mail_bridge_New.asp?MailBC=36" target="_blank" style="word-spacing: -1px; color: #[$BRANCH36_2$]; font-size: 11px; text-decoration: none; font-family: Dotum;"><strong style="font-size: 12px;[$BRANCH36_3$]">고양</strong> 고양 | 파주 <img src="http://image.findall.co.kr/FindAllImage/mail/subscription/icon_arr[$BRANCH36_4$].gif" border="0" style="vertical-align: 2px;[$BRANCH36_5$]" alt=""></a>[$BRANCH36_6$]
+              </td>
+              <td style="padding: 2px 0;">
+              </td>
+            </tr>
+            </table>
+          </td>
+        </tr>
+        <tr valign="top" align="left">
+          <th bgcolor="#eef5ff" style="padding: 10px 0 7px 10px; color: #344670; font-size: 12px;"><img src="http://image.findall.co.kr/FindAllImage/mail/subscription/icon_papermail_01.gif" style="vertical-align: -1px;" alt=""> 경상도</th>
+          <td bgcolor="#ffffff" style="padding: 7px 0 8px 10px;">
+            <table cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;">
+            <colgroup>
+              <col width="183">
+              <col width="183">
+              <col width="*">
+            </colgroup>
+            <tr>
+              <td>
+                <table cellpadding="0" cellspacing="0">
+                <tr>
+                  <td style="padding: 2px 0;">[$BRANCH25_1$]<span style="word-spacing: -1px; color: #[$BRANCH25_2$]; font-size: 11px; text-decoration: none; font-family: Dotum;"><strong style="font-size: 12px;[$BRANCH25_3$]">부산</strong> 부산 전지역|양산|덕계|서창</span> [$BRANCH25_6$]</td>
+                </tr>
+                <tr>
+                  <td style="padding: 2px 0;">[$BRANCH25_1$]<img src="http://image.findall.co.kr/FindAllImage/mail/subscription/icon_dot.gif" style="vertical-align: 4px; margin-right: 2px; margin-left: 2px;"><a href="http://www.findall.co.kr/category/epaper/epaper_mail_bridge_New.asp?MailBC=25&MailID=busan" target="_blank" style="color: #[$BRANCH25_2$]; font-size: 12px; text-decoration: none; font-family: Dotum;">소비자/자동차/부동산 <img src="http://image.findall.co.kr/FindAllImage/mail/subscription/icon_arr[$BRANCH25_4$].gif" border="0" style="vertical-align: 2px;[$BRANCH25_5$]" alt=""></a> [$BRANCH25_6$]</td>
+                </tr>
+                </table>
+              </td>
+              <td>
+                <table cellpadding="0" cellspacing="0">
+                <tr>
+                  <td style="padding: 2px 0;">[$BRANCH11_1$]<span style="word-spacing: -1px; color: #[$BRANCH11_2$]; font-size: 11px; text-decoration: none; font-family: Dotum;"><strong style="font-size: 12px;[$BRANCH11_3$]">대구</strong> 대구|경산|압량|진량|구미|왜관</span> [$BRANCH11_6$]</td>
+                </tr>
+                <tr>
+                  <td style="padding: 2px 0;">[$BRANCH11_1$]<img src="http://image.findall.co.kr/FindAllImage/mail/subscription/icon_dot.gif" style="vertical-align: 4px; margin-right: 2px; margin-left: 2px;"><a href="http://www.findall.co.kr/category/epaper/epaper_mail_bridge_New.asp?MailBC=11&MailID=daegu" target="_blank" style="color: #[$BRANCH11_2$]; font-size: 12px; text-decoration: none; font-family: Dotum;">생활용품&창업/자동차/부동산 <img src="http://image.findall.co.kr/FindAllImage/mail/subscription/icon_arr[$BRANCH11_4$].gif" border="0" style="vertical-align: 2px;[$BRANCH11_5$]" alt=""></a> [$BRANCH11_6$]</td>
+                </tr>
+                </table>
+              </td>
+              <td style="vertical-align:top;">
+                <table cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td style="padding: 2px 0;">[$BRANCH34_1$]<span style="word-spacing: -1px; color: #[$BRANCH34_2$]; font-size: 11px; text-decoration: none; font-family: Dotum;"><strong style="font-size: 12px;[$BRANCH34_3$]">김해밀양</strong> 김해 | 강서구 | 진영 </span> [$BRANCH34_6$]</td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 2px 0;">[$BRANCH34_1$]<img src="http://image.findall.co.kr/FindAllImage/mail/subscription/icon_dot.gif" style="vertical-align: 4px; margin-right: 2px; margin-left: 2px;"><a href="http://www.findall.co.kr/category/epaper/epaper_mail_bridge_New.asp?MailBC=34&MailID=kimhae" target="_blank" style="color: #[$BRANCH34_2$]; font-size: 12px; text-decoration: none; font-family: Dotum;">김해장유벼룩시장 <img src="http://image.findall.co.kr/FindAllImage/mail/subscription/icon_arr[$BRANCH34_4$].gif" border="0" style="vertical-align: 2px;[$BRANCH34_5$]" alt=""></a> [$BRANCH34_6$]</td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td valign="top" style="padding: 2px 0;">
+                [$BRANCH41_1$]<a href="http://www.findall.co.kr/category/epaper/epaper_mail_bridge_New.asp?MailBC=41" target="_blank" style="word-spacing: -1px; color: #[$BRANCH41_2$]; font-size: 11px; text-decoration: none; font-family: Dotum;"><strong style="font-size: 12px;[$BRANCH41_3$]">경주</strong> 경주 | 안강 <img src="http://image.findall.co.kr/FindAllImage/mail/subscription/icon_arr[$BRANCH41_4$].gif" border="0" style="vertical-align: 2px;[$BRANCH41_5$]" alt=""></a> [$BRANCH41_6$]
+              </td>
+              <td valign="top" style="padding: 2px 0;">
+                <!-- [$BRANCH35_1$]<a href="http://www.findall.co.kr/category/epaper/epaper_mail_bridge_New.asp?MailBC=35" target="_blank" style="word-spacing: -1px; color: #[$BRANCH35_2$]; font-size: 11px; text-decoration: none; font-family: Dotum;"><strong style="font-size: 12px;[$BRANCH35_3$]">창원</strong> 마산 | 창원 | 진해 | 함안 <img src="http://image.findall.co.kr/FindAllImage/mail/subscription/icon_arr[$BRANCH35_4$].gif" border="0" style="vertical-align: 2px;[$BRANCH35_5$]" alt=""></a>[$BRANCH35_6$] -->
+              </td>
+            </tr>
+            <tr>
+              <td valign="top" style="padding: 2px 0; ">
+                [$BRANCH48_1$]<a href="http://www.findall.co.kr/category/epaper/epaper_mail_bridge_New.asp?MailBC=48" target="_blank" style="word-spacing: -1px; color: #[$BRANCH48_2$]; font-size: 11px; text-decoration: none; font-family: Dotum;"><strong style="font-size: 12px;[$BRANCH48_3$]">진주</strong> 진주 | 사천 | 삼천포 <img src="http://image.findall.co.kr/FindAllImage/mail/subscription/icon_arr[$BRANCH48_4$].gif" border="0" style="vertical-align: 2px;[$BRANCH48_5$]" alt=""></a>[$BRANCH48_6$]
+              </td>
+              <td style="padding: 2px 0;">
+                [$BRANCH60_1$]<a href="http://www.findall.co.kr/category/epaper/epaper_mail_bridge_New.asp?MailBC=60" target="_blank" style="word-spacing: -1px; color: #[$BRANCH60_2$]; font-size: 11px; text-decoration: none; font-family: Dotum;"><strong style="font-size: 12px;[$BRANCH60_3$]">영주</strong> 영주 | 풍기 | 봉화 <img src="http://image.findall.co.kr/FindAllImage/mail/subscription/icon_arr[$BRANCH60_4$].gif" border="0" style="vertical-align: 2px;[$BRANCH60_5$]" alt=""></a>[$BRANCH60_6$]
+              </td>
+            </tr>
+            </table>
+          </td>
+        </tr>
+        <tr valign="top" align="left">
+          <th bgcolor="#eef5ff" style="padding: 10px 0 7px 10px; color: #344670; font-size: 12px;"><img src="http://image.findall.co.kr/FindAllImage/mail/subscription/icon_papermail_01.gif" style="vertical-align: -1px;" alt=""> 충청도</th>
+          <td bgcolor="#ffffff" style="padding: 7px 0 8px 10px;">
+            <table cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;">
+            <colgroup>
+              <col width="183">
+              <col width="183">
+              <col width="*">
+            </colgroup>
+            <tr>
+              <td valign="top" style="padding: 2px 0;">
+                [$BRANCH55_1$]<a href="http://www.findall.co.kr/category/epaper/epaper_mail_bridge_New.asp?MailBC=55" target="_blank" style="word-spacing: -1px; color: #[$BRANCH55_2$]; font-size: 11px; text-decoration: none; font-family: Dotum;"><strong style="font-size: 12px;[$BRANCH55_3$]">홍성보령예산</strong> 홍성 | 보령 | 예산 <img src="http://image.findall.co.kr/FindAllImage/mail/subscription/icon_arr[$BRANCH55_4$].gif" border="0" style="vertical-align: 2px;[$BRANCH55_5$]" alt=""></a>[$BRANCH55_6$]
+              </td>
+              <td valign="top" style="padding: 2px 0;">
+                [$BRANCH53_1$]<a href="http://www.findall.co.kr/category/epaper/epaper_mail_bridge_New.asp?MailBC=53" target="_blank" style="word-spacing: -1px; color: #[$BRANCH53_2$]; font-size: 11px; text-decoration: none; font-family: Dotum;"><strong style="font-size: 12px;[$BRANCH53_3$]">제천</strong> 단양 | 금성 | 입석 <img src="http://image.findall.co.kr/FindAllImage/mail/subscription/icon_arr[$BRANCH53_4$].gif" border="0" style="vertical-align: 2px;[$BRANCH53_5$]" alt=""></a>[$BRANCH53_6$]
+              </td>
+            </tr>
+            </table>
+          </td>
+        </tr>
+        <tr valign="top" align="left">
+          <th bgcolor="#eef5ff" style="padding: 10px 0 7px 10px; color: #344670; font-size: 12px;"><img src="http://image.findall.co.kr/FindAllImage/mail/subscription/icon_papermail_01.gif" style="vertical-align: -1px;" alt=""> 강원도</th>
+          <td bgcolor="#ffffff" style="padding: 7px 0 8px 10px;">
+            <table cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;">
+            <colgroup>
+              <col width="183">
+              <col width="183">
+              <col width="*">
+            </colgroup>
+            <tr>
+              <td style="padding: 2px 0;">
+                [$BRANCH52_1$]<a href="http://www.findall.co.kr/category/epaper/epaper_mail_bridge_New.asp?MailBC=52" target="_blank" style="word-spacing: -1px; color: #[$BRANCH52_2$]; font-size: 11px; text-decoration: none; font-family: Dotum;"><strong style="font-size: 12px;[$BRANCH52_3$]">강릉</strong> 강릉 | 주문진 <img src="http://image.findall.co.kr/FindAllImage/mail/subscription/icon_arr[$BRANCH52_4$].gif" border="0" style="vertical-align: 2px;[$BRANCH52_5$]" alt=""></a>[$BRANCH52_6$]
+              </td>
+              <td style="padding: 2px 0;">
+                [$BRANCH56_1$]<a href="http://www.findall.co.kr/category/epaper/epaper_mail_bridge_New.asp?MailBC=56" target="_blank" style="word-spacing: -1px; color: #[$BRANCH56_2$]; font-size: 11px; text-decoration: none; font-family: Dotum;"><strong style="font-size: 12px;[$BRANCH56_3$]">속초</strong> 속초 | 양양 | 고성 <img src="http://image.findall.co.kr/FindAllImage/mail/subscription/icon_arr[$BRANCH56_4$].gif" border="0" style="vertical-align: 2px;[$BRANCH56_5$]" alt=""></a>[$BRANCH56_6$]
+              </td>
+              <td style="padding: 2px 0;">
+              </td>
+            </tr>
+            </table>
+          </td>
+        </tr>
+        </table>
+        <!-- // 지역별 벼룩시장 테이블 끝 -->
+
+      </td>
+    </tr>
+    <tr>
+    	<tr>
+        <td style="padding:20px 19px;">
+          <a href="http://www.findall.co.kr/mobile/" target="_blank"><img style="width:100%;" src="http://image.findall.co.kr/FindAllImage/mail/subscription/img-banner-paperApp.png" usemap="#findallgo" border="0" alt="더 빠른 벼룩시장 모바일 앱으로도 보세요! 벼룩시장 모바일 앱 바로가기 링크"></a>
+        </td>
+      </tr>
+    </tr>
+    <tr>
+      <td style="color:#444;font-size:12px;font-weight:bold;line-height:18px;letter-spacing:-1px;text-align:center;border-top:1px solid #ededed;padding-top:21px">
+        수신하신 벼룩시장 메일에 만족하셨나요?<br>벼룩시장 메일과 관련된 의견을 주시면 서비스 향상에 더욱 노력하겠습니다. [[$BRANCHNAME$]] [$BOXTEL$]
+      </td>
+    </tr>
+    <tr>
+      <td style="color:#888;font-size:11px;line-height:16px;padding:13px 19PX 5px;text-align:center;letter-spacing:-1px;">
+        본 메일은 발신전용이므로 [$SENDYEAR$]년 [$SENDMONTH$]월 [$SENDDAY$]일 기준으로 메일 수신에 동의한 회원님을 대상으로 발송되었습니다.<br>
+        해당 유형의 메일을 받지 않으려면, [[$BRANCHNAME$] [$BOXTEL$]]로 문의해주세요.<br>
+        If you don't want to receive this information again, please call us. At the Phone number, [$BOXTEL$]
+      </td>
+    </tr>
+    </table>
+    <!-- // 컨텐츠 끝 -->
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" align="center" style="font-size:11px;font-family:'Malgun Gothic','맑은고딕',sans-serif;padding:20px 0 32px;">
+      <img src="http://image.findall.co.kr/FindallImage/mail/subscription/img-logo-mediawill.png" style="width:82px;margin-right:8px" alt="미디어윌"><span style="letter-spacing:-0.5px;font-size:11px;color:#222;vertical-align:2px;">Copyright © <span style="color:#0c3d98">(주)미디어윌벼룩시장</span> All rights reserved.</span>
+    </td>
+  </tr>
+  </table>
+
+</div>
+<!-- // 메일폼 끝 -->
