@@ -1,0 +1,142 @@
+<table cellpadding="0" cellspacing="0" border="0" width="700" align="center">
+	<tr>
+		<td height="50" style="overflow:hidden;margin:0;padding:0;font-size:0;line-height:0"> </td>
+	</tr>
+	<tr>
+		<td style="margin:0;padding:0;font-size:0;line-height:0">
+			<img src="http://image.findall.co.kr/FACache/All/New/mail/tit_head01.gif" alt="MEDIAWILL 온라인 통합회원" width="700" height="70" border="0" usemap="#link_area01" />
+		</td>
+	</tr>
+	<tr>
+		<td width="698" align="center" style="margin:0;padding:0;border:1px solid #d8dadd;border-top:0 none;font-size:0;line-height:0">
+			<table cellpadding="0" cellspacing="0" border="0" width="620" align="center">
+				<tr>
+					<td height="80" style="overflow:hidden;margin:0;padding:0;font-size:0;line-height:0"> </td>
+				</tr>
+				<tr>
+					<td align="center" style="margin:0;padding:0;font-size:0;line-height:0"><img src="http://image.findall.co.kr/FACache/All/New/mail/tit_h07.gif" width="282" height="32" alt="회원아이디 탈퇴안내" border="0" style="text-align:center" /></td>
+				</tr>
+				<tr>
+					<td height="70" style="overflow:hidden;margin:0;padding:0;font-size:0;line-height:0"> </td>
+				</tr>
+				<tr>
+					<td align="left" style="margin:0;padding:0;font-family:Dotum;font-size:14px;color:#555;line-height:24px;letter-spacing:-1px;text-align:left">안녕하세요, 미디어윌 입니다.<br /><strong style="color:#f15a22">[$USERNAME$]</strong>님께서는 2년이상 로그인하지 않은 장기 미 이용 휴면고객으로 아래와 같이<br /><strong style="color:#f15a22">아이디를 포함하여 모든 회원정보가 삭제될 예정</strong>입니다.</td>
+				</tr>
+				<tr>
+					<td height="20" style="overflow:hidden;margin:0;padding:0;font-size:0;line-height:0"> </td>
+				</tr>
+				<tr>
+					<td style="margin:0;padding:0;border-top:1px solid #d8dadd;border-bottom:1px solid #d8dadd;font-size:0;line-height:0">
+						<table cellpadding="0" cellspacing="0" border="0" width="620" align="center">
+							<tr>
+								<td width="137" align="left" style="margin:0;padding:12px 10px 12px 20px;border-bottom:1px solid #d8dadd;font-family:Dotum;font-weight:bold;font-size:14px;background-color:#f1f1f1;color:#333;text-align:left;line-height:16px">회원 아이디</td>
+								<td align="left" style="margin:0;padding:12px 10px 12px 20px;border-bottom:1px solid #d8dadd;font-family:Dotum;font-weight:bold;font-size:14px;text-align:left;line-height:16px">[$USERID$]</td>
+							</tr>
+							<tr>
+								<td width="137" align="left" style="margin:0;padding:12px 10px 12px 20px;border-bottom:1px solid #d8dadd;font-family:Dotum;font-size:14px;font-weight:bold;background-color:#f1f1f1;color:#333;line-height:16px;text-align:left">회원 가입일</td>
+								<td align="left" style="margin:0;padding:12px 10px 12px 20px;border-bottom:1px solid #d8dadd;font-family:Dotum;font-size:14px;line-height:16px;text-align:left">[$JOIN_DT$]</td>
+							</tr>
+							<tr>
+								<td width="137" align="left" style="margin:0;padding:12px 10px 12px 20px;border-bottom:1px solid #d8dadd;font-family:Dotum;font-size:14px;font-weight:bold;background-color:#f1f1f1;color:#333;line-height:16px;text-align:left">최종 로그인</td>
+								<td align="left" style="margin:0;padding:12px 10px 12px 20px;border-bottom:1px solid #d8dadd;font-family:Dotum;font-size:14px;font-weight:bold;color:#f15a22;line-height:16px;text-align:left">[$LOGIN_DT$]</td>
+							</tr>
+							<tr>
+								<td width="137" align="left" style="margin:0;padding:12px 10px 12px 20px;border-bottom:1px solid #d8dadd;font-family:Dotum;font-size:14px;font-weight:bold;background-color:#f1f1f1;color:#333;line-height:16px;text-align:left">휴면아이디 전환일</td>
+								<td align="left" style="margin:0;padding:12px 10px 12px 20px;border-bottom:1px solid #d8dadd;font-family:Dotum;font-size:14px;line-height:16px;text-align:left">[$REST_DT$]</td>
+							</tr>
+							<tr>
+								<td width="137" align="left" style="margin:0;padding:12px 10px 12px 20px;font-family:Dotum;font-size:14px;font-weight:bold;background-color:#f1f1f1;color:#333;line-height:16px;text-align:left">탈퇴 예정일</td>
+								<td align="left" style="margin:0;padding:12px 10px 12px 20px;font-family:Dotum;font-weight:bold;font-size:14px;line-height:16px;color:#f15a22;text-align:left">[$OUT_DT$]</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td height="10" style="overflow:hidden;margin:0;padding:0;font-size:0;line-height:0"> </td>
+				</tr>
+				<tr>
+					<td style="overflow:hidden;margin:0;padding:0;font-size:0;line-height:0">
+						<table cellpadding="0" cellspacing="0" border="0" width="620" align="center">
+							<tr>
+								<td width="18" valign="top" style="overflow:hidden;margin:0;padding-top:1px;font-size:0;line-height:0;vertical-align:top"><img src="http://image.findall.co.kr/FACache/All/New/mail/ico_att.gif" width="14" height="14" alt="확인사항!" border="0" style="vertical-align:top" /></td>
+								<td align="left" style="margin:0;padding:0;font-family:Dotum;font-size:12px;text-align:left;line-height:20px;color:#666">회원탈퇴를 원치 않으시면 <a href="#none" style="font-weight:bold;color:#1061af;text-decoration:none">휴면회원 인증</a>을 하시기 바랍니다.</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td height="25" style="overflow:hidden;margin:0;padding:0;font-size:0;line-height:0"> </td>
+				</tr>
+				<tr>
+					<td align="center" width="200" style="margin:0;padding:0;font-size:0;line-height:0">
+						<a href="https://member.findall.co.kr/login/userrest_guide.asp?userid=[$USERID$]&targetpage=findall.co.kr" target="_blank"><img src="http://image.findall.co.kr/FACache/All/New/mail/btn_mail_check.gif" width="200" height="46" alt="휴면회원 인증" border="0" style="text-align:center;vertical-align:middle" /></a>
+					</td>
+				</tr>
+				<tr>
+					<td height="100" style="overflow:hidden;margin:0;padding:0;font-size:0;line-height:0"> </td>
+				</tr>
+				<tr>
+					<td align="left" style="overflow:hidden;margin:0;padding:0;font-size:0;line-height:0">
+						<img src="http://image.findall.co.kr/FACache/All/New/mail/tit_s02.gif" width="619" height="15" alt="휴면 아이디 및 탈퇴 정책 안내" border="0" style="text-align:left" />
+					</td>
+				</tr>
+				<tr>
+					<td height="10" style="overflow:hidden;margin:0;padding:0;font-size:0;line-height:0"> </td>
+				</tr>
+				<tr>
+					<td align="center" style="margin:0;padding:12px;font-family:Dotum;font-size:15px;font-weight:bold;background-color:#f1f1f1;line-height:17px;text-align:center;letter-spacing:-1px;color:#4a4a4a">미디어윌은 개인 정보를 소중하게 여깁니다.</td>
+				</tr>
+				<tr>
+					<td height="20" style="overflow:hidden;margin:0;padding:0;font-size:0;line-height:0"> </td>
+				</tr>
+				<tr>
+					<td style="overflow:hidden;margin:0;padding:0;font-size:0;line-height:0">
+						<table cellpadding="0" cellspacing="0" border="0" width="620" align="center">
+							<tr>
+								<td width="14" valign="top" style="margin:0;padding:7px 0 0 1px;font-size:0;line-height:0"><img src="http://image.findall.co.kr/FACache/All/New/mail/ico_bullet.gif" width="4" height="4" alt="-" border="0" style="vertical-align:top" /></td>
+								<td align="left" style="margin:0;padding-bottom:5px;font-family:Dotum;font-size:13px;line-height:18px;text-align:left;letter-spacing:-1px;color:#666">최종 로그인 후 1년 이상 로그인 기록이 없을 경우 휴면상태로 전환됩니다.<br />이에 관한 내용은 이용약관 제21조-8항[회원의 계약해지 등]에 명시되어 있습니다.</td>
+							</tr>
+							<tr>
+								<td width="14" valign="top" style="margin:0;padding:7px 0 0 1px;font-size:0;line-height:0"><img src="http://image.findall.co.kr/FACache/All/New/mail/ico_bullet.gif" width="4" height="4" alt="-" border="0" style="vertical-align:top" /></td>
+								<td align="left" style="margin:0;padding-bottom:5px;font-family:Dotum;font-size:13px;line-height:18px;text-align:left;letter-spacing:-1px;color:#666">2015년 8월 18일 개정된 [정보통신망 이용촉진 및 정보보호 등에 관한 법률]에 따라 휴면상태 전환 후 1년 이내 로그인<br />기록이 없을 경우 회원탈퇴가 되며, 광고 및 이력서 등 모든 서비스 이용 기록이 삭제됩니다.</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td height="20" style="overflow:hidden;margin:0;padding:0;font-size:0;line-height:0"> </td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td align="center" style="margin:0;padding:15px 10px;font-family:Dotum;font-size:11px;background-color:#d8dadd;text-align:center;color:#747474;line-height:13px">본 메일은 미디어윌 온라인 통합 회원님을 대상으로 보내는 발신전용 메일로 회신되지 않습니다.</td>
+	</tr>
+	<tr>
+		<td style="overflow:hidden;margin:0;padding:0;font-size:-0;background-color:#6f7e91;line-height:0">
+			<table cellpadding="0" cellspacing="0" border="0" align="left">
+				<tr>
+					<td height="30" style="overflow:hidden;margin:0;padding:0;font-size:0;line-height:0"> </td>
+				</tr>
+				<tr>
+					<td width="239" align="center" valign="middle" style="overflow:hidden;margin:0;padding:0;font-size:0;line-height:0">
+						<img src="http://image.findall.co.kr/FACache/All/New/mail/tit_foot01.gif" width="159" height="25" alt="MEDIAWILL" border="0" style="text-align:center;vertical-align:middle" />
+					</td>
+					<td width="461" style="margin:0;padding:0;font-size:0;line-height:0">
+						<table cellpadding="0" cellspacing="0" border="0" align="left">
+							<tr>
+								<td style="margin:0;padding:0;font-family:Dotum;font-size:11px;line-height:16px;color:#fff;text-align:left">서울시 서대문구 충정로 29, 11층(충정로3가, 동아일보 충정로사옥) <span style="color:#a5a5a5">|</span> 대표이사 : 장영보<br />고객문의 : 벼룩시장 - 080-269-0011 <span style="color:#a5a5a5">|</span> 부동산써브 - 02-747-9945<br />Copyright ⓒ MediaWill Co., Ltd. All rights reserved. </td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td height="25" style="overflow:hidden;margin:0;padding:0;font-size:0;line-height:0"> </td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+<map name="link_area01"><area shape="rect" coords="567,21,687,52" title="http://www.serve.co.kr" alt="http://www.serve.co.kr" href="http://www.serve.co.kr" target="_blank">
+  <area shape="rect" coords="428,21,548,52" title="http://www.findall.co.kr" alt="http://www.findall.co.kr" href="http://www.findall.co.kr" target="_blank">
+</map>
