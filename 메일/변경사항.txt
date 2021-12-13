@@ -43,3 +43,9 @@
   : 탈퇴 예정 30일전, 3일전
  - 스케줄 : 오전 3:30 
  - 메일 내용 참고  [^휴면_회원아이디 탈퇴 안내메일.txt]
+
+
+
+ePaper 종이신문구독자 대상 메일 하단 문구 수정*
+ : If you don’t want receive this information again, click here.
+ : click here 링크 url > https://member.findall.co.kr/refusal/emailRefusal.asp?key=01000000F67538239CAB2F59E31FD296698F75C375DB65D00AAB165A68A8A6B1B188FBE5
