@@ -1,0 +1,117 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+using System.Configuration;
+using System.Net.Configuration;
+using System.Diagnostics;
+using System.Data.SqlClient;
+namespace DemoCrypto
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            GetConnectionStrings();
+        }
+        void GetConnectionStrings()
+        {
+            string strConn =
+                ConfigurationManager.ConnectionStrings["strConn"].ToString();
+            SqlConnection conn = new SqlConnection(strConn);
+            SqlDataAdapter daProd = new SqlDataAdapter("Select * From Products", conn);
+            DataSet ds = new DataSet();
+            daProd.Fill(ds);
+            dataGridView1.DataSource = ds.Tables[0];
+        }
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Configuration config =
+                ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            ConfigurationSection section = config.AppSettings;
+            if (section != null)
+            {
+                if (!section.SectionInformation.IsProtected && !section.ElementInformation.IsLocked)
+                {
+                    section.SectionInformation.ProtectSection("RsaProtectedConfigurationProvider");
+                    section.SectionInformation.ForceSave = true;
+                    config.Save(ConfigurationSaveMode.Full);
+                }
+            }
+        }
+        private void button3_Click(object sender, EventArgs e)
+        {
+            ToggleConfigEncryption("DemoCrypto.exe");
+        }
+        static void ToggleConfigEncryption(string exeConfigName)
+        {
+            // Takes the executable file name without the
+            // .config extension.
+            try
+            {
+                // Open the configuration file and retrieve
+                // the connectionStrings section.
+                Configuration config = ConfigurationManager.
+                    OpenExeConfiguration(exeConfigName);
+                ConnectionStringsSection section =
+                    config.GetSection("connectionStrings")
+                    as ConnectionStringsSection;
+                if (section.SectionInformation.IsProtected)
+                {
+                    // Remove encryption.
+                    section.SectionInformation.UnprotectSection();
+                }
+                else
+                {
+                    // Encrypt the section.
+                    section.SectionInformation.ProtectSection(
+                        "DataProtectionConfigurationProvider");
+                }
+                // Save the current configuration.
+                config.Save();
+                Console.WriteLine("Protected={0}",
+                    section.SectionInformation.IsProtected);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+    }
+}
+
+첫번째 버튼의 코드는 App.config에 있는 연결 문자열을 읽는 코드 입니다.
+두번째 버튼의 코드는 App.config에 있는 연결 문자열을 암호화 해 주는 코드입니다.
+아래와 같이 원본이 암호화 됩니다.
+
+(원본 App.config파일 입니다.)
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <configSections>
+  </configSections>
+  <connectionStrings>
+    <add name="strConn" connectionString="server=.\sqlExpress;database=Northwind;uid=sa;pwd=1234" />
+    <add name="DemoCrypto.Properties.Settings.Setting" connectionString="server=.\sqlExpress;database=Northwind;uid=sa;pwd=1234" />
+  </connectionStrings></configuration>
+
+(암호화된 파일입니다.)
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <configSections>
+  </configSections>
+  <connectionStrings configProtectionProvider="DataProtectionConfigurationProvider">
+    <EncryptedData>
+      <CipherData>
+        <CipherValue>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA4bLd+S2nTUG6hGXm2YdmwAQAAAACAAAAAAAQZgAAAAEAACAAAAD1hizSUiN5cGv6uv1zLt+kBPt6Hs4uQQ/WPCbDzCLocwAAAAAOgAAAAAIAACAAAABJPMfnABloDsSCyjj1gOM68TyxNt9oo328KVLVNC850zACAAD2hro/CyBq6dGBEe68UeGqvtNAOlhNuDGPh18nfm1voxX/rsKfL6wKOGWta0osmFF+jrP8vhi5KxuccCXLeqINu/3WBE1eK2qFMuFDOeHqIfJ8+VSkRxa6fTrFNMq/OAASQtVexNRuDOOGIzBhsAw3kJ1TdD3pooO26ecqbhjaz9TJDumnWSVNvuM1/pXNqjihz4UtZOfkbGo8cgk8Xe4PS5SuXKv/fNG0vCNrkIIyrrGeAvaiDlUFoQWkXEIQcMGPx99S8/D54WaqtvXhvyDyQbLbZgkbK1Xvnhv6wfS3V8YlnNysNnOnTDq7s5X5A/obmwqBFbQ6hUlRjwXJE3yNeZGUSDrtSAAxrFOsWcSLlchy1SGHN5hTkcM1vbOC6h/ZWOhwojCGLwI/R5yuZP3uaKcOVqHyykfhDe9bf4xZmwHM+W9xkqXmJ+LXngwvZ0W1J1sdq2nGyWEEzMKsZT5zwDF+QayGp9eRr71U0OGW5M0Wzq5ZBjSt+wZIzSnByxQYtMRZ/h5XHfK5BFXSWQOh+sbYruym/1QlvwNo2SLGbopm4REsH7YEfZElxEfe8M0gqrCueJm2lI5+z2C7Hc3oJBgopQeTq4H/BWuxTIrIZDrvDdDydsgjUuR/vNMsJM0t8h8nJw4nYPtCSC/H06uL+WDyIAP27uQda1z5HsTitsyEHfWCXZ7MZ6E08yn8lGOfi+5BEfofB/n/9rK01Lejii3ZobmMKvRMuyp8na5PD0AAAAA+XtqtvecGDYTAvZNj3I8Hs9+CTJ6TzJ78F/DNBJDvoO8C0WYfct0d7m13X5Cry4F8nrAWlWd4RQ7Z9Ja96z+I</CipherValue>
+      </CipherData>
+    </EncryptedData>
+  </connectionStrings>
+</configuration>
