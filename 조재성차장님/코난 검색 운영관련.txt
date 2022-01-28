@@ -1,0 +1,142 @@
+코난테크놀로지 CS담당
+구자현
+02-3469-8663
+010-6662-6746
+jahyun.koo@konantech.com
+
+==============================================================================================================
+
+D:\konan_ks5\bin>remote.bat
+
+kql>> show schedules; -> 스케줄 내용 view
+
+kql>> schedule * off; -> 스케줄 전체 off 처리
+
+kql>> show schedules; -> 스케줄 내용view
+
+kql>> run ../script/findjob/bulk.kql; -> 벌크 실행
+
+kql>> schedule * on; -> 스케줄 전체 on처리
+
+kql>> show schedules; -> 스케줄 내용 view
+
+==============================================================================================================
+
+findjob 증분색인용 테이블명 : KONAN_DYNAMIC_INDEX_FINDJOB_ALL_TB
+
+==============================================================================================================
+
+오류 :
+int 형 nan insert 불가 오류시 지도맵 좌표 오류 여부 확인 필요
+
+************** 버전 업그레이드 전 내용 *********************
+
+http://123.111.230.63:8888/admin-webapp/
+admin admin
+
+==============================================================================================================
+D:\konan\KS4i
+D:\konan\KS4i\bin
+
+[인덱스검색]
+text_idx = '용접 알곤' allwordthruindex
+title = '용접 알곤' allword
+
+chcp 65001 -> 글꼴변경
+
+[필드변경시] 
+
+cmd -> D:\konan\KS4i\bin
+remote.bat
+
+>
+show schedules;
+
+schedule * off;
+
+D:\konan\KS4i\script\[볼륨명]\ddl.kql
+D:\konan\CNT_\conf\[볼륨명].rc
+D:\konan\CNT_\conf\include\mapping.rc
+
+테스트서버
+-> D:\konan\ks5\script\ddl.kql
+-> D:\konan\ks5\ext\connector\conf\include\mapping.rc
+
+run ../script/[볼륨명]/bulk.kql;
+
+schedule * on;
+
+[인덱스 변경시]
+cmd -> D:\konan\KS4i\bin
+remote.bat
+
+>
+
+show schedules; 로 STAT 확인 후 모두 ON이면 작업진행
+
+schedule * off;
+
+D:\konan\KS4i\script\[볼륨명]\ddl.kql
+
+Edit with Notepad++ 로 내용 변경 해야됨.
+
+CREATE INDEX text_idx    ON house (title,companynm,ntag_conts_mobile,phone,search_fields); -> TEXT NULL,
+CREATE INDEX strp_idx    ON house (sectioncd,findcode,findcode2,findcode3,categorycode,trade_kind,userid,order_name,vnsno,mobile_opt_code,version); -> STRING PARA NULL,
+CREATE INDEX strl_idx    ON house (area,phone_filter,phone_mobile,agency_assist_phone); -> STRING LIST NULL,
+CREATE INDEX int8_idx   ON house (bathroom,room_count2); -> INT8 NULL,
+CREATE INDEX int64_idx   ON house (price,price2,pyeng,reg_dt,mod_dt,map_x,map_y,price_asc,price2_asc,pyeng_asc,start_dt,end_dt,stamp_start_dt,stamp_end_dt,stamp_reg_dt,stamp_mod_dt,sort_mobile,sort); -> INT64 NULL,
+
+여기에 추가. 자료형에 맞게 추가해야 됨.
+
+run ../script/[볼륨명]/bulk.kql;
+
+schedule * on;
+
+
+[볼륨 생성]
+
+0. 볼륨 환경 셋팅
+  a. \CNT\conf\\include\common_[작업명].rc     생성  (jdbc DB 커넥션)
+  b. \CNT\conf\\include\mapping_[작업명].rc     생성  (데이터 매핑)
+  c. \CNT\conf\[볼룸명].rc     생성 ((a), (b), 색인데이터 원본 쿼리)
+    - target_dir = D:/konan/KS4si/cxfile/[작업명]
+    - data_source = [([a)에서 생성한 커넥션명]
+    - field_mapping = [([b)에서 생성한 매핑명]
+
+1. 볼륨생성 (볼륨명 정의)
+  a D:\konan\KS4si\bin\kql.rc
+  b D:\konan\KS4si\conf\[볼륨명].rc		(기존파일 복사하여 커스텀)
+  c D:\konan\KS4si/volume/[볼륨명]  폴더생성
+  d 작업관리자>서비스>KSEARCH4 다시시작
+
+2. KQL 접속 (remote.bat)
+  - 볼륨 생성
+  kql>> crarte volume [볼륨명];
+  - 볼륨 접속
+  kql>> use volume [볼륨명];
+
+
+[로그확인]
+검색/색인 D:\konan\KS4i\logs\kql\kql.log
+커넥트 D:\konan\CNT\logs\system.log
+
+D:\konan\KS4s\logs\search\*.raw -- 모든검색쿼리로그
+D:\konan\KS4s\logs\search\*.log -- 성공쿼리로그
+D:\konan\KS4s\logs\search\rpc-*.log --url로그
+
+==============================================================================================================
+[오류로그체크]
+D:\konan\CNT_\logs\system.log
+D:\konan\KS4i\logs\kql.log
+
+==============================================================================================================
+[스케줄셋팅파일]
+D:\konan\KS4i\bin\kql.rc
+
+
+--맵핑과정에서 검색엔진 java 함수 사용하는 부분
+D:\konan\CNT_\conf\include\mapping.rc
+D:\konan\CNT_\script\SampleGroovy.groovy -> java소스
+
+--DB VIEW와 코난 맵핑파일(부동산)
+D:\konan\CNT_\conf\house.rc
