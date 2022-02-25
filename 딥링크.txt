@@ -18,3 +18,7 @@ https://findjob.page.link/vsv9
 취업동영상
 http://www.findjob.co.kr/job/guide/jobVideoDetail.asp?Page=1&KeyWord=&gCode=13&schText=&IDX=1406
 https://findjob.page.link/?link=http://www.findjob.co.kr/job/guide/jobVideoDetail.asp?Page%3D1%26gCode%3D13%26IDX%3D1406&apn=com.mediawill.findalljob&afl=http://www.findjob.co.kr/job/guide/jobVideoDetail.asp?Page%3D1%26gCode%3D13%26IDX%3D1406&isi=703332941&ibi=com.mediawill.FindAllJob&ifl=http://www.findjob.co.kr/job/guide/jobVideoDetail.asp?Page%3D1%26gCode%3D13%26IDX%3D1406
+
+ai 맞춤일자리 
+http://www.findjob.co.kr/job/ai/aiList.asp
+https://findjob.page.link/?link=http://www.findjob.co.kr/job/ai/aiList.asp&apn=com.mediawill.findalljob&afl=http://www.findjob.co.kr/job/ai/aiList.asp&isi=703332941&ibi=com.mediawill.FindAllJob&ifl=http://www.findjob.co.kr/job/ai/aiList.asp
