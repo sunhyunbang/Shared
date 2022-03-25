@@ -1,0 +1,149 @@
+1. 먼저 ckeditor(위지윅 에디터)를 다운 받습니다.
+    ckeditor - http://ckeditor.com/download
+
+2. ckeditor 를 사용하는 페이지에
+<script type="text/javascript" src="/ckeditor/ckeditor.js"></script>
+를 추가하고 에디터를 사용할 부분에
+
+<textarea name="mycontents"><% 'response.write mycontents %></textarea>
+<script type="text/javascript">
+CKEDITOR.replace('mycontents',
+    {
+        filebrowserUploadUrl: '../ckeditor/upload.asp?type=Files',
+        filebrowserImageUploadUrl: '../ckeditor/upload.asp?type=Images',
+        //filebrowserFlashUploadUrl: '../ckeditor/upload.asp?type=Flash',
+        //width : '620px',  // 입력창의 넓이, 넓이는 config.js 에서 % 로 제어
+        height : '200px',  // 입력창의 높이
+        startupFocus : false  // 자동 focus 사용할때는  true
+    }
+);
+</script>
+위와 같이 넣어주면 ckeditor 를 사용하고자 하는 페이지에 불러올 수 있습니다.
+개발문서 참조 하시면 형태는 다양하게 변경할 수 있습니다.
+
+filebrowserUploadUrl / filebrowserImageUploadUrl / filebrowserFlashUploadUrl 에서 설정한 페이지에서 파일 업로드를 구현해 주시면 됩니다.
+위의 프로퍼티를 입력하지 않은 경우 업로드 하는 부분이 나타나지 않습니다.
+이미지나 플래쉬 서버로 업로드 하기 위해서 반드시 입력하세요
+
+
+
+여기 까지 설정하는 부분은 끝입니다.
+
+3. 업로드 파일 구현
+기본적으로 업로드 파일로 type 값 넘어오고요
+CKEditorFuncNum, CKEditor, langCode, upload .....  필요한 값은 이정도면 됩니다.
+
+upload.asp 소스입니다.  DextUpload 컴포넌트을 사용합니다.
+/Upload/ckeditor/Flash
+/Upload/ckeditor/Files
+/Upload/ckeditor/Images  의 폴더를 생성합니다.
+
+
+<% @LANGUAGE='VBSCRIPT' CODEPAGE='65001' %>
+<%
+session.codepage = 65001
+Response.CharSet = "UTF-8"
+
+Dim funcNum, CKEditor, langCode, fileUrl, fileDir, message, CKEditor_upload_folder
+
+' 파일 중복을 제거 하기 위해 고정 사이트 만큼 특정 문자를 채워 주는 함수
+Public Function LeftFillString ( strValue, fillChar, makeLength )
+    Dim strRet, strLen, diff, i
+    
+    strRet  = ""
+    strLen  = Len(strValue)
+    diff    = CInt(makeLength) - strLen
+    
+    if diff > 0 then
+        for i=1 to diff
+            strRet = strRet & CStr(fillChar)
+        next
+    end if
+    
+    LeftFillString = strRet & CStr(strValue)
+End Function
+
+'유니크한 파일명 만들기
+Public Function MakeUniqueFileName( strPrename )
+    Dim strFilename, dtNow
+    dtNow = now()
+    Randomize()
+    'strFilename = strPrename & Year(dtNow)
+    strFilename = Year(dtNow)
+    strFilename = strFilename & LeftFillString( Month(dtNow),   "0", 2 )
+    strFilename = strFilename & LeftFillString( Day(dtNow),     "0", 2 )
+    strFilename = strFilename & "_"
+    strFilename = strFilename & LeftFillString( Hour(dtNow),    "0", 2 )
+    strFilename = strFilename & LeftFillString( Minute(dtNow),  "0", 2 )
+    strFilename = strFilename & LeftFillString( Second(dtNow),  "0", 2 )
+    strFilename = strFilename & "_"  
+    strFilename = strFilename & LeftFillString ( Int(Rnd * 1000000), "0", 7 )
+    MakeUniqueFileName = strFilename
+End Function
+  
+' 파일 확장자 추출
+Function GetFileExt( strFilename )
+    Dim strExt, nPos
+    nPos = InStrRev( strFilename, ".", -1, 1 ) '// Text Compare
+    if nPos > 0 then
+        strExt = Mid( strFilename, nPos+1 )
+    end if
+GetFileExt = strExt
+End Function
+ 
+'변수들은 위에서 말한 개발자 가이드 문서에서 뽑았습니다.
+'Required: anonymous function number as explained above.
+funcNum = Request("CKEditorFuncNum")
+'Optional: instance name (might be used to load specific configuration file or anything else)
+CKEditor = Request("CKEditor")
+'Optional: might be used to provide localized messages
+langCode = Request("langCode")
+'Check the $_FILES array and save the file. Assign the correct path to some variable ($url).
+'fileUrl = ""
+'Usually you will assign here something only if file could not be uploaded.
+'message = "성공적으로 파일 업로드"
+
+' DEXT Upload를 사용하고 있습니다.
+Set Upload = Server.CreateObject("DEXT.FileUpload")
+CKEditor_upload_folder = "/upload/ckeditor"
+  
+Upload.DefaultPath = Server.MapPath (CKEditor_upload_folder)
+Dim folderPath
+folderPath = Server.MapPath(CKEditor_upload_folder&"/")
+upload_filename = Upload("upload").Filename
+if IsNull(Upload("upload")) or Upload("upload").FileLen <= 0 then
+    upload_filename = ""
+    img_filesize = 0
+    message = "Upload file does not exist.\n업로드 파일이 존재하지 않습니다."
+else
+    upload_filename = MakeUniqueFileName("upload") & "." & GetFileExt(upload_filename)
+    img_filesize = Upload("upload").FileLen
+    if img_filesize > 0 then
+        strExt = Mid(upload_filename, Instr(upload_filename, ".") + 1)
+        if strExt="jpg" or strExt="JPG" or strExt="JPEG" or strExt="gif" or strExt="GIF" or strExt="png" or strExt="PNG" or strExt="bmp" or strExt="BMP" then
+            Upload("upload").SaveAs folderPath & "\Images\" & upload_filename
+            fileDir =  "/Images/"
+        elseif strExt="swf" then
+            Upload("upload").SaveAs folderPath & "\Flash\" & upload_filename
+            fileDir =  "/Flash/"
+        else
+            Upload("upload").SaveAs folderPath & "\Files\" & upload_filename
+            fileDir =  "/Files/"
+        end if
+        message = "I have successfully uploaded the files.\n정상적으로 파일을 업로드했습니다."
+    else
+        message = "The uploaded file size is zero.\n업로드 파일 사이즈가 0입니다."
+    end if
+end if
+
+'http:// 경로를 포함하고 싶을때
+'fileUrl = "http://"& CKEditor_HTTP_HOST & CKEditor_upload_folder & fileDir & upload_filename
+'http:// 경로를 제외하고 싶을때
+fileUrl =  CKEditor_upload_folder & fileDir & upload_filename
+%>
+<script type="text/javascript">
+    // 가장 중요한 부분인것 같군요
+    // ckeditor의 순번과 유효한 파일 경로만 넘기면 자동으로 이미지나 플래쉬 속성 변경 탭으로 이동합니다.
+    window.parent.CKEDITOR.tools.callFunction(<%=funcNum %>, '<%=fileUrl %>', '<%=message %>');
+    history.go(-1);
+</script>
