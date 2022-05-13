@@ -1,0 +1,20 @@
+chrome://flags/#same-site-by-default-cookies
+
+this set-cookie header didn't specify a samesite attribute
+
+
+2020년 2월 4일 릴리즈된 구글 크롬(Google Chrome) 80버전부터 새로운 쿠키 정책이
+ 적용되어 Cookie의 SameSite 속성의 기본 값이 "None"에서 "Lax"로 변경되었다.
+
+lax설정시 cookie값 가져오지못함
+None;Secure;설정시 KP_Info 값을 메인에 전달하지만 전달된 쿠키값은 아래와같이 연결이 안전하지않아 차단되버림
+https프로토콜의 쿠키값을 http 에 전달 불가능함
+
+
+
+this set-cookie was blocked because it had the "secure" attribute and the connection was not secure
+이 세트 쿠키는 "보안" 특성이 있고 연결이 안전하지 않아 차단되었습니다.
+
+
+
+withCredentials

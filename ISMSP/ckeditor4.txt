@@ -147,3 +147,7 @@ fileUrl =  CKEditor_upload_folder & fileDir & upload_filename
     window.parent.CKEDITOR.tools.callFunction(<%=funcNum %>, '<%=fileUrl %>', '<%=message %>');
     history.go(-1);
 </script>
+
+
+//내용 가져오기
+CKEDITOR.instances.txaContents.getData()
