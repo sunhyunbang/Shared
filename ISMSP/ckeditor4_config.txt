@@ -18,3 +18,51 @@ CKEDITOR.editorConfig = function( config ) {
 
 	config.removeButtons = 'Save,NewPage,Print,Scayt,SelectAll,Form,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField,CreateDiv,Language,Flash,PageBreak,Iframe,Templates,Anchor,Link,Unlink,Preview,Source,About';
 };
+
+
+undo : 실행 취소
+redo : 다시 실행 // undo 제거시 자동제거됨
+pastetext : 텍스트로 붙여넣기
+pastefromword : MS Word 에서 붙여넣기
+find : 찾기
+replace : 바꾸기 // find 제거시 자동삭제됨
+selectall : 모두 선택
+link : 링크 삽입/변경
+unlink : 링크 지우기 // link 삭제시 자동삭제됨
+anchor : 책갈피 // link 삭제시 자동삭제됨
+image : 이미지
+flash : 플래시
+table : 표 // table,tabletools 두개를 같이 제거해야함
+tabletools : 표도구 // table,tabletools 두개를 같이 제거해야함
+horizontalrule : 가로 줄 삽입
+pagebreak : 인쇄시 페이지 나누기 표시
+maximize : 최대화
+showblocks : 블록 보기
+Source : 소스
+Bold : 굵게
+Italic : 기울임꼴
+Underline : 밑줄
+Strike : 취소선
+Subscript : 아래 첨자
+Superscript : 위 첨자
+removeformat : 형식 지우기 // 플러그인을 제거한다.
+NumberedList : 순서 있는 목록
+BulletedList : 순서 없는 목록
+Outdent : 내어쓰기
+Indent : 들여쓰기
+Blockquote : 인용 단락
+div : Div 태그 생성
+JustifyLeft : 왼쪽 정렬
+JustifyCenter : 가운데 정렬
+JustifyRight : 오른쪽 정렬
+JustifyBlock : 양쪽 맞춤
+bidi : 문자 방향
+Styles : 스타일
+Format : 문단
+Font : 폰트
+FontSize : 글자크기
+TextColor : 글자 색상
+BGColor : 배경 색상
+
+
+https://phiz.kr/materials/6320
