@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+ <HEAD>
+  <TITLE> New Document </TITLE>
+  <META NAME="Generator" CONTENT="EditPlus">
+  <META NAME="Author" CONTENT="">
+  <META NAME="Keywords" CONTENT="">
+  <META NAME="Description" CONTENT="">
+  <meta http-equiv="content-type" content="text/html; charset=euc-kr" />
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+
+  <script language="JavaScript">
+	
+var searchVenderno = ["0000000029","0007777777","2068526551","1111111111"]; //★휴폐업상태를 조회할 사업자번호
+ 
+function searchCorpClose() {	
+			
+	//var searchVenderno = "";	            //★휴폐업상태를 조회할 사업자번호
+	var auth_venderno  = "2068526551";			//도입사 사업자번호
+	var auth_regid     = "MEDIA00001";			  //센드빌에서 부여하는 고유번호
+	var serviceURL     = "https://www.sendbill.co.kr/searchCorpClose";   //[운영 서버]접근 URL
+	//var serviceURL     = "http://220.118.0.220:7080/searchCorpClose";   //[테스트 서버]접근 URL		
+
+	
+	
+	for(var i = 0; i < searchVenderno.length; i++){	
+	
+		var day = "";
+		var hours = "";
+		var minutes = "";
+		var seconds = "";
+		
+		$.ajax({
+		
+		       type: 'GET',
+		       dataType: 'jsonp',
+		       async : false,  //false 동기, true 비동기		
+		       data: { 'venderno': searchVenderno[i], 'auth_venderno' : auth_venderno,'auth_regid': auth_regid},		        
+		       url: serviceURL,  
+		       jsonp: 'resp',
+		       success: function (json) {
+		       
+          	/****************************[  json.data 객체 설명  ]***************************************
+          	
+               json.data.message     = 코드명(정상,폐업,...)
+          	   json.data.clsvenderno = 조회사업자번
+          	   json.data.clsstat     = 휴폐업상태(04-폐업, 05-휴업, 99-미등록, 9X-조회중, 기타코드-정상)
+               json.data.clsclosedt  = 휴폐업일자(YYYYMMDD)
+               
+          	*********************************************************************************************/
+	
+			   	    var date = new Date();				
+		           $('#targetDIV').append(json.data.message+ " : " +  json.data.clsvenderno + " : " +  json.data.clsstat + " : " +  json.data.clsclosedt + "</br/>");
+		          
+		        },
+		        error: function (json) {
+		            $('#targetDIV').html("조회실패");
+		           
+		        }
+		    });				
+	}
+
+}
+	
+  </script>
+</HEAD>
+
+ <BODY>
+	 <a href="javascript:searchCorpClose();">휴폐업조회</a>
+	<div id = "targetDIV"></div>
+ </BODY>
+</HTML>
