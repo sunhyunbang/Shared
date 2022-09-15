@@ -1,0 +1,1004 @@
+﻿@inherits System.Web.Mvc.WebViewPage<dynamic>
+@using MediaWill._Lib;
+@{
+<<<<<<< HEAD
+  Layout = "~/Views/Shared/__ReNew_Layout_ConditionalSearch.cshtml";
+
+  // 근무조건 추가(2022/08/25)
+  string REQ_WORK_PAYF = ViewBag.WORK_PAYF;
+  string REQ_WORK_PAYAMOUNT = ViewBag.WORK_PAYAMOUNT;
+  string REQ_WORK_PAY_TEXT = ViewBag.WORK_PAY_TEXT;
+  string REQ_WORK_WF = ViewBag.WORK_WF;
+  string REQ_WORK_WTEXT = ViewBag.WORK_WTEXT;
+  string REQ_WORK_DAY_WEEK = ViewBag.WORK_DAY_WEEK;
+  string REQ_WORK_DAY_WEEK_NEGO = ViewBag.WORK_DAY_WEEK_NEGO;
+  string REQ_WORK_DAY_WEEK_TEXT = ViewBag.WORK_DAY_WEEK_TEXT;
+  string REQ_WORK_TIME = ViewBag.WORK_TIME;
+  string REQ_WORK_TIMEF = ViewBag.WORK_TIMEF;
+  string REQ_WORK_TIME_FROM = ViewBag.WORK_TIME_FROM;
+  string REQ_WORK_TIME_TO = ViewBag.WORK_TIME_TO;
+  string REQ_WORK_TIME_NEGO = ViewBag.WORK_TIME_NEGO;
+  string REQ_WORK_TIME_TEXT = ViewBag.WORK_TIME_TEXT;
+  string REQ_WORK_AGE = ViewBag.WORK_AGE;
+  string REQ_WORK_AGE_N = ViewBag.WORK_AGE_N;
+  string REQ_WORK_AGE_TEXT = ViewBag.WORK_AGE_TEXT;
+  string REQ_WORK_SEX = ViewBag.WORK_SEX;
+  string REQ_WORK_SEX_N = ViewBag.WORK_SEX_N;
+  string REQ_WORK_SEX_TEXT = ViewBag.WORK_SEX_TEXT;
+  string REQ_WORK_TXT = ViewBag.WORK_TXT;
+
+  //기존 
+  //string REQ_WORK_DAY_WEEK = ViewBag.REQ_WORK_DAY_WEEK;
+  //string REQ_WORK_DAY_WEEK_NEGO = ViewBag.REQ_WORK_DAY_WEEK_NEGO;
+  //string REQ_WORK_TIME = ViewBag.REQ_WORK_TIME;
+  //string REQ_WORK_TIME_FROM = ViewBag.REQ_WORK_TIME_FROM;
+  //string REQ_WORK_TIME_TO = ViewBag.REQ_WORK_TIME_TO;
+  //string REQ_WORK_TIME_NEGO = ViewBag.REQ_WORK_TIME_NEGO;
+  //string REQ_WORK_AGE = ViewBag.REQ_WORK_AGE;
+  //string REQ_WORK_AGE_N = ViewBag.REQ_WORK_AGE_N;
+  //string REQ_WORK_SEX = ViewBag.REQ_WORK_SEX;
+  //string REQ_WORK_SEX_N = ViewBag.REQ_WORK_SEX_N;
+  //string REQ_WORK_TXT = ViewBag.REQ_WORK_TXT;
+
+  string PAGE_LOCATION = ViewBag.PAGE_LOCATION;
+  string COOKIE_TYPE = ViewBag.COOKIE_TYPE;
+
+  //총 선택 갯 수
+  int lCOUNT_AREA = ViewBag.lCOUNT_AREA;
+  int lCOUNT_CATE = ViewBag.lCOUNT_CATE;
+=======
+	Layout = "~/Views/Shared/__ReNew_Layout_ConditionalSearch.cshtml";
+
+	string REQ_WORK_DAY_WEEK = ViewBag.REQ_WORK_DAY_WEEK;
+	string REQ_WORK_DAY_WEEK_NEGO = ViewBag.REQ_WORK_DAY_WEEK_NEGO;
+	string REQ_WORK_TIME = ViewBag.REQ_WORK_TIME;
+	string REQ_WORK_TIME_FROM = ViewBag.REQ_WORK_TIME_FROM;
+	string REQ_WORK_TIME_TO = ViewBag.REQ_WORK_TIME_TO;
+	string REQ_WORK_TIME_NEGO = ViewBag.REQ_WORK_TIME_NEGO;
+	string REQ_WORK_AGE = ViewBag.REQ_WORK_AGE;
+	string REQ_WORK_AGE_N = ViewBag.REQ_WORK_AGE_N;
+	string REQ_WORK_SEX = ViewBag.REQ_WORK_SEX;
+	string REQ_WORK_SEX_N = ViewBag.REQ_WORK_SEX_N;
+	string REQ_WORK_TXT = ViewBag.REQ_WORK_TXT;
+
+	string PAGE_LOCATION = ViewBag.PAGE_LOCATION;
+	string COOKIE_TYPE = ViewBag.COOKIE_TYPE;
+
+	//총 선택 갯 수
+	int lCOUNT_AREA = ViewBag.lCOUNT_AREA;
+	int lCOUNT_CATE = ViewBag.lCOUNT_CATE;
+>>>>>>> develop
+}
+<link href="@Url.Content("~/Styles/ReNew/LocationJob.css?v=" + ViewBag.CssEditVer)" rel="stylesheet" />
+
+@* form object *@
+@RenderPage("../RenderPage/__ReNew_ConditionalSearch_FrmCS.cshtml")
+
+<form id="frm" name="frm">
+	<!-- 지역 검색 -->
+	<input type="hidden" name="TMP_AREA" id="TMP_AREA" value="" style="width:100%" />
+	<input type="hidden" name="TMP_AREA_TXT" id="TMP_AREA_TXT" value="" style="width:100%" />
+	<input type="hidden" name="TMP_AREA_COUNT" id="TMP_AREA_COUNT" value="0" style="width:100%" />
+	<!-- //지역 검색 -->
+	<!-- 업/직종 검색 -->
+	<input type="hidden" name="TMP_CATE" id="TMP_CATE" value="" style="width:100%" />
+	<input type="hidden" name="TMP_CATE_TXT" id="TMP_CATE_TXT" value="" style="width:100%" />
+	<input type="hidden" name="TMP_CATE_COUNT" id="TMP_CATE_COUNT" value="0" style="width:100%" />
+	<!-- //업/직종 검색 -->
+	<!-- 근무조건 -->
+	<input type="hidden" name="TMP_WORK_DAY_WEEK" id="TMP_WORK_DAY_WEEK" value="0" style="width:100%" />
+	<input type="hidden" name="TMP_WORK_DAY_WEEK_NEGO" id="TMP_WORK_DAY_WEEK_NEGO" value="0" style="width:100%" />
+	<input type="hidden" name="TMP_WORK_TIME" id="TMP_WORK_TIME" value="0" style="width:100%" />
+	<input type="hidden" name="TMP_WORK_TIME_FROM" id="TMP_WORK_TIME_FROM" value="" style="width:100%" />
+	<input type="hidden" name="TMP_WORK_TIME_TO" id="TMP_WORK_TIME_TO" value="" style="width:100%" />
+	<input type="hidden" name="TMP_WORK_TIME_NEGO" id="TMP_WORK_TIME_NEGO" value="0" style="width:100%" />
+	<input type="hidden" name="TMP_WORK_AGE" id="TMP_WORK_AGE" value="" style="width:100%" />
+	<input type="hidden" name="TMP_WORK_AGE_N" id="TMP_WORK_AGE_N" value="0" style="width:100%" />
+	<input type="hidden" name="TMP_WORK_SEX" id="TMP_WORK_SEX" value="0" style="width:100%" />
+	<input type="hidden" name="TMP_WORK_SEX_N" id="TMP_WORK_SEX_N" value="0" style="width:100%" />
+	<input type="hidden" name="TMP_WORK_TXT" id="TMP_WORK_TXT" value="" style="width:100%" />
+	<!-- //근무조건 -->
+</form>
+<article class="quick-wrap">
+<<<<<<< HEAD
+    <h1 class="hide">최근 검색 조건</h1>
+    <!-- Header -->
+    <header class="headerType2">
+      <a class="headerType2-btn headerType2-btn--back headerType2__title-link" href="#" onclick="ClickLog('MFL_2_9', '@(Request.Url.AbsolutePath.ToLower())'); history.back(); return false;">뒤로가기</a>
+      <h1 class="headerType2__title">최근 검색 조건</h1>
+    </header>
+    <!-- //Header -->
+    <!-- Contents -->
+    <section class="quick-contents">
+        <h1 class="hide">최근 검색 조건</h1>
+        <!-- 이전에 찾은 일자리가 있을경우만 문구 노출 -->
+        <p class="quick-about" id="Lately1">최근 검색 조건 중 원하는 조건을 선택해서 일자리를 찾으세요</p>
+        <!-- // 이전에 찾은 일자리가 있을경우만 문구 노출 -->
+        <!-- 최근 검색 조건 리스트 -->
+        <ul class="lately-select" id="Lately2">
+            <li class="lately-select__list">
+                <p class="lately-select__list--title">희망 지역</p>
+                <div class="lately-content">
+                    <ul class="lately-list" id="LatelyArea"></ul>
+                </div>
+                <!-- 최근에 검색한 희망 지역이 없는 경우 노출 -->
+                <p class="lately-content--none" id="LatelyAreaNo" style="display:none;">최근에 검색한 희망 지역이 없습니다.</p>
+                <!-- // 최근에 검색한 희망 지역이 없는 경우 노출 -->
+            </li>
+            <li class="lately-select__list">
+                <p class="lately-select__list--title">희망 업직종</p>
+                <div class="lately-content">
+                    <ul class="lately-list" id="LatelyCate"></ul>
+                </div>
+                <!-- 최근에 검색한 희망 업직종이 없는 경우 노출 -->
+                <p class="lately-content--none" id="LatelyCateNo" style="display:none;">최근에 검색한 희망 업직종이 없습니다.</p>
+                <!-- // 최근에 검색한 희망 업직종이 없는 경우 노출 -->
+            </li>
+
+            @{
+                //프로젝트9 개발 정책, 전문관, 브랜드관은 근무조건 사용 않함
+                if (!(PAGE_LOCATION == "SPECIAL"))
+                {
+                    <li class="lately-select__list">
+                        <p class="lately-select__list--title">근무조건</p>
+                        <div class="lately-content">
+                            <ul class="lately-list" id="LatelyWork">
+                                @if(!PAGE_LOCATION.Equals("BRAND"))
+                                {
+                                  //근무일
+                                  if (REQ_WORK_DAY_WEEK != "0")
+                                  {
+                                    if (REQ_WORK_DAY_WEEK == "1")
+                                    {
+                                        <li class="lately-list__item"><a href="javascript:;" class="lately-list__item--box" objname="dayweek" val="1" valfulltxt="주 4일~6일" onclick="clickCheck(this, 'work');">주 4일~6일</a></li>
+                                    }
+                                    else if (REQ_WORK_DAY_WEEK == "2")
+                                    {
+                                        <li class="lately-list__item"><a href="javascript:;" class="lately-list__item--box" objname="dayweek" val="2" valfulltxt="주 1일~3일" onclick="clickCheck(this, 'work');">주 1일~3일</a></li>
+                                    }
+                                    else if (REQ_WORK_DAY_WEEK == "3")
+                                    {
+                                        <li class="lately-list__item"><a href="javascript:;" class="lately-list__item--box" objname="dayweek" val="3" valfulltxt="주말" onclick="clickCheck(this, 'work');">주말</a></li>
+                                    }
+                                  }
+
+                                  //근무시간
+                                  if (REQ_WORK_TIME != "0")
+                                  {
+                                    if (REQ_WORK_TIME == "1")
+                                    {
+                                        <li class="lately-list__item"><a href="javascript:;" class="lately-list__item--box" objname="time" val="1" valfulltxt="장시간 근무" onclick="clickCheck(this, 'work');">장시간 근무</a></li>
+                                    }
+                                    else if (REQ_WORK_TIME == "2")
+                                    {
+                                        <li class="lately-list__item"><a href="javascript:;" class="lately-list__item--box" objname="time" val="2" valfulltxt="단시간 근무" onclick="clickCheck(this, 'work');">단시간 근무</a></li>
+                                    }
+                                    else if (REQ_WORK_TIME == "3")
+                                    {
+                                        <li class="lately-list__item"><a href="javascript:;" class="lately-list__item--box" objname="time" val="3" valfulltxt="직접지정(@(REQ_WORK_TIME_FROM)시~@(REQ_WORK_TIME_TO)시)" onclick="clickCheck(this, 'work');">직접지정(@(REQ_WORK_TIME_FROM)시~@(REQ_WORK_TIME_TO)시)</a></li>
+                                    }
+                                  }
+
+                                  //연령
+                                  if (REQ_WORK_AGE != "")
+                                  {
+                                      <li class="lately-list__item"><a href="javascript:;" class="lately-list__item--box" objname="age" val="@(REQ_WORK_AGE)" valfulltxt="@(REQ_WORK_AGE)세" onclick="clickCheck(this, 'work');">@(REQ_WORK_AGE)세</a></li>
+                                  }
+
+                                  //성별
+                                  if (REQ_WORK_SEX != "0")
+                                  {
+                                      if (REQ_WORK_SEX == "1")
+                                      {
+                                          <li class="lately-list__item"><a href="javascript:;" class="lately-list__item--box" objname="sex" val="1" valfulltxt="남자" onclick="clickCheck(this, 'work');">남자</a></li>
+                                      }
+                                      else if (REQ_WORK_SEX == "2")
+                                      {
+                                          <li class="lately-list__item"><a href="javascript:;" class="lately-list__item--box" objname="sex" val="2" valfulltxt="여자" onclick="clickCheck(this, 'work');">여자</a></li>
+                                    }
+                                  }
+                                }
+                                else 
+                                {
+                                  //급여
+                                  if (!REQ_WORK_PAYAMOUNT.Equals("0"))
+                                  {
+                                    if (REQ_WORK_PAYF.Equals("1"))
+                                    {
+                                      <li class="lately-list__item"><a href="javascript:;" class="lately-list__item--box" objname="payf" val="1" valfulltxt="연봉 @(new Common_Utils().fCommaFormat(REQ_WORK_PAYAMOUNT).Replace(",","|"))원 이상" onclick="clickCheck(this, 'work');">연봉 @(new Common_Utils().fCommaFormat(REQ_WORK_PAYAMOUNT))원 이상</a></li>
+                                    }
+                                    else if (REQ_WORK_PAYF.Equals("2"))
+                                    {
+                                      <li class="lately-list__item"><a href="javascript:;" class="lately-list__item--box" objname="payf" val="2" valfulltxt="월급 @(new Common_Utils().fCommaFormat(REQ_WORK_PAYAMOUNT).Replace(",","|"))원 이상" onclick="clickCheck(this, 'work');">월급 @(new Common_Utils().fCommaFormat(REQ_WORK_PAYAMOUNT))원 이상</a></li>
+                                    }
+                                    else if (REQ_WORK_PAYF.Equals("3"))
+                                    {
+                                      <li class="lately-list__item"><a href="javascript:;" class="lately-list__item--box" objname="payf" val="3" valfulltxt="일급 @(new Common_Utils().fCommaFormat(REQ_WORK_PAYAMOUNT).Replace(",","|"))원 이상" onclick="clickCheck(this, 'work');">일급 @(new Common_Utils().fCommaFormat(REQ_WORK_PAYAMOUNT))원 이상</a></li>
+                                    }
+                                    else if (REQ_WORK_PAYF.Equals("4"))
+                                    {
+                                      <li class="lately-list__item"><a href="javascript:;" class="lately-list__item--box" objname="payf" val="4" valfulltxt="시급 @(new Common_Utils().fCommaFormat(REQ_WORK_PAYAMOUNT).Replace(",","|"))원 이상" onclick="clickCheck(this, 'work');">시급 @(new Common_Utils().fCommaFormat(REQ_WORK_PAYAMOUNT))원 이상</a></li>
+                                    }
+                                  }
+                                  //근무형태
+                                  string[] arr_REQ_WORK_WF = null;
+                                  if (!string.IsNullOrEmpty(REQ_WORK_WF))
+                                  {
+                                    arr_REQ_WORK_WF = REQ_WORK_WF.Split(',');
+                                    for (var i = 0; i < arr_REQ_WORK_WF.Length; i++)
+                                    {
+                                      if (arr_REQ_WORK_WF[i].Equals("1"))
+                                      {
+                                        <li class="lately-list__item"><a href="javascript:;" class="lately-list__item--box" objname="workf" val="1" valfulltxt="정규직" onclick="clickCheck(this, 'work');">정규직</a></li>
+                                      }
+                                      if (arr_REQ_WORK_WF[i].Equals("2"))
+                                      {
+                                        <li class="lately-list__item"><a href="javascript:;" class="lately-list__item--box" objname="workf" val="2" valfulltxt="계약직" onclick="clickCheck(this, 'work');">계약직</a></li>
+                                      }
+                                      if (arr_REQ_WORK_WF[i].Equals("3"))
+                                      {
+                                        <li class="lately-list__item"><a href="javascript:;" class="lately-list__item--box" objname="workf" val="3" valfulltxt="파견직" onclick="clickCheck(this, 'work');">파견직</a></li>
+                                      }
+                                      if (arr_REQ_WORK_WF[i].Equals("4"))
+                                      {
+                                        <li class="lately-list__item"><a href="javascript:;" class="lately-list__item--box" objname="workf" val="4" valfulltxt="파트타임" onclick="clickCheck(this, 'work');">파트타임</a></li>
+                                      }
+                                      if (arr_REQ_WORK_WF[i].Equals("5"))
+                                      {
+                                        <li class="lately-list__item"><a href="javascript:;" class="lately-list__item--box" objname="workf" val="5" valfulltxt="위촉직" onclick="clickCheck(this, 'work');">위촉직</a></li>
+                                      }
+                                      if (arr_REQ_WORK_WF[i].Equals("6"))
+                                      {
+                                        <li class="lately-list__item"><a href="javascript:;" class="lately-list__item--box" objname="workf" val="6" valfulltxt="프리랜서" onclick="clickCheck(this, 'work');">프리랜서</a></li>
+                                      }
+                                    }
+                                  }
+                                  string[] arr_REQ_WORK_DAY_WEEK = null;
+                                  if (!string.IsNullOrEmpty(REQ_WORK_DAY_WEEK))
+                                  {
+                                    arr_REQ_WORK_DAY_WEEK = REQ_WORK_DAY_WEEK.Split(',');
+                                    for (var i = 0; i < arr_REQ_WORK_DAY_WEEK.Length; i++)
+                                    {
+                                      if (arr_REQ_WORK_DAY_WEEK[i] == "1")
+                                      {
+                                        <li class="lately-list__item"><a href="javascript:;" class="lately-list__item--box" objname="dayweek" val="1" valfulltxt="월~금" onclick="clickCheck(this, 'work');">월~금</a></li>
+                                      }
+                                      if (arr_REQ_WORK_DAY_WEEK[i] == "2")
+                                      {
+                                        <li class="lately-list__item"><a href="javascript:;" class="lately-list__item--box" objname="dayweek" val="2" valfulltxt="월~토" onclick="clickCheck(this, 'work');">월~토</a></li>
+                                      }
+                                      if (arr_REQ_WORK_DAY_WEEK[i] == "3")
+                                      {
+                                      <li class="lately-list__item"><a href="javascript:;" class="lately-list__item--box" objname="dayweek" val="3" valfulltxt="주말(토,일)" onclick="clickCheck(this, 'work');">주말(토,일)</a></li>
+                                      }
+                                      if (arr_REQ_WORK_DAY_WEEK[i] == "4")
+                                      {
+                                      <li class="lately-list__item"><a href="javascript:;" class="lately-list__item--box" objname="dayweek" val="4" valfulltxt="주6일" onclick="clickCheck(this, 'work');">주6일</a></li>
+                                      }
+                                      if (arr_REQ_WORK_DAY_WEEK[i] == "5")
+                                      {
+                                      <li class="lately-list__item"><a href="javascript:;" class="lately-list__item--box" objname="dayweek" val="5" valfulltxt="주5일" onclick="clickCheck(this, 'work');">주5일</a></li>
+                                      }
+                                      if (arr_REQ_WORK_DAY_WEEK[i] == "6")
+                                      {
+                                      <li class="lately-list__item"><a href="javascript:;" class="lately-list__item--box" objname="dayweek" val="6" valfulltxt="주4일" onclick="clickCheck(this, 'work');">주4일</a></li>
+                                      }
+                                      if (arr_REQ_WORK_DAY_WEEK[i] == "7")
+                                      {
+                                      <li class="lately-list__item"><a href="javascript:;" class="lately-list__item--box" objname="dayweek" val="7" valfulltxt="주3일" onclick="clickCheck(this, 'work');">주3일</a></li>
+                                      }
+                                      if (arr_REQ_WORK_DAY_WEEK[i] == "8")
+                                      {
+                                      <li class="lately-list__item"><a href="javascript:;" class="lately-list__item--box" objname="dayweek" val="8" valfulltxt="주2일" onclick="clickCheck(this, 'work');">주2일</a></li>
+                                      }
+                                      if (arr_REQ_WORK_DAY_WEEK[i] == "9")
+                                      {
+                                      <li class="lately-list__item"><a href="javascript:;" class="lately-list__item--box" objname="dayweek" val="9" valfulltxt="주1일(하루)" onclick="clickCheck(this, 'work');">주1일(하루)</a></li>
+                                      }
+                                    }
+                                  }
+                                  //근무시간
+                                  string[] arr_REQ_WORK_TIME = null;
+                                  if (!string.IsNullOrEmpty(REQ_WORK_TIME))
+                                  {
+                                    if (REQ_WORK_TIME.Equals("0") && REQ_WORK_TIME_FROM.Length.Equals(4) && REQ_WORK_TIME_TO.Length.Equals(4))
+                                    {
+                                      string TEMPFROM = REQ_WORK_TIME_FROM.Substring(0, 2) + ":" + REQ_WORK_TIME_FROM.Substring(2, 2);
+                                      string TEMPTO = REQ_WORK_TIME_TO.Substring(0, 2) + ":" + REQ_WORK_TIME_TO.Substring(2, 2);
+
+                                      <li class="lately-list__item"><a href="javascript:;" class="lately-list__item--box" objname="time" val="3" valfulltxt="직접지정(@(TEMPFROM)~@(TEMPTO))" onclick="clickCheck(this, 'work');">직접지정(@(TEMPFROM)~@(TEMPTO))</a></li>
+                                    }
+
+                                    arr_REQ_WORK_TIME = REQ_WORK_TIME.Split(',');
+                                    for (var i = 0; i < arr_REQ_WORK_TIME.Length; i++)
+                                    {
+                                      if (arr_REQ_WORK_TIME[i] == "1")
+                                      {
+                                        <li class="lately-list__item"><a href="javascript:;" class="lately-list__item--box" objname="time" val="1" valfulltxt="정규(09:00~18:00)" onclick="clickCheck(this, 'work');">정규(09:00~18:00)</a></li>
+                                      }
+                                      else if (arr_REQ_WORK_TIME[i] == "2")
+                                      {
+                                        <li class="lately-list__item"><a href="javascript:;" class="lately-list__item--box" objname="time" val="2" valfulltxt="오전(06:00~12:00)" onclick="clickCheck(this, 'work');">오전(06:00~12:00)</a></li>
+                                      }
+                                      else if (arr_REQ_WORK_TIME[i] == "3")
+                                      {
+                                        <li class="lately-list__item"><a href="javascript:;" class="lately-list__item--box"objname="time" val="3" valfulltxt="오후(12:00~18:00)" onclick="clickCheck(this, 'work');">오후(12:00~18:00)</a></li>
+                                      }
+                                      else if (arr_REQ_WORK_TIME[i] == "4")
+                                      {
+                                        <li class="lately-list__item"><a href="javascript:;" class="lately-list__item--box"objname="time" val="4" valfulltxt="저녁(18:00~24:00)" onclick="clickCheck(this, 'work');">저녁(18:00~24:00)</a></li>
+                                      }
+                                      else if (arr_REQ_WORK_TIME[i] == "5")
+                                      {
+                                        <li class="lately-list__item"><a href="javascript:;" class="lately-list__item--box"objname="time" val="5" valfulltxt="새벽(00:00~06:00)" onclick="clickCheck(this, 'work');">새벽(00:00~06:00)</a></li>
+                                      }
+                                    }
+                                  }
+                                }
+
+                            </ul>
+                        </div>
+                        <!-- 최근에 검색한 근무조건이 없는 경우 노출 -->
+                        @{
+                          if (REQ_WORK_TXT == "")
+                          {
+                                <p class="lately-content--none" id="LatelyWorkNo">최근에 검색한 희망 근무조건이 없습니다.</p>
+                            }
+                        }
+                        <!-- // 최근에 검색한 근무조건이 없는 경우 노출 -->
+                    </li>
+                            }
+            }
+        </ul>
+        <!-- // 최근 검색 조건 리스트 -->
+        <!-- 이전에 찾은 일자리가 없을 경우 노출 -->
+        <p class="lately-data-none" id="LatelyNo" style="display:none;">최근 검색 조건이 없습니다.<br>검색결과 페이지에서 찾고있는<br>지역, 업직종을 선택 후 검색해보세요.</p>
+        <!-- // 이전에 찾은 일자리가 없을 경우 노출 -->
+        <div class="quick-contents__link">
+            <a href="javascript:;" onclick="ClickLog('MFL_2_6', '@(Request.Url.AbsolutePath.ToLower())'); HubSearch()" class="quick-contents__link--item">상세조건 설정으로 이동</a>
+        </div>
+    </section>
+    <!-- // Contents -->
+    <!-- Snack Bar -->
+    <div class="floating-guide" style="bottom: 20px;">
+        <!-- 호출 function guideOn();-->
+        <span class="floating-guide__text">원하는 조건을 선택하여 일자리 찾기를 하세요</span>
+    </div>
+    <!-- // Snack Bar -->
+    <!-- Bottom -->
+    <div class="bottom-area">
+        <!-- 이전에 찾은 일자리 전체가 없을 경우 disabled 클래스 제거 -->
+        <button type="button" class="bottom-area__result disabled" onclick="ClickLog('MFL_2_7', '@(Request.Url.AbsolutePath.ToLower())'); RecruitSearch();">일자리 찾기</button>
+        <!-- // 이전에 찾은 일자리 전체가 없을 경우 disabled 클래스 제거 -->
+        <span class="bottom-area__alert">최대 @(lCOUNT_AREA)개까지 선택할 수 있습니다.</span>
+    </div>
+    <!-- //Bottom -->
+=======
+	<h1 class="hide">최근 검색 조건</h1>
+	<!-- Header -->
+	<header class="headerType2">
+		<a class="headerType2-btn headerType2-btn--back headerType2__title-link" href="#" onclick="ClickLog('MFL_2_9', '@(Request.Url.AbsolutePath.ToLower())'); history.back(); return false;">뒤로가기</a>
+		<h1 class="headerType2__title">최근 검색 조건</h1>
+	</header>
+	<!-- //Header -->
+	<!-- Contents -->
+	<section class="quick-contents">
+		<h1 class="hide">최근 검색 조건</h1>
+		<!-- 이전에 찾은 일자리가 있을경우만 문구 노출 -->
+		<p class="quick-about" id="Lately1">최근 검색 조건 중 원하는 조건을 선택해서 일자리를 찾으세요</p>
+		<!-- // 이전에 찾은 일자리가 있을경우만 문구 노출 -->
+		<!-- 최근 검색 조건 리스트 -->
+		<ul class="lately-select" id="Lately2">
+			<li class="lately-select__list">
+				<p class="lately-select__list--title">희망 지역</p>
+				<div class="lately-content">
+					<ul class="lately-list" id="LatelyArea"></ul>
+				</div>
+				<!-- 최근에 검색한 희망 지역이 없는 경우 노출 -->
+				<p class="lately-content--none" id="LatelyAreaNo" style="display:none;">최근에 검색한 희망 지역이 없습니다.</p>
+				<!-- // 최근에 검색한 희망 지역이 없는 경우 노출 -->
+			</li>
+			@{
+				// 브랜드관은 희망 업직종 사용 않함  // 20190604 도정민 수정
+				if (!(PAGE_LOCATION == "BRAND"))
+				{
+					<li class="lately-select__list">
+						<p class="lately-select__list--title">희망 업직종</p>
+						<div class="lately-content">
+							<ul class="lately-list" id="LatelyCate"></ul>
+						</div>
+						<!-- 최근에 검색한 희망 업직종이 없는 경우 노출 -->
+						<p class="lately-content--none" id="LatelyCateNo" style="display:none;">최근에 검색한 희망 업직종이 없습니다.</p>
+						<!-- // 최근에 검색한 희망 업직종이 없는 경우 노출 -->
+					</li>
+				}
+			}
+			@{
+				//프로젝트9 개발 정책, 전문관, 브랜드관은 근무조건 사용 않함
+				if (!(PAGE_LOCATION == "SPECIAL" || PAGE_LOCATION == "SEARCH"))
+				{
+					<li class="lately-select__list">
+						<p class="lately-select__list--title">근무조건</p>
+						<div class="lately-content">
+							<ul class="lately-list" id="LatelyWork">
+								@{
+									//근무일
+									if (REQ_WORK_DAY_WEEK != "0")
+									{
+										if (REQ_WORK_DAY_WEEK == "1")
+										{
+											<li class="lately-list__item"><a href="javascript:;" class="lately-list__item--box" objname="dayweek" val="1" valfulltxt="주 4일~6일" onclick="clickCheck(this, 'work');">주 4일~6일</a></li>
+										}
+										else if (REQ_WORK_DAY_WEEK == "2")
+										{
+											<li class="lately-list__item"><a href="javascript:;" class="lately-list__item--box" objname="dayweek" val="2" valfulltxt="주 1일~3일" onclick="clickCheck(this, 'work');">주 1일~3일</a></li>
+										}
+										else if (REQ_WORK_DAY_WEEK == "3")
+										{
+											<li class="lately-list__item"><a href="javascript:;" class="lately-list__item--box" objname="dayweek" val="3" valfulltxt="주말" onclick="clickCheck(this, 'work');">주말</a></li>
+										}
+									}
+
+									//근무시간
+									if (REQ_WORK_TIME != "0")
+									{
+										if (REQ_WORK_TIME == "1")
+										{
+											<li class="lately-list__item"><a href="javascript:;" class="lately-list__item--box" objname="time" val="1" valfulltxt="장시간 근무" onclick="clickCheck(this, 'work');">장시간 근무</a></li>
+										}
+										else if (REQ_WORK_TIME == "2")
+										{
+											<li class="lately-list__item"><a href="javascript:;" class="lately-list__item--box" objname="time" val="2" valfulltxt="단시간 근무" onclick="clickCheck(this, 'work');">단시간 근무</a></li>
+										}
+										else if (REQ_WORK_TIME == "3")
+										{
+											<li class="lately-list__item"><a href="javascript:;" class="lately-list__item--box" objname="time" val="3" valfulltxt="직접지정(@(REQ_WORK_TIME_FROM)시~@(REQ_WORK_TIME_TO)시)" onclick="clickCheck(this, 'work');">직접지정(@(REQ_WORK_TIME_FROM)시~@(REQ_WORK_TIME_TO)시)</a></li>
+										}
+									}
+
+									//연령
+									if (REQ_WORK_AGE != "")
+									{
+										<li class="lately-list__item"><a href="javascript:;" class="lately-list__item--box" objname="age" val="@(REQ_WORK_AGE)" valfulltxt="@(REQ_WORK_AGE)세" onclick="clickCheck(this, 'work');">@(REQ_WORK_AGE)세</a></li>
+									}
+
+									//성별
+									if (REQ_WORK_SEX != "0")
+									{
+										if (REQ_WORK_SEX == "1")
+										{
+											<li class="lately-list__item"><a href="javascript:;" class="lately-list__item--box" objname="sex" val="1" valfulltxt="남자" onclick="clickCheck(this, 'work');">남자</a></li>
+										}
+										else if (REQ_WORK_SEX == "2")
+										{
+											<li class="lately-list__item"><a href="javascript:;" class="lately-list__item--box" objname="sex" val="2" valfulltxt="여자" onclick="clickCheck(this, 'work');">여자</a></li>
+										}
+									}
+								}
+							</ul>
+						</div>
+						<!-- 최근에 검색한 근무조건이 없는 경우 노출 -->
+						@{
+							if (REQ_WORK_TXT == "")
+							{
+								<p class="lately-content--none" id="LatelyWorkNo">최근에 검색한 희망 근무조건이 없습니다.</p>
+							}
+						}
+						<!-- // 최근에 검색한 근무조건이 없는 경우 노출 -->
+					</li>
+							}
+			}
+		</ul>
+		<!-- // 최근 검색 조건 리스트 -->
+		<!-- 이전에 찾은 일자리가 없을 경우 노출 -->
+		<p class="lately-data-none" id="LatelyNo" style="display:none;">최근 검색 조건이 없습니다.<br>검색결과 페이지에서 찾고있는<br>지역, 업직종을 선택 후 검색해보세요.</p>
+		<!-- // 이전에 찾은 일자리가 없을 경우 노출 -->
+		<div class="quick-contents__link">
+			<a href="javascript:;" onclick="ClickLog('MFL_2_6', '@(Request.Url.AbsolutePath.ToLower())'); HubSearch()" class="quick-contents__link--item">상세조건 설정으로 이동</a>
+		</div>
+	</section>
+	<!-- // Contents -->
+	<!-- Snack Bar -->
+	<div class="floating-guide" style="bottom: 20px;">
+		<!-- 호출 function guideOn();-->
+		<span class="floating-guide__text">원하는 조건을 선택하여 일자리 찾기를 하세요</span>
+	</div>
+	<!-- // Snack Bar -->
+	<!-- Bottom -->
+	<div class="bottom-area">
+		<!-- 이전에 찾은 일자리 전체가 없을 경우 disabled 클래스 제거 -->
+		<button type="button" class="bottom-area__result disabled" onclick="ClickLog('MFL_2_7', '@(Request.Url.AbsolutePath.ToLower())'); RecruitSearch();">일자리 찾기</button>
+		<!-- // 이전에 찾은 일자리 전체가 없을 경우 disabled 클래스 제거 -->
+		<span class="bottom-area__alert">최대 @(lCOUNT_AREA)개까지 선택할 수 있습니다.</span>
+	</div>
+	<!-- //Bottom -->
+>>>>>>> develop
+
+</article>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+    var LatelyArea = getLatelyHistory("@(COOKIE_TYPE)_LATELY_AREA");
+    var LatelyCate = getLatelyHistory("@(COOKIE_TYPE)_LATELY_CATE");
+    var LateLyWork = $("#REQ_WORK_TXT").val();
+
+    if (LatelyArea == "" && LatelyCate == "" && LateLyWork == "") {
+      $("#Lately1").hide();
+      $("#Lately2").hide();
+      $("#LatelyNo").show();
+    } else {
+      if (LatelyArea == "") {
+        $("#LatelyArea").html("");
+        $("#LatelyAreaNo").show();
+      } else {
+        $("#LatelyArea").html(LatelyArea);
+        $("#LatelyAreaNo").hide();
+        setLatelyCookie("@(COOKIE_TYPE)_LATELY_AREA");
+      }
+
+      if (LatelyCate == "") {
+        $("#LatelyCate").html("");
+        $("#LatelyCateNo").show();
+      } else {
+        $("#LatelyCate").html(LatelyCate);
+        $("#LatelyCateNo").hide();
+        setLatelyCookie("@(COOKIE_TYPE)_LATELY_CATE");
+      }
+
+      if (LateLyWork == "") {
+        $("#LateLyWorkNo").show();
+      } else {
+        $("#LateLyWorkNo").hide();
+      }
+    }
+
+    // 5개 이상 선택 시 190314
+    $('.lately-select__list').each(function () {
+      $('.lately-list__item').click(function () {
+        var keywordChk = $(this).siblings('.lately-list__item.active').length;
+        //console.log(keywordChk);
+        var maxCnt = "@(lCOUNT_AREA - 1)";
+        if (keywordChk > parseInt(maxCnt)) {
+          $(this).removeClass('active');
+          $(".bottom-area__alert").animate({
+            top: "-40px"
+          });
+          setTimeout(function () {
+            $(".bottom-area__alert").animate({
+              top: "0px"
+            });
+          }, 3000);
+        }
+        return false;
+      })
+    });
+  });
+
+  function getLatelyHistory(vCookieName) {
+    var cookieHistory = "";
+    var arrFullCookies = "";
+    var arrTemp = "";
+    var LatelyLI = "";
+    var gbn = "";
+
+    if (vCookieName == "@(COOKIE_TYPE)_LATELY_AREA") {
+      gbn = "area";
+    } else if (vCookieName == "@(COOKIE_TYPE)_LATELY_CATE") {
+      gbn = "cate";
+    }
+
+    cookieHistory = unescape(getSearchCookie(vCookieName));
+
+    if (cookieHistory != "") {
+      arrFullCookies = cookieHistory.split("||");
+      var minI = 0;
+
+      if (arrFullCookies.length > 6) { minI = arrFullCookies.length - 6 }
+      for (var ii = (arrFullCookies.length) - 1; ii >= minI; ii--) {
+        if (arrFullCookies[ii] != "") {
+          arrTemp = arrFullCookies[ii].split('|');
+          console.log("  : " + arrFullCookies[ii]);
+          console.log("arrTemp[0] : " + arrTemp[0] + " :: arrTemp[1] : " + arrTemp[1] + " :: arrTemp[2] : " + arrTemp[2] + " :: getSectionTitle : " + getSectionTitle(arrTemp[0]));
+          var arrRQQ = arrTemp[1].split('^^');
+          var code = arrRQQ[0];
+          var txt = arrRQQ[1];
+          var fulltxt = arrRQQ[1];
+          txt = txt.replace(/==/g, " > ");
+
+
+          LatelyLI += "<li class=\"lately-list__item\"><a href=\"javascript:;\" class=\"lately-list__item--box\" onclick=\"clickCheck(this, '" + gbn + "');\" val=\"" + code + "\"  valfulltxt=\"" + fulltxt + "\">" + txt + "</a></li>";
+        }
+      }
+    }
+
+    return LatelyLI;
+  }
+
+  // 최근 검색 쿠키 재설정
+  function setLatelyCookie(vCookieName) {
+    var cookieHistory = "";
+    var arrFullCookies = "";
+    var arrTemp = "";
+    var strTxt = "";
+    var arrTxt = "";
+
+    cookieHistory = unescape(getSearchCookie(vCookieName));
+    if (cookieHistory != "") {
+      arrFullCookies = cookieHistory.split("||");
+      var minI = 0;
+
+      if (arrFullCookies.length > 6) { minI = arrFullCookies.length - 6 }
+      for (var ii = (arrFullCookies.length) - 1; ii >= minI; ii--) {
+        if (arrFullCookies[ii] != "") {
+          arrTemp = arrFullCookies[ii].split('|');
+
+          if (strTxt == "") {
+            strTxt = arrTemp[1];
+          } else {
+            strTxt = strTxt + "," + arrTemp[1];
+          }
+        }
+      }
+      if (strTxt != "") {
+        deleteSearchCookie('', '/', vCookieName);
+
+        arrTxt = strTxt.split(',');
+        for (var i = 5; i >= 0; i--) {
+          //console.log("arrTxt[" + i + "] : " + arrTxt[i]);
+          setSearchHistory('', '/', vCookieName, 365, '4', arrTxt[i]);
+        }
+      }
+    }
+  }
+
+  function clickCheck(item, gbn) {
+    if (gbn == "area" || gbn == "cate") {
+      var obj = "";
+      var maxCnt = 0;
+      if (gbn == "area") {
+        obj = "LatelyArea";
+        maxCnt = "@(lCOUNT_AREA)";
+      }
+      else if (gbn == "cate") {
+        obj = "LatelyCate";
+        maxCnt = "@(lCOUNT_CATE)";
+      }
+
+      latelySelect(item, obj, maxCnt);
+
+
+      var vaFlag = false;
+      if (parseInt($("#" + obj + " .lately-list__item.active").length) <= parseInt(maxCnt)) {
+        vaFlag = true;
+      }
+
+      if (vaFlag) {
+        valueSetting(item, gbn);
+      }
+    }
+    else {
+      latelySelect(item, gbn, '0');
+      valueSetting(item, gbn);
+    }
+
+    if (parseInt($("#TMP_AREA_COUNT").val()) == 0 && parseInt($("#TMP_CATE_COUNT").val()) == 0 && parseInt($("#TMP_WORK_TXT").val().length) == 0) {
+      $(".bottom-area__result").addClass("disabled");
+    } else {
+      $(".bottom-area__result").removeClass("disabled");
+    }
+  }
+
+  function valueSetting(obj, gbn) {
+    var orgCodeValue = "";
+    var orgTxtValue = "";
+    var orgCnt = 0;
+
+    if (gbn == "area" || gbn == "cate") {
+      if (gbn == "area") {
+        orgCodeValue = $("#TMP_AREA").val();
+        orgTxtValue = $("#TMP_AREA_TXT").val();
+        orgCnt = $("#TMP_AREA_COUNT").val();
+      }
+      else if (gbn == "cate") {
+        orgCodeValue = $("#TMP_CATE").val();
+        orgTxtValue = $("#TMP_CATE_TXT").val();
+        orgCnt = $("#TMP_CATE_COUNT").val();
+      }
+
+      var arrCodeValue = orgCodeValue.split(",");
+      var arrTxtValue = orgTxtValue.split(",");
+      var arrCodeTemp = arrCodeValue.slice();
+      var arrCodeLength = arrCodeTemp.length;
+      var arrTxtTemp = arrTxtValue.slice();
+      var chnCodeValue = "";
+      var chnTxtValue = "";
+      var iflag = true;
+
+      if (orgCodeValue == "") {
+        chnCodeValue = $.trim($(obj).attr("val"));
+        chnTxtValue = $.trim($(obj).attr("valfulltxt"));
+        orgCnt = parseInt(orgCnt) + 1;
+      } else {
+        if (orgCodeValue.indexOf($.trim($(obj).attr("val"))) != -1) {
+          for (var i = 0; i < arrCodeLength; i++) {
+            if ($.trim($(obj).attr("val")) == $.trim(arrCodeTemp[i])) {
+              arrCodeTemp.splice(i, 1);
+              i--; arrCodeLength = arrCodeTemp.length;
+
+              arrTxtTemp.splice(i, 1);
+              i--;
+              break;
+            }
+          }
+
+          for (var i = 0; i < arrCodeLength; i++) {
+            if (chnCodeValue == "") {
+              chnCodeValue = arrCodeTemp[i];
+              chnTxtValue = arrTxtTemp[i];
+            } else {
+              chnCodeValue += "," + arrCodeTemp[i];
+              chnTxtValue += "," + arrTxtTemp[i];
+            }
+          }
+
+          orgCnt = parseInt(orgCnt) - 1;
+        } else {
+          chnCodeValue = orgCodeValue + "," + $.trim($(obj).attr("val"));
+          chnTxtValue = orgTxtValue + "," + $.trim($(obj).attr("valfulltxt"));
+          orgCnt = parseInt(orgCnt) + 1;
+        }
+      }
+
+      if (gbn == "area") {
+        $("#TMP_AREA").val(chnCodeValue);
+        $("#TMP_AREA_TXT").val(chnTxtValue);
+        $("#TMP_AREA_COUNT").val(orgCnt);
+      }
+      else if (gbn == "cate") {
+        $("#TMP_CATE").val(chnCodeValue);
+        $("#TMP_CATE_TXT").val(chnTxtValue);
+        $("#TMP_CATE_COUNT").val(orgCnt);
+      }
+    }
+    else if (gbn == "work") {
+      var strVal = $("#TMP_WORK_TXT").val();
+      var arrVal = strVal.split(",");
+      var arrTemp = arrVal.slice();
+      var arrLength = arrTemp.length;
+      var rtnVal = "";
+      var wCodeVal = "";
+
+      if (strVal == "") {
+        rtnVal = $.trim($(obj).attr("valfulltxt"));
+
+      } else {
+        if (strVal.indexOf($.trim($(obj).attr("valfulltxt"))) != -1) {
+          for (var i = 0; i < arrLength; i++) {
+            if ($.trim($(obj).attr("valfulltxt")) == arrTemp[i]) {
+              arrTemp.splice(i, 1);
+              i--; arrLength = arrTemp.length;// 삭제후 재실행(배열갯수 바뀜)
+              break;
+            }
+          }
+
+          for (var i = 0; i < arrLength; i++) {
+            if (rtnVal == "") {
+              rtnVal = arrTemp[i];
+            } else {
+              rtnVal += "," + arrTemp[i];
+            }
+          }
+        } else {
+          rtnVal = strVal + "," + $.trim($(obj).attr("valfulltxt"));
+        }
+      }
+
+      $("#TMP_WORK_TXT").val(rtnVal);
+
+      if ($(obj).attr("objname") == "payf") {
+        $("#frmCS #REQ_WORK_TXT").val(rtnVal);
+        $("#frmCS #REQ_WORK_PAYF").val($(obj).attr("val"));
+        $("#frmCS #REQ_WORK_PAYAMOUNT").val("@(REQ_WORK_PAYAMOUNT)");
+        $("#frmCS #REQ_WORK_PAY_TEXT").val("@(REQ_WORK_PAY_TEXT)");
+      }
+      else if ($(obj).attr("objname") == "workf") {
+        $("#frmCS #REQ_WORK_TXT").val(rtnVal);
+
+        var work_wf = $("#frmCS #REQ_WORK_WF").val();
+        var work_wtext = $("#frmCS #REQ_WORK_WTEXT").val();
+        rtnVal = valueSplitSetting(obj, work_wf, "val");
+        $("#frmCS #REQ_WORK_WF").val(rtnVal);
+
+        rtnVal = valueSplitSetting(obj, work_wtext, "valfulltxt");
+        $("#frmCS #REQ_WORK_WTEXT").val(rtnVal);
+      }
+      else if ($(obj).attr("objname") == "dayweek") {
+        var work_day_wk = $("#frmCS #REQ_WORK_DAY_WEEK").val();
+        rtnVal = valueSplitSetting(obj, work_day_wk, "val");
+        $("#frmCS #REQ_WORK_DAY_WEEK").val(rtnVal);
+
+        $("#frmCS #REQ_WORK_DAY_WEEK_NEGO").val("@(REQ_WORK_DAY_WEEK_NEGO)");
+
+        $("#TMP_WORK_DAY_WEEK").val($(obj).attr("val"));
+        $("#TMP_WORK_DAY_WEEK_NEGO").val($("#REQ_WORK_DAY_WEEK_NEGO").val());
+      }
+      else if ($(obj).attr("objname") == "time") {
+        $("#frmCS #REQ_WORK_TIME_TEXT").val(rtnVal);
+
+        //기존꺼
+        $("#TMP_WORK_TIME").val($(obj).attr("val"));
+        $("#TMP_WORK_TIME_FROM").val($("#REQ_WORK_TIME_FROM").val());
+        $("#TMP_WORK_TIME_TO").val($("#REQ_WORK_TIME_TO").val());
+        $("#TMP_WORK_TIME_NEGO").val("0");
+        //추가
+        var work_time = $("#frmCS #REQ_WORK_TIME").val();
+        rtnVal = valueSplitSetting(obj, work_time, "val");
+        $("#frmCS #REQ_WORK_TIME").val(rtnVal);
+        $("#frmCS #REQ_WORK_TIME_NEGO").val("@(REQ_WORK_TIME_NEGO)");
+
+        orgCodeValue = $("#frmCS #REQ_WORK_TIME").val();
+
+        if (orgCodeValue == "0") {
+          //직접지정
+          $("#frmCS #REQ_WORK_TIME_FROM").val("@(REQ_WORK_TIME_FROM)");
+          $("#frmCS #REQ_WORK_TIME_TO").val("@(REQ_WORK_TIME_TO)");
+
+        } else {
+          //기간선택
+          $("#frmCS #REQ_WORK_TIME_FROM").val("");
+          $("#frmCS #REQ_WORK_TIME_TO").val("");
+
+        }
+
+      }
+      else if ($(obj).attr("objname") == "age") {
+        $("#TMP_WORK_AGE").val($(obj).attr("val"));
+        $("#TMP_WORK_AGE_N").val($("#REQ_WORK_AGE_N").val());
+      }
+      else if ($(obj).attr("objname") == "sex") {
+        $("#TMP_WORK_SEX").val($(obj).attr("val"));
+        $("#TMP_WORK_SEX_N").val($("#REQ_WORK_SEX_N").val());
+      }
+    }
+  }
+
+  function valueSplitSetting(obj, val, type) {
+    var arrval2 = val.split(",");
+    var arrTemp2 = arrval2.slice();
+    var arrLength2 = arrTemp2.length;
+    var chnObjValue = ""
+    if (val == "") {
+      val = $.trim($(obj).attr(type));
+      chnObjValue = val;
+    } else {
+      if (val.indexOf($.trim($(obj).attr(type))) != -1) {
+        for (var i = 0; i < arrLength2; i++) {
+          if ($.trim($(obj).attr(type)) == arrTemp2[i]) {
+            arrTemp2.splice(i, 1);
+            i--; arrLength2 = arrTemp2.length;// 삭제후 재실행(배열갯수 바뀜)
+            break;
+          }
+        }
+
+        for (var i = 0; i < arrLength2; i++) {
+          if (chnObjValue == "") {
+            chnObjValue = arrTemp2[i];
+          } else {
+            chnObjValue += "," + arrTemp2[i];
+          }
+        }
+      } else {
+        chnObjValue = val + "," + $.trim($(obj).attr(type));
+      }
+    }
+
+    return chnObjValue;
+
+    //var arrObjValue = val.split(",");
+    //var chnObjValue = "";
+    //var iflag = true;
+    //for (var i = 0; i < arrObjValue.length; i++) {
+    //  if ($.trim(arrObjValue[i]) != $.trim($(obj).attr(type))) {
+    //    if ($.trim(chnObjValue) == "") {
+    //      chnObjValue = $.trim(arrObjValue[i]);
+    //    }
+    //    else {
+    //      chnObjValue += "," + $.trim(arrObjValue[i]);
+    //    }
+    //  }
+    //}
+    //return chnObjValue;
+  }
+
+  function RecruitSearch() {
+    if (parseInt($("#TMP_AREA_COUNT").val()) == 0 && parseInt($("#TMP_CATE_COUNT").val()) == 0 && parseInt($("#TMP_WORK_TXT").val().length) == 0) {
+      guideAction();
+      return;
+    }
+
+    $("#REQ_AREA").val($("#TMP_AREA").val());
+    $("#REQ_AREA_TXT").val($("#TMP_AREA_TXT").val());
+    $("#REQ_AREA_COUNT").val($("#TMP_AREA_COUNT").val());
+
+    $("#REQ_CATE").val($("#TMP_CATE").val());
+    $("#REQ_CATE_TXT").val($("#TMP_CATE_TXT").val());
+    $("#REQ_CATE_COUNT").val($("#TMP_CATE_COUNT").val());
+    if ("@(PAGE_LOCATION)" != "BRAND") {
+
+      $("#REQ_WORK_DAY_WEEK").val($("#TMP_WORK_DAY_WEEK").val());
+      $("#REQ_WORK_DAY_WEEK_NEGO").val($("#TMP_WORK_DAY_WEEK_NEGO").val());
+
+      $("#REQ_WORK_TIME").val($("#TMP_WORK_TIME").val());
+      $("#REQ_WORK_TIME_FROM").val($("#TMP_WORK_TIME_FROM").val());
+      $("#REQ_WORK_TIME_TO").val($("#TMP_WORK_TIME_TO").val());
+      $("#REQ_WORK_TIME_NEGO").val($("#TMP_WORK_TIME_NEGO").val());
+
+      $("#REQ_WORK_AGE").val($("#TMP_WORK_AGE").val());
+      $("#REQ_WORK_AGE_N").val($("#TMP_WORK_AGE_N").val());
+
+      $("#REQ_WORK_SEX").val($("#TMP_WORK_SEX").val());
+      $("#REQ_WORK_SEX_N").val($("#TMP_WORK_SEX_N").val());
+
+      $("#REQ_WORK_TXT").val($("#TMP_WORK_TXT").val());
+    }
+
+    var REQ_AREA = $("#REQ_AREA").val();
+    var REQ_CATE = $("#REQ_CATE").val();
+    var REQ_KEYWORD = $("#REQ_KEYWORD").val();
+
+    var params;
+    params = {
+      AREA_USE: $("#AREA_USE").val(), CATE_USE: $("#CATE_USE").val(), WORK_USE: $("#WORK_USE").val(), COOKIE_TYPE: $("#COOKIE_TYPE").val(), sAREA: $("#REQ_AREA").val(), sAREA_TXT: $("#REQ_AREA_TXT").val(), sCATE: $("#REQ_CATE").val(), sCATE_TXT: $("#REQ_CATE_TXT").val(),
+      sWORK_PAYF: $("#REQ_WORK_PAYF").val(), sWORK_PAYAMOUNT: $("#REQ_WORK_PAYAMOUNT").val(), sWORK_PAY_TEXT: $("#REQ_WORK_PAY_TEXT").val(), sWORK_WF: $("#REQ_WORK_WF").val(), sWORK_WTEXT: $("#REQ_WORK_WTEXT").val(), sWORK_DAY_WEEK: $("#REQ_WORK_DAY_WEEK").val(), sWORK_DAY_WEEK_NEGO: $("#REQ_WORK_DAY_WEEK_NEGO").val(),
+      sWORK_DAY_WEEK_TEXT: $("#REQ_WORK_DAY_WEEK_TEXT").val(), sWORK_TIME: $("#REQ_WORK_TIME").val(), sWORK_TIMEF: $("#REQ_WORK_TIMEF").val(), sWORK_TIME_FROM: $("#REQ_WORK_TIME_FROM").val(), sWORK_TIME_TO: $("#REQ_WORK_TIME_TO").val(), sWORK_TIME_NEGO: $("#REQ_WORK_TIME_NEGO").val(), sWORK_TIME_TEXT: $("#REQ_WORK_TIME_TEXT").val(),
+      sWORK_AGE: $("#REQ_WORK_AGE").val(), sWORK_AGE_N: $("#REQ_WORK_AGE_N").val(), sWORK_SEX: $("#REQ_WORK_SEX").val(), sWORK_SEX_N: $("#REQ_WORK_SEX_N").val(), sWORK_TXT: $("#REQ_WORK_TXT").val(), sGMAP_X: $("#sGMAP_X").val(), sGMAP_Y: $("#sGMAP_Y").val(), sRADIUS: $("#sRADIUS").val()
+    };
+
+    $.ajax({
+      type: "POST",
+      url: '@Url.Action("setConditionalSearchCookie_Ajax")',
+      data: params,
+      cache: false,
+      traditional: true,
+      success: function (result) {
+        if (result == "ok") {
+          // 검색
+        	if ("@(PAGE_LOCATION)" == "" ) {
+            if (REQ_AREA == "" && REQ_CATE != "") {
+              $(location).attr("href", "/Recruit/Cate@(Html.Raw(ViewBag.DefaultParams))");
+            }
+            else {
+              $(location).attr("href", "/Recruit/Area@(Html.Raw(ViewBag.DefaultParams))");
+            }
+          }
+          else if ("@(PAGE_LOCATION)" == "AREA") {
+            $(location).attr("href", "/Recruit/Area@(Html.Raw(ViewBag.DefaultParams))");
+          }
+          else if ("@(PAGE_LOCATION)" == "CATE") {
+            $(location).attr("href", "/Recruit/Cate@(Html.Raw(ViewBag.DefaultParams))");
+          }
+          else if ("@(PAGE_LOCATION)" == "TODAY") {
+            $(location).attr("href", "/Recruit/Today@(Html.Raw(ViewBag.DefaultParams))");
+          }
+          else if ("@(PAGE_LOCATION)" == "SPECIAL") {
+            $(location).attr("href", "/Specialist/Special?SpID=@(ViewBag.SPID)@(Html.Raw(ViewBag.AddParams))");
+          }
+          else if ("@(PAGE_LOCATION)" == "BRAND") {
+            $(location).attr("href", "/Recruit/BrandList?BR_GBN=@(ViewBag.BR_GBN)&BR_SEQ=@(ViewBag.BR_SEQ)@(Html.Raw(ViewBag.AddParams))");
+          }
+          else if ("@(PAGE_LOCATION)" == "SEARCH") {
+          	$(location).attr("href", "/Search/SearchJob?keyword=" + REQ_KEYWORD + "@(ViewBag.AddParams)");
+          }
+        }
+      },
+      error: function (request, status, error) {
+        //alert("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
+      }
+    });
+  }
+
+  function HubSearch() {
+    $("#frmCS").attr("action", "/ConditionalSearch/Hub@(Html.Raw(ViewBag.DefaultParams))");
+    $("#frmCS").submit();
+  }
+</script>

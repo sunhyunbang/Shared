@@ -1,0 +1,1479 @@
+﻿@inherits System.Web.Mvc.WebViewPage<dynamic>
+@using MediaWill._Lib;
+@{
+<<<<<<< HEAD
+  Layout = "~/Views/Shared/__ReNew_Layout_ConditionalSearch.cshtml";
+
+  string AREA_USE = ViewBag.AREA_USE;
+  string CATE_USE = ViewBag.CATE_USE;
+  string WORK_USE = ViewBag.WORK_USE;
+
+  //총 선택 갯 수
+  int lCOUNT_AREA = ViewBag.lCOUNT_AREA;
+  int lCOUNT_CATE = ViewBag.lCOUNT_CATE;
+
+  // 지역
+  string REQ_AREA = ViewBag.REQ_AREA;
+  string REQ_AREA_TXT = ViewBag.REQ_AREA_TXT;
+  string REQ_AREA_COUNT = ViewBag.REQ_AREA_COUNT;
+
+  // 업직종
+  string REQ_CATE = ViewBag.REQ_CATE;
+  string REQ_CATE_TXT = ViewBag.REQ_CATE_TXT;
+  string REQ_CATE_COUNT = ViewBag.REQ_CATE_COUNT;
+
+  // 근무조건
+  string REQ_WORK_PAYF = ViewBag.REQ_WORK_PAYF;
+  string REQ_WORK_PAYAMOUNT = ViewBag.REQ_WORK_PAYAMOUNT;
+  string REQ_WORK_PAY_TEXT = ViewBag.REQ_WORK_PAY_TEXT;
+  string REQ_WORK_WF = ViewBag.REQ_WORK_WF;
+  string REQ_WORK_WTEXT = ViewBag.REQ_WORK_WTEXT;
+  string REQ_WORK_DAY_WEEK = ViewBag.REQ_WORK_DAY_WEEK;
+  string REQ_WORK_DAY_WEEK_NEGO = ViewBag.REQ_WORK_DAY_WEEK_NEGO;
+  string REQ_WORK_DAY_WEEK_TEXT = ViewBag.REQ_WORK_DAY_WEEK_TEXT;
+  string REQ_WORK_TIME = ViewBag.REQ_WORK_TIME;
+  string REQ_WORK_TIMEF = ViewBag.REQ_WORK_TIMEF;
+  string REQ_WORK_TIME_FROM = ViewBag.REQ_WORK_TIME_FROM;
+  string REQ_WORK_TIME_TO = ViewBag.REQ_WORK_TIME_TO;
+  string REQ_WORK_TIME_NEGO = ViewBag.REQ_WORK_TIME_NEGO;
+  string REQ_WORK_TIME_TEXT = ViewBag.REQ_WORK_TIME_TEXT;
+  string REQ_WORK_AGE = ViewBag.REQ_WORK_AGE;
+  string REQ_WORK_AGE_N = ViewBag.REQ_WORK_AGE_N;
+  string REQ_WORK_AGE_TEXT = ViewBag.REQ_WORK_AGE_TEXT;
+  string REQ_WORK_SEX = ViewBag.REQ_WORK_SEX;
+  string REQ_WORK_SEX_N = ViewBag.REQ_WORK_SEX_N;
+  string REQ_WORK_SEX_TEXT = ViewBag.REQ_WORK_SEX_TEXT;
+  string REQ_WORK_TXT = ViewBag.REQ_WORK_TXT;
+
+  string sArea = string.Empty;
+  string sAreaTxt = string.Empty;
+  string sAreaCount = string.Empty;
+  string sCate = string.Empty;
+  string sCateTxt = string.Empty;
+  string sCateCount = string.Empty;
+
+
+  sArea = REQ_AREA;
+  sAreaTxt = REQ_AREA_TXT;
+  sAreaCount = REQ_AREA_COUNT;
+
+  sCate = REQ_CATE;
+  sCateTxt = REQ_CATE_TXT;
+  sCateCount = REQ_CATE_COUNT;
+
+  string _AreaActive = string.Empty;
+  string _CateActive = string.Empty;
+  string _WorkActive = string.Empty;
+  _AreaActive = Convert.ToInt32(sAreaCount) > 0 ? "active" : "";
+  _CateActive = Convert.ToInt32(sCateCount) > 0 ? "active" : "";
+  _WorkActive = (REQ_WORK_PAYF != "0" || REQ_WORK_WF != "0" || REQ_WORK_DAY_WEEK != "0" || !REQ_WORK_TIME.Equals("0") || (REQ_WORK_TIME.Equals("0") && !REQ_WORK_TIME_FROM.Equals("") && !REQ_WORK_TIME_TO.Equals("")) || REQ_WORK_AGE != "" || REQ_WORK_SEX != "0") ? "active" : "";
+
+  string PAGE_LOCATION = ViewBag.PAGE_LOCATION != "SEARCH" ? ViewBag.PAGE_LOCATION : "" ;
+  string HistoryBackUrl = string.Empty;
+  string SEARCH_LOCATION = ViewBag.SEARCH_LOCATION;
+  string strSubTitle = "일자리 빠르게 찾기";
+
+
+  if (PAGE_LOCATION == "AREA")
+  {
+    HistoryBackUrl = "/Recruit/Area" + ViewBag.DefaultParams;
+  }
+  else if (PAGE_LOCATION == "JobInfo")
+  {
+    HistoryBackUrl = "/Recruit/JobInfo" + ViewBag.DefaultParams;
+  }
+  else if (PAGE_LOCATION == "CATE")
+  {
+    HistoryBackUrl = "/Recruit/Cate" + ViewBag.DefaultParams;
+  }
+  else if (PAGE_LOCATION == "TODAY")
+  {
+    HistoryBackUrl = "/Recruit/Today" + ViewBag.DefaultParams;
+  }
+  else if (PAGE_LOCATION == "SPECIAL")
+  {
+
+    if(string.IsNullOrEmpty(ViewBag.SPID))
+=======
+	Layout = "~/Views/Shared/__ReNew_Layout_ConditionalSearch.cshtml";
+
+	string AREA_USE = ViewBag.AREA_USE;
+	string CATE_USE = ViewBag.CATE_USE;
+	string WORK_USE = ViewBag.WORK_USE;
+
+	//총 선택 갯 수
+	int lCOUNT_AREA = ViewBag.lCOUNT_AREA;
+	int lCOUNT_CATE = ViewBag.lCOUNT_CATE;
+
+	// 지역
+	string REQ_AREA = ViewBag.REQ_AREA;
+	string REQ_AREA_TXT = ViewBag.REQ_AREA_TXT;
+	string REQ_AREA_COUNT = ViewBag.REQ_AREA_COUNT;
+
+	// 업직종
+	string REQ_CATE = ViewBag.REQ_CATE;
+	string REQ_CATE_TXT = ViewBag.REQ_CATE_TXT;
+	string REQ_CATE_COUNT = ViewBag.REQ_CATE_COUNT;
+
+	// 근무조건
+	string REQ_WORK_PAYF = ViewBag.REQ_WORK_PAYF;
+	string REQ_WORK_PAYAMOUNT = ViewBag.REQ_WORK_PAYAMOUNT;
+	string REQ_WORK_PAY_TEXT = ViewBag.REQ_WORK_PAY_TEXT;
+	string REQ_WORK_WF = ViewBag.REQ_WORK_WF;
+	string REQ_WORK_WTEXT = ViewBag.REQ_WORK_WTEXT;
+	string REQ_WORK_DAY_WEEK = ViewBag.REQ_WORK_DAY_WEEK;
+	string REQ_WORK_DAY_WEEK_NEGO = ViewBag.REQ_WORK_DAY_WEEK_NEGO;
+	string REQ_WORK_DAY_WEEK_TEXT = ViewBag.REQ_WORK_DAY_WEEK_TEXT;
+	string REQ_WORK_TIME = ViewBag.REQ_WORK_TIME;
+	string REQ_WORK_TIMEF = ViewBag.REQ_WORK_TIMEF;
+	string REQ_WORK_TIME_FROM = ViewBag.REQ_WORK_TIME_FROM;
+	string REQ_WORK_TIME_TO = ViewBag.REQ_WORK_TIME_TO;
+	string REQ_WORK_TIME_NEGO = ViewBag.REQ_WORK_TIME_NEGO;
+	string REQ_WORK_TIME_TEXT = ViewBag.REQ_WORK_TIME_TEXT;
+	string REQ_WORK_AGE = ViewBag.REQ_WORK_AGE;
+	string REQ_WORK_AGE_N = ViewBag.REQ_WORK_AGE_N;
+	string REQ_WORK_AGE_TEXT = ViewBag.REQ_WORK_AGE_TEXT;
+	string REQ_WORK_SEX = ViewBag.REQ_WORK_SEX;
+	string REQ_WORK_SEX_N = ViewBag.REQ_WORK_SEX_N;
+	string REQ_WORK_SEX_TEXT = ViewBag.REQ_WORK_SEX_TEXT;
+	string REQ_WORK_TXT = ViewBag.REQ_WORK_TXT;
+
+	string sArea = string.Empty;
+	string sAreaTxt = string.Empty;
+	string sAreaCount = string.Empty;
+	string sCate = string.Empty;
+	string sCateTxt = string.Empty;
+	string sCateCount = string.Empty;
+    
+	sArea = REQ_AREA;
+	sAreaTxt = REQ_AREA_TXT;
+	sAreaCount = REQ_AREA_COUNT;
+
+	sCate = REQ_CATE;
+	sCateTxt = REQ_CATE_TXT;
+	sCateCount = REQ_CATE_COUNT;
+
+	string _AreaActive = string.Empty;
+	string _CateActive = string.Empty;
+	string _WorkActive = string.Empty;
+	_AreaActive = Convert.ToInt32(sAreaCount) > 0 ? "active" : "";
+	_CateActive = Convert.ToInt32(sCateCount) > 0 ? "active" : "";
+	_WorkActive = (REQ_WORK_PAYF != "0" || REQ_WORK_WF != "0" || REQ_WORK_DAY_WEEK != "0" || !REQ_WORK_TIME.Equals("0") || (REQ_WORK_TIME.Equals("0") && !REQ_WORK_TIME_FROM.Equals("") && !REQ_WORK_TIME_TO.Equals("")) || REQ_WORK_AGE != "" || REQ_WORK_SEX != "0") ? "active" : "";
+
+	string PAGE_LOCATION = ViewBag.PAGE_LOCATION;
+	string HistoryBackUrl = string.Empty;
+    string SEARCH_LOCATION = ViewBag.SEARCH_LOCATION;
+	string strSubTitle = "일자리 빠르게 찾기";
+
+
+	if (PAGE_LOCATION == "AREA")
+	{
+		HistoryBackUrl = "/Recruit/Area" + ViewBag.DefaultParams;
+	}
+    else if (PAGE_LOCATION == "JobInfo")
+    {
+        HistoryBackUrl = "/Recruit/JobInfo" + ViewBag.DefaultParams;
+    }        
+	else if (PAGE_LOCATION == "CATE")
+	{
+		HistoryBackUrl = "/Recruit/Cate" + ViewBag.DefaultParams;
+	}
+	else if (PAGE_LOCATION == "TODAY")
+	{
+		HistoryBackUrl = "/Recruit/Today" + ViewBag.DefaultParams;
+	}
+	else if (PAGE_LOCATION == "SPECIAL")
+	{
+        
+        if(string.IsNullOrEmpty(ViewBag.SPID))
+        {
+            HistoryBackUrl = "/Specialist/Home" + ViewBag.DefaultParams;
+        }
+        else
+        {
+            HistoryBackUrl = "/Specialist/Special?SpID=" + ViewBag.SPID + ViewBag.AddParams;
+        }
+	}
+	else if (PAGE_LOCATION == "BRAND")
+	{
+        if (string.IsNullOrEmpty(ViewBag.BR_GBN) || string.IsNullOrEmpty(ViewBag.BR_SEQ))
+        {
+            HistoryBackUrl = "/Recruit/Brand" + ViewBag.DefaultParams;
+        }
+        else
+        {
+            HistoryBackUrl = "/Recruit/BrandList?BR_GBN=" + ViewBag.BR_GBN + "&BR_SEQ=" + ViewBag.BR_SEQ + ViewBag.AddParams;
+        }
+		
+	}
+	else if (PAGE_LOCATION == "SEARCH")
+	{
+		HistoryBackUrl = "/Search/SearchJob?keyword=" + ViewBag.REQ_KEYWORD + ViewBag.AddParams;
+		strSubTitle = "상세검색";
+	}
+    else if (PAGE_LOCATION == "SUBWAY")
+>>>>>>> develop
+    {
+      HistoryBackUrl = "/Specialist/Home" + ViewBag.DefaultParams;
+    }
+    else
+    {
+      HistoryBackUrl = "/Specialist/Special?SpID=" + ViewBag.SPID + ViewBag.AddParams;
+    }
+  }
+  else if (PAGE_LOCATION == "BRAND")
+  {
+    if (string.IsNullOrEmpty(ViewBag.BR_GBN) || string.IsNullOrEmpty(ViewBag.BR_SEQ))
+    {
+      HistoryBackUrl = "/Recruit/Brand" + ViewBag.DefaultParams;
+    }
+    else
+    {
+      HistoryBackUrl = "/Recruit/BrandList?BR_GBN=" + ViewBag.BR_GBN + "&BR_SEQ=" + ViewBag.BR_SEQ + ViewBag.AddParams;
+    }
+
+  }
+  else if (PAGE_LOCATION == "")
+  {
+    HistoryBackUrl = "/Search/SearchJob?keyword=" + ViewBag.REQ_KEYWORD + ViewBag.AddParams;
+    strSubTitle = "상세검색";
+  }
+  else if (PAGE_LOCATION == "SUBWAY")
+  {
+    HistoryBackUrl = "/Recruit/Subway" + ViewBag.DefaultParams;
+  }
+  else if (PAGE_LOCATION == "MAPLIST")
+  {
+    HistoryBackUrl = ViewBag.MobileJobDomain_SSL + "/OurTownJob/MapList" + ViewBag.DefaultParams;
+  }
+  else if (PAGE_LOCATION == "LATELYLIST")
+  {
+    HistoryBackUrl = "/Lately/LatelyList" + ViewBag.DefaultParams;
+  }
+  else if (PAGE_LOCATION == "RECOMMENDJOBS")
+  {
+    HistoryBackUrl = "/Recruit/RecommendJobs" + ViewBag.DefaultParams;
+  }
+  else
+  {
+    HistoryBackUrl = "/" + ViewBag.DefaultParams;
+  }
+}
+<link href="@Url.Content("~/Styles/ReNew/LocationJob.css?v=" + ViewBag.CssEditVer)" rel="stylesheet" />
+
+  
+<style>
+.header-btn__right {right:15px;height:50px;line-height:50px;font-size:14px;color:#fff;}
+</style>
+
+	@* form object *@
+	<script type="text/javascript">
+	    //앱다운로드 2019 이벤트를 위한 추가 시작
+	    var deviceID = "@ViewBag.DeviceID";
+	    var Event_State = "@ViewBag.Event_State";
+	    if (getCookie('evAppDownPage') == '' && deviceID != "" && Event_State == "0") {
+	        location.href = "/event/evAppDownPage?path=1&mid=" + deviceID;
+	    }
+	    //앱다운로드 2019 이벤트를 위한 추가 끝
+	</script>
+	@RenderPage("../RenderPage/__ReNew_ConditionalSearch_FrmCS.cshtml")
+	@RenderPage("../RenderPage/__ReNew_ConditionalSearch_Frm.cshtml")
+	<article class="quick-wrap quick-wrap--serarch">
+		<h1 class="hide">@(strSubTitle)</h1>
+		<!-- Header -->
+		<header class="headerType">
+			<a class="headerType2-btn headerType2-btn--back headerType2__title-link" href="#" onclick="ClickLog('MFL_2_8', '@(Request.Url.AbsolutePath.ToLower())');HistoryBack();">뒤로가기</a>
+			<h1 class="headerType2__title" title="@(strSubTitle)">@(strSubTitle)</h1>
+
+      @if (PAGE_LOCATION.Equals("SEARCH"))
+			{
+				<a href="#" onclick="resetHub('SEARCH');" class="headerType2-btn headerType2-btn--reset headerType2__right-link">초기화</a>
+			}
+			else
+			{
+				<a href="#" onclick="resetHub('ELSE');" class="headerType2-btn headerType2-btn--reset headerType2__right-link">초기화</a>
+			}
+            
+		</header>
+		<!-- //Header -->
+		<!-- Contents -->
+
+		<section class="quick-contents">
+			<h1 class="hide">@(strSubTitle)</h1>
+	
+					<!-- 선택된 리스트 없을경우만 문구 노출 -->
+			<p class="quick-about">원하는 근무지, 업직종을 선택하세요</p>
+					<!-- // 선택된 리스트 없을경우만 문구 노출 -->
+
+			@*
+				<p class="import-resumeCondition">
+					<span class="ico ico--download"></span>이력서에서 검색조건 불러오기
+				</p>
+				2차 검색 작업시 적용*@
+			<!-- 빠른선택 리스트 -->
+			<ul class="quick-select">
+				<li class="quick-select__list @(_AreaActive)">
+					<!-- 선택된 리스트가 있을경우 active 클래스 추가 -->
+          @if (PAGE_LOCATION.Equals("BRAND"))
+          {
+            <a href="javascript:;" onclick="ClickLog('MFL_2_11', '@(Request.Url.AbsolutePath.ToLower())'); CheckSearch(4);" class="quick-select__list--link">희망 @((PAGE_LOCATION == "SEARCH") ? "근무지" : "지역") <span>선택</span></a>
+          }
+          else
+          {
+            <a href="javascript:;" onclick="ClickLog('MFL_2_11', '@(Request.Url.AbsolutePath.ToLower())'); CheckSearch(1);" class="quick-select__list--link">희망 @((PAGE_LOCATION == "SEARCH") ? "근무지" : "지역") <span>선택</span></a>
+          }
+
+					<div class="quick-item">
+						<ul class="quick-item__list">
+							@{
+								if (Convert.ToInt32(sAreaCount) > 0)
+								{
+									string[] arrArea = null;
+									string[] arrAreaTxt = null;
+									if (!string.IsNullOrEmpty(sArea))
+									{
+										arrArea = sArea.Split(',');
+										arrAreaTxt = sAreaTxt.Split(',');
+										for (var i = 0; i < arrArea.Length; i++)
+										{
+											<li class="quick-item__list--box" id="Area_@(arrArea[i])">@(arrAreaTxt[i].Replace("==", " > ")) <a href="javascript:;" class="box-del" val="@(arrArea[i])" valfulltxt="@(arrAreaTxt[i])" onclick="deleteCheck(this, 'area');">삭제</a></li>
+										}
+									}
+								}
+							}
+						</ul>
+					</div>
+				</li>
+				@{
+					// 브랜드관은 희망 업직종 사용 않함  // 20190604 도정민 수정
+          //if (!(PAGE_LOCATION == "BRAND") || ((PAGE_LOCATION == "BRAND") && !string.IsNullOrEmpty(SEARCH_LOCATION)))
+
+					<li class="quick-select__list @(_CateActive)">
+            @if (PAGE_LOCATION.Equals("BRAND"))
+            {
+              <!-- 선택된 리스트가 있을경우 active 클래스 추가 -->
+              <a href="javascript:;" onclick="ClickLog('MFL_2_12', '@(Request.Url.AbsolutePath.ToLower())'); CheckSearch(5);" class="quick-select__list--link">희망 업직종 <span>선택</span></a>
+            }
+            else
+            {
+              <!-- 선택된 리스트가 있을경우 active 클래스 추가 -->
+              <a href="javascript:;" onclick="ClickLog('MFL_2_12', '@(Request.Url.AbsolutePath.ToLower())'); CheckSearch(2);" class="quick-select__list--link">희망 업직종 <span>선택</span></a>
+            }
+						<div class="quick-item">
+							<ul class="quick-item__list">
+								@{
+									if (Convert.ToInt32(sCateCount) > 0)
+									{
+										string rtnCateHtml = string.Empty;
+
+										string[] arrCate = null;
+										string[] arrCateTxt = null;
+										if (!string.IsNullOrEmpty(sCate))
+										{
+											arrCate = sCate.Split(',');
+											arrCateTxt = sCateTxt.Split(',');
+											for (var i = 0; i < arrCate.Length; i++)
+											{
+											<li class="quick-item__list--box" id="Cate_@(arrCate[i])">@(arrCateTxt[i].Replace("==", " > ")) <a href="javascript:;" class="box-del" val="@(arrCate[i])" valfulltxt="@(arrCateTxt[i])" onclick="deleteCheck(this, 'cate');">삭제</a></li>
+											}
+										}
+									}
+								}
+							</ul>
+						</div>
+					</li>
+
+				}
+				@{
+					if (WORK_USE == "Y")
+					{
+					<li class="quick-select__list @(_WorkActive)">
+						<!-- 선택된 리스트가 있을경우 active 클래스 추가 -->
+              <a href="javascript:;" onclick="ClickLog('MFL_2_13', '@(Request.Url.AbsolutePath.ToLower())'); CheckSearch(3);" class="quick-select__list--link">근무조건<span>선택</span></a>
+						<div class="quick-item">
+							<ul class="quick-item__list">
+								@{
+									if (PAGE_LOCATION.Equals("SEARCH") || PAGE_LOCATION.Equals("BRAND"))
+									{
+										//급여
+										if (!REQ_WORK_PAYAMOUNT.Equals("0"))
+										{
+											if (REQ_WORK_PAYF.Equals("1"))
+											{
+												<li class="quick-item__list--box">연봉 @(new Common_Utils().fCommaFormat(REQ_WORK_PAYAMOUNT))원 이상<a href="javascript:;" class="box-del" objname="payf" val="1" valfulltxt="연봉 @(new Common_Utils().fCommaFormat(REQ_WORK_PAYAMOUNT).Replace(",","|"))원 이상" onclick="deleteCheck(this, 'work');">삭제</a></li>
+											}
+											else if (REQ_WORK_PAYF.Equals("2"))
+											{
+												<li class="quick-item__list--box">월급 @(new Common_Utils().fCommaFormat(REQ_WORK_PAYAMOUNT))원 이상<a href="javascript:;" class="box-del" objname="payf" val="2" valfulltxt="월급 @(new Common_Utils().fCommaFormat(REQ_WORK_PAYAMOUNT).Replace(",","|"))원 이상" onclick="deleteCheck(this, 'work');">삭제</a></li>
+											}
+											else if (REQ_WORK_PAYF.Equals("3"))
+											{
+												<li class="quick-item__list--box">일급 @(new Common_Utils().fCommaFormat(REQ_WORK_PAYAMOUNT))원 이상<a href="javascript:;" class="box-del" objname="payf" val="3" valfulltxt="일급 @(new Common_Utils().fCommaFormat(REQ_WORK_PAYAMOUNT).Replace(",","|"))원 이상" onclick="deleteCheck(this, 'work');">삭제</a></li>
+											}
+											else if (REQ_WORK_PAYF.Equals("4"))
+											{
+												<li class="quick-item__list--box">시급 @(new Common_Utils().fCommaFormat(REQ_WORK_PAYAMOUNT))원 이상<a href="javascript:;" class="box-del" objname="payf" val="4" valfulltxt="시급 @(new Common_Utils().fCommaFormat(REQ_WORK_PAYAMOUNT).Replace(",","|"))원 이상" onclick="deleteCheck(this, 'work');">삭제</a></li>
+											}
+										}
+
+										//근무형태
+										string[] arr_REQ_WORK_WF = null;
+										if (!string.IsNullOrEmpty(REQ_WORK_WF))
+										{
+											arr_REQ_WORK_WF = REQ_WORK_WF.Split(',');
+											for (var i = 0; i < arr_REQ_WORK_WF.Length; i++)
+											{
+												if (arr_REQ_WORK_WF[i].Equals("1"))
+												{
+													<li class="quick-item__list--box">정규직<a href="javascript:;" class="box-del" objname="workf" val="1" valfulltxt="정규직" onclick="deleteCheck(this, 'work');">삭제</a></li>
+												}
+												if (arr_REQ_WORK_WF[i].Equals("2"))
+												{
+													<li class="quick-item__list--box">계약직<a href="javascript:;" class="box-del" objname="workf" val="2" valfulltxt="계약직" onclick="deleteCheck(this, 'work');">삭제</a></li>
+												}
+												if (arr_REQ_WORK_WF[i].Equals("3"))
+												{
+													<li class="quick-item__list--box">파견직<a href="javascript:;" class="box-del" objname="workf" val="3" valfulltxt="파견직" onclick="deleteCheck(this, 'work');">삭제</a></li>
+												}
+												if (arr_REQ_WORK_WF[i].Equals("4"))
+												{
+													<li class="quick-item__list--box">파트타임<a href="javascript:;" class="box-del" objname="workf" val="4" valfulltxt="파트타임" onclick="deleteCheck(this, 'work');">삭제</a></li>
+												}
+												if (arr_REQ_WORK_WF[i].Equals("5"))
+												{
+													<li class="quick-item__list--box">위촉직<a href="javascript:;" class="box-del" objname="workf" val="5" valfulltxt="위촉직" onclick="deleteCheck(this, 'work');">삭제</a></li>
+												}
+												if (arr_REQ_WORK_WF[i].Equals("6"))
+												{
+													<li class="quick-item__list--box">프리랜서<a href="javascript:;" class="box-del" objname="workf" val="6" valfulltxt="프리랜서" onclick="deleteCheck(this, 'work');">삭제</a></li>
+												}
+											}
+										}
+									}
+									//근무요일
+									string[] arr_REQ_WORK_DAY_WEEK = null;
+									if (!string.IsNullOrEmpty(REQ_WORK_DAY_WEEK))
+									{
+										arr_REQ_WORK_DAY_WEEK = REQ_WORK_DAY_WEEK.Split(',');
+										for (var i = 0; i < arr_REQ_WORK_DAY_WEEK.Length; i++)
+										{
+											if (PAGE_LOCATION.Equals("SEARCH") || PAGE_LOCATION.Equals("BRAND"))
+											{
+												//통합검색 예외처리
+												if (arr_REQ_WORK_DAY_WEEK[i] == "1")
+												{
+													<li class="quick-item__list--box">월~금 <a href="javascript:;" class="box-del" objname="dayweek" val="1" valfulltxt="월~금" onclick="deleteCheck(this, 'work');">삭제</a></li>
+												}
+												if (arr_REQ_WORK_DAY_WEEK[i] == "2")
+												{
+													<li class="quick-item__list--box">월~토 <a href="javascript:;" class="box-del" objname="dayweek" val="2" valfulltxt="월~토" onclick="deleteCheck(this, 'work');">삭제</a></li>
+												}
+												if (arr_REQ_WORK_DAY_WEEK[i] == "3")
+												{
+													<li class="quick-item__list--box">주말(토/일) <a href="javascript:;" class="box-del" objname="dayweek" val="3" valfulltxt="주말(토/일)" onclick="deleteCheck(this, 'work');">삭제</a></li>
+												}
+												if (arr_REQ_WORK_DAY_WEEK[i] == "4")
+												{
+													<li class="quick-item__list--box">주6일 <a href="javascript:;" class="box-del" objname="dayweek" val="4" valfulltxt="주6일" onclick="deleteCheck(this, 'work');">삭제</a></li>
+												}
+												if (arr_REQ_WORK_DAY_WEEK[i] == "5")
+												{
+													<li class="quick-item__list--box">주5일 <a href="javascript:;" class="box-del" objname="dayweek" val="5" valfulltxt="주5일" onclick="deleteCheck(this, 'work');">삭제</a></li>
+												}
+												if (arr_REQ_WORK_DAY_WEEK[i] == "6")
+												{
+													<li class="quick-item__list--box">주4일 <a href="javascript:;" class="box-del" objname="dayweek" val="6" valfulltxt="주4일" onclick="deleteCheck(this, 'work');">삭제</a></li>
+												}
+												if (arr_REQ_WORK_DAY_WEEK[i] == "7")
+												{
+													<li class="quick-item__list--box">주3일 <a href="javascript:;" class="box-del" objname="dayweek" val="7" valfulltxt="주3일" onclick="deleteCheck(this, 'work');">삭제</a></li>
+												}
+												if (arr_REQ_WORK_DAY_WEEK[i] == "8")
+												{
+													<li class="quick-item__list--box">주2일 <a href="javascript:;" class="box-del" objname="dayweek" val="8" valfulltxt="주2일" onclick="deleteCheck(this, 'work');">삭제</a></li>
+												}
+												if (arr_REQ_WORK_DAY_WEEK[i] == "9")
+												{
+													<li class="quick-item__list--box">주1일(하루) <a href="javascript:;" class="box-del" objname="dayweek" val="9" valfulltxt="주1일(하루)" onclick="deleteCheck(this, 'work');">삭제</a></li>
+												}
+											}
+											else
+											{
+												if (REQ_WORK_DAY_WEEK == "1")
+												{
+													<li class="quick-item__list--box">주 4일~6일 <a href="javascript:;" class="box-del" objname="dayweek" val="1" valfulltxt="주 4일~6일" onclick="deleteCheck(this, 'work');">삭제</a></li>
+												}
+												else if (REQ_WORK_DAY_WEEK == "2")
+												{
+													<li class="quick-item__list--box">주 1일~3일 <a href="javascript:;" class="box-del" objname="dayweek" val="2" valfulltxt="주 1일~3일" onclick="deleteCheck(this, 'work');">삭제</a></li>
+												}
+												else if (REQ_WORK_DAY_WEEK == "3")
+												{
+													<li class="quick-item__list--box">주말 <a href="javascript:;" class="box-del" objname="dayweek" val="3" valfulltxt="주말" onclick="deleteCheck(this, 'work');">삭제</a></li>
+												}
+											}
+										}
+									}
+
+									//근무시간
+									if (PAGE_LOCATION.Equals("SEARCH") || PAGE_LOCATION.Equals("BRAND"))
+									{
+										string[] arr_REQ_WORK_TIME = null;
+										if (!string.IsNullOrEmpty(REQ_WORK_TIME))
+										{
+											if (REQ_WORK_TIME.Equals("0") && REQ_WORK_TIME_FROM.Length.Equals(4) && REQ_WORK_TIME_TO.Length.Equals(4))
+											{
+												string TEMPFROM = REQ_WORK_TIME_FROM.Substring(0, 2) + ":" + REQ_WORK_TIME_FROM.Substring(2, 2);
+												string TEMPTO = REQ_WORK_TIME_TO.Substring(0, 2) + ":" + REQ_WORK_TIME_TO.Substring(2, 2);
+
+												<li class="quick-item__list--box">직접지정(@(TEMPFROM)~@(TEMPTO)) <a href="javascript:;" class="box-del" objname="time" val="3" valfulltxt="직접지정(@(TEMPFROM)~@(TEMPTO))" onclick="deleteCheck(this, 'work');">삭제</a></li>
+											}
+
+
+											arr_REQ_WORK_TIME = REQ_WORK_TIME.Split(',');
+											for (var i = 0; i < arr_REQ_WORK_TIME.Length; i++)
+											{
+												if (arr_REQ_WORK_TIME[i] == "1")
+												{
+													<li class="quick-item__list--box">정규(09:00~18:00) <a href="javascript:;" class="box-del" objname="time" val="1" valfulltxt="정규(09:00~18:00)" onclick="deleteCheck(this, 'work');">삭제</a></li>
+												}
+												else if (arr_REQ_WORK_TIME[i] == "2")
+												{
+													<li class="quick-item__list--box">오전(06:00~12:00) <a href="javascript:;" class="box-del" objname="time" val="2" valfulltxt="오전(06:00~12:00)" onclick="deleteCheck(this, 'work');">삭제</a></li>
+												}
+												else if (arr_REQ_WORK_TIME[i] == "3")
+												{
+													<li class="quick-item__list--box">오후(12:00~18:00) <a href="javascript:;" class="box-del" objname="time" val="3" valfulltxt="오후(12:00~18:00)" onclick="deleteCheck(this, 'work');">삭제</a></li>
+												}
+												else if (arr_REQ_WORK_TIME[i] == "4")
+												{
+													<li class="quick-item__list--box">저녁(18:00~24:00) <a href="javascript:;" class="box-del" objname="time" val="4" valfulltxt="저녁(18:00~24:00)" onclick="deleteCheck(this, 'work');">삭제</a></li>
+												}
+												else if (arr_REQ_WORK_TIME[i] == "5")
+												{
+													<li class="quick-item__list--box">새벽(00:00~06:00) <a href="javascript:;" class="box-del" objname="time" val="5" valfulltxt="새벽(00:00~06:00)" onclick="deleteCheck(this, 'work');">삭제</a></li>
+												}
+											}
+										}
+									}
+									else
+									{
+										//근무시간
+										if (REQ_WORK_TIME != "0")
+										{
+											if (REQ_WORK_TIME == "1")
+											{
+												<li class="quick-item__list--box">장시간 근무<a href="javascript:;" class="box-del" objname="time" val="1" valfulltxt="장시간 근무" onclick="deleteCheck(this, 'work');">삭제</a></li>
+											}
+											else if (REQ_WORK_TIME == "2")
+											{
+												<li class="quick-item__list--box">단시간 근무<a href="javascript:;" class="box-del" objname="time" val="2" valfulltxt="단시간 근무" onclick="deleteCheck(this, 'work');">삭제</a></li>
+											}
+											else if (REQ_WORK_TIME == "3")
+											{
+												<li class="quick-item__list--box">직접지정(@(REQ_WORK_TIME_FROM)시~@(REQ_WORK_TIME_TO)시) <a href="javascript:;" class="box-del" objname="time" val="3" valfulltxt="직접지정(@(REQ_WORK_TIME_FROM)시~@(REQ_WORK_TIME_TO)시)" onclick="deleteCheck(this, 'work');">삭제</a></li>
+											}
+										}
+									}
+
+									//연령
+									if (REQ_WORK_AGE != "")
+									{
+											<li class="quick-item__list--box">@(REQ_WORK_AGE)세 <a href="javascript:;" class="box-del" objname="age" val="@(REQ_WORK_AGE)" valfulltxt="@(REQ_WORK_AGE)세" onclick="deleteCheck(this, 'work');">삭제</a></li>
+									}
+
+									//성별
+									if (REQ_WORK_SEX != "0")
+									{
+										if (REQ_WORK_SEX == "1")
+										{
+											<li class="quick-item__list--box">남자 <a href="javascript:;" class="box-del" objname="sex" val="1" valfulltxt="남자" onclick="deleteCheck(this, 'work');">삭제</a></li>
+										}
+										else if (REQ_WORK_SEX == "2")
+										{
+											<li class="quick-item__list--box">여자 <a href="javascript:;" class="box-del" objname="sex" val="2" valfulltxt="여자" onclick="deleteCheck(this, 'work');">삭제</a></li>
+										}
+									}
+								}
+							</ul>
+						</div>
+					</li>
+									}
+				}
+			</ul>
+
+      <!-- FJ002-1086 검색조건 위치변경
+      <p class="quick-about quick-about--search"><button class="quick-about--search__btn" onclick="LatelySearch(); return false;"><span>최근 검색 조건</span></button></p>  
+      -->
+
+			<!-- // 빠른선택 리스트 -->
+			<div class="quick-contents__link">
+				<!--<a href="/ConditionalSearch/Lately" class="quick-contents__link--item">최근 검색 조건</a>-->
+				<a href="javascript:;" onclick="ClickLog('MFL_2_5', '@(Request.Url.AbsolutePath.ToLower())'); LatelySearch();" class="quick-contents__link--item">최근 검색 조건</a>
+			</div>
+		</section>
+		<!-- // Contents -->
+		<!-- Snack Bar -->
+		<div class="floating-guide" style="bottom: 20px;">
+			<!-- 호출 function guideOn();-->
+			<span class="floating-guide__text">지역 또는 업직종을 선택하세요</span>
+		</div>
+		<!-- // Snack Bar -->
+		<!-- Bottom -->
+		<div class="bottom-area quick">
+			<!-- 선택된 리스트가 있을경우 disabled 클래스 제거 -->
+			<button type="button" id="bottom-area__result" class="bottom-area__result" onclick="ClickLog('MFL_2_10', '@(Request.Url.AbsolutePath.ToLower())'); guideAction(); RecruitSearch();">@(PAGE_LOCATION.Equals("SEARCH") ? "검색하기" : "일자리 찾기")</button>
+			<!-- // 선택된 리스트가 있을경우 disabled 클래스 제거 -->
+		</div>
+		<!-- //Bottom -->
+	</article>
+
+
+	<script type="text/javascript">
+<<<<<<< HEAD
+	    function CheckSearch(gbn) {
+	      var url = "";
+
+	      if (gbn == "4") {
+	          setCookieFilter();
+	      }
+	      else if (gbn == "5") {
+	        setCookieFilter_cate();
+	      }
+	      else
+        {
+	        if (gbn == "1") {
+	          url = "/ConditionalSearch/Area?REQ_COOKIE_TYPE=@(ViewBag.COOKIE_TYPE)@(Html.Raw(ViewBag.DefaultParams))&RETURN_URL=HUB";
+	        } else if (gbn == "2") {
+	          url = "/ConditionalSearch/Cate?REQ_COOKIE_TYPE=@(ViewBag.COOKIE_TYPE)@(Html.Raw(ViewBag.DefaultParams))&RETURN_URL=HUB";
+	        } else if (gbn == "3") {
+	          url = "/ConditionalSearch/Work?REQ_COOKIE_TYPE=@(ViewBag.COOKIE_TYPE)@(Html.Raw(ViewBag.DefaultParams))";
+	        }
+
+	        $("#frm").attr("action", url);
+	        $("#frm").attr("method", "post");
+	        $("#frm").submit();
+	      }
+}
+
+// 일자리 빠르게 찾기 삭제버튼 액션
+function deleteCheck(item, gbn) {
+    valueSetting(item, gbn);
+    SearchJob_Count();//삭제에 따른 검색개수 카운팅
+    var listIdx = $(item).parents(".quick-item__list").children(".quick-item__list--box").length; //갯수체크
+    var activeIdx = $(item).parents(".quick-select__list").index(); //부모의 index
+    $(item).parent(".quick-item__list--box").remove().ready(function () {
+        listIdx--;
+    });
+    if (listIdx == 0) { //리스트가 삭제되어 없을때
+        $(".quick-select__list").eq(activeIdx).removeClass("active");
+    }
+    
+}
+=======
+		function CheckSearch(gbn) {
+			var url = "";
+			if (gbn == "1") {
+				//url = "/ConditionalSearch/Area?REQ_COOKIE_TYPE=@(ViewBag.COOKIE_TYPE)@(Html.Raw(ViewBag.DefaultParams))";
+
+				//뒤로가기 버튼을 눌렀을 경우에 대한 처리를 위한 파라미터를 추가
+				url = "/ConditionalSearch/Area?REQ_COOKIE_TYPE=@(ViewBag.COOKIE_TYPE)@(Html.Raw(ViewBag.DefaultParams))&RETURN_URL=HUB";
+			} else if (gbn == "2") {
+				url = "/ConditionalSearch/Cate?REQ_COOKIE_TYPE=@(ViewBag.COOKIE_TYPE)@(Html.Raw(ViewBag.DefaultParams))&RETURN_URL=HUB";
+			} else if (gbn == "3") {
+				url = "/ConditionalSearch/Work?REQ_COOKIE_TYPE=@(ViewBag.COOKIE_TYPE)@(Html.Raw(ViewBag.DefaultParams))";
+			}
+
+			$("#frm").attr("action", url);
+			$("#frm").attr("method", "post");
+			$("#frm").submit();
+		}
+
+		// 일자리 빠르게 찾기 삭제버튼 액션
+		function deleteCheck(item, gbn) {
+			valueSetting(item, gbn);
+
+			var listIdx = $(item).parents(".quick-item__list").children(".quick-item__list--box").length; //갯수체크
+			var activeIdx = $(item).parents(".quick-select__list").index(); //부모의 index
+			$(item).parent(".quick-item__list--box").remove().ready(function () {
+				listIdx--;
+			});
+			if (listIdx == 0) { //리스트가 삭제되어 없을때
+				$(".quick-select__list").eq(activeIdx).removeClass("active");
+			}
+		}
+>>>>>>> develop
+
+		function valueSplitSetting(obj, val, type) {
+			var arrObjValue = val.split(",");
+			var chnObjValue = "";
+			var iflag = true;
+
+			for (var i = 0; i < arrObjValue.length; i++) {
+				if ($.trim(arrObjValue[i]) != $.trim($(obj).attr(type))) {
+					if ($.trim(chnObjValue) == "") {
+						chnObjValue = $.trim(arrObjValue[i]);
+					}
+					else {
+						chnObjValue += "," + $.trim(arrObjValue[i]);
+					}
+				}
+			}
+			return chnObjValue;
+		}
+
+		function valueSetting(obj, gbn) {
+			var orgCodeValue = "";
+			var orgTxtValue = "";
+			var orgCnt = 0;
+
+			if (gbn == "area" || gbn == "cate") {
+				if (gbn == "area") {
+					orgCodeValue = $("#REQ_AREA").val();
+					orgTxtValue = $("#REQ_AREA_TXT").val();
+					orgCnt = $("#REQ_AREA_COUNT").val();
+				}
+				else if (gbn == "cate") {
+					orgCodeValue = $("#REQ_CATE").val();
+					orgTxtValue = $("#REQ_CATE_TXT").val();
+					orgCnt = $("#REQ_CATE_COUNT").val();
+				}
+
+				var arrCodeValue = orgCodeValue.split(",");
+				var arrTxtValue = orgTxtValue.split(",");
+				var chnCodeValue = "";
+				var chnTxtValue = "";
+				var iflag = true;
+
+				orgCnt = 0;
+				for (var i = 0; i < arrCodeValue.length; i++) {
+					if ($.trim(arrCodeValue[i]) != $.trim($(obj).attr("val"))) {
+						if ($.trim(chnCodeValue) == "") {
+							chnCodeValue = $.trim(arrCodeValue[i]);
+							chnTxtValue = $.trim(arrTxtValue[i]);
+						}
+						else {
+							chnCodeValue += "," + $.trim(arrCodeValue[i]);
+							chnTxtValue += "," + $.trim(arrTxtValue[i]);
+						}
+
+						orgCnt = parseInt(orgCnt) + 1;
+					}
+				}
+
+				if (gbn == "area") {
+					$("#frmCS #REQ_AREA").val(chnCodeValue);
+					$("#frmCS #REQ_AREA_TXT").val(chnTxtValue);
+					$("#frmCS #REQ_AREA_COUNT").val(orgCnt);
+
+					$("#frm #REQ_AREA").val(chnCodeValue);
+					$("#frm #REQ_AREA_TXT").val(chnTxtValue);
+					$("#frm #REQ_AREA_COUNT").val(orgCnt);
+				}
+				else if (gbn == "cate") {
+					$("#frmCS #REQ_CATE").val(chnCodeValue);
+					$("#frmCS #REQ_CATE_TXT").val(chnTxtValue);
+					$("#frmCS #REQ_CATE_COUNT").val(orgCnt);
+
+					$("#frm #REQ_CATE").val(chnCodeValue);
+					$("#frm #REQ_CATE_TXT").val(chnTxtValue);
+					$("#frm #REQ_CATE_COUNT").val(orgCnt);
+				}
+			}
+			else if (gbn == "work") {
+				var arrVal = $("#REQ_WORK_TXT").val().split(",");
+				var arrTemp = arrVal.slice();
+				var arrLength = arrTemp.length;
+				var rtnVal = "";
+				for (var i = 0; i < arrLength; i++) {
+					if ($.trim($(obj).attr("valfulltxt")) != arrTemp[i]) {
+						if (rtnVal == "") {
+							rtnVal = arrTemp[i];
+						} else {
+							rtnVal += "," + arrTemp[i];
+						}
+					}
+				}
+
+				if ($(obj).attr("objname") == "payf") {
+					$("#frmCS #REQ_WORK_TXT").val(rtnVal);
+					$("#frm #REQ_WORK_TXT").val(rtnVal);
+
+					$("#frmCS #REQ_WORK_PAYF").val("0");
+					$("#frmCS #REQ_WORK_PAYAMOUNT").val("");
+					$("#frmCS #REQ_WORK_PAY_TEXT").val("");
+
+					$("#frm #REQ_WORK_PAYF").val("0");
+					$("#frm #REQ_WORK_PAYAMOUNT").val("");
+					$("#frm #REQ_WORK_PAY_TEXT").val("");
+				}
+				else if ($(obj).attr("objname") == "workf") {
+					$("#frmCS #REQ_WORK_TXT").val(rtnVal);
+					$("#frm #REQ_WORK_TXT").val(rtnVal);
+
+					orgCodeValue = $("#REQ_WORK_WF").val();
+					orgTxtValue = $("#REQ_WORK_WTEXT").val();
+
+					rtnVal = valueSplitSetting(obj, orgCodeValue, "val"); // attr val 속성값과 비교 및 split 하여 제거
+					$("#frmCS #REQ_WORK_WF").val(rtnVal);
+					$("#frm #REQ_WORK_WF").val(rtnVal);
+
+<<<<<<< HEAD
+            rtnVal = valueSplitSetting(obj, orgTxtValue, "valfulltxt"); // attr valfulltxt 속성값과 비교 및 split 하여 제거
+            $("#frmCS #REQ_WORK_WTEXT").val(rtnVal);
+            $("#frm #REQ_WORK_WTEXT").val(rtnVal);
+        }
+        else if ($(obj).attr("objname") == "dayweek") { //개편브랜드관 hub 페이지 분기
+          if ("@(PAGE_LOCATION)" == "BRAND") {
+            orgCodeValue = $("#REQ_WORK_DAY_WEEK").val();
+            orgTxtValue = $("#REQ_WORK_DAY_WEEK_TEXT").val();
+            rtnVal = valueSplitSetting(obj, orgCodeValue, "val"); // attr val 속성값과 비교 및 split 하여 제거
+
+            $("#frmCS #REQ_WORK_DAY_WEEK").val(rtnVal);
+            $("#frm #REQ_WORK_DAY_WEEK").val(rtnVal);
+
+            rtnVal = valueSplitSetting(obj, orgTxtValue, "valfulltxt"); // attr valfulltxt 속성값과 비교 및 split 하여 제거
+
+            $("#frmCS #REQ_WORK_DAY_WEEK_TEXT").val(rtnVal);
+            $("#frm #REQ_WORK_DAY_WEEK_TEXT").val(rtnVal);
+          }
+          else {
+            $("#frmCS #REQ_WORK_DAY_WEEK").val("0");
+            $("#frmCS #REQ_WORK_DAY_WEEK_NEGO").val("0");
+            $("#frmCS #REQ_WORK_DAY_WEEK_TEXT").val("");
+            $("#frmCS #REQ_WORK_TXT").val(rtnVal);
+
+            $("#frm #REQ_WORK_DAY_WEEK").val("0");
+            $("#frm #REQ_WORK_DAY_WEEK_NEGO").val("0");
+            $("#frm #REQ_WORK_DAY_WEEK_TEXT").val("");
+            $("#frm #REQ_WORK_TXT").val(rtnVal);
+          }
+        }
+        else if ($(obj).attr("objname") == "time") {
+            $("#frmCS #REQ_WORK_TXT").val(rtnVal);
+            $("#frm #REQ_WORK_TXT").val(rtnVal);
+
+            orgCodeValue = $("#REQ_WORK_TIME").val();
+            orgTxtValue = $("#REQ_WORK_TIME_TEXT").val();
+
+            if (orgCodeValue == "0") {
+                //직접지정
+                $("#frmCS #REQ_WORK_TIME").val("0");
+                $("#frmCS #REQ_WORK_TIME_FROM").val("");
+                $("#frmCS #REQ_WORK_TIME_TO").val("");
+                $("#frmCS #REQ_WORK_TIME_NEGO").val("0");
+                $("#frmCS #REQ_WORK_TIME_TEXT").val("");
+
+                $("#frm #REQ_WORK_TIME").val("0");
+                $("#frm #REQ_WORK_TIME_FROM").val("");
+                $("#frm #REQ_WORK_TIME_TO").val("");
+                $("#frm #REQ_WORK_TIME_NEGO").val("0");
+                $("#frm #REQ_WORK_TIME_TEXT").val("");
+            } else {
+                //기간선택
+                rtnVal = valueSplitSetting(obj, orgCodeValue, "val"); // attr val 속성값과 비교 및 split 하여 제거
+                $("#frmCS #REQ_WORK_TIME").val(rtnVal);
+                $("#frm #REQ_WORK_TIME").val(rtnVal);
+
+                rtnVal = valueSplitSetting(obj, orgTxtValue, "valfulltxt"); // attr valfulltxt 속성값과 비교 및 split 하여 제거
+                $("#frmCS #REQ_WORK_TIME_TEXT").val(rtnVal);
+                $("#frm #REQ_WORK_TIME_TEXT").val(rtnVal);
+            }
+        }
+        else if ($(obj).attr("objname") == "age") {
+            $("#frmCS #REQ_WORK_AGE").val("");
+            $("#frmCS #REQ_WORK_AGE_N").val("0");
+            $("#frmCS #REQ_WORK_AGE_TEXT").val("");
+            $("#frmCS #REQ_WORK_TXT").val(rtnVal);
+
+            $("#frm #REQ_WORK_AGE").val("");
+            $("#frm #REQ_WORK_AGE_N").val("0");
+            $("#frm #REQ_WORK_AGE_TEXT").val("");
+            $("#frm #REQ_WORK_TXT").val(rtnVal);
+        }
+        else if ($(obj).attr("objname") == "sex") {
+            $("#frmCS #REQ_WORK_SEX").val("0");
+            $("#frmCS #REQ_WORK_SEX_N").val("0");
+            $("#frmCS #REQ_WORK_SEX_TEXT").val("");
+            $("#frmCS #REQ_WORK_TXT").val(rtnVal);
+
+            $("#frm #REQ_WORK_SEX").val("0");
+            $("#frm #REQ_WORK_SEX_N").val("0");
+            $("#frm #REQ_WORK_SEX_TEXT").val("");
+            $("#frm #REQ_WORK_TXT").val(rtnVal);
+        }
+    }
+=======
+					rtnVal = valueSplitSetting(obj, orgTxtValue, "valfulltxt"); // attr valfulltxt 속성값과 비교 및 split 하여 제거
+					$("#frmCS #REQ_WORK_WTEXT").val(rtnVal);
+					$("#frm #REQ_WORK_WTEXT").val(rtnVal);
+				}
+				else if ($(obj).attr("objname") == "dayweek") {
+					if ("@(PAGE_LOCATION)" == "SEARCH") {
+						$("#frmCS #REQ_WORK_TXT").val(rtnVal);
+						$("#frm #REQ_WORK_TXT").val(rtnVal);
+
+						orgCodeValue = $("#REQ_WORK_DAY_WEEK").val();
+						orgTxtValue = $("#REQ_WORK_DAY_WEEK_TEXT").val();
+						rtnVal = valueSplitSetting(obj, orgCodeValue, "val"); // attr val 속성값과 비교 및 split 하여 제거
+
+						$("#frmCS #REQ_WORK_DAY_WEEK").val(rtnVal);
+						$("#frm #REQ_WORK_DAY_WEEK").val(rtnVal);
+
+						rtnVal = valueSplitSetting(obj, orgTxtValue, "valfulltxt"); // attr valfulltxt 속성값과 비교 및 split 하여 제거
+
+						$("#frmCS #REQ_WORK_DAY_WEEK_TEXT").val(rtnVal);
+						$("#frm #REQ_WORK_DAY_WEEK_TEXT").val(rtnVal);
+					}
+					else {
+						$("#frmCS #REQ_WORK_DAY_WEEK").val("0");
+						$("#frmCS #REQ_WORK_DAY_WEEK_NEGO").val("0");
+						$("#frmCS #REQ_WORK_DAY_WEEK_TEXT").val("");
+						$("#frmCS #REQ_WORK_TXT").val(rtnVal);
+
+						$("#frm #REQ_WORK_DAY_WEEK").val("");
+						$("#frm #REQ_WORK_DAY_WEEK_NEGO").val("0");
+						$("#frm #REQ_WORK_DAY_WEEK_TEXT").val("");
+						$("#frm #REQ_WORK_TXT").val(rtnVal);
+					}
+				}
+				else if ($(obj).attr("objname") == "time") {
+					$("#frmCS #REQ_WORK_TXT").val(rtnVal);
+					$("#frm #REQ_WORK_TXT").val(rtnVal);
+
+					orgCodeValue = $("#REQ_WORK_TIME").val();
+					orgTxtValue = $("#REQ_WORK_TIME_TEXT").val();
+
+					if (orgCodeValue == "0") {
+						//직접지정
+						$("#frmCS #REQ_WORK_TIME").val("0");
+						$("#frmCS #REQ_WORK_TIME_FROM").val("");
+						$("#frmCS #REQ_WORK_TIME_TO").val("");
+						$("#frmCS #REQ_WORK_TIME_NEGO").val("0");
+						$("#frmCS #REQ_WORK_TIME_TEXT").val("");
+
+						$("#frm #REQ_WORK_TIME").val("0");
+						$("#frm #REQ_WORK_TIME_FROM").val("");
+						$("#frm #REQ_WORK_TIME_TO").val("");
+						$("#frm #REQ_WORK_TIME_NEGO").val("0");
+						$("#frm #REQ_WORK_TIME_TEXT").val("");
+					} else {
+						//기간선택
+						rtnVal = valueSplitSetting(obj, orgCodeValue, "val"); // attr val 속성값과 비교 및 split 하여 제거
+						$("#frmCS #REQ_WORK_TIME").val(rtnVal);
+						$("#frm #REQ_WORK_TIME").val(rtnVal);
+
+						rtnVal = valueSplitSetting(obj, orgTxtValue, "valfulltxt"); // attr valfulltxt 속성값과 비교 및 split 하여 제거
+						$("#frmCS #REQ_WORK_TIME_TEXT").val(rtnVal);
+						$("#frm #REQ_WORK_TIME_TEXT").val(rtnVal);
+					}
+				}
+				else if ($(obj).attr("objname") == "age") {
+					$("#frmCS #REQ_WORK_AGE").val("");
+					$("#frmCS #REQ_WORK_AGE_N").val("0");
+					$("#frmCS #REQ_WORK_AGE_TEXT").val("");
+					$("#frmCS #REQ_WORK_TXT").val(rtnVal);
+
+					$("#frm #REQ_WORK_AGE").val("");
+					$("#frm #REQ_WORK_AGE_N").val("0");
+					$("#frm #REQ_WORK_AGE_TEXT").val("");
+					$("#frm #REQ_WORK_TXT").val(rtnVal);
+				}
+				else if ($(obj).attr("objname") == "sex") {
+					$("#frmCS #REQ_WORK_SEX").val("0");
+					$("#frmCS #REQ_WORK_SEX_N").val("0");
+					$("#frmCS #REQ_WORK_SEX_TEXT").val("");
+					$("#frmCS #REQ_WORK_TXT").val(rtnVal);
+
+					$("#frm #REQ_WORK_SEX").val("0");
+					$("#frm #REQ_WORK_SEX_N").val("0");
+					$("#frm #REQ_WORK_SEX_TEXT").val("");
+					$("#frm #REQ_WORK_TXT").val(rtnVal);
+				}
+			}
+>>>>>>> develop
+
+			//검색에서 넘어온 경우에만 호출하여 총 건수 표시
+			if ("@(PAGE_LOCATION)" == "SEARCH") {
+				SearchJob_Count();
+			}
+		}
+
+		function RecruitSearch() {
+			var REQ_AREA = $("#REQ_AREA").val();
+			var REQ_CATE = $("#REQ_CATE").val();
+			var REQ_KEYWORD = $("#REQ_KEYWORD").val();
+
+			var params;
+			params = { KEYWORD: REQ_KEYWORD, AREA_USE: $("#AREA_USE").val(), CATE_USE: $("#CATE_USE").val(), WORK_USE: $("#WORK_USE").val(), COOKIE_TYPE: $("#COOKIE_TYPE").val(), sAREA: REQ_AREA, sAREA_TXT: $("#REQ_AREA_TXT").val(), sCATE: REQ_CATE, sCATE_TXT: $("#REQ_CATE_TXT").val(), sWORK_PAYF: $("#REQ_WORK_PAYF").val(), sWORK_PAYAMOUNT: $("#REQ_WORK_PAYAMOUNT").val(), sWORK_PAY_TEXT: $("#REQ_WORK_PAY_TEXT").val(), sWORK_WF: $("#REQ_WORK_WF").val(), sWORK_WTEXT: $("#REQ_WORK_WTEXT").val(), sWORK_DAY_WEEK: $("#REQ_WORK_DAY_WEEK").val(), sWORK_DAY_WEEK_NEGO: $("#REQ_WORK_DAY_WEEK_NEGO").val(), sWORK_DAY_WEEK_TEXT: $("#REQ_WORK_DAY_WEEK_TEXT").val(), sWORK_TIME: $("#REQ_WORK_TIME").val(), sWORK_TIMEF: $("#REQ_WORK_TIMEF").val(), sWORK_TIME_FROM: $("#REQ_WORK_TIME_FROM").val(), sWORK_TIME_TO: $("#REQ_WORK_TIME_TO").val(), sWORK_TIME_NEGO: $("#REQ_WORK_TIME_NEGO").val(), sWORK_TIME_TEXT: $("#REQ_WORK_TIME_TEXT").val(), sWORK_AGE: $("#REQ_WORK_AGE").val(), sWORK_AGE_N: $("#REQ_WORK_AGE_N").val(), sWORK_AGE_TEXT: $("#REQ_WORK_AGE_TEXT").val(), sWORK_SEX: $("#REQ_WORK_SEX").val(), sWORK_SEX_N: $("#REQ_WORK_SEX_N").val(), sWORK_SEX_TEXT: $("#REQ_WORK_SEX_TEXT").val(), sWORK_TXT: $("#REQ_WORK_TXT").val(), sGMAP_X: $("#sGMAP_X").val(), sGMAP_Y: $("#sGMAP_Y").val(), sRADIUS: $("#sRADIUS").val() };
+
+			$.ajax({
+				type: "POST",
+				url: '@Url.Action("setConditionalSearchCookie_Ajax")',
+				data: params,
+				cache: false,
+				traditional: true,
+				success: function (result) {
+					if (result == "ok") {
+						/* 최근 검색 Cookie 시작 */
+						var orgCodeValue = "";
+						var orgTxtValue = "";
+						var CookieType = "";
+						var arrCodeValue = "";
+						var arrTxtValue = "";
+
+						orgCodeValue = $("#REQ_AREA").val();
+						orgTxtValue = $("#REQ_AREA_TXT").val();
+						arrCodeValue = orgCodeValue.split(",");
+						arrTxtValue = orgTxtValue.split(",");
+						CookieType = $("#COOKIE_TYPE").val() + "_LATELY_AREA";
+						if (orgCodeValue != "") {
+							for (var i = 0; i < arrCodeValue.length; i++) {
+								setSearchHistory('', '/', CookieType, 365, '0', arrCodeValue[i] + "^^" + arrTxtValue[i]);
+							}
+						}
+
+						orgCodeValue = $("#REQ_CATE").val();
+						orgTxtValue = $("#REQ_CATE_TXT").val();
+						arrCodeValue = orgCodeValue.split(",");
+						arrTxtValue = orgTxtValue.split(",");
+						CookieType = $("#COOKIE_TYPE").val() + "_LATELY_CATE";
+						if (orgCodeValue != "") {
+							for (var i = 0; i < arrCodeValue.length; i++) {
+								setSearchHistory('', '/', CookieType, 365, '0', arrCodeValue[i] + "^^" + arrTxtValue[i]);
+							}
+						}
+						/* 최근 검색 Cookie 끝 */
+
+						// 검색
+						if ("@(SEARCH_LOCATION)" == "CATE") {
+							$(location).attr("href", "/Recruit/Cate@(Html.Raw(ViewBag.DefaultParams))");
+						}
+						else if ("@(SEARCH_LOCATION)" == "AREA") {
+							$(location).attr("href", "/Recruit/Area@(Html.Raw(ViewBag.DefaultParams))");
+						}
+						else if ("@(PAGE_LOCATION)" == "") {
+							if (REQ_AREA == "" && REQ_CATE != "") {
+								$(location).attr("href", "/Recruit/Cate@(Html.Raw(ViewBag.DefaultParams))");
+							}
+							else {
+								$(location).attr("href", "/Recruit/Area@(Html.Raw(ViewBag.DefaultParams))");
+							}
+						}
+						else if ("@(PAGE_LOCATION)" == "AREA" || "@(PAGE_LOCATION)" == "JobInfo") {
+							$(location).attr("href", "/Recruit/Area@(Html.Raw(ViewBag.DefaultParams))");
+						}
+						else if ("@(PAGE_LOCATION)" == "CATE") {
+							$(location).attr("href", "/Recruit/Cate@(Html.Raw(ViewBag.DefaultParams))");
+						}
+						else if ("@(PAGE_LOCATION)" == "TODAY") {
+							$(location).attr("href", "/Recruit/Today@(Html.Raw(ViewBag.DefaultParams))");
+						}
+						else if ("@(PAGE_LOCATION)" == "SPECIAL") {
+							$(location).attr("href", "/Specialist/Special?SpID=@(ViewBag.SPID)@(Html.Raw(ViewBag.AddParams))");
+						}
+						else if ("@(PAGE_LOCATION)" == "BRAND") {
+							$(location).attr("href", "/Recruit/BrandList?BR_GBN=@(ViewBag.BR_GBN)&BR_SEQ=@(ViewBag.BR_SEQ)@(Html.Raw(ViewBag.AddParams))");
+						}
+						else if ("@(PAGE_LOCATION)" == "SEARCH") {
+							$(location).attr("href", "/Search/SearchJob?keyword=" + REQ_KEYWORD + "@(ViewBag.AddParams)");
+          }
+}
+      },
+        error: function (request, status, error) {
+            //alert("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
+        }
+    });
+}
+
+		function LatelySearch() {
+
+<<<<<<< HEAD
+    //조건 초기화
+    function resetHub(PAGE_LOCATION) {
+
+        if (PAGE_LOCATION == "ELSE") {
+          $("form[name='frm'] input").val(""); //모두 초기화
+          $("form[name='frmCS'] input").val(""); //모두 초기화
+          $("ul.quick-item__list").html(""); //영역안의 리스트 전체 제거
+          $("#bottom-area__result").html("일자리 찾기");
+            //키워드 및 조건 유지 처리
+          $("form[name='frm'] input[name='AREA_USE']").val("@(ViewBag.AREA_USE)");
+	        $("form[name='frmCS'] input[name='AREA_USE']").val("@(ViewBag.AREA_USE)");
+	        $("form[name='frm'] input[name='CATE_USE']").val("@(ViewBag.CATE_USE)");
+	        $("form[name='frmCS'] input[name='CATE_USE']").val("@(ViewBag.CATE_USE)");
+	        $("form[name='frm'] input[name='WORK_USE']").val("@(ViewBag.WORK_USE)");
+	        $("form[name='frmCS'] input[name='WORK_USE']").val("@(ViewBag.WORK_USE)");
+	        $("form[name='frm'] input[name='COOKIE_TYPE']").val("@(ViewBag.COOKIE_TYPE)");
+	        $("form[name='frmCS'] input[name='COOKIE_TYPE']").val("@(ViewBag.COOKIE_TYPE)");
+	        $("form[name='frm'] input[name='PAGE_LOCATION']").val("@(ViewBag.PAGE_LOCATION)");
+	        $("form[name='frmCS'] input[name='PAGE_LOCATION']").val("@(ViewBag.PAGE_LOCATION)");
+	        $("form[name='frm'] input[name='REQ_KEYWORD']").val("@(ViewBag.REQ_KEYWORD)");
+	        $("form[name='frmCS'] input[name='REQ_KEYWORD']").val("@(ViewBag.REQ_KEYWORD)");
+	        $("form[name='frm'] input[name='SPID']").val("@(ViewBag.SPID)");
+	        $("form[name='frmCS'] input[name='SPID']").val("@(ViewBag.SPID)");
+	        $("form[name='frm'] input[name='BR_GBN']").val("@(ViewBag.BR_GBN)");
+	        $("form[name='frmCS'] input[name='BR_GBN']").val("@(ViewBag.BR_GBN)");
+	        $("form[name='frm'] input[name='BR_SEQ']").val("@(ViewBag.BR_SEQ)");
+	        $("form[name='frmCS'] input[name='BR_SEQ']").val("@(ViewBag.BR_SEQ)");
+
+	        //디폴트 값이 0 인 값들은 따로 초기화 해준다.
+	        $("form[name='frm'] input[name='REQ_AREA_COUNT']").val("0");
+	        $("form[name='frmCS'] input[name='REQ_AREA_COUNT']").val("0");
+	        $("form[name='frm'] input[name='REQ_CATE_COUNT']").val("0");
+	        $("form[name='frmCS'] input[name='REQ_CATE_COUNT']").val("0");
+	        $("form[name='frm'] input[name='REQ_WORK_PAYF']").val("0");
+	        $("form[name='frmCS'] input[name='REQ_WORK_PAYF']").val("0");
+	        $("form[name='frm'] input[name='REQ_WORK_PAYAMOUNT']").val("0");
+	        $("form[name='frmCS'] input[name='REQ_WORK_PAYAMOUNT']").val("0");
+	        $("form[name='frm'] input[name='REQ_WORK_WF']").val("0");
+	        $("form[name='frmCS'] input[name='REQ_WORK_WF']").val("0");
+	        $("form[name='frm'] input[name='REQ_WORK_DAY_WEEK']").val("0");
+	        $("form[name='frmCS'] input[name='REQ_WORK_DAY_WEEK']").val("0");
+	        $("form[name='frm'] input[name='REQ_WORK_TIME']").val("0");
+	        $("form[name='frmCS'] input[name='REQ_WORK_TIME']").val("0");
+	        $("form[name='frm'] input[name='REQ_WORK_TIMEF']").val("0");
+	        $("form[name='frmCS'] input[name='REQ_WORK_TIMEF']").val("0");
+	        $("form[name='frm'] input[name='REQ_WORK_TIME_NEGO']").val("0");
+	        $("form[name='frmCS'] input[name='REQ_WORK_TIME_NEGO']").val("0");
+	        $("form[name='frm'] input[name='REQ_WORK_AGE_N']").val("0");
+	        $("form[name='frmCS'] input[name='REQ_WORK_AGE_N']").val("0");
+	        $("form[name='frm'] input[name='REQ_WORK_SEX']").val("0");
+	        $("form[name='frmCS'] input[name='REQ_WORK_SEX']").val("0");
+	        $("form[name='frm'] input[name='REQ_WORK_SEX_N']").val("0");
+	        $("form[name='frmCS'] input[name='REQ_WORK_SEX_N']").val("0");
+	        $("form[name='frm'] input[name='REQ_GMAP_X']").val("0");
+	        $("form[name='frmCS'] input[name='REQ_GMAP_X']").val("0");
+	        $("form[name='frm'] input[name='REQ_GMAP_Y']").val("0");
+	        $("form[name='frmCS'] input[name='REQ_GMAP_Y']").val("0");
+	        $("form[name='frm'] input[name='REQ_RADIUS']").val("0");
+	        $("form[name='frmCS'] input[name='REQ_RADIUS']").val("0");
+	        $("form[name='frm'] input[name='WORK_DAY_WEEK_NEGO']").val("0");
+	        $("form[name='frmCS'] input[name='WORK_DAY_WEEK_NEGO']").val("0");
+	        $("form[name='frm'] input[name='REQ_WORK_DAY_WEEK_NEGO']").val("0");
+	        $("form[name='frmCS'] input[name='REQ_WORK_DAY_WEEK_NEGO']").val("0");
+
+	        //SearchJob_Count();//검색개수 카운팅
+	    }
+	    else {
+	        if ("@(PAGE_LOCATION)" == "SEARCH") {
+	            //검색 조건 초기화
+	            $("form[name='frm'] input").val(""); //모두 초기화
+	            $("form[name='frmCS'] input").val(""); //모두 초기화
+	            $("ul.quick-item__list").html(""); //영역안의 리스트 전체 제거
+
+	            //키워드 및 조건 유지 처리
+	            $("form[name='frm'] input[name='AREA_USE']").val("Y");
+	            $("form[name='frmCS'] input[name='AREA_USE']").val("Y");
+	            $("form[name='frm'] input[name='CATE_USE']").val("Y");
+	            $("form[name='frmCS'] input[name='CATE_USE']").val("Y");
+	            $("form[name='frm'] input[name='WORK_USE']").val("Y");
+	            $("form[name='frmCS'] input[name='WORK_USE']").val("Y");
+	            $("form[name='frm'] input[name='COOKIE_TYPE']").val("KO");
+	            $("form[name='frmCS'] input[name='COOKIE_TYPE']").val("KO");
+	            $("form[name='frm'] input[name='PAGE_LOCATION']").val("SEARCH");
+	            $("form[name='frmCS'] input[name='PAGE_LOCATION']").val("SEARCH");
+	            $("form[name='frm'] input[name='REQ_KEYWORD']").val("@(ViewBag.REQ_KEYWORD)");
+			        $("form[name='frmCS'] input[name='REQ_KEYWORD']").val("@(ViewBag.REQ_KEYWORD)");
+
+		        //키워드만으로 카운트 호출
+		        SearchJob_Count();
+		    }
+        }
+    }
+
+    function setCookieFilter() {
+      // ResumeCate 페이지의 함수와 소스가 조금 다름
+      // 지역 쿠키 저장 후, 업직종 페이지로 이동
+      var params;
+      params = { KEYWORD: $("#REQ_KEYWORD").val(), AREA_USE: $("#AREA_USE").val(), CATE_USE: $("#CATE_USE").val(), WORK_USE: $("#WORK_USE").val(), COOKIE_TYPE: $("#COOKIE_TYPE").val(), sAREA: $("#REQ_AREA").val(), sAREA_TXT: $("#REQ_AREA_TXT").val(), sCATE: $("#REQ_CATE").val(), sCATE_TXT: $("#REQ_CATE_TXT").val(), sWORK_PAYF: $("#REQ_WORK_PAYF").val(), sWORK_PAYAMOUNT: $("#REQ_WORK_PAYAMOUNT").val(), sWORK_PAY_TEXT: $("#REQ_WORK_PAY_TEXT").val(), sWORK_WF: $("#REQ_WORK_WF").val(), sWORK_WTEXT: $("#REQ_WORK_WTEXT").val(), sWORK_DAY_WEEK: $("#REQ_WORK_DAY_WEEK").val(), sWORK_DAY_WEEK_NEGO: $("#REQ_WORK_DAY_WEEK_NEGO").val(), sWORK_DAY_WEEK_TEXT: $("#REQ_WORK_DAY_WEEK_TEXT").val(), sWORK_TIME: $("#REQ_WORK_TIME").val(), sWORK_TIMEF: $("#REQ_WORK_TIMEF").val(), sWORK_TIME_FROM: $("#REQ_WORK_TIME_FROM").val(), sWORK_TIME_TO: $("#REQ_WORK_TIME_TO").val(), sWORK_TIME_NEGO: $("#REQ_WORK_TIME_NEGO").val(), sWORK_TIME_TEXT: $("#REQ_WORK_TIME_TEXT").val(), sWORK_AGE: $("#REQ_WORK_AGE").val(), sWORK_AGE_N: $("#REQ_WORK_AGE_N").val(), sWORK_AGE_TEXT: $("#REQ_WORK_AGE_TEXT").val(), sWORK_SEX: $("#REQ_WORK_SEX").val(), sWORK_SEX_N: $("#REQ_WORK_SEX_N").val(), sWORK_SEX_TEXT: $("#REQ_WORK_SEX_TEXT").val(), sWORK_TXT: $("#REQ_WORK_TXT").val(), sGMAP_X: $("#sGMAP_X").val(), sGMAP_Y: $("#sGMAP_Y").val(), sRADIUS: $("#sRADIUS").val() };
+      var page_location = "@(ViewBag.PAGE_LOCATION)"; // 필터 설정 후 이동될 페이지
+      var br_gbn = "@(ViewBag.BR_GBN)";
+      var br_seq = "@(ViewBag.BR_SEQ)";
+
+      setTimeout(function () {
+        $.ajax({
+          type: "POST",
+          url: '@Url.Action("setConditionalSearchCookie_Ajax")',
+          data: params,
+          cache: false,
+          traditional: true,
+          success: function (result) {
+            location.href = "/resume/ResumeArea?PAGE_LOCATION=" + page_location + "&EDIT=cookieEdit" + "&BR_GBN=" + br_gbn + "&BR_SEQ=" + br_seq;
+            //location.href = "/ConditionalSearch/Hub?PAGE_LOCATION=" + page_location + "&EDIT=cookieEdit" + "@(ViewBag.AddParams)";
+          },
+          error: function (request, status, error) {
+            @*location.href = "/Resume/ResumeCate?EDIT=cookieEdit" + "&PAGE_LOCATION=" + page_location + "@(ViewBag.AddParams)";*@
+            }
+        });
+      }, 100);
+    }
+
+    function setCookieFilter_cate() {
+      // ResumeCate 페이지의 함수와 소스가 조금 다름
+      // 지역 쿠키 저장 후, 업직종 페이지로 이동
+      var params;
+      params = { KEYWORD: $("#REQ_KEYWORD").val(), AREA_USE: $("#AREA_USE").val(), CATE_USE: $("#CATE_USE").val(), WORK_USE: $("#WORK_USE").val(), COOKIE_TYPE: $("#COOKIE_TYPE").val(), sAREA: $("#REQ_AREA").val(), sAREA_TXT: $("#REQ_AREA_TXT").val(), sCATE: $("#REQ_CATE").val(), sCATE_TXT: $("#REQ_CATE_TXT").val(), sWORK_PAYF: $("#REQ_WORK_PAYF").val(), sWORK_PAYAMOUNT: $("#REQ_WORK_PAYAMOUNT").val(), sWORK_PAY_TEXT: $("#REQ_WORK_PAY_TEXT").val(), sWORK_WF: $("#REQ_WORK_WF").val(), sWORK_WTEXT: $("#REQ_WORK_WTEXT").val(), sWORK_DAY_WEEK: $("#REQ_WORK_DAY_WEEK").val(), sWORK_DAY_WEEK_NEGO: $("#REQ_WORK_DAY_WEEK_NEGO").val(), sWORK_DAY_WEEK_TEXT: $("#REQ_WORK_DAY_WEEK_TEXT").val(), sWORK_TIME: $("#REQ_WORK_TIME").val(), sWORK_TIMEF: $("#REQ_WORK_TIMEF").val(), sWORK_TIME_FROM: $("#REQ_WORK_TIME_FROM").val(), sWORK_TIME_TO: $("#REQ_WORK_TIME_TO").val(), sWORK_TIME_NEGO: $("#REQ_WORK_TIME_NEGO").val(), sWORK_TIME_TEXT: $("#REQ_WORK_TIME_TEXT").val(), sWORK_AGE: $("#REQ_WORK_AGE").val(), sWORK_AGE_N: $("#REQ_WORK_AGE_N").val(), sWORK_AGE_TEXT: $("#REQ_WORK_AGE_TEXT").val(), sWORK_SEX: $("#REQ_WORK_SEX").val(), sWORK_SEX_N: $("#REQ_WORK_SEX_N").val(), sWORK_SEX_TEXT: $("#REQ_WORK_SEX_TEXT").val(), sWORK_TXT: $("#REQ_WORK_TXT").val(), sGMAP_X: $("#sGMAP_X").val(), sGMAP_Y: $("#sGMAP_Y").val(), sRADIUS: $("#sRADIUS").val() };
+      var page_location = "@(ViewBag.PAGE_LOCATION)"; // 필터 설정 후 이동될 페이지
+      var br_gbn = "@(ViewBag.BR_GBN)";
+      var br_seq = "@(ViewBag.BR_SEQ)";
+      setTimeout(function () {
+        $.ajax({
+          type: "POST",
+          url: '@Url.Action("setConditionalSearchCookie_Ajax")',
+          data: params,
+          cache: false,
+          traditional: true,
+          success: function (result) {
+            //location.href = "/resume/ResumeArea?PAGE_LOCATION=" + page_location + "&EDIT=cookieEdit";
+            location.href = "/Resume/ResumeCate?PAGE_LOCATION=" + page_location + "&EDIT=cookieEdit" + "&BR_GBN=" + br_gbn + "&BR_SEQ=" + br_seq;
+          },
+          error: function (request, status, error) {
+            @*location.href = "/Resume/ResumeCate?EDIT=cookieEdit" + "&PAGE_LOCATION=" + page_location + "@(ViewBag.AddParams)";*@
+            }
+        });
+      }, 100);
+    }
+
+    function HistoryBack() {
+
+
+        var strAppStoreConfirm = "@(ViewBag.Job_Version_IOS_appstore_Confirm)";
+        var strPalyStoreConfirm = "@(ViewBag.Job_Version_Adroid_playstore_Confirm)";
+        var strtStoreConfirm = "@(ViewBag.Job_Version_Adroid_tstore_Confirm)";
+
+        //&amp;의 영향으로 리턴값을 textarea 객체에 담아서 전달
+        var textArea = document.createElement('textarea');
+        textArea.innerHTML = "@(Html.Raw(HistoryBackUrl))";
+
+		//alert("@(SEARCH_LOCATION) = SEARCH_LOCATION \n" + "@(PAGE_LOCATION) = PAGE_LOCATION\n" + "@(ViewBag.USE_COOKIE) = USE_COOKIE");
+
+        if ('@(ViewBag.ServiceType)' == 'app' && textArea.innerHTML.indexOf("/OurTownJob/MapList") != -1) {
+            var callString = '@@Action=FN_LM_CLOSE_AND_MAIN_REDIRECT@@Param1=' + textArea.value + '@@Param2=@@Param3=@@rURL=';
+            if ('@(ViewBag.Device)' == 'IOS_APP') {
+			    //IOS_APP
+			    if (strAppStoreConfirm == "Y") {
+			        var strIOS_version = "@(ViewBag.OS_Version)";
+				    var arrIOS_version = strIOS_version.split(".");
+				    if (arrIOS_version.length > 0) {
+				        if (arrIOS_version[0] != "") {
+				            // ios 8버전 이하에서는 모바일웹구성처럼
+				            if (parseInt(arrIOS_version[0]) <= 8) {
+				                if (getCookie("osversioncheck") != "Y") {
+				                    alert("벼룩시장구인구직 앱은 iOS 10에 최적화 되어 있습니다.\nOS를 업데이트 하신 후 이용해 주세요.");
+				                    setCookie("osversioncheck", "Y", 1);
+				                }
+				                location.href = textArea.value;
+				                return false;
+				            }
+				        }
+				    }
+
+				    window.location = 'jscall://' + callString;
+=======
+		  $("#frm").attr("action", "/ConditionalSearch/Lately?keyword=" + "@(ViewBag.REQ_KEYWORD)" + "@(Html.Raw(ViewBag.DefaultParams))");
+		  $("#frm").submit();
+
+    }
+
+  //조건 초기화
+  function resetHub(PAGE_LOCATION) {
+
+      if (PAGE_LOCATION == "ELSE") {
+          $("form[name='frm'] input").val(""); //모두 초기화
+          $("form[name='frmCS'] input").val(""); //모두 초기화
+          $("ul.quick-item__list").html(""); //영역안의 리스트 전체 제거
+
+          //키워드 및 조건 유지 처리
+          $("form[name='frm'] input[name='AREA_USE']").val("@(ViewBag.AREA_USE)");
+				$("form[name='frmCS'] input[name='AREA_USE']").val("@(ViewBag.AREA_USE)");
+				$("form[name='frm'] input[name='CATE_USE']").val("@(ViewBag.CATE_USE)");
+				$("form[name='frmCS'] input[name='CATE_USE']").val("@(ViewBag.CATE_USE)");
+				$("form[name='frm'] input[name='WORK_USE']").val("@(ViewBag.WORK_USE)");
+				$("form[name='frmCS'] input[name='WORK_USE']").val("@(ViewBag.WORK_USE)");
+				$("form[name='frm'] input[name='COOKIE_TYPE']").val("@(ViewBag.COOKIE_TYPE)");
+				$("form[name='frmCS'] input[name='COOKIE_TYPE']").val("@(ViewBag.COOKIE_TYPE)");
+				$("form[name='frm'] input[name='PAGE_LOCATION']").val("@(ViewBag.PAGE_LOCATION)");
+				$("form[name='frmCS'] input[name='PAGE_LOCATION']").val("@(ViewBag.PAGE_LOCATION)");
+				$("form[name='frm'] input[name='REQ_KEYWORD']").val("@(ViewBag.REQ_KEYWORD)");
+				$("form[name='frmCS'] input[name='REQ_KEYWORD']").val("@(ViewBag.REQ_KEYWORD)");
+				$("form[name='frm'] input[name='SPID']").val("@(ViewBag.SPID)");
+				$("form[name='frmCS'] input[name='SPID']").val("@(ViewBag.SPID)");
+				$("form[name='frm'] input[name='BR_GBN']").val("@(ViewBag.BR_GBN)");
+				$("form[name='frmCS'] input[name='BR_GBN']").val("@(ViewBag.BR_GBN)");
+				$("form[name='frm'] input[name='BR_SEQ']").val("@(ViewBag.BR_SEQ)");
+				$("form[name='frmCS'] input[name='BR_SEQ']").val("@(ViewBag.BR_SEQ)");
+
+				//디폴트 값이 0 인 값들은 따로 초기화 해준다.
+				$("form[name='frm'] input[name='REQ_AREA_COUNT']").val("0");
+				$("form[name='frmCS'] input[name='REQ_AREA_COUNT']").val("0");
+				$("form[name='frm'] input[name='REQ_CATE_COUNT']").val("0");
+				$("form[name='frmCS'] input[name='REQ_CATE_COUNT']").val("0");
+				$("form[name='frm'] input[name='REQ_WORK_PAYF']").val("0");
+				$("form[name='frmCS'] input[name='REQ_WORK_PAYF']").val("0");
+				$("form[name='frm'] input[name='REQ_WORK_PAYAMOUNT']").val("0");
+				$("form[name='frmCS'] input[name='REQ_WORK_PAYAMOUNT']").val("0");
+				$("form[name='frm'] input[name='REQ_WORK_WF']").val("0");
+				$("form[name='frmCS'] input[name='REQ_WORK_WF']").val("0");
+				$("form[name='frm'] input[name='REQ_WORK_DAY_WEEK']").val("0");
+				$("form[name='frmCS'] input[name='REQ_WORK_DAY_WEEK']").val("0");
+				$("form[name='frm'] input[name='REQ_WORK_TIME']").val("0");
+				$("form[name='frmCS'] input[name='REQ_WORK_TIME']").val("0");
+				$("form[name='frm'] input[name='REQ_WORK_TIMEF']").val("0");
+				$("form[name='frmCS'] input[name='REQ_WORK_TIMEF']").val("0");
+				$("form[name='frm'] input[name='REQ_WORK_TIME_NEGO']").val("0");
+				$("form[name='frmCS'] input[name='REQ_WORK_TIME_NEGO']").val("0");
+				$("form[name='frm'] input[name='REQ_WORK_AGE_N']").val("0");
+				$("form[name='frmCS'] input[name='REQ_WORK_AGE_N']").val("0");
+				$("form[name='frm'] input[name='REQ_WORK_SEX']").val("0");
+				$("form[name='frmCS'] input[name='REQ_WORK_SEX']").val("0");
+				$("form[name='frm'] input[name='REQ_WORK_SEX_N']").val("0");
+				$("form[name='frmCS'] input[name='REQ_WORK_SEX_N']").val("0");
+				$("form[name='frm'] input[name='REQ_GMAP_X']").val("0");
+				$("form[name='frmCS'] input[name='REQ_GMAP_X']").val("0");
+				$("form[name='frm'] input[name='REQ_GMAP_Y']").val("0");
+				$("form[name='frmCS'] input[name='REQ_GMAP_Y']").val("0");
+				$("form[name='frm'] input[name='REQ_RADIUS']").val("0");
+				$("form[name='frmCS'] input[name='REQ_RADIUS']").val("0");
+				$("form[name='frm'] input[name='WORK_DAY_WEEK_NEGO']").val("0");
+				$("form[name='frmCS'] input[name='WORK_DAY_WEEK_NEGO']").val("0");
+				$("form[name='frm'] input[name='REQ_WORK_DAY_WEEK_NEGO']").val("0");
+				$("form[name='frmCS'] input[name='REQ_WORK_DAY_WEEK_NEGO']").val("0");
+
+			} else {
+				if ("@(PAGE_LOCATION)" == "SEARCH") {
+					//검색 조건 초기화
+					$("form[name='frm'] input").val(""); //모두 초기화
+					$("form[name='frmCS'] input").val(""); //모두 초기화
+					$("ul.quick-item__list").html(""); //영역안의 리스트 전체 제거
+
+					//키워드 및 조건 유지 처리
+					$("form[name='frm'] input[name='AREA_USE']").val("Y");
+					$("form[name='frmCS'] input[name='AREA_USE']").val("Y");
+					$("form[name='frm'] input[name='CATE_USE']").val("Y");
+					$("form[name='frmCS'] input[name='CATE_USE']").val("Y");
+					$("form[name='frm'] input[name='WORK_USE']").val("Y");
+					$("form[name='frmCS'] input[name='WORK_USE']").val("Y");
+					$("form[name='frm'] input[name='COOKIE_TYPE']").val("KO");
+					$("form[name='frmCS'] input[name='COOKIE_TYPE']").val("KO");
+					$("form[name='frm'] input[name='PAGE_LOCATION']").val("SEARCH");
+					$("form[name='frmCS'] input[name='PAGE_LOCATION']").val("SEARCH");
+					$("form[name='frm'] input[name='REQ_KEYWORD']").val("@(ViewBag.REQ_KEYWORD)");
+					$("form[name='frmCS'] input[name='REQ_KEYWORD']").val("@(ViewBag.REQ_KEYWORD)");
+
+					//키워드만으로 카운트 호출
+					SearchJob_Count();
+				}
+			}
+
+		}
+>>>>>>> develop
+
+		function HistoryBack() {
+
+
+			var strAppStoreConfirm = "@(ViewBag.Job_Version_IOS_appstore_Confirm)";
+			var strPalyStoreConfirm = "@(ViewBag.Job_Version_Adroid_playstore_Confirm)";
+			var strtStoreConfirm = "@(ViewBag.Job_Version_Adroid_tstore_Confirm)";
+
+			//&amp;의 영향으로 리턴값을 textarea 객체에 담아서 전달
+			var textArea = document.createElement('textarea');
+			textArea.innerHTML = "@(Html.Raw(HistoryBackUrl))";
+
+			//alert("@(SEARCH_LOCATION) = SEARCH_LOCATION \n" + "@(PAGE_LOCATION) = PAGE_LOCATION\n" + "@(ViewBag.USE_COOKIE) = USE_COOKIE");
+
+			if ('@(ViewBag.ServiceType)' == 'app' && textArea.innerHTML.indexOf("/OurTownJob/MapList") != -1) {
+				var callString = '@@Action=FN_LM_CLOSE_AND_MAIN_REDIRECT@@Param1=' + textArea.value + '@@Param2=@@Param3=@@rURL=';
+				if ('@(ViewBag.Device)' == 'IOS_APP') {
+					//IOS_APP
+					if (strAppStoreConfirm == "Y") {
+						var strIOS_version = "@(ViewBag.OS_Version)";
+						var arrIOS_version = strIOS_version.split(".");
+						if (arrIOS_version.length > 0) {
+							if (arrIOS_version[0] != "") {
+								// ios 8버전 이하에서는 모바일웹구성처럼
+								if (parseInt(arrIOS_version[0]) <= 8) {
+									if (getCookie("osversioncheck") != "Y") {
+										alert("벼룩시장구인구직 앱은 iOS 10에 최적화 되어 있습니다.\nOS를 업데이트 하신 후 이용해 주세요.");
+										setCookie("osversioncheck", "Y", 1);
+									}
+									location.href = textArea.value;
+									return false;
+								}
+							}
+						}
+
+						window.location = 'jscall://' + callString;
+
+					}
+					else {
+						location.href = textArea.value;
+					}
+				}
+				else {
+
+					//ANDROID_APP
+					if (strPalyStoreConfirm == "Y") {
+						//alert(callString);
+						window.android.FN_LM_CLOSE_AND_MAIN_REDIRECT(callString);
+					}
+					else if (strtStoreConfirm == "Y") {
+						//alert(4321);
+						window.android.FN_LM_CLOSE_AND_MAIN_REDIRECT(callString);
+					}
+					else {
+						location.href = textArea.value;
+					}
+				}
+			}
+			else {
+				$(location).attr("href", "@(Html.Raw(HistoryBackUrl))");
+			}
+
+
+		}
+
+
+
+	</script>
+	@if (PAGE_LOCATION == "SEARCH" || PAGE_LOCATION == "BRAND")
+	{
+		//검색에서 또는 브랜드관에서넘어온 경우에만 호출하여 총 건수 표시
+		<script type="text/javascript">
+		    function SearchJob_Count() {
+		        var REQ_AREA = $("#REQ_AREA").val();
+		        var REQ_CATE = $("#REQ_CATE").val();
+		        var REQ_KEYWORD = $("#REQ_KEYWORD").val();
+
+		        var params;
+		        params = { keyword: REQ_KEYWORD, sAREA: REQ_AREA, sCATE: REQ_CATE, sWORK_PAYF: $("#REQ_WORK_PAYF").val(), sWORK_PAYAMOUNT: $("#REQ_WORK_PAYAMOUNT").val(), sWORK_WF: $("#REQ_WORK_WF").val(), sWORK_DAY_WEEK: $("#REQ_WORK_DAY_WEEK").val(), sWORK_DAY_WEEK_NEGO: $("#REQ_WORK_DAY_WEEK_NEGO").val(), sWORK_TIME: $("#REQ_WORK_TIME").val(), sWORK_TIMEF: $("#REQ_WORK_TIMEF").val(), sWORK_TIME_FROM: $("#REQ_WORK_TIME_FROM").val(), sWORK_TIME_TO: $("#REQ_WORK_TIME_TO").val(), sWORK_TIME_NEGO: $("#REQ_WORK_TIME_NEGO").val(), sWORK_AGE: $("#REQ_WORK_AGE").val(), sWORK_AGE_N: $("#REQ_WORK_AGE_N").val(), sWORK_SEX: $("#REQ_WORK_SEX").val(), sWORK_SEX_N: $("#REQ_WORK_SEX_N").val(), BR_SEQ: $("#BR_SEQ").val(), BR_GBN: $("#BR_GBN").val() };
+
+		        if ($('#PAGE_LOCATION').val() == "BRAND") {
+		          searchjob = '/Recruit/BrandJob_Ajax';
+		        }
+		        else searchjob = '/Search/SearchJob_Ajax';
+
+		        $.ajax({
+		            type: "POST",
+		            url: searchjob,
+		            data: params,
+		            cache: false,
+		            traditional: true,
+		            success: function (result) {
+		                if (result != "0") {
+		                    $("#bottom-area__result").html("총 " + setComma(result) + "건 검색하기");
+		                } else {
+		                    $("#bottom-area__result").html("총 0건 검색하기");
+		                }
+		            },
+		            error: function (request, status, error) {
+		                //alert("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
+		            }
+		        });
+		    }
+
+		    $(document).ready(function () {
+		        SearchJob_Count();
+		    });
+		</script>
+	}
