@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>문의 상세</title>
+    <link rel="stylesheet" type="text/css" href="../css/topmenu.css" title="style">
+    <link rel="stylesheet" type="text/css" href="/member/css/common.css" title="style">
+    <script language="javascript" src="/js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript">
+        function showPop() {
+            var openPop = window.open("about:blank", "", "width=500,height=300");
+        }
+    </script>
+</head>
+
+<body>
+    <div id="wrap">
+        <table cellpadding="2" width="100%" align="center">
+            <tr>
+                <td>
+                    <font color=#00688B>관리자 페이지 > <a href="">기업정보 인증 관리</a> > </font><a href=""><b>문의 상세</b></a>
+                </td>
+            </tr>
+        </table>
+
+        <div class="detail-wrap">
+            <div class="wrap_btn certi-btn">
+                <a href="#" class="btn_admin btn_g">기업정보 인증</a>
+            </div>
+            <table cellpadding="0" cellspacing="0" class="tb tb-top">
+                <colgroup>
+                    <col width="18%" />
+                    <col width="32%" />
+                    <col width="18%" />
+                    <col width="32%" />
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <th>문의자</th>
+                        <td>김이박</td>
+                        <th>접수일</th>
+                        <td>2022-10-20 오후 04:00:00</td>
+                    </tr>
+                    <tr>
+                        <th>회원ID</th>
+                        <td>abc123 (정상)</td>
+                        <th>회사명</th>
+                        <td>(주)미디어윌</td>
+                    </tr>
+                    <tr>
+                        <th>사업자등록번호</th>
+                        <td>111-11-00000</td>
+                        <th>대표자</th>
+                        <td>김이박</td>
+                    </tr>
+                    <tr>
+                        <th>휴대폰 번호</th>
+                        <td>010-0000-0000</td>
+                        <th>이메일</th>
+                        <td>abc123@google.com</td>
+                    </tr>
+                    <tr>
+                        <th colspan="4" align="left">문의내용</th>
+                    </tr>
+                    <tr>
+                        <td colspan="4" class="txt-left">사업자등록 증명원 인증이 안돼요. 어떻게 하면 되나요?</td>
+                    </tr>
+                    <tr>
+                        <th>첨부 파일</th>
+                        <td colspan="3" class="txt-left tbl_global"><a href="javascript:showPop();">파일명</a></td>
+                    </tr>
+                </tbody>
+             </table>
+
+            <table cellpadding="0" cellspacing="0" class="tb tb-btm">
+                <colgroup>
+                    <col width="18%" />
+                    <col width="32%" />
+                    <col width="18%" />
+                    <col width="32%" />
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <th>처리자</th>
+                        <td>검수자</td>
+                        <th>처리일</th>
+                        <td>2022-10-20 오후 04:00:00</td>
+                    </tr>
+                    <tr>
+                        <th colspan="4" align="left">처리내용</th>
+                    </tr>
+                    <tr>
+                        <td colspan="4" class="txt-left">
+                            <ul>
+                                <li>
+                                    <input type="radio" id="ra1" name="r1" value="" />
+                                    <label for="ra1">기업정보 인증 승인</label>
+                                </li>
+                                <li>
+                                    <input type="radio" id="ra2" name="r1" value="" />
+                                    <label for="ra2">거절 인증서류 미적합</label>
+                                </li>
+                                <li>
+                                    <input type="radio" id="ra3" name="r1" value="" />
+                                    <label for="ra3">거절 | 회원정보와 사업자 관련 내용이 일치하지 않음</label>
+                                </li>
+                                <li>
+                                    <input type="radio" id="ra4" name="r1" value="" />
+                                    <label for="ra4">거절 | 인증서류 미전달</label>
+                                </li>
+                                <li>
+                                    <input type="radio" id="ra5" name="r1" value="" />
+                                    <label for="ra5">기타 <input type="text" placeholder="최대 30자" maxlength="30" class="txt-input" /></label>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>메모</th>
+                        <td colspan="3" class="txt-left pd5">
+                            <input type="text" placeholder="최대 30자" maxlength="30" class="txt-input" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="wrap_btn">
+                <a href="#" class="btn_admin btn_b">처리</a>
+                <a href="#" class="btn_admin btn_g">취소</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
