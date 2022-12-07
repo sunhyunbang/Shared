@@ -1,0 +1,2139 @@
+@charset "euc-kr";
+/* reset */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,textarea,p,blockquote,th,td,input,select,textarea,button{margin:0;padding:0;}
+fieldset,img{border:0 none}
+dl,ul,ol,menu,li{list-style:none}
+blockquote, q{quotes:none}
+blockquote:before, blockquote:after,q:before, q:after{content:'';content:none}
+input,select,textarea,button{vertical-align:middle;font-size:100%}
+input::-ms-clear{display:none}
+button{border:0 none;background-color:transparent;cursor:pointer}
+table{border-collapse:collapse;border-spacing:0}
+body{-webkit-text-size-adjust:none} /* 뷰표트 변환시 폰트크기 자동확대 방지. */
+input:checked[type='checkbox'] {background-color:#666;-webkit-appearance:checkbox;}
+input[type='text'],input[type='password'],input[type='submit'],input[type='search'],input[type='tel'],input[type='email'],html input[type='button'],input[type='reset'] {-webkit-appearance:none;border-radius:0}
+input[type='search']::-webkit-search-cancel-button{-webkit-appearance:none}
+body{background:#fff}
+body,th,td,input,select,textarea,button{font-size:14px;line-height:1.5;font-family:'돋움',dotum,sans-serif;color:#333}
+a{color:#000;text-decoration:none}
+a:active, a:hover{text-decoration:none}
+address,caption,cite,code,dfn,em,var{font-style:normal;font-weight:normal}
+iframe{vertical-align:top}
+
+textarea::-webkit-input-placeholder,
+input::-webkit-input-placeholder{font-weight:normal;color:#888}
+textarea::-moz-placeholder,
+input::-moz-placeholder {font-weight:normal;color:#888}
+textarea:-ms-input-placeholder,
+input:-ms-input-placeholder {font-weight:normal;color:#888}
+textarea:-moz-placeholder,
+input:-moz-placeholder{font-weight:normal;color:#888} 
+
+input[type="text"].disabled {height: 46px; margin-left: 0; border: 0; background: none; line-height: 46px;}
+
+/***** common *****/
+
+/* line */
+.line_bnone {border-bottom:none !important;}
+.line_lnone {border-left:none !important;}
+.line_tnone {border-top:none !important;}
+.line_none {border:none !important;}
+.line_b {border-bottom:1px solid #e0e0e0;}
+.line_t {border-top:1px solid #e0e0e0;}
+.line_b02 {border-bottom:1px solid #d5d5d5;}
+
+/* width */
+.wd_05 {width:5% !important;}
+.wd_10 {width:10% !important;}
+.wd_15 {width:15% !important;}
+.wd_20 {width:20% !important;}
+.wd_25 {width:25% !important;}
+.wd_30 {width:30% !important;}
+.wd_35 {width:35% !important;}
+.wd_40 {width:40% !important;}
+.wd_45 {width:45% !important;}
+.wd_50 {width:50% !important;}
+.wd_55 {width:55% !important;}
+.wd_60 {width:60% !important;}
+.wd_65 {width:65% !important;}
+.wd_70 {width:70% !important;}
+.wd_75 {width:75% !important;}
+.wd_80 {width:80% !important;}
+.wd_85 {width:85% !important;}
+.wd_90 {width:90% !important;}
+.wd_95 {width:95% !important;}
+.wd_100 {width:100% !important;}
+
+/* padding */
+.pd_00 {padding:0 !important;}
+.pd_05 {padding:5px !important;}
+.pd_10 {padding:10px !important;}
+.pd_20 {padding:20px !important;}
+.pd_25 {padding:25px !important;}
+.pd_30 {padding:30px !important;}
+.pd_40 {padding:40px !important;}
+.pd_50 {padding:50px !important;}
+.pd_60 {padding:60px !important;}
+.pd_70 {padding:70px !important;}
+.pd_80 {padding:80px !important;}
+.pd_90 {padding:90px !important;}
+.pd_100 {padding:100px !important;}
+
+.pd_t00 {padding-top:0 !important;}
+.pd_t05 {padding-top:5px !important;}
+.pd_t10 {padding-top:10px !important;}
+.pd_t20 {padding-top:20px !important;}
+.pd_t30 {padding-top:30px !important;}
+.pd_t40 {padding-top:40px !important;}
+.pd_t50 {padding-top:50px !important;}
+.pd_t60 {padding-top:60px !important;}
+.pd_t70 {padding-top:70px !important;}
+.pd_t80 {padding-top:80px !important;}
+.pd_t90 {padding-top:90px !important;}
+.pd_t100 {padding-top:100px !important;}
+
+.pd_r00 {padding-right:0 !important;}
+.pd_r05 {padding-right:5px !important;}
+.pd_r10 {padding-right:10px !important;}
+.pd_r20 {padding-right:20px !important;}
+.pd_r30 {padding-right:30px !important;}
+.pd_r40 {padding-right:40px !important;}
+.pd_r50 {padding-right:50px !important;}
+.pd_r60 {padding-right:60px !important;}
+.pd_r70 {padding-right:70px !important;}
+.pd_r80 {padding-right:80px !important;}
+.pd_r90 {padding-right:90px !important;}
+.pd_r100 {padding-right:100px !important;}
+.pd_r110 {padding-right:110px !important;}
+
+.pd_b00 {padding-bottom:0 !important;}
+.pd_b05 {padding-bottom:5px !important;}
+.pd_b10 {padding-bottom:10px !important;}
+.pd_b20 {padding-bottom:20px !important;}
+.pd_b30 {padding-bottom:30px !important;}
+.pd_b40 {padding-bottom:40px !important;}
+.pd_b50 {padding-bottom:50px !important;}
+.pd_b60 {padding-bottom:60px !important;}
+.pd_b70 {padding-bottom:70px !important;}
+.pd_b80 {padding-bottom:80px !important;}
+.pd_b90 {padding-bottom:90px !important;}
+.pd_b100 {padding-bottom:100px !important;}
+
+.pd_l00 {padding-left:0 !important;}
+.pd_l05 {padding-left:5px !important;}
+.pd_l10 {padding-left:10px !important;}
+.pd_l20 {padding-left:20px !important;}
+.pd_l30 {padding-left:30px !important;}
+.pd_l40 {padding-left:40px !important;}
+.pd_l50 {padding-left:50px !important;}
+.pd_l60 {padding-left:60px !important;}
+.pd_l70 {padding-left:70px !important;}
+.pd_l80 {padding-left:80px !important;}
+.pd_l90 {padding-left:90px !important;}
+.pd_l100 {padding-left:100px !important;}
+
+/* margin */
+.mg_00 {margin:0 !important;}
+.mg_05 {margin:5px !important;}
+.mg_10 {margin:10px !important;}
+.mg_20 {margin:20px !important;}
+.mg_30 {margin:30px !important;}
+.mg_40 {margin:40px !important;}
+.mg_50 {margin:50px !important;}
+.mg_60 {margin:60px !important;}
+.mg_70 {margin:70px !important;}
+.mg_80 {margin:80px !important;}
+.mg_90 {margin:90px !important;}
+.mg_100 {margin:100px !important;}
+
+.mg_t00 {margin-top:0 !important;}
+.mg_t05 {margin-top:5px !important;}
+.mg_t10 {margin-top:10px !important;}
+.mg_t15 {margin-top: 15px  !important;}
+.mg_t20 {margin-top:20px !important;}
+.mg_t30 {margin-top:30px !important;}
+.mg_t40 {margin-top:40px !important;}
+.mg_t50 {margin-top:50px !important;}
+.mg_t60 {margin-top:60px !important;}
+.mg_t70 {margin-top:70px !important;}
+.mg_t80 {margin-top:80px !important;}
+.mg_t90 {margin-top:90px !important;}
+.mg_t100 {margin-top:100px !important;}
+
+.mg_r00 {margin-right:0 !important;}
+.mg_r05 {margin-right:5px !important;}
+.mg_r10 {margin-right:10px !important;}
+.mg_r20 {margin-right:20px !important;}
+.mg_r30 {margin-right:30px !important;}
+.mg_r40 {margin-right:40px !important;}
+.mg_r50 {margin-right:50px !important;}
+.mg_r60 {margin-right:60px !important;}
+.mg_r70 {margin-right:70px !important;}
+.mg_r80 {margin-right:80px !important;}
+.mg_r90 {margin-right:90px !important;}
+.mg_r100 {margin-right:100px !important;}
+
+.mg_b00 {margin-bottom:0 !important;}
+.mg_b05 {margin-bottom:5px !important;}
+.mg_b10 {margin-bottom:10px !important;}
+.mg_b20 {margin-bottom:20px !important;}
+.mg_b30 {margin-bottom:30px !important;}
+.mg_b40 {margin-bottom:40px !important;}
+.mg_b50 {margin-bottom:50px !important;}
+.mg_b60 {margin-bottom:60px !important;}
+.mg_b70 {margin-bottom:70px !important;}
+.mg_b80 {margin-bottom:80px !important;}
+.mg_b90 {margin-bottom:90px !important;}
+.mg_b100 {margin-bottom:100px !important;}
+
+.mg_l00 {margin-left:0 !important;}
+.mg_l05 {margin-left:5px !important;}
+.mg_l10 {margin-left:10px !important;}
+.mg_l20 {margin-left:20px !important;}
+.mg_l30 {margin-left:30px !important;}
+.mg_l40 {margin-left:40px !important;}
+.mg_l50 {margin-left:50px !important;}
+.mg_l60 {margin-left:60px !important;}
+.mg_l70 {margin-left:70px !important;}
+.mg_l80 {margin-left:80px !important;}
+.mg_l90 {margin-left:90px !important;}
+.mg_l100 {margin-left:100px !important;}
+
+/* font weight */
+.fontWn {font-weight:normal !important;}
+.fontWb {font-weight:bold !important;}
+.fontW1 {font-weight:100 !important;}
+.fontW2 {font-weight:200 !important;}
+.fontW3 {font-weight:300 !important;}
+.fontW4 {font-weight:400 !important;}
+.fontW5 {font-weight:500 !important;}
+.fontW6 {font-weight:600 !important;}
+.fontW7 {font-weight:700 !important;}
+.fontW8 {font-weight:800 !important;}
+.fontW9 {font-weight:900 !important;}
+
+/* font size */
+.font0 {font-size:0 !important;}
+.font10 {font-size:10px !important;}
+.font11 {font-size:11px !important;}
+.font12 {font-size:12px !important;}
+.font13 {font-size:13px !important;}
+.font14 {font-size:14px !important;}
+.font15 {font-size:15px !important;}
+.font16 {font-size:16px !important;}
+.font17 {font-size:17px !important;}
+.font18 {font-size:18px !important;}
+.font19 {font-size:19px !important;}
+.font20 {font-size:20px !important;}
+.font21 {font-size:21px !important;}
+.font22 {font-size:22px !important;}
+.font23 {font-size:23px !important;}
+.font24 {font-size:24px !important;}
+.font25 {font-size:25px !important;}
+.font26 {font-size:26px !important;}
+.font27 {font-size:27px !important;}
+.font28 {font-size:28px !important;}
+.font29 {font-size:29px !important;}
+.font30 {font-size:30px !important;}
+
+/***** // common *****/
+
+/* point color */
+.p_color01 {color: #0061af !important;}
+.p_color02 {color: #ff0000 !important;}
+.p_color03 {color: #222 !important;}
+/* //point color */
+
+/* global */
+.ir_pm{display:block;overflow:hidden;font-size:0px;line-height:0;text-indent:-9999px} /* 사용된 이미지내 의미있는 텍스트의 대체텍스트를 제공할때 */
+.ir_wa{display:block;overflow:hidden;position:relative;z-index:-1;width:100%;height:100%} /* 중요한 이미지 대체텍스트로 이미지off시에도 대체 텍스트를 보여주고자 할때 */
+.screen_out{overflow:hidden;position:absolute;width:0;height:0;line-height:0;text-indent:-9999px} /* 대체텍스트가 아닌 접근성을 위한 숨김텍스트를 제공할때 */
+.show{display:block}
+.hide{display:none}
+.clear_g{display:block;overflow:visible;width:auto;clear:both;*zoom:1}
+.clear_g:after {display:block;visibility:hidden;height:0;font-size:0;clear:both;content:''}
+.f_l {float:left;}
+.f_r {float:right;}
+/* 공통 input text */
+.inp_txt {position:relative;height:20px;padding:8px 10px;border:1px solid #bbb;border-radius:2px;-webkit-border-radius:2px;-moz-border-radius:2px;background-color:#f9f9f9;vertical-align:top;font-weight:bold;z-index:9}
+.inp_txt_done {padding:0 10px;background-color:transparent;border-color:transparent;}
+/* 공통 select */
+.opt_select {display:block;position:relative;height:20px;padding:8px 38px 8px 8px;border:1px solid #bbb;border-radius:2px;-webkit-border-radius:2px;-moz-border-radius:2px;background:url(https://image.findall.co.kr/FACache/All/New/member/select_arr.png) top right no-repeat;cursor:pointer}
+.opt_select .txt {display:block;overflow:hidden;width:100%;height:20px;font-weight:bold;font-size:14px;line-height:20px;color:#333;text-align:left;text-overflow:ellipsis;white-space:nowrap;}
+.opt_select select {position:absolute;top:0;left:0;right:0;bottom:0;width:100%;height:36px;opacity:0;-moz-opacity:0;filter:alpha(opacity=0);}
+
+.opt_select2 {width:100%;}
+.opt_select2 select {display:block;width:100%;height:36px;/* padding:8px 38px 8px 8px; */border-color:#bbb;}
+
+/* btn_area */
+.btn_area {}
+.btn_area ul {display: flex; align-items: center; justify-content: center;}
+.btn_area ul li {flex: 1; margin-right: 10px;}
+.btn_area ul li:last-child {margin-right: 0px;}
+.btn_area ul li a {display: block;}
+
+/* btn_size */
+.btn_s {}
+.btn_m {}
+.btn_l {height: 50px; border-radius: 3px; font-size: 15px; font-weight: bold; line-height: 50px; text-align: center; box-sizing: border-box;}
+
+/* btn_ty */
+.btn_ty {border: 1px solid #666; color: #666;}
+.btn_ty02 {background-color: #0061af; color: #fff;}
+.btn_ty03 {background-color: #666; color: #fff;}
+.btn_ty04 {background-color: #aaa; color: #fff;}
+
+
+/* 공통 radio */
+.lab_radio {display:inline-block;height:20px;padding:8px 20px 8px 0;vertical-align:top;line-height:20px;color:#555;cursor:pointer}
+.lab_radio .ico {display:inline-block;position:relative;width:20px;height:20px;margin-right:3px;background:url(https://image.findall.co.kr/FACache/All/New/member/ico_radio.png) 0 0 no-repeat;vertical-align:top;}
+.lab_radio.on .ico {background-position:0 -100px;}
+.lab_radio .ico input {position:absolute;top:0;left:0;width:20px;height:20px;opacity:0;-moz-opacity:0;filter:alpha(opacity=0);}
+.lab_radio .more {float:right;font-weight:normal;font-size:12px;color:#333;}
+/* 공통 checkbox */
+.lab_check {display:inline-block;height:20px;padding:8px 20px 8px 0;vertical-align:top;font-weight:normal;font-size:14px;line-height:20px;color:#555;cursor:pointer}
+.lab_check .ico {display:inline-block;position:relative;width:20px;height:20px;margin-right:3px;background:url(https://image.findall.co.kr/FACache/All/New/member/ico_check.png) 0 0 no-repeat;vertical-align:top;}
+.lab_check.on .ico {background-position:0 -100px;}
+.lab_check .ico input {position:absolute;top:0;left:0;width:20px;height:20px;opacity:0;-moz-opacity:0;filter:alpha(opacity=0);}
+
+
+/* fj001-136 추가 */
+/* check_ty */
+.check_ty {position:relative;}
+.check_ty input[type="checkbox"] {display: none;}
+.check_ty label {position: relative; padding-right: 30px;}
+.check_ty label:before {content: ''; position: absolute; top: 50%; right: 0; transform: translateY(-50%); display: block; width: 20px; height: 20px; background: url(https://image.findall.co.kr/FACache/member/join/chk-normal.png) 0 0 no-repeat; background-size: 100% auto;}
+.check_ty input[type="checkbox"] + label {font-size: 13px; color: #888; letter-spacing: -1.2px;}
+.check_ty input[type="checkbox"]:checked + label:before {background-image: url(https://image.findall.co.kr/FACache/member/join/chk-selected.png);}
+/* // check_ty */
+
+/* table_col_type */
+.table_col_type {}
+.table_col_type table {}
+.table_col_type table thead {}
+.table_col_type table thead tr {}
+.table_col_type table thead tr th {padding: 16px; border: 1px solid #eee; background-color: #f5f6f7; font-size: 13px; color: #888; line-height: 1.69; letter-spacing: -1.2px; text-align: center;}
+.table_col_type table tbody {}
+.table_col_type table tbody tr {}
+.table_col_type table tbody tr td {padding: 16px; border: 1px solid #eee; font-size: 13px; color: #444; line-height: 1.31 ; letter-spacing: -1.2px; text-align: center; vertical-align: top; word-break: keep-all;}
+/* // table_col_type */
+
+/* table_row_type */
+.table_row_type {}
+.table_col_type table {}
+.table_col_type table tbody {}
+.table_col_type table tbody tr {}
+.table_col_type table tbody tr th {padding: 16px; border: 1px solid #eee; font-size: 13xp; color: #888; line-height: 1.69; letter-spacing: -1.2px;}
+.table_col_type table tbody tr td {padding: 16px; border: 1px solid #eee; font-size: 13px; color: #444; line-height: 1.31 ; letter-spacing: -1.2px; word-break: keep-all;}
+/* // table_row_type */
+
+/* // fj001-136 추가 */
+
+/***** bullet style *****/
+
+/* blt_list */
+.blt_list {}
+.blt_list ul {}
+.blt_list ul li {position: relative; margin-bottom: 12px; padding-left: 10px; font-size: 13px; color: #666; line-height: 20px; letter-spacing: -0.5px;}
+.blt_list ul li:last-child {margin-bottom: 0px;}
+.blt_list ul li:before {content:''; position: absolute; left: 0; display: block;}
+
+/* star */
+.blt_list.star {}
+.blt_list.star ul {}
+.blt_list.star ul li {}
+.blt_list.star ul li:before {content:'';}
+
+
+/* circle */
+.blt_list.circle {}
+.blt_list.circle ul {}
+.blt_list.circle ul li {}
+.blt_list.circle ul li:before {top: 8px; width: 3px; height: 3px; border-radius: 50%; background-color: #888;}
+
+
+
+/***** // bullet style *****/
+
+
+body {background:url(https://image.findall.co.kr/FACache/All/New/member/top_bg.gif) repeat-x #f5f6f7}
+#wrap {display:block;overflow:hidden;width:560px;margin:0 auto;/*padding-bottom:120px;*/} /* 수정 20180903 */
+#wrap #header {height:40px;text-align:center;}
+#wrap #header #Logo {display:block;font-size:14px;}
+#wrap #header img {vertical-align:top;}
+#stipulationTab {margin-top:20px;border:1px solid #e4e5e5;background-color:#fff;font-size:0;line-height:0;text-align:center;}
+#stipulationTab a {display:inline-block;padding:20px 18px;font-size:14px;line-height:18px;color:#555;letter-spacing:-1px;vertical-align:top;}
+#stipulationTab a:hover {color:#418af4;}
+#stipulationTab a.on {font-weight:bold;color:#333;}
+#stipulationTab .bar {display:inline-block;padding:20px 0;font-size:14px;line-height:18px;color:#e2e2e2;vertical-align:top}
+#content #Body {overflow:hidden;width:100%;padding:72px 0 30px;background-color:#f5f6f7;text-align:center; word-break: keep-all;}
+#content #Body img {vertical-align:top;}
+#mArticle {position:relative;padding:0 35px 60px;background-color:#fff;}/*181123 수정*/
+#mArticle.pt50 {padding-top:50px;}
+#mArticle .wrap_article_tab {height:61px;}
+#mArticle .wrap_article_tab .list_tab {display:block;position:absolute;top:0;left:0;right:0;width:100%;height:59px;border-bottom:2px solid #616f81;}
+#mArticle .wrap_article_tab .list_tab li {float:left;width:50%;}
+#mArticle .wrap_article_tab .list_tab button,
+#mArticle .wrap_article_tab .list_tab a {display:block;width:100%;height:61px;border:0 none;outline:none;}
+#mArticle .wrap_article_tab .list_tab span {display:block;position:relative;height:58px;border:1px solid #c1c1c1;border-bottom:0 none;font-size:16px;line-height:58px;color:#666;text-align:center;vertical-align:top;}
+#mArticle .wrap_article_tab .list_tab .lst span {margin-left:1px;}
+#mArticle .wrap_article_tab .list_tab .on span {height:57px;border:2px solid #626f81;border-bottom-color:#fff;font-weight:bold;line-height:58px;}
+#mArticle .wrap_article_tab .list_tab3 li {width:33.4%}
+#mArticle .wrap_article_tab .list_tab3 li span {margin:0 1px;}
+#mArticle .wrap_article_tab .list_tab3 .fst {width:33.3%}
+#mArticle .wrap_article_tab .list_tab3 .lst {width:33.3%}
+#mArticle .wrap_article_tab .list_tab3 .fst span,
+#mArticle .wrap_article_tab .list_tab3 .lst span {margin:0;}
+#mArticle .tit_join {position:relative;padding:48px 0 13px;font-weight:bold;font-size:16px;line-height:20px;color:#000;text-align:left;s}
+#mArticle .tit_join .lab_check {float:right;padding-top:1px;padding-right:0;}
+#mArticle .tit_join .txt {position:absolute;top:36px;right:0;font-size:12px;color:#666}
+#mArticle .tit_join .txt em {color:red}
+#mArticle .tit_join_txt {padding:44px 0 48px;font-size:14px;line-height:24px;color:#333;text-align:center;}
+#mArticle .tit_join_txt .point {color:#f26522;}
+#mArticle .tit_join_txt .point2 {color:#5194f4;}
+#mArticle .tit_join_txt a {color:#5194f4;}
+.wrap_join_box {border-width:2px 1px 0 1px;border-style:solid;border-color:#616f81 #e4e5e5 #e4e5e5 #e4e5e5;}
+.wrap_join_box .list_join {position:relative;padding:11px 20px 11px 160px;/*padding:11px 20px 11px 130px;*/border-bottom:1px solid #e4e5e5;background-color:#fff;line-height:38px;} /* 20180831 수정 */
+.wrap_join_box .list_join2 {}
+.wrap_join_box .list_join dt {position:absolute;top:50%;left:0;height:38px;margin-top:-19px;padding-left:15px;letter-spacing:-1.2px;} /* 20180831 수정 */
+.wrap_join_box .list_join dt em {color:red}
+.wrap_join_box .list_join2 dt {font-size:12px;text-indent:10px;}
+.wrap_join_box .list_join_w100 {padding:11px 10px !important}
+.wrap_join_box .list_join_w100 dt {position:inherit;top:0;left:0;height:auto;margin-top:0;padding-left:0;text-align:center;line-height:18px;padding:10px 0 0;}
+.wrap_join_box .list_join_w100 dt strong {color:#249cdb;}
+.wrap_join_box .list_join_w100 dt strong.pit2 {color:#009042;}
+.wrap_join_box .list_join_w100 .inpbtn .btn {top:50px;right:10px;}
+.wrap_join_box .list_join {overflow:visible;width:auto;clear:both;*zoom:1}
+.wrap_join_box .list_join:after {display:block;visibility:hidden;height:0;font-size:0;clear:both;content:''}
+.wrap_join_box .list_join .info {display:block;overflow:hidden;margin-top:6px;padding-left:20px;background:url(https://image.findall.co.kr/FACache/All/New/member/alert_info.png) 0 0 no-repeat;font-size:11px;line-height:16px;color:#666}
+.wrap_join_box .list_join .inpbtn {padding-right:110px;}
+.wrap_join_box .list_join .inpbtn .inp_txt {/*float:left;*/width:100%;}
+.wrap_join_box .list_join .inpbtn .btn {display:block;position:absolute;top:11px;right:20px;width:80px;height:36px;border:0 none;outline:none;z-index:1;}
+.wrap_join_box .list_join .location {padding-right:130px;}
+.wrap_join_box .list_join .location .btn_g {width:100px;}
+.wrap_join_box .list_join .location .btn {width:100px}
+.wrap_join_box .list_join .location_map {height:150px;margin-top:10px;border:1px solid #bbb;background:url(https://image.findall.co.kr/FACache/All/New/member/bg_location.png) 0 0 no-repeat;}
+.wrap_join_box .list_join .address_road {padding:9px 0;margin:10px 0 0 -11px;line-height:20px;clear:both;}
+.wrap_join_box .list_join .btn_g {display:block;position:relative;width:80px;height:36px;margin:1px 0; border-radius: 3px; background-color:#6f7e91;font-weight:bold;font-size:14px;line-height:36px;color:#fff;text-align:center;vertical-align:top;}
+.wrap_join_box .list_join .btn_r {display:block;position:relative;width:80px;height:36px;margin:1px 0; border-radius: 3px; background-color:#bbb;font-weight:bold;font-size:14px;line-height:36px;color:#fff;text-align:center;vertical-align:top;}
+.wrap_join_box .list_join .btn_w100 {width:100%;}
+.wrap_join_box .list_join .email {padding:0 38px;}
+.wrap_join_box .list_join .email .inp_mail1 {float:left;width:46%;margin-left:-38px;}
+.wrap_join_box .list_join .email .inp_mail2 {float:right;width:54%;margin-right:-38px;}
+.wrap_join_box .list_join .email .bar {float:left;width:32px;text-align:center;}
+.wrap_join_box .list_join .select {margin-top:10px;}
+.wrap_join_box .list_join .select_btn {position:relative;padding:0 90px 0 0}
+.wrap_join_box .list_join .select_btn .btn {position:absolute;top:0;right:0;}
+.wrap_join_box .list_join .select_num2 {padding:0 52px}
+.wrap_join_box .list_join .select_num2 .fst {float:left;width:50%;margin-left:-52px;margin-right:4px;}
+.wrap_join_box .list_join .select_num2 .lst {float:left;width:50%;margin-left:4px;margin-right:-52px}
+.wrap_join_box .list_join .select_num3 {padding:0 4px}
+.wrap_join_box .list_join .select_num3 .fst {float:left;width:50%;margin-left:-4px;margin-right:4px;}
+.wrap_join_box .list_join .select_num3 .lst {float:left;width:50%;margin-left:4px;margin-right:-4px}
+.wrap_join_box .list_join .select_num3 {}
+.wrap_join_box .list_join .inp_w100 {padding:0 11px;}
+.wrap_join_box .list_join .mt10 {margin-top:10px;}
+.wrap_join_box .list_join .inp_w100 .inp_txt {float:left;width:100%;margin-left:-11px;}
+.wrap_join_box .list_join .inp_w100 .alert {margin-left:-11px;}
+.wrap_join_box .list_join .opt_ymd {padding:0 8px;}
+.wrap_join_box .list_join .opt_ymd .y,
+.wrap_join_box .list_join .opt_ymd .m,
+.wrap_join_box .list_join .opt_ymd .d {float:left;margin:0 4px;}
+.wrap_join_box .list_join .opt_ymd .y {width:40%;margin-left:-8px}
+.wrap_join_box .list_join .opt_ymd .m {width:30%;}
+.wrap_join_box .list_join .opt_ymd .d {width:30%;margin-right:-8px}
+.wrap_join_box .list_join .phone_num {position:relative;padding:0 90px 0 0;}
+.wrap_join_box .list_join .phone_num .inner {display:block;padding:0 47px;}
+.wrap_join_box .list_join .phone_num .opt_select {float:left;width:35%;margin-left:-47px;}
+.wrap_join_box .list_join .phone_num .bar {float:left;width:24px;text-align:center;}
+.wrap_join_box .list_join .phone_num .inp_txt {float:left;width:65%;margin-right:-47px;}
+.wrap_join_box .list_join .phone_num .btn {position:absolute;top:0;right:0;}
+.wrap_join_box .list_join .phone_num2 {padding-right:0;}
+.wrap_join_box .list_join .certification {position:relative;padding:0 190px 0 10px}
+.wrap_join_box .list_join .certification .inp_txt {float:left;width:100%;margin-left:-10px;}
+.wrap_join_box .list_join .certification .alert {margin-left:-10px;width:200px;}
+.wrap_join_box .list_join .certification .btn {position:absolute;top:0;right:90px;}
+.wrap_join_box .list_join .certification .btn2 {position:absolute;top:0;right:0;}
+.wrap_join_box .list_join .biz_num {padding:0 53px;}
+.wrap_join_box .list_join .biz_num .inp_txt {float:left;width:33.3%;}
+.wrap_join_box .list_join .biz_num .fst {width:33.4%;margin-left:-53px;}
+.wrap_join_box .list_join .biz_num .lst {margin-right:-53px;}
+.wrap_join_box .list_join .biz_num .bar {float:left;width:20px;text-align:center;}
+.wrap_join_box .list_join .biz_num .alert {width:300px;margin-left:-53px;}
+.wrap_join_box .list_join .biz_num2 {position:relative;padding:0 143px 0 53px;}
+.wrap_join_box .list_join .biz_num2 .inp_txt {float:left;width:33.3%;}
+.wrap_join_box .list_join .biz_num2 .fst {width:33.4%;margin-left:-53px;}
+.wrap_join_box .list_join .biz_num2 .lst {margin-right:-53px;}
+.wrap_join_box .list_join .biz_num2 .bar {float:left;width:20px;text-align:center;}
+.wrap_join_box .list_join .biz_num2 .btn {position:absolute;top:0;right:0;}
+.wrap_join_box .list_join .biz_num2 .alert {width:300px;margin-left:-53px;}
+
+.wrap_join_box .list_join .biz_num_search {padding:0 143px 0 53px;}
+.wrap_join_box .list_join .biz_num_search .inp_txt {float:left;width:33.3%;}
+.wrap_join_box .list_join .biz_num_search .fst {width:33.4%;margin-left:-53px;}
+.wrap_join_box .list_join .biz_num_search .lst {margin-right:-53px;}
+.wrap_join_box .list_join .biz_num_search .bar {float:left;width:20px;text-align:center;}
+.wrap_join_box .list_join .biz_num_search .alert {width:300px;margin-left:-53px;}
+.wrap_join_box .list_join .biz_num_search .btn {display:block;position:absolute;top:11px;right:20px;width:80px;height:36px;border:0 none;outline:none;z-index:1;}
+
+.wrap_join_box .alert {width:100%;padding:0 0 0 4px;font-weight:normal;font-size:11px;line-height:20px;color:#ef766e;clear:both;}
+.wrap_join_box .list_join .alert {padding-top:5px;}
+.wrap_join_box .list_check {}
+.wrap_join_box .list_check li {position:relative;padding-bottom:8px;border-bottom:1px solid #e4e5e5;}
+.wrap_join_box .list_check2 li {padding-bottom:0;}
+.wrap_join_box .list_check .lab_check {display:block;padding:19px 15px 11px;margin-right:90px;}
+.wrap_join_box .list_check2 .lab_check {margin-right:0;}
+.wrap_join_box .list_check .alert {padding:0 0 5px 20px;}
+.wrap_join_box .list_check .alert2 {padding:5px 0 0 4px;}
+.wrap_join_box .list_check .btn {position:absolute;top:18px;right:20px}
+.wrap_join_box .list_check .btn_all_view {display:block;width:62px;height:24px;background-color:#bbb;font-size:12px;line-height:24px;color:#fff;text-align:center;}
+.wrap_join_box .list_check .box_all_view {display:none;overflow:hidden;overflow-y:auto;height:200px;padding:15px 15px 7px;margin-top:8px;border-top:1px solid #e4e5e5;font-size:12px;line-height:18px;color:#666;}
+.wrap_join_box .list_check .box_all_view_line {padding:15px 15px 0;margin-bottom:15px;font-size:12px;line-height:18px;color:#333;}
+.wrap_join_box .list_check .box_all_view_line em {color:#f26522;}
+.wrap_join_box .list_check .box_all_view_line2 {overflow:hidden;height:36px;}
+.wrap_join_box .list_check .box_all_view_line3 {overflow:hidden;height:54px;}
+.wrap_join_box .list_check .open .box_all_view_line2,
+.wrap_join_box .list_check .open .box_all_view_line3 {height:auto}
+.wrap_join_box .list_check .btn_toggle {display:block;width:100%;height:37px;border:0 none;border-top:1px solid #e4e5e5;background:url(https://image.findall.co.kr/FACache/All/New/member/btn_toggle.gif) center 0 no-repeat #f5f5f5;}
+.wrap_join_box .list_check .open .btn_toggle {background-position:center -50px}
+.wrap_join_box .box_radio {padding:13px 0;border-bottom:1px solid #e4e5e5;font-weight:bold;text-align:center;}
+.wrap_join_box .box_radio_left {padding:13px 20px;text-align:left;}
+.wrap_join_box .box_radio_block {padding:13px 20px;text-align:left;}
+.wrap_join_box .box_radio_block .lab_radio {display:block;padding-right:0;}
+.wrap_join_box .box_radio_block2 {padding:13px 20px;text-align:left;}
+.wrap_join_box .box_radio_block2 .lab_radio {display:block;position:relative;height:auto;padding:9px 10px 9px 30px;}
+.wrap_join_box .box_radio_block2 .lab_radio .ico {position:absolute;top:9px;left:0;}
+.wrap_join_box .box_radio_block2 .lab_radio .txt {width:20%;}
+.wrap_join_box .box_radio_block2 .inp_txt {position:absolute;top:0;width:60%;margin-left:5px;}
+.wrap_join_box .txt_certification {padding:19px 0 20px;border-bottom:1px solid #e4e5e5;font-size:12px;line-height:18px;color:#333;text-align:center;}
+.wrap_join_box .txt_certification strong {margin-right:15px;font-size:14px;}
+.box_phone_certi {padding:25px 10px;border-bottom:1px solid #e4e5e5}
+.box_phone_certi .tit {font-size:16px;line-height:24px;text-align:center;}
+.box_phone_certi .tit span {color:#5194f5;}
+.box_phone_certi .txt {padding-top:13px;font-size:12px;line-height:16px;text-align:center;}
+.box_phone_certi .btn {padding-top:27px;text-align:center;}
+.box_phone_certi .btn .btn_b {display:block;width:230px;height:36px;background-color:#418af4;font-weight:bold;font-size:14px;line-height:36px;color:#fff;text-align:center;}
+.box_phone_certi .link {padding-top:17px;font-size:12px;line-height:18px;text-align:center;}
+.box_phone_certi .link a {}
+.box_phone_certi .link .bar {margin:0 8px 0 7px;color:#bebebe;}
+
+.wrap_info_box {display:block;overflow:hidden;margin-top:10px;padding-left:20px;background:url(https://image.findall.co.kr/FACache/All/New/member/alert_info.png) 0 0 no-repeat;font-size:11px;line-height:16px;color:#666}
+
+.box_join_txt {padding:62px 20px 55px;border-bottom:1px solid #e4e5e5}
+.box_join_txt .tit {font-weight:bold;font-size:16px;line-height:24px;color:#333;text-align:center;}
+.box_join_txt .txt {margin-top:11px;font-size:12px;line-height:20px;color:#333;text-align:center;}
+
+.list_dot {padding:7px 20px 17px 20px;background-color:#e2e2e2;}
+.list_dot li {padding:8px 0 0 8px;background:url(https://image.findall.co.kr/FACache/All/New/member/list_dot.gif) 0 16px no-repeat;font-size:12px;line-height:20px;color:#555;text-align:left;}
+.list_dot_stipulation {padding:40px 20px 10px 20px;}
+.list_dot_stipulation li {padding:13px 0 5px 8px;background:url(https://image.findall.co.kr/FACache/All/New/member/list_dot.gif) 0 20px no-repeat;font-size:14px;line-height:18px;color:#555;text-align:left;}
+.list_dot_stipulation li a {color:#555;}
+.list_dot_stipulation li a span {font-size:12px;}
+.list_dot2 {padding:9px 40px 15px;}
+
+.box_btn {margin-top:60px;text-align:center;clear:both;*zoom:1}
+.box_btn:after {display:block;visibility:hidden;height:0;font-size:0;clear:both;content:''}
+.box_btn button {display:block;width:100%;border:0 none;/*outline:none;*/}
+.box_btn .btn_c {display:block;width:100%;height:30px;padding:15px 0;background-color:#ccc;font-weight:bold;font-size:18px;line-height:30px;color:#fff;text-align:center;}
+.box_btn .btn_c2 {display:block;width:100%;height:40px;padding:10px 0;background-color:#ccc;font-weight:bold;font-size:18px;line-height:20px;color:#2b3746;text-align:center;}
+.box_btn .btn_c2 span {display:block;font-weight:normal;font-size:12px;}
+.box_btn .btn_g {display:block;width:100%;height:30px;padding:15px 0;background-color:#6f7e91;font-weight:bold;font-size:18px;line-height:30px;color:#fff;text-align:center;}
+.box_btn .btn_l {display:block;width:100%;height:30px;padding:15px 0;background-color:#7d6f91;font-weight:bold;font-size:18px;line-height:30px;color:#fff;text-align:center;}
+.box_btn .ico_complete {display:inline-block;width:44px;height:30px;background:url(https://image.findall.co.kr/FACache/All/New/member/ico_complete.png) 0 0 no-repeat;vertical-align:top;}
+.box_btn_complete {padding:0 4px;}
+.box_btn_complete .f_l {width:38.5%;margin-left:-4px;}
+.box_btn_complete .f_r {width:61.5%;margin-right:-4px;}
+.box_btn_w50 {padding:0 10px;}
+.box_btn_w50 .f_l {width:50%;margin-left:-10px;}
+.box_btn_w50 .f_r {width:50%;margin-right:-10px;}
+
+.wrap_list_tab {padding-top:60px;}
+.wrap_list_tab .list_tab {display:block;overflow:hidden;width:100%;height:48px;}
+.wrap_list_tab .list_tab li {float:left;width:50%;height:48px;}
+.wrap_list_tab .list_tab button {display:block;width:100%;height:48px;}
+.wrap_list_tab .list_tab span {display:block;height:47px;border:1px solid #c1c1c1;border-bottom:0 none;font-size:14px;line-height:48px;color:#333;text-align:center;}
+.wrap_list_tab .list_tab .on span {border-color:#616f81;background-color:#616f81;font-weight:bold;color:#fff;}
+
+#loginWrap {}
+#loginWrap #Body {padding-bottom:20px;}
+#loginWrap .txt_login {text-align:center;padding-bottom:25px;}
+#loginWrap .wrap_login {background-color:#fff;padding:30px 40px 40px 40px;}
+#loginWrap .wrap_login .box_inp {display:block;overflow:visible;width:auto;padding:0 11px;clear:both;*zoom:1}
+#loginWrap .wrap_login .box_inp:after {display:block;visibility:hidden;height:0;font-size:0;clear:both;content:''}
+#loginWrap .wrap_login .box_inp .inp_txt {float:left;width:100%;padding:12px 10px;margin:10px 0 0 -11px;}
+#loginWrap .wrap_login .box_check {padding-top:12px}
+#loginWrap .wrap_login .box_btn {display:block;width:100%;margin-top:22px;}
+#loginWrap .wrap_login .box_btn button {display:block;width:100%;}
+#loginWrap .wrap_login .box_btn .btn_login {display:block;position:relative;width:100%;height:60px;background-color:#6f7e91;font-size:20px;line-height:60px;color:#fff;text-align:center;}
+#loginWrap .wrap_login .box_link {padding-top:25px;font-size:12px;line-height:20px;text-align:center;}
+#loginWrap .wrap_login .box_link a {color:#333;}
+#loginWrap .wrap_login .box_link a:hover {color:#418af4;}
+#loginWrap .wrap_login .box_link .bar {color:#bebebe;margin:0 6px;}
+#loginWrap .wrap_login .box_link strong {font-weight:normal;}
+#loginWrap .wrap_login .box_sns_login {padding:65px 0 0;clear:both;*zoom:1}
+#loginWrap .wrap_login .box_sns_login:after {display:block;visibility:hidden;height:0;font-size:0;clear:both;content:''}
+#loginWrap .wrap_login .box_sns_login a {display:block;overflow:hidden;float:left;width:calc(50% - 5px);height:38px;border:1px solid #e4e4e4;border-radius:2px;-webkit-border-radius:2px;-moz-border-radius:2px;font-size:13px;letter-spacing:-1.2px;color:#222;line-height:38px;box-sizing:border-box;padding-left:60px;}
+#loginWrap .wrap_login .box_sns_login a:nth-child(2n) {margin-left:10px;}
+#loginWrap .wrap_login .box_sns_login a:nth-child(n+3) {margin-top:10px;}
+#loginWrap .wrap_login .box_sns_login a::before {content:'';display:inline-block;width:28px;height:28px;background:url(//image.findall.co.kr/FACache/All/New/member/ico-sns-sprite.png) no-repeat;background-size:56px;vertical-align:-10px;margin-right:11px;}
+#loginWrap .wrap_login .box_sns_login .noSpac {letter-spacing:0;}
+#loginWrap .wrap_login .box_sns_login .link_naver::before {background-position:0 0;}
+#loginWrap .wrap_login .box_sns_login .link_facebook::before {background-position:-28px 0;}
+#loginWrap .wrap_login .box_sns_login .link_kakao::before {background-position:0 -28px;}
+#loginWrap .wrap_login .box_sns_login .link_apple::before {background-position:-28px -28px;}
+#loginWrap .wrap_login .alert {width:100%;padding:5px 0 0 4px;font-weight:normal;font-size:11px;line-height:20px;color:#ef766e;clear:both;}
+#footer {padding-bottom:20px;}
+#footer .link {padding:16px 0;font-size:12px;line-height:18px;color:#333;text-align:center;}
+#footer .link a {display:inline-block;padding:0 16px;color:#666}
+#footer .link a strong {color:#333;}
+#footer .link .bar {color:#bebebe;}
+#footer .capyright {font-size:12px;line-height:16px;color:#666;text-align:center;}
+
+.wrap_tit_more {}
+.wrap_tit_more #Body {padding-bottom:20px;}
+.wrap_tit_more .txt_more {text-align:center;padding-bottom:25px;}
+
+.box_certification {display:block;position:relative;padding:36px 148px 29px 125px;}
+.box_certification .tit {font-size:16px;line-height:20px;}
+.box_certification .txt {padding-top:9px;font-size:14px;line-height:20px;color:#555}
+.box_certification .info {padding-top:4px;font-weight:bold;font-size:15px;line-height:19px;color:#f26522}
+.box_certification .btn {position:absolute;top:67px;right:10px;}
+.box_certification .btn button {display:block;width:128px;height:36px;}
+.box_certification .btn span {display:block;position:relative;width:128px;height:36px;background-color:#6f7e91;font-weight:bold;font-size:14px;line-height:36px;color:#fff;text-align:center;}
+.box_certification.box_phone {background:url(https://image.findall.co.kr/FACache/All/New/member/bg_phone.png) 0 0 no-repeat;}
+.box_certification.box_email {background:url(https://image.findall.co.kr/FACache/All/New/member/bg_email.png) 0 0 no-repeat;}
+
+.list_out_info {}
+.list_out_info li {padding:17px 20px 20px;border-bottom:1px solid #e4e5e5;}
+.list_out_info .tit {display:block;font-size:16px;line-height:20px;}
+.list_out_info .txt {display:block;padding-top:6px;font-size:12px;line-height:20px;}
+.list_out_info .txt em {color:#f26522;}
+.list_out_info .btn {display:block;overflow:hidden;width:100%;padding-top:17px;}
+.list_out_info .btn a {float:left;padding:6px 25px 6px 10px;margin-right:11px;background:url(https://image.findall.co.kr/FACache/All/New/member/btn_arr.png) top right no-repeat #6f7e91;border-radius:3px;-webkit-border-radius:3px;-moz-border-radius:3px;font-weight:bold;font-size:12px;line-height:16px;color:#fff;text-align:center;}
+
+.box_complete_txt {padding:98px 10px 68px;text-align:center;}
+.box_complete_txt .tit {font-weight:bold;font-size:16px;line-height:20px;}
+.box_complete_txt .tit strong {color:#5194f4}
+.box_complete_txt .txt {padding-top:15px;font-size:12px;line-height:16px;}
+
+.wrap_sleep_info {padding:200px 0 0 0;background:url(https://image.findall.co.kr/FACache/All/New/member/bg_sleep.png) top center no-repeat;}
+.wrap_sleep_info .tit {font-weight:bold;font-size:16px;line-height:24px;text-align:center;}
+.wrap_sleep_info .tit strong,
+.wrap_sleep_info .tit em {color:#f26522}
+.wrap_sleep_info .txt {padding-top:15px;font-weight:bold;font-size:16px;line-height:24px;text-align:center;}
+
+.wrap_dot_list {padding:15px 20px 19px;background-color:#e2e2e2}
+.wrap_dot_list .tit {padding-bottom:2px;font-weight:bold;font-size:14px;line-height:18px;color:#555}
+.wrap_dot_list .list_dot {padding:0;}
+.wrap_dot_list .list_dot li {padding:8px 0 0 10px;}
+.wrap_dot_list p {padding-top:10px;font-size:12px;line-height:16px;color:#333;}
+.wrap_dot_list p a {color:#5194f5;text-decoration:underline;}
+
+
+.wrap_join_box .list_radio {}
+.wrap_join_box .list_radio li {padding:10px 20px 20px 40px;border-bottom:1px solid #e4e5e5}
+.wrap_join_box .list_radio label {margin-left:-30px;font-weight:bold;color:#333;}
+.wrap_join_box .list_radio label .ico {margin-right:10px;}
+.wrap_join_box .list_radio .tbl_id_select {border-collapse:collapse;}
+.wrap_join_box .list_radio .tbl_id_select th,
+.wrap_join_box .list_radio .tbl_id_select td {padding:6px 10px;border:1px solid #e4e5e5;font-size:12px;line-height:18px;color:#333;text-align:left;}
+.wrap_join_box .list_radio .tbl_id_select th {background-color:#f5f5f5;}
+
+
+.box_join_btn {padding-top:28px;}
+.box_join_btn .box {margin-top:20px;}
+.wrap_join_box .box_join_btn {padding-top:0;border-bottom:1px solid #e4e5e5}
+.wrap_join_box .box_join_btn .box {margin-top:0;}
+.box_join_btn .box_biz {padding:22px 0 40px;background-color:#f5f6f7}
+.btn_user {display:block;overflow:hidden;width:100%;height:122px;background:url(https://image.findall.co.kr/FACache/All/New/member/btn_user.png) center center no-repeat #f5f6f7;text-indent:-9999px;}
+.btn_biz_join {display:block;overflow:hidden;width:100%;height:87px;background:url(https://image.findall.co.kr/FACache/All/New/member/btn_biz_join.png) center center no-repeat;text-indent:-9999px;}
+.btn_biz_join1 {display:block;overflow:hidden;width:100%;height:47px;margin-top:13px;background:url(https://image.findall.co.kr/FACache/All/New/member/btn_biz_join1.png) center center no-repeat;text-indent:-9999px;}
+.btn_biz_join2 {display:block;overflow:hidden;width:100%;height:47px;margin-top:13px;background:url(https://image.findall.co.kr/FACache/All/New/member/btn_biz_join2.png) center center no-repeat;text-indent:-9999px;}
+.btn_biz_join3 {display:block;overflow:hidden;width:100%;height:47px;margin-top:13px;background:url(https://image.findall.co.kr/FACache/All/New/member/btn_biz_join3.png) center center no-repeat;text-indent:-9999px;}
+.btn_paper {display:block;overflow:hidden;width:100%;height:126px;background:url(https://image.findall.co.kr/FACache/All/New/member/btn_paper.png) center center no-repeat #f5f6f7;text-indent:-9999px;}
+
+
+.wrap_member_info {display:block;padding:0 0 26px 0}
+.wrap_member_info .box_thumb {display:block;position:relative;width:116px;height:116px;margin:0 auto;}
+.wrap_member_info .box_thumb img {vertical-align:top;}
+.wrap_member_info .box_thumb .thumb {}
+.wrap_member_info .box_thumb .frame {position:absolute;top:0;left:0;width:116px;height:116px;z-index:1;}
+.wrap_member_info .box_thumb .inp_file {position:absolute;top:0;left:0;width:116px;height:116px;opacity:0;-moz-opacity:0;filter:alpha(opacity=0);cursor:pointer;z-index:2;}
+.wrap_member_info .box_thumb .btn {position:absolute;top:84px;left:88px;width:31px;height:31px;z-index:3;}
+.wrap_member_info .box_thumb .btn button {display:block;width:31px;height:31px;border:0 none;outline:0 none;}
+.wrap_member_info .box_thumb .btn .btn_delete_img {display:block;overflow:hidden;position:relative;width:31px;height:31px;background:url(https://image.findall.co.kr/FACache/All/New/member/btn_delete_img.png) 0 0 no-repeat;text-indent:-9999px;}
+.wrap_member_info .box_name {padding:15px 0 0;font-size:14px;line-height:20px;color:#333;text-align:center;}
+.wrap_member_info .box_name strong {font-size:16px;color:#5194f5}
+.list_member_btn {padding-top:30px;}
+.list_member_btn li {padding-top:10px;}
+.list_member_btn li a {display:block;padding:0 90px 0 0;background:url(https://image.findall.co.kr/FACache/All/New/member/btn_member_arr.png) right center no-repeat #f5f6f7}
+.list_member_btn .inner {display:block;padding:28px 0 27px 100px}
+.list_member_btn .tit {display:block;overflow:hidden;width:100%;height:28px;text-indent:-9999px;}
+.list_member_btn .txt {display:block;padding-top:8px;font-size:12px;line-height:16px;color:#333;font-family:gulim.'굴림'}
+.list_member_btn .btn1 .inner {background:url(https://image.findall.co.kr/FACache/All/New/member/ico_member1.png) 26px center no-repeat;}
+.list_member_btn .btn2 .inner {background:url(https://image.findall.co.kr/FACache/All/New/member/ico_member2.png) 26px center no-repeat;}
+.list_member_btn .btn3 .inner {background:url(https://image.findall.co.kr/FACache/All/New/member/ico_member3.png) 26px center no-repeat;}
+.list_member_btn .btn4 .inner {background:url(https://image.findall.co.kr/FACache/All/New/member/ico_member4.png) 26px center no-repeat;}
+.list_member_btn .btn1 .tit {background:url(https://image.findall.co.kr/FACache/All/New/member/btn_tit_member1.png) 0 0 no-repeat;}
+.list_member_btn .btn2 .tit {background:url(https://image.findall.co.kr/FACache/All/New/member/btn_tit_member2.png) 0 0 no-repeat;}
+.list_member_btn .btn3 .tit {background:url(https://image.findall.co.kr/FACache/All/New/member/btn_tit_member3.png) 0 0 no-repeat;}
+.list_member_btn .btn4 .tit {background:url(https://image.findall.co.kr/FACache/All/New/member/btn_tit_member4.png) 0 0 no-repeat;}
+
+
+.wrap_join_complete {}
+.wrap_join_complete .box_tit {padding:88px 0 20px;text-align:center;}
+.wrap_join_complete .box_tit img {vertical-align:top}
+.wrap_join_complete .box_txt {padding:0 0 34px;font-size:14px;line-height:24px;color:#333;text-align:center;}
+.wrap_join_complete .box_txt strong {}
+.wrap_join_complete .box_txt .point {color:#418af4;}
+
+.wrap_coupon_comm {width:276px;margin:20px auto 0;text-align:center;letter-spacing:-1px;}
+.wrap_coupon_comm .inner_l {padding-left:19px;}
+.wrap_coupon_comm .inner_r {padding-right:54px;}
+.wrap_coupon_comm .inner {padding:8px 0 10px;}
+.wrap_coupon_comm .tit_opt {display:block;overflow:hidden;height:16px;font-size:12px;line-height:16px;text-decoration:underline;text-overflow:ellipsis;white-space:nowrap;}
+.wrap_coupon_comm .tit {display:block;overflow:hidden;height:21px;padding-top:5px;font-size:17px;line-height:21px;text-overflow:ellipsis;white-space:nowrap;}
+.wrap_coupon_comm .txt {display:block;overflow:hidden;height:50px;font-size:28px;line-height:50px;text-overflow:ellipsis;white-space:nowrap;}
+.wrap_coupon_comm .txt strong {font-size:45px;font-family:tahoma;}
+.wrap_coupon_comm .day {display:block;overflow:hidden;height:16px;padding-top:5px;font-size:12px;line-height:16px;text-overflow:ellipsis;white-space:nowrap;}
+.wrap_coupon_comm .txt_opt {display:block;overflow:hidden;height:17px;padding-top:2px;font-size:11px;line-height:17px;text-overflow:ellipsis;white-space:nowrap;}
+
+.wrap_coupon_w .inner_l {background:url(https://image.findall.co.kr/FAImage/All/New/w_cp_w_left.png) top left no-repeat;}
+.wrap_coupon_w .inner_r {background:url(https://image.findall.co.kr/FAImage/All/New/w_cp_w_right.png) top right no-repeat;}
+.wrap_coupon_w .inner {background:url(https://image.findall.co.kr/FAImage/All/New/w_cp_w_center.png) top left no-repeat;}
+.wrap_coupon_w .tit_opt {color:#959595}
+.wrap_coupon_w .tit {color:#707070;}
+.wrap_coupon_w .txt_job {color:#249cdb;}
+.wrap_coupon_w .txt_land {color:#009042;}
+.wrap_coupon_w .day {color:#000;}
+.wrap_coupon_w .txt_opt {color:#959595;}
+
+
+.wrap_coupon_g .inner_l {background:url(https://image.findall.co.kr/FAImage/All/New/w_cp_g_left.png) top left no-repeat;}
+.wrap_coupon_g .inner_r {background:url(https://image.findall.co.kr/FAImage/All/New/w_cp_g_right.png) top right no-repeat;}
+.wrap_coupon_g .inner {background:url(https://image.findall.co.kr/FAImage/All/New/w_cp_g_center.png) top left no-repeat;}
+.wrap_coupon_g .tit_opt {color:#fff;}
+.wrap_coupon_g .tit {color:#fff;}
+.wrap_coupon_g .txt {color:#fff;}
+.wrap_coupon_g .day {color:#000;}
+.wrap_coupon_g .txt_opt {color:#fff;}
+
+
+.wrap_coupon_r .inner_l {background:url(https://image.findall.co.kr/FAImage/All/New/w_cp_r_left.png) top left no-repeat;}
+.wrap_coupon_r .inner_r {background:url(https://image.findall.co.kr/FAImage/All/New/w_cp_r_right.png) top right no-repeat;}
+.wrap_coupon_r .inner {background:url(https://image.findall.co.kr/FAImage/All/New/w_cp_r_center.png) top left no-repeat;}
+.wrap_coupon_r .tit_opt {color:#fff;}
+.wrap_coupon_r .tit {color:#fff;}
+.wrap_coupon_r .txt {color:#fff;}
+.wrap_coupon_r .day {color:#000;}
+.wrap_coupon_r .txt_opt {color:#fff;}
+
+.box_day_stipulation {position:relative;padding:50px 0 10px;font-size:12px;line-height:16px;color:#333;}
+.box_day_stipulation .bar {color:#e2e2e2}
+.box_day_stipulation .btn {position:absolute;top:40px;right:0;}
+.box_day_stipulation .btn a {display:block;padding:10px 20px;background-color:#6f7e91;font-size:12px;line-height:16px;color:#fff;}
+
+
+#innercontents {font-size:12px;}
+#innercontents h3 {padding:10px 0;font-size:12px;}
+#innercontents .privaterule {font-size:13px;line-height:20px;padding:0 0 4px 0;}
+#innercontents .privaterule p {margin:0 0 10px 0;}
+
+#innercontents .bestsite {width:590px;overflow:hidden;color:#646464;padding:0 0 23px 0;margin:29px 0 0 0;background:url('http://image.findall.co.kr/findallImage/common/footer/dotline.gif') bottom left repeat-x;}
+#innercontents .bestsite .authimg {float:left;width:260px;font-size:1px;margin:0;padding:10px;background-color:#f1f1f1;}
+#innercontents .bestsite .txt {float:right;width:290px;margin:0;text-align:justify;line-height:20px;color:#646464;letter-spacing:-1px;padding:11px 0 0 0;}
+#innercontents .bestsite .txt p {color:#999;margin:0 0 20px 0;}
+#innercontents .bestsite .txt strong {color:#646464;}
+#innercontents .bestsite .txt p.thanks {color:#2b44a2;}
+#innercontents .togo {clear:both;width:590px;color:#646464;font-weight:bold;margin:16px 0 0 1px;}
+#innercontents .togo a {padding:0 6px 0 0;margin-right:7px;text-decoration:underline;background:url('http://image.findall.co.kr/findallImage/common/footer/icon_garr.gif') right 3px no-repeat;}
+#findall_stipulation {/*width:100%;*/margin:10px;}
+#findall_stipulation h3 strong {color:#ffffff;font-size:14px;padding:3px 2px 0 3px;background-color:#2b44a2;}
+#findall_stipulation h4 {color:#646464;font-size:12px;font-weight:bold;margin:20px 0 0;}
+#findall_stipulation p {margin-top:5px;color:#646464;font-size:12px;line-height:19px;}
+#findall_stipulation p.top {text-align:right;padding-bottom:10px;margin:15px 0 30px;background:url('http://image.findall.co.kr/findallImage/common/footer/line_dot.gif') repeat-x left bottom;}
+#findall_stipulation p.top2 {padding-bottom:10px;margin:15px 0 30px}
+#findall_stipulation p.info {margin-top:15px;text-align:right;}
+#findall_stipulation p.stipulation_prev {margin-top:15px;color:#646464;font-size:11px;font-weight:bold;}
+#findall_stipulation p.privacyrule_prev {margin-top:-30px;}
+#findall_stipulation li {border-bottom:0 none;}
+#findall_stipulation ol li {color:#646464;line-height:19px;margin:7px 0;border:0 none;}
+#findall_stipulation ol li ol li {padding-left:20px;margin:5px 0;line-height:17px;border:0 none;}
+
+.stipulation table {font-size:12px;letter-spacing:-1px;}
+.stipulation table th {padding:9px 0 10px 15px;background-color:#f8f8f8;text-align:center;font-size:12px;}
+.stipulation table td {padding:9px 0 10px 15px;text-align:left;font-size:12px;}
+#stipulation_form .p_tabel td,
+#stipulation_form .p_tabel th {padding:10px;border:1px solid #ddd;}
+
+.stipulation .table_type_col {margin-top: 10px;}
+.stipulation .table_type_col table {table-layout: fixed; width: 100%;}
+.stipulation .table_type_col table tr {}
+.stipulation .table_type_col table thead th {height: 50px; padding: 0 5px; border: 1px solid #f2f2f2; text-align:center;}
+.stipulation .table_type_col table tbody td {padding: 10px; border: 1px solid #f2f2f2; vertical-align: top;}
+.stipulation .table_type_col .label {}
+.stipulation .table_type_col .label h3 {height: 40px; text-align: center;}
+.stipulation .table_type_col .label .img {width: 80%; margin: 10px auto;}
+.stipulation .table_type_col .label .img img {display: block; width: 100%;}
+.stipulation .table_type_col .label ul {}
+.stipulation .table_type_col .label ul li {margin-bottom: 4px;}
+.stipulation .table_type_col .label ul li:last-child {margin-bottom: 0px;}
+.stipulation .table_type_col .label .caution {margin-top: 10px;}
+
+@media screen and (min-width:0px) and (max-width:560px) {
+.wrap_coupon_w .inner_l {background:url(https://image.findall.co.kr/FAImage/All/New/comm_cp_w_left.png) top left no-repeat;background-size:19px auto;-webkit-background-size:19px auto;}
+.wrap_coupon_w .inner_r {background:url(https://image.findall.co.kr/FAImage/All/New/comm_cp_w_right.png) top right no-repeat;background-size:54px auto;-webkit-background-size:54px auto;}
+.wrap_coupon_w .inner {background:url(https://image.findall.co.kr/FAImage/All/New/comm_cp_w_center.png) top left no-repeat;background-size:203px auto;-webkit-background-size:203px auto;}
+.wrap_coupon_g .inner_l {background:url(https://image.findall.co.kr/FAImage/All/New/comm_cp_g_left.png) top left no-repeat;background-size:19px auto;-webkit-background-size:19px auto;}
+.wrap_coupon_g .inner_r {background:url(https://image.findall.co.kr/FAImage/All/New/comm_cp_g_right.png) top right no-repeat;background-size:54px auto;-webkit-background-size:54px auto;}
+.wrap_coupon_g .inner {background:url(https://image.findall.co.kr/FAImage/All/New/comm_cp_g_center.png) top left no-repeat;background-size:203px auto;-webkit-background-size:203px auto;}
+.wrap_coupon_r .inner_l {background:url(https://image.findall.co.kr/FAImage/All/New/comm_cp_r_left.png) top left no-repeat;background-size:19px auto;-webkit-background-size:19px auto;}
+.wrap_coupon_r .inner_r {background:url(https://image.findall.co.kr/FAImage/All/New/comm_cp_r_right.png) top right no-repeat;background-size:54px auto;-webkit-background-size:54px auto;}
+.wrap_coupon_r .inner {background:url(https://image.findall.co.kr/FAImage/All/New/comm_cp_r_center.png) top left no-repeat;background-size:203px auto;-webkit-background-size:203px auto;}
+	#wrap {width:auto;min-width:320px;padding-bottom:20px;}
+	#content #Body {padding:20px 0;}
+	#content #Body img {height:45px;}
+	#mArticle {padding:0 10px 30px;}
+	#mArticle.pt50 {padding-top:25px;}
+	#mArticle .tit_join {padding-top:24px}
+	#mArticle .tit_join_txt {padding:22px 0 24px}
+	.wrap_join_box .list_join {padding-right:10px;padding-left:140px;/*padding-left:120px;*/} /* 20180831 padding-left 값수정 */
+	.wrap_join_box .list_join dt {padding-left:10px;}
+	.wrap_join_box .list_join_media {padding:11px 10px}
+	.wrap_join_box .list_join_media dt {position:inherit;top:0;left:0;margin-top:0;padding-left:0;}
+	.wrap_join_box .list_join_media .inpbtn .btn {top:50px;right:10px;}
+	.box_btn {margin-top:30px;}
+	#loginWrap .txt_login {padding-bottom:10px;}
+	#loginWrap .wrap_login .box_btn .btn_login {height:50px;line-height:50px;}
+	#loginWrap .wrap_login .box_sns_login a {padding-left:5px;}
+	.box_certification {padding-right:20px;}
+	.box_certification .btn {position:inherit;top:0;left:0;margin-top:10px;width:100%;}
+	.box_certification .btn button,
+	.box_certification .btn span {width:100%;}
+	.box_complete_txt {padding:49px 10px 34px;}
+	.wrap_tit_more .txt_login {padding-bottom:10px;}
+	.box_join_btn {padding-top:14px;}
+	.box_join_btn .box {margin-top:10px;}
+	.box_join_btn .box_biz {padding:11px 0 20px;background-color:#f5f6f7}
+	.list_member_btn .inner {padding-left:20px;}
+	.list_member_btn .btn1 .inner,
+	.list_member_btn .btn2 .inner,
+	.list_member_btn .btn3 .inner,
+	.list_member_btn .btn4 .inner {background:none;}
+	.wrap_join_complete .box_tit {padding:44px 0 10px;}
+	.wrap_join_complete .box_txt {padding-bottom:17px;}
+	.list_dot_stipulation li a,
+	.list_dot_stipulation li a span {display:block;}
+	#stipulationTab {display:block;overflow:visible;width:auto;clear:both;*zoom:1}
+	#stipulationTab:after {display:block;visibility:hidden;height:0;font-size:0;clear:both;content:''}
+	#stipulationTab a {display:block;float:left;width:50%;padding:10px 0;}
+	#stipulationTab .bar {display:none}
+
+}
+#SV2_body {margin-top:20px;}
+div.SV2_personal_info,div.SV2_rigor_info {
+	background:url('http://img.serve.co.kr/rwnew_2011/common/bg/agree_personal.gif') no-repeat 0 0;
+	border: 3px solid #9fbde9;
+	padding: 14px 20px 14px 126px;
+	margin: 20px 0 95px 0;
+}
+div.SV2_agree_wrap .SV2_section_agree h4 {
+	font-size:18px;
+	font-family:dotum;
+	font-weight:bold;
+	color:#3859d4;
+	line-height:28px;
+}
+div.SV2_agree_wrap .SV2_section_agree h5 {
+	clear:both;
+	margin: 0 0 4px 0;
+	font-size:14px;
+	font-family:dotum;
+	font-weight:bold;
+	color:#2b2b2b;
+	line-height:23px;
+}
+div.SV2_section_agree ol,div.SV2_section_agree ul {margin: 0 0 27px 0;}
+div.SV2_section_agree ul li {line-height:19px} /*20140717_추가*/
+div.SV2_section_agree ol li {
+	list-style:decimal inside none;
+	line-height:21px;
+}
+div.SV2_section_agree ol li ol {
+	margin:0 0 0 0;
+	padding: 0 0 0 20px;
+}
+div.SV2_section_agree ol li ol li {list-style:decimal inside none;}
+div.SV2_section_agree p {line-height:21px;}
+div.SV2_section_end {border-bottom:0!important;}
+div.SV2_section_agree .SV2_persinal_list {padding: 25px 0 0 0;}
+div.SV2_section_agree .SV2_persinal_list li {font-weight:bold;}
+div.SV2_section_agree .SV2_persinal_list li table {margin: 0 0 15px 0;}
+div.SV2_section_agree .SV2_persinal_list li p {
+	padding: 0 0 15px 0;
+	font-weight:normal;
+}
+div.SV2_section_agree .SV2_agree_desc {
+	padding: 0 0 23px 0;
+	width: 100%;
+	overflow:hidden;
+}
+div.SV2_section_agree .SV2_pers_inner_box {
+	border: 1px solid #D9D9D9;
+    clear: both;
+    overflow: hidden;
+	background: none repeat scroll 0 0 #FFFFFF;
+    margin: 5px 0 7px;
+    padding: 10px;
+}
+div.SV2_section_agree .SV2_pers_inner_box dl {
+	float: left;
+	width:48%;
+	padding-right: 9px;
+}
+div.SV2_section_agree .SV2_pers_inner_box dl dt {
+	border-bottom: 1px solid #E6E6E6;
+    margin-bottom: 7px;
+    padding-bottom: 7px;
+	color: #868686;
+	font-weight:bold;
+}
+div.SV2_personal_info p,div.SV2_rigor_info p {
+	line-height:23px;
+	padding: 0 0 10px 0;
+}
+div.SV2_personal_info p .SV2_firstchild,div.SV2_rigor_info p .SV2_firstchild {
+	font-size:14px;
+	font-weight:bold;
+}
+div.SV2_personal_info p em,div.SV2_rigor_info p em {color:#1a66c9;}
+div.SV2_rigor_info {background:url('http://img.serve.co.kr/rwnew_2011/common/bg/agree_rigor.gif') no-repeat 0 0!important;}
+div.SV2_section_agree .SV2_agree_desc_inner {
+	border-bottom: 1px solid #E6E6E6;
+	padding: 24px 0;
+}
+div.SV2_section_agree .SV2_agree_desc_inner span {font-weight:bold;}
+
+div.SV2_newslayout p,div.SV2_newslayout ul {padding:0 0 25px 0;}
+div.SV2_newslayout p,div.SV2_newslayout ul li,div.SV2_newslayout .SV2_inner_box {line-height:21px;}
+div.SV2_newslayout .SV2_inner_box {
+	border:1px solid #e9e9e9;
+	background:#f6f6f6;
+	padding:18px 50px;
+}
+p.SV2_agree_desc img.SV2_clearmark {
+	float:left;
+	border:1px solid #9fbde9;
+	padding: 5px;
+	margin: 0 10px 0 0;
+}
+
+div.SV2_inner_textline {
+	background: none repeat scroll 0 0 #FAFAFA;
+    height: 280px;
+    line-height: 17px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 10px;
+}
+div.SV2_inner_textline table {border-right:1px solid #e9e9e9;}
+div.SV2_inner_textline table thead th,div.SV2_inner_textline table tbody td {border-left:1px solid #e9e9e9;}
+div.SV2_fly_right {
+	left: -84px;
+    position: absolute;
+    top: 277px;
+    width: 76px;
+}
+
+.SV2_news_item {/*margin: -25px 0 0 50px;*/color:#bbbbbb;}
+* html .SV2_news_item  {/*margin:-20px 0 0 50px;*/}
+.SV2_news_item a {float:none!important; }
+.SV2_new_item_2 a {display:inline-block;width:25%!important;}
+.SV2_link_tab {
+	width:100%;
+	overflow:hidden;
+	color:#bbbbbb;
+}
+.SV2_link_tab a {
+	padding:0 10px;
+	width:auto!important;
+}
+.SV2_link_tab .SV2_names {margin:-24px 0 0 50px!important;}
+.SV2_tablehead_desc_side {
+	color: #A5A5A5;
+    font-family: dotum;
+    font-size: 11px;
+    left: 154px;
+    letter-spacing: -1px;
+    position: absolute;
+    top: 35px;
+}
+
+img.SV2_imgupdown {vertical-align:middle!important;}
+.SV2_phone {font-weight:normal!important;font-family:Tahoma;font-size:12px;!important;}
+.SV2_fly_right img {vertical-align:top;}
+.SV2_fly_right li {
+	padding:0 0 3px 0;
+}
+
+.SV2_fly_right li.point {
+	width:76px; height:110px; padding-bottom:0px; margin-bottom:3px; background:url('http://img.serve.co.kr/reserve/serve/main/point_76x100.gif');
+}
+
+.SV2_fly_right li.point p {
+	line-height:14px; font-size:11px; letter-spacing:-1px; padding-top:62px; text-align:center; color:#575757;
+}
+
+.SV2_fly_right li.point p.login{
+	line-height:17px; padding-top:67px; font-size:11px;!important;
+}
+
+.SV2_fly_right li.point span.tit{
+	line-height:12px; font-size:12px; letter-spacing:-1px; font-weight:bold; color:#0e56b7;
+}
+
+.SV2_fly_right li.point span.tit2{
+	line-height:12px; font-size:11px; letter-spacing:-1px; font-weight:bold; color:#0e56b7;
+}
+div.SV2_section_agree .SV2_persinal_list li table {font-size:12px;letter-spacing:-1px;}
+div.SV2_section_agree .SV2_persinal_list li table th {padding:10px;background-color:#f8f8f8;text-align:center;}
+div.SV2_section_agree .SV2_persinal_list li table td {padding:10px;text-align:left;}
+
+.mail_reject #Body {height:68px;vertical-align:middle}
+.mail_reject .tit_reject_txt {padding-top:150px;font-size:16px;background:url(https://image.findall.co.kr/FACache/All/New/member/ico_reject.png) no-repeat center 47px;line-height:28px;color:#555;text-align:center}
+.mail_reject .tit_reject_txt .eng {display:block;font-size:14px;line-height:24px;color:#acacac;text-align:center}
+.mail_reject .wrap_dot_list {padding:15px 38px 19px}
+.mail_reject .box_btn .btn_l {background-color:#ccc}
+
+.wrap_join_box .list_join_w100 dt strong.pit3 {color:#ff6600;}
+.wrap_coupon_f .inner_l {background:url(https://image.findall.co.kr/FAImage/All/New/w_cp_f_left.png) top left no-repeat;}
+.wrap_coupon_f .inner_r {background:url(https://image.findall.co.kr/FAImage/All/New/w_cp_f_right.png) top right no-repeat;}
+.wrap_coupon_f .inner {background:url(https://image.findall.co.kr/FAImage/All/New/w_cp_f_center.png) top left no-repeat;}
+.wrap_coupon_f .tit_opt {height:8px}
+.wrap_coupon_f .tit {padding-bottom:6px;color:#707070;}
+.wrap_coupon_f .txt_surve {color:#ff6600;}
+.wrap_coupon_f .day {padding-top:7px;color:#000;}
+
+/* 20161114_광고메세지 동의 의무 표기 안내 */
+.wrap_join_box .tbl_join {width:100%;font-size:14px;line-height:20px}
+.wrap_join_box .tbl_join caption {display:none}
+.wrap_join_box .tbl_join th {padding:13px 0 11px;border-bottom:1px solid #e4e5e5;background-color:#f9f9f9;font-weight:normal;text-align:center;vertical-align:middle}
+.wrap_join_box .tbl_join td {padding:13px 15px 10px;text-align:left;border-bottom:1px solid #e4e5e5}
+.wrap_join_box .tbl_join dt {padding-top:10px;font-weight:bold}
+.wrap_join_box .tbl_join dd {display:inline-block;font-size:12px;line-height:16px}
+.wrap_join_box .tbl_join .fst dt {padding-top:0}
+.wrap_info_box .link_modify {font-weight:bold;color:#529eff}
+
+#mArticle .wrap_modify_complete .tit_join {padding-top:80px}
+.wrap_modify_complete .box_tit {padding:88px 0 20px;text-align:center}
+.wrap_modify_complete .box_tit img {vertical-align:top}
+.wrap_modify_complete .box_txt {padding:0;font-size:14px;line-height:24px;color:#333;text-align:center}
+.wrap_modify_complete .box_txt2 {margin-top:60px}
+.wrap_modify_complete .box_btn {margin-top:30px}
+
+@media screen and (min-width:0px) and (max-width:560px) {
+	#mArticle .wrap_modify_complete .tit_join {padding-top:50px}
+	.wrap_modify_complete .box_tit {padding:44px 0 10px}
+	.wrap_modify_complete .box_txt2 {margin-top:30px}
+}
+
+/* 2017-03-02 부동산 써브 뉴스 편집 원칙 */
+#findall_stipulation p.subject {padding-bottom:20px;font-weight:bold}
+
+/* 2017-03-07 위치기반서비스 약관 */
+table.tbl_stipulation {margin:10px 0 20px;border:1px solid #ddd}
+table.tbl_stipulation th, table.tbl_stipulation td {padding-right:15px;border:1px solid #ddd;color:#666}
+table.tbl_stipulation td dl {padding-top:8px}
+table.tbl_stipulation td dt {padding-bottom:4px;font-weight:bold}
+table.tbl_stipulation td dd {padding-left:6px}
+
+/* 2017-10-31 회원가입 선택 및 완료 페이지 */
+.filter {z-index:1000;overflow:hidden;position:fixed;top:0;left:0;width:100%;height:100%;background:#000;filter:alpha(opacity=50);opacity:0.5}
+
+/**************  new modified 회원가입 프로세스 변경 수정 2018.08.30 시작 *********************/
+#Join {color:#222;background-color:#f6f6f6;background-image:none}/* 2018.08.17 */
+#Join * {font-family:'맑은 고딕', 'Malgun Gothic'}
+.join-header {position:relative;width:100%;background-color:#fff}
+.join-header__title {float:left;width:180px;height:46px;text-align:center}
+.join-header__inner {overflow:hidden;width:720px;margin:0 auto;padding:20px 0}
+.join-header__nav {display:block;float:right;padding-top:14px}
+
+.join-contents {width:860px;margin:0 auto;padding:0;}/* 2018.08.17 */
+.join-contents-guide {padding-top:30px;font-size:15px;text-align:center;letter-spacing:-0.1em;color:#888}
+.join-contents-guide--bottom {margin-bottom:12px}
+.join-contents-guide--top {padding-top:20px}
+.join-contents-date {letter-spacing:-0.5px}
+
+.join-footer {padding:20px 0}
+.join-footer__copyright {font-size:12px;text-align:center;letter-spacing:-0.3px;color:#888}
+
+.header-title-link {display:block;width:180px;height:46px;margin:0}
+.header-nav-link {float:left;padding:0 7px}
+.header-nav-link--last {padding-right:0}
+
+.title-image {width:100%}
+.title-image--mo {display:none}
+.icon-bar {float:left;width:1px;height:10px;margin:7px 7px 0;background-color:#ddd}
+
+.join-sprite {display:block;width:100%;height:66px;margin:30px 0 13px 0;text-indent:-9999px;}/* 2018.08.17 */
+.join-sprite--person {background: url('//image.findall.co.kr/FACache/member/join/general-icon.png') no-repeat 50% 0;}/* 2018.08.17 */
+.join-sprite--company {background: url('//image.findall.co.kr/FACache/member/join/business-icon.png') no-repeat 50% 0;}/* 2018.08.17 */
+.join-sprite--complete-p {width:90px;margin-bottom:16px;background-position:-100px -100px}
+.join-sprite--complete-c {width:90px;margin-bottom:16px;background-position:0 -100px}
+.join-sprite--notice {width:92px;height:84px;background-position:-200px -100px}
+.join-sprite--close {position:absolute;top:15px;right:15px;width:25px;height:25px;margin:0;background-position:-195px 5px}
+
+
+/* 회원가입 선택 */
+.select-contents__msg {max-width:356px;padding:100px 0 50px;margin:auto;font-size:14px;text-align:center;letter-spacing:-1.2px;line-height:1.57;color:#666;}/* 2018.08.17 */
+.select-contents__list {overflow:hidden;box-sizing:border-box}/* 2018.08.17 */
+.select-contents__item {position:relative;float:left;width:410px;height:370px;text-align:center;background-color:#fff;border:1px solid #ddd;box-sizing:border-box;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;}/* 2018.08.17 */
+.select-contents__item:first-child {/*margin-right:10px*/margin-right:40px;}/* 2018.08.17 */
+.select-contents__item-text {margin:auto;padding-top:13px;font-size:13px;line-height:1.54;letter-spacing:-1.2px;color:#888;}/* 2018.08.17 */
+
+.select-contents__link {width:258px;margin:25px auto 0;padding:22px 0 0 0;border-top:1px solid #eee;}/* 2018.08.17 */
+.select-contents__link .p_txt {display:block;margin-bottom:22px;font-size:13px;line-height:1.54;letter-spacing:-1.2px;color:#444;}
+.select-contents__link .p_txt em {letter-spacing:normal;}
+.select-contents__link .paper_ad {font-size:13px;letter-spacing:-1.2px;line-height:1.54;color:#0061af;text-decoration:underline;}
+
+.msg-color {display:block;padding-bottom:20px;font-size:32px;font-weight:bold;letter-spacing:-1.2px;color:#222}
+.text-link {display:block;text-decoration:underline !important;color:#0061af}
+
+.join-purpose {display:block;font-size:26px}/* 2018.08.17 */
+.join-select-btn {display:block;margin:auto;text-align:center;font-size:20px;font-weight:bold;letter-spacing:-1.3px;color:#222;}/* new modified */
+.join-select-btn span:hover {text-decoration:underline;}/* new modified */
+
+.join-select-btn span {display:inline-block;text-align:left;background: url('//image.findall.co.kr/FACache/member/join/btn_arrow_icon.png') no-repeat right 56%;}/* new modified */
+.select-contents__sns-icon a {display:inline-block;width:32px;height:32px;margin:0 2.5px;background-image:url(//image.findall.co.kr/FACache/member/join/ico-sprite-snsB.png);background-repeat:no-repeat;background-size:128px;background-position:0 0;}/* new modified */
+.select-contents__sns-icon .blind {display:block;text-indent:-9999px;}/* new modified */
+.select-contents__sns-icon a.kakao {background-position:-64px 0;}
+.select-contents__sns-icon a.naver {background-position:-32px 0;}
+.select-contents__sns-icon a.apple {background-position:-96px 0;}
+
+.join-select-btn--person {width:140px;background-color:#fff}/* new modified */
+.join-select-btn--person span {width:140px;}/* new modified */
+.join-select-btn--company {width:178px;background-color:#fff}/* new modified */
+.join-select-btn--company span {width:178px;}/* new modified */
+
+.br_line {display:block;}
+/**************  new modified 회원가입 프로세스 변경 수정 2018.08.30 끝 *********************/
+
+/* 회원가입 완료 */
+.complete-contents__msg {width:500px;margin:0 auto;padding-top:58px;text-align:center;line-height:1.4;background:url('//image.findall.co.kr/FAImage/findjob/member/complete_bg.png') no-repeat center 28px}
+.complete-contents__result-text {margin-bottom:30px;font-size:22px;letter-spacing:-0.4px}
+
+.complete-contents__innerbox {position:relative;width:530px;padding:46px 95px 50px;text-align:center;background-color:#fff}
+.complete-contents__innerbox--person {height:163px}
+.complete-contents__innerbox--company {height:265px}
+.complete-contents__info {margin-bottom:7px;font-size:22px}
+.complete-contents__guide-text {font-size:18px;letter-spacing:-0.05em;*letter-spacing:-0.07em;line-height:1.2}
+
+.complete-contents__type-box {height:56px;text-align:center;line-height:56px;background-color:#e5e5e5}
+.complete-contents__type-list {display:inline-block;*display:inline;*zoom:1;overflow:hidden}
+.complete-contents__type-item {float:left;font-size:13px;color:#888}
+.complete-contents__type-item:first-child {margin-right:20px}
+
+.complete-contents__coupon-list {overflow:hidden;padding-top:28px}
+.complete-contents__coupon-item {float:left;width:164px;height:76px;margin-left:12px;text-indent:-9999px;background-repeat:no-repeat}
+.complete-contents__coupon-item--first {margin-left:7px;background-image:url('//image.findall.co.kr/FAImage/findjob/member/w_coupon1.png')}
+.complete-contents__coupon-item--second {background-image:url('//image.findall.co.kr/FAImage/findjob/member/w_coupon2.png')}
+.complete-contents__coupon-item--third {background-image:url('//image.findall.co.kr/FAImage/findjob/member/w_coupon3.png')}
+
+.complete-contents__list{overflow:hidden;position:absolute;bottom:50px;width:530px}
+.complete-contents__item {float:left}
+.join-complete-btn {display:block;height:50px;font-size:17px;font-weight:bold;line-height:50px;color:#fff;background-color:#0061af}
+.join-complete-btn--resume {width:260px;margin-right:10px}
+.join-complete-btn--home {width:258px;height:48px;border:1px solid #0061af;line-height:48px;background-color:#fff;color:#0061af}
+.join-complete-btn--yes {margin-bottom:10px;}
+.join-complete-btn--no {height:48px;border:1px solid #ddd;line-height:48px;color:#888;background-color:#fff}
+
+.msg-strong {font-size:32px;font-weight:normal;letter-spacing:-0.5px}
+.count-job {font-weight:bold;color:#0061af}
+.line-switch {display:block}
+
+
+/* 회원가입완료 - 기업회원 레이어 팝업 */
+.join-notice-layer {display:none}
+.join-notice-layer__contents {z-index:1001;position:absolute;top:50%;left:50%;width:320px;margin:-252px 0 0 -160px;text-align:center;background-color:#fff}
+.join-notice-layer__guide {height:192px;padding-top:40px;font-size:16px;letter-spacing:-0.6px;background-color:#eee}
+.join-notice-layer__text {margin-bottom:30px;line-height:1.2}
+.join-notice-layer__text--question {font-size:20px;letter-spacing:-0.5px}
+.join-notice-layer__select-box {height:232px;*height:262px;padding:40px 20px 0}
+
+
+
+
+
+/* new 회원가입 20180820  추가 ***********************/
+
+
+/* header */
+.join-header__inner {position:relative;width:100%;height:80px;padding:0 0 0 0;font-family:'맑은 고딕', 'Malgun Gothic';border-bottom:1px solid #eee;}
+.join-header__title {width:172px;height:80px;line-height:80px;font-size:16px;font-weight:bold;letter-spacing:-1.2px;color:#222;margin-left:40px;}
+.join-header .home_btn {display:none;position:absolute;top:18px;left:15px;width:24px;height:24px;background: url("//image.findall.co.kr/FACache/member/join/home_btn.png") no-repeat 50% 50%;}
+.blind {position:absolute;top:0;left:-999999px;width:0;height:0;font-size:0;text-indent:-999999px;}
+.bi_group {position:absolute;top:50%;right:30px;margin-top:-20px;}
+.bi_group:after {display:block;content:"";clear:both;}
+.bi_group li {float:left;height:40px;margin-left:22px;}
+.bi_group li:first-child {margin-left:0;}
+.bi_group li a {display:block;width:100%;height:100%;}
+.bi_group li.bi_01 {width:94px;background: url("//image.findall.co.kr/FACache/member/join/f_logo_gray_01.png") no-repeat 50% 50%;}
+.bi_group li.bi_02 {width:153px;background: url("//image.findall.co.kr/FACache/member/join/f_logo_gray_02.png") no-repeat 50% 50%;}
+.bi_group li.bi_03 {width:139px;background: url("//image.findall.co.kr/FACache/member/join/f_logo_gray_03.png") no-repeat 50% 50%;}
+.bi_group li.bi_04 {width:80px;background: url("//image.findall.co.kr/FACache/member/join/f_logo_gray_04.png") no-repeat 50% 50%;}
+.bi_group li.bi_01:hover {background: url("//image.findall.co.kr/FACache/member/join/f_logo_color_01.png") no-repeat 50% 50%;}
+.bi_group li.bi_02:hover {background: url("//image.findall.co.kr/FACache/member/join/f_logo_color_02.png") no-repeat 50% 50%;}
+.bi_group li.bi_03:hover {background: url("//image.findall.co.kr/FACache/member/join/f_logo_color_03.png") no-repeat 50% 50%;}
+.bi_group li.bi_04:hover {background: url("//image.findall.co.kr/FACache/member/join/f_logo_color_04.png") no-repeat 50% 50%;}
+
+
+/* new join content */
+#wrap.n_content div,#wrap.n_content dl,#wrap.n_content dt,#wrap.n_content dd,#wrap.n_content ul,#wrap.n_content ol,#wrap.n_content li,#wrap.n_content h1,#wrap.n_content h2#wrap.n_content ,h3,#wrap.n_content h4,#wrap.n_content h5,#wrap.n_content h6,#wrap.n_content pre,#wrap.n_content code,#wrap.n_content form,#wrap.n_content fieldset,#wrap.n_content legend,#wrap.n_content textarea,#wrap.n_content p,#wrap.n_content blockquote,#wrap.n_content th,#wrap.n_content td,#wrap.n_content input,#wrap.n_content select,#wrap.n_content textarea,#wrap.n_content button, #wrap.n_content label {-webkit-box-sizing:border-box;-moz-box-sizing: border-box;box-sizing: border-box; font-family:'맑은 고딕', 'Malgun Gothic';}
+#wrap.n_content {width:788px;font-family:'맑은 고딕', 'Malgun Gothic';}
+#wrap.n_content #Body {padding:100px 0 30px;font-size:32px;font-weight:bold;letter-spacing:-1.2px;color:#222;}
+#wrap.n_content #mArticle {padding:44px 44px 60px 44px;border:1px solid #ddd;-webkit-box-sizing:border-box;-moz-box-sizing: border-box;box-sizing: border-box;}
+#wrap.n_content #mArticle .tit_join {padding:50px 0 18px;font-size:20px;letter-spacing:-1.2px;color:#222;}
+#wrap.n_content #mArticle .tit_join:first-child {padding-top:0;}
+#wrap.n_content #mArticle .agree_wrap {position:relative;padding-bottom:22px;border-bottom:1px solid #ddd;}
+#wrap.n_content #mArticle .agree_wrap:after {display:block;content:"";clear:both;}
+#wrap.n_content #mArticle .agree_wrap p {display:block;float:left;width:75%;font-size:15px;line-height:1.47;letter-spacing:-1.2px;color:#222;}
+#wrap.n_content #mArticle .agree_wrap p em {font-weight:bold;}
+#wrap.n_content #mArticle  .lab_check {float:right;display: inline-block;height: 20px;min-width:58px;text-align:right;padding: 0 0 0 0;vertical-align:bottom;font-weight:bold;font-size:13px;line-height:20px;color:#888;letter-spacing:-1.2px;cursor:pointer;}
+
+#wrap.n_content #mArticle  .lab_check_all {max-width:87px;}
+
+#wrap.n_content #mArticle  .lab_check .ico {margin-right:0;margin-left:10px;background: url("//image.findall.co.kr/FACache/member/join/check_nor_btn.png") no-repeat 0 0;}
+#wrap.n_content #mArticle  .lab_check.on .ico {background: url("//image.findall.co.kr/FACache/member/join/check_pre_btn.png") no-repeat 0 0;}
+#wrap.n_content #mArticle .wrap_join_box {border:0;}
+#wrap.n_content #mArticle .wrap_join_box .list_check .lab_check {margin-right:0;}
+#wrap.n_content #mArticle .wrap_join_box .list_check li {border:0;padding:30px 0 0 0;}
+#wrap.n_content #mArticle .wrap_join_box .list_check li:first-child {padding-top:22px;}
+#wrap.n_content #mArticle .wrap_join_box .list_check li .agree_tit {font-size:15px;line-height:1.47;letter-spacing:-1.2px;color:#222;}
+#wrap.n_content #mArticle .wrap_join_box .list_check .alert {display:block;padding-left:10px;font-size:13px;line-height:1.69;letter-spacing:-1.2px;color:#ff0c3c;}
+#wrap.n_content #mArticle .wrap_join_box .list_check .alert1 {padding-left:10px;font-size:13px;line-height:1.69;letter-spacing:-1.2px;color:#ff0c3c;}
+#wrap.n_content .wrap_join_box .list_check .box_all_view {display:block;background:#f9f9f9;border:0;height:120px;padding:14px 33px 0 18px;margin-top:18px;color:#666;}
+#wrap.n_content .wrap_join_box .alert {display:block;width:100%;font-size:13px;color:#ff0c3c;line-height:1.69;letter-spacing:-1.2px;padding-left:0;padding-top:5px;margin-left:0;}
+#wrap.n_content .wrap_join_box .alert1 {width:100%;font-size:13px;color:#ff0c3c;line-height:1.69;letter-spacing:-1.2px;padding-left:0;padding-top:5px;margin-left:0;}
+#wrap.n_content .box_btn {position:relative; display: flex; flex-direction: column; margin-top:54px;}
+#wrap.n_content .box_btn button {width:320px; margin:auto; color:#666;}
+#wrap.n_content .box_btn .btn_g {background:#0061af;border-radius:3px;height:20px;line-height:20px;font-size:15px;letter-spacing:-1.5px;}
+#wrap.n_content .box_btn .before_link {/*position:absolute;top:0;left:0;*/height:46px;line-height:46px;margin-bottom: 30px; padding-left:30px;background: url("//image.findall.co.kr/FACache/member/join/previous_arrow.png") no-repeat 0 50%; text-align: left;}
+#wrap.n_content .box_btn .before_link span {font-size:15px;font-weight:bold;letter-spacing:-1.5px;color:#444;}
+#wrap.n_content .opt_select .txt {height:30px;line-height:30px;font-size:15px;color:#222;font-weight:normal;padding-left:10px;}
+#wrap.n_content .wrap_join_box .list_join {/*padding:7px 0 0 160px;*/display: flex; align-items: flex-start; margin-bottom: 20px; padding: 0; border:0;}
+#wrap.n_content .wrap_join_box .list_join:last-child {margin-bottom: 0;}
+#wrap.n_content .wrap_join_box .list_join .btn_g {width:116px;height:46px;line-height:46px;margin:0;background:#666;font-weight:normal;font-family:'맑은 고딕', 'Malgun Gothic';}
+#wrap.n_content .wrap_join_box .list_join .btn_g.btn_ty02 {background-color: #0061af;}
+#wrap.n_content .wrap_join_box .list_join dt {position: static; width: 160px; height: auto; padding-left:0; margin-top: 12px; font-size:15px;line-height:1.47;letter-spacing:-1.2px;color:#222;}
+#wrap.n_content .wrap_join_box .list_join dd {flex: 1;}
+#wrap.n_content .wrap_join_box .list_join .certification {padding:0 124px 0 0;margin-top:7px;}
+#wrap.n_content .wrap_join_box .list_join .certification .btn {right:0;}
+
+ /* 20180917 추가  */
+#wrap.n_content .wrap_join_box .list_join .certification.two_btn .re_send_btn {position:absolute;top:0;right:0;}
+#wrap.n_content .wrap_join_box .list_join .certification.two_btn .re_send_btn .btn_g {background:#aaa;}
+#wrap.n_content .wrap_join_box .list_join .certification.two_btn {position:relative;padding-right:248px;margin-top:8px;}
+#wrap.n_content .wrap_join_box .list_join .certification.two_btn .inp_txt {width:100%;}
+#wrap.n_content .wrap_join_box .list_join .certification.two_btn .btn {margin-right:3px;right:121px;}
+#wrap.n_content .wrap_join_box .list_join .box_phone_noti {margin-right:-194px;font-size:13px;letter-spacing:-1.2px;line-height:1.54;}
+/* 20180917 추가 끝*/
+
+
+
+#wrap.n_content .wrap_join_box .list_join .box_phone_noti .confirm {clear:both;color:#0061af;}
+#wrap.n_content .wrap_join_box .list_join .box_phone_noti .noti {color:#666;line-height:1.62;}
+#wrap.n_content .wrap_join_box .list_join .box_phone_noti .noti a {padding:0 5px 0 5px;color:#0061af;text-decoration:underline;}
+#wrap.n_content .wrap_join_box .list_join .box_phone_noti .noti a.find_id {padding-left:15px}
+#wrap.n_content .wrap_join_box .list_join .phone_num .bar {width:6px; font-size: 10px;}
+#wrap.n_content .wrap_join_box .list_join .phone_num .inner {width:100%;padding:0 4px;}
+#wrap.n_content .wrap_join_box .list_join .phone_num .opt_select {width:129px;margin-left:-4px;}
+#wrap.n_content .wrap_join_box .list_join .phone_num .opt_select.input_alert {border-color: #ff2020;outline: #ff2020;}
+#wrap.n_content .wrap_join_box .list_join .phone_num .inp_txt {width:277px;margin-right:-4px;}
+#wrap.n_content .wrap_join_box .list_join .phone_num {padding:0 124px 0 0;}
+#wrap.n_content .opt_select {font-family:'맑은 고딕', 'Malgun Gothic';height:46px;line-height:46px;border:1px solid #ddd;font-size:15px;color:#222;letter-spacing:-1.2px;background: url("//image.findall.co.kr/FACache/member/join/select_arrow.png") no-repeat 90% 50%;}
+#wrap.n_content .opt_select select {height:46px;font-size: 15px; cursor:pointer;font-family:'맑은 고딕', 'Malgun Gothic';}
+#wrap.n_content .wrap_join_box .list_join .inp_txt {height:46px;line-height:46px;padding:0 16px;margin-left:0;border:1px solid #ddd;background:#fff;}
+#wrap.n_content .wrap_join_box .list_join .inp_txt.input_alert,
+#wrap.n_content .wrap_join_box .list_join .inp_txt.input_alert:focus,
+#wrap.n_content .wrap_join_box .list_join .inp_txt.input_alert:focus-visible {border-color: #ff2020; outline: #ff2020;}
+#wrap.n_content .wrap_join_box .list_join .inp_txt:disabled {background-color: #f4f4f4; color: #333;}
+#wrap.n_content .inp_txt {border-radius: 3px; font-family:'맑은 고딕', 'Malgun Gothic';font-weight:normal;font-size:15px;letter-spacing:-1.2px;}
+
+/* 기업정보 인증 */
+
+#wrap.n_content .wrap_join_box.corp_certi {}
+
+.upload_file {}
+.upload_file input {display: none;}
+.upload_file label {display: block; width:100%; height: 50px;}
+.upload_file label .img {position: relative; display: none; width: 100%; height: 100%; text-align: center;}
+.upload_file label .img img {height: 100%;}
+.upload_file .img_del {position: absolute; top:0; right:0; display: none; width: 46px; height: 100%; background-color: #000; background: url(//image.findall.co.kr/FACache/member/icon/icon_del_imgfile.png) no-repeat center center; background-size: 14px;}
+
+#wrap.n_content .wrap_join_box.corp_certi .tit_join {}
+#wrap.n_content .wrap_join_box.corp_certi .tit_join a {float: right; margin-top: 4px; padding-right: 14px; background:url(//image.findall.co.kr/FACache/member/icon/icon_arrow_right.png) no-repeat right center; font-size: 13px; background-size: 10px auto; color: #222; font-weight: normal;}
+#wrap.n_content .wrap_join_box.corp_certi .tit {margin-bottom: 24px; font-size: 15px;}
+
+#wrap.n_content .wrap_join_box .list_join .address_area {}
+#wrap.n_content .wrap_join_box .list_join .address_area .basic {margin-bottom: 10px;}
+
+.corp_certi .upload_file {margin-bottom: 24px;}
+.corp_certi .upload_file label {position: relative; display: flex; align-items: center; justify-content: center; height: 46px; padding: 0 10px; border: 1px solid #0061af; border-radius: 3px;}
+.corp_certi .upload_file label .txt {position: relative; padding-right: 24px; font-size: 14px; color: #0061af; font-weight: bold; letter-spacing: -1px; text-align: center;}
+.corp_certi .upload_file label .txt:before {content: ''; position: absolute; top: 50%; right: 7px; transform: translate(0, -50%); width: 2px; height: 14px; border-radius: 1px; background-color: #0061af;}
+.corp_certi .upload_file label .txt:after {content: ''; position: absolute; top: 50%; right: 7px; transform: translate(0, -50%) rotate(90deg); width: 2px; height: 14px; border-radius: 1px; background-color: #0061af;}
+
+.corp_certi .upload_file label .file_nm {display: none; font-size: 15px; color: #222;}
+
+.corp_certi .upload_file.on label {justify-content: flex-start;}
+.corp_certi .upload_file.on label .txt {display: none;}
+.corp_certi .upload_file.on label .file_nm {display: block;}
+.corp_certi .upload_file.on label .img_del {display:block;}
+
+.corp_certi .btn_area {display: flex; justify-content: center; margin-bottom: 30px;}
+.corp_certi .btn_area ul {width: 320px;}
+
+.corp_certi .blt_list a {color: #0061af; text-decoration: underline;}
+/* // 기업정보 인증 */
+
+
+
+/* 기업정보 인증 추가_1201 */
+.certi_type_wrap .flex2 {flex: 2;}
+.certi_type_wrap .flex5 {flex: 5;}
+.certi_type_wrap .flex7 {flex: 7;}
+.certi_type dl {display: flex; padding-bottom: 25px; font-size: 15px; color: #222; letter-spacing: -1.2px;}
+.certi_type dt {font-weight: bold;}
+.certi_type dd {position: relative; overflow: hidden;}
+.certi_type input[type="radio"] {position: absolute; overflow: hidden; width: 1px; height: 1px; padding: 0; margin: -1px; clip: rect(0,0,0,0); border: 0;}
+.certi_type input[type="radio"] + label {display: inline-block; position: relative; padding-left: 30px; cursor: pointer; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;}
+.certi_type input[type="radio"] + label::before {content: ''; position: absolute; top: 0; left: 0; width: 20px; height: 20px; text-align: center; background: #ddd; border-radius: 100%;}
+.certi_type input[type="radio"] + label:active:before, 
+.certi_type input[type="radio"]:checked + label:active:before {box-shadow: 0 1px 2px #eee;}
+.certi_type input[type="radio"] + label:after {content: ''; position: absolute; top: 5px; left: 5px; width: 10px; height: 10px; border-radius: 50%; background: #fff;}
+.certi_type input[type="radio"]:checked + label:after {content: ''; position: absolute; top: 5px; left: 5px; width: 10px; height: 10px; border-radius: 50%; background: #fff;}
+.certi_type input[type="radio"]:checked + label::before {background: #0685FF;}
+.nts_certifi {padding-bottom: 24px;}
+.nts_certifi dl {display: flex; align-items: center;}
+.nts_certifi input.nts_inp {background: url("//image.findall.co.kr/FACache/member/join/ico_input_cal.png") no-repeat right 13px center !important;}
+.job_new {position: relative;}
+
+/* datepicker */
+.ui-widget td, th {font-family: '맑은 고딕', 'Malgun Gothic';}
+.ui-widget.ui-widget-content {border: none;}
+.ui-widget-content {border: none;}
+.ui-datepicker {display: none; width: 280px; height: 390px; padding:0 10px; background-color: #fff; transform: translate(-50%, -50%);-webkit-transform: translate(-50%, -50%); z-index: 10 !important;}
+.ui-datepicker p.title {position: fixed; top: 18px; left: 0; width: 100%; text-align: center; }
+.ui-datepicker .ui-datepicker-header {padding: 0.4em 0;}
+.ui-datepicker-header {position: relative; width: 100%; margin-top: 20px; text-align: center; font-weight: bold; font-size: 15px; color: #222;}
+.ui-datepicker-header .ui-corner-all span {overflow: hidden; text-indent: -9999px; color: transparent;}
+.ui-datepicker-header .ui-datepicker-prev {position: absolute; top: 0; left: 0; width: 15px; height: 18px; background: url(//image.findall.co.kr/FACache/job/m_newjob/btn_prev.png) no-repeat 0 0;}
+.ui-datepicker-header .ui-datepicker-next {position: absolute; top: 0; right: 0; width: 15px; height: 18px; background: url(//image.findall.co.kr/FACache/job/m_newjob/btn_next.png) no-repeat 100% 0;}
+.ui-datepicker-header .ui-datepicker-prev:hover, .ui-datepicker-header .ui-datepicker-next:hover {border: none;}
+.ui-datepicker-header .ui-datepicker-next, .ui-datepicker-header .ui-datepicker-prev {top: 13px;}
+.ui-datepicker-header .ui-datepicker-prev {left: 8px;}
+.ui-datepicker-header .ui-datepicker-next {right: 8px;}
+.ui-datepicker-calendar {width: 100%; margin-top :25px; border-collapse: collapse; border-spacing: 0px;}
+.ui-datepicker-calendar thead th {padding-bottom: 8px; border-bottom: 1px solid #e2e7ed; color: #6099e4; font-size: 13px; line-height: 20px; }
+.ui-datepicker-calendar tbody td {padding: 7px 0; text-align: center; font-size: 14px; line-height: 20px;}
+.ui-datepicker-today {background-color: #71adfb;}
+.ui-datepicker-today a {color: #fff;}
+.ui-datepicker-current-day {background-color: #2f7fe8}
+.ui-datepicker-current-day  a {color: #fff;}
+.ui-datepicker-close {position: absolute; bottom: 0px; left: 0px; width: 100%; height: 50px; background-color: #006fc9 !important; color: #fff !important; font-size: 17px;}
+.ui-priority-secondary {display: none;}
+.dim {position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0, .5);	z-index: 9;}
+.ui-state-disabled {color: #aaa;}
+.ui-widget-header {margin-top: 10px; border: none; background: none;}
+.ui-datepicker select.ui-datepicker-month {margin-left: 10px;}
+.ui-datepicker select.ui-datepicker-month, 
+.ui-datepicker select.ui-datepicker-year {width: 33%; height: 30px; margin-right: 3px; padding:0 6px; border: 1px solid #ddd; border-radius: 3px; font-weight: bold;}
+.ui-state-default, .ui-widget-content .ui-state-default {border: none; background: none; text-align: center;}
+.ui-state-highlight, .ui-widget-content .ui-state-highlight {color: #fff;}
+.ui-datepicker .ui-datepicker-buttonpane button {margin: 0; padding: 0; width: 100%;}
+.ui-corner-all {border-radius: 0;}
+/* 기업정보 인증 추가_1201 */
+
+
+
+/* 마케팅 · 이벤트정보 수신 동의 */
+.mk_event_tbl {width:100%;margin-top:18px;/*margin-bottom:6px;*/border:1px solid #ddd;}
+.mk_event_tbl:after {display:block;content:"";clear:both;}
+.mk_event_tbl div {float:left;box-sizing: border-box;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;}
+.mk_event_tbl div.use {display:table;width:44%;}
+.mk_event_tbl div.per_unit {display:table;width:24%;border-left:1px solid #eee;border-right:1px solid #eee;}
+.mk_event_tbl div.period {display:table;width:32%;}
+.mk_event_tbl div.period .tbl_td {font-weight:bold;font-size:15.6px;}/*190402 추가*/
+.mk_event_tbl .tbl_th {display:table-row;width:100%;height:44px;line-height: 44px; text-align:center;vertical-align:middle;font-size:13px;font-weight:bold; letter-spacing:-1.2px;color:#888;background:#f5f6f7}/*190403*/
+.mk_event_tbl .tbl_th span {display: table-cell; width: 100%; height: 100%; vertical-align:middle; line-height:1.2; }
+.mk_event_tbl .tbl_td {display:table-cell;padding:10px;/* vertical-align:middle; */text-align:left;border-top:1px solid #eee;font-size:13px;font-weight:normal;line-height:1.31;letter-spacing:-1.2px;color:#666;height:123px;box-sizing: border-box;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;}/*190403*/ 
+.mk_event_tbl >div:last-child{border-right:0 !important;}
+
+.mk_event_tbl2 {width:100%;margin-top:18px;/*margin-bottom:6px;*/border:1px solid #ddd;}
+.mk_event_tbl2:after {display:block;content:"";clear:both;}
+.mk_event_tbl2 div {float:left;box-sizing: border-box;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;}
+.mk_event_tbl2 div.use {display:table;width:44%;}
+.mk_event_tbl2 div.per_unit {display:table;border-left:1px solid #eee;}
+.mk_event_tbl2 div.period {display:table;width:32%;}
+.mk_event_tbl2 div.period .tbl_td {font-weight:bold;font-size:15.6px;}/*190402 추가*/ 
+.mk_event_tbl2 .tbl_th {display:table-row;width:100%;height:44px;line-height:44px;text-align:center;vertical-align:middle;font-size:13px;font-weight:bold;line-height:44px;letter-spacing:-1.2px;color:#888;background:#f5f6f7}/*190403*/
+.mk_event_tbl2 .tbl_td {/* display:table-cell; */padding:10px;vertical-align:middle;text-align:left;border-top:1px solid #eee;font-size:13px;font-weight:normal;line-height:1.31;letter-spacing:-1.2px;color:#666;height:83px;box-sizing: border-box;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;}/*190403*/
+
+
+
+/* 개인회원가입 step2 */
+#wrap.n_content .wrap_join_box .list_join {/*line-height:1;*/}
+#wrap.n_content .wrap_join_box .list_join .inpbtn {position:relative;padding-right:124px;}
+#wrap.n_content .wrap_join_box .list_join .input_s {position:relative;padding-right:124px;}
+#wrap.n_content .wrap_join_box .list_join .input_s input {width:100%;}
+#wrap.n_content .wrap_join_box .list_join .inpbtn .btn {top:0;width:116px;height:46px;right:0;}
+#wrap.n_content .wrap_join_box .list_join .opt_ymd {padding-right:132px;}
+#wrap.n_content .lab_radio {height:46px;line-height:46px;padding:0 25px 0 0;letter-spacing:-1.2px;}
+#wrap.n_content .lab_radio .ico {width:20px;height:46px;background: url("//image.findall.co.kr/FACache/member/join/radio_btn_nor.png") no-repeat 0 50%;margin-right:8px;}
+#wrap.n_content .lab_radio.on .ico {background: url("//image.findall.co.kr/FACache/member/join/radio_btn_pre.png") no-repeat 0 50%;}
+#wrap.n_content .wrap_join_box .list_join .email .inp_mail1 {width:57%;margin-left:-17px;}
+#wrap.n_content .wrap_join_box .list_join .email .inp_mail2 {width:43%;margin-right:-17px;float:right;}
+#wrap.n_content .wrap_join_box .list_join .email {padding:0 17px;}
+#wrap.n_content .wrap_join_box .list_join .select {padding-right:124px;}
+#wrap.n_content .wrap_join_box .list_join .select .opt_select {background-position:95% 50%;}
+#wrap.n_content .wrap_join_box .list_join .option_select {line-height:1.47;padding-right:134px;}
+#wrap.n_content .wrap_join_box .list_join .option_select span {font-size:15px;letter-spacing:-1.2px;color:#222;}
+#wrap.n_content .wrap_join_box .etc_list {padding:0 0 0 160px;margin-top:31px;}
+#wrap.n_content .wrap_join_box .etc_list dt {position:absolute;top:0;left:0;}
+#wrap.n_content .wrap_join_box .list_join.etc_list {padding:0 0 0 160px;}
+#wrap.n_content #mArticle .etc_list .lab_check {position:relative;float:none;text-align:left;min-width:70%;padding:0 0 0 28px;vertical-align:top;margin-top:16px;font-size:14px;color:#444;font-weight:normal;}
+#wrap.n_content #mArticle .etc_list .lab_check:first-child {margin-top:0;}
+#wrap.n_content #mArticle .list_join.etc_list .etc_check {padding:18px 0 0 0;width:100%;}
+#wrap.n_content #mArticle .etc_list .lab_check .ico {position:absolute;top:0;left:0;margin-left:0;margin-right:8px;}
+#wrap.n_content .wrap_join_box .list_join .email .bar {width:32px;height:46px;line-height:46px;text-align:center;}
+#wrap.n_content .wrap_join_box .list_join .opt_ymd .alert {padding-left:0;margin-left:-8px;}
+#wrap.n_content .wrap_join_box .list_join .phone_num_test {outline:1px solid red;}
+#wrap.n_content .wrap_join_box .list_join .phone_num_test .inner {padding:0 126px 0 0;}
+#wrap.n_content .wrap_join_box .list_join .phone_num_test .opt_select {outline:1px solid red;float:left;width:20%;box-sizing: border-box;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;}
+#wrap.n_content .wrap_join_box .list_join .phone_num_test .inp_txt {float:left;width:80%;box-sizing: border-box;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;}
+#wrap.n_content .wrap_join_box .list_join .phone_num_test button {position:absolute;top:10px;right:0;}
+
+
+/* 회원가입완료 */
+.new_complete_msg {text-align:center;padding:100px 0 50px 0;}
+.new_complete_msg h2 {font-size:32px;font-weight:bold;letter-spacing:-1.2px;}
+.result_text {color:#666;letter-spacing:-1.2px;padding:20px 0 0 0;}
+.complete_contents {max-width:788px;margin:auto;border:1px solid #ddd;background:#fff;padding:68px 44px 60px 44px;box-sizing: border-box;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;}
+.complete_contents div {box-sizing: border-box;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;}
+.complete_contents .coupon_box {text-align:center;}
+.complete_contents .coupon_box .coupon_area {display:inline-block;width:138px;height:208px;margin:0 10.5px;}
+.complete_contents .coupon_box .coupon_area.coupon_job {background: url("//image.findall.co.kr/FACache/member/join/coupon_img_02.png") no-repeat 0 0;}
+.complete_contents .coupon_box .coupon_area.coupon_land {background: url("//image.findall.co.kr/FACache/member/join/coupon_img_01.png") no-repeat 0 0;}
+.complete_contents .coupon_box .coupon_area .coupon_txt {display:inline-block;margin-top:68px;color:#fff;font-size:14px;font-weight:bold;letter-spacing:-1.2px;}
+.complete_contents .coupon_box .coupon_area .coupon_txt .price {font-size:16px;}
+.complete_contents .coupon_box .coupon_area .coupon_txt .price em {font-size:24px;margin-right:2px;font-weight:bold;color:#fff;letter-spacing:normal;}
+.complete_contents .coupon_box .coupon_area .coupon_txt-name {display:block;font-size:12px;font-weight:bold;color:#fff;letter-spacing:-1.2px;padding-top:39px;}
+.complete_contents .complete_text {text-align:center;padding:40px 10px 40px 10px;}
+.complete_contents .complete_text span {display:inline-block;max-width:352px;font-size:15px;line-height:1.6;letter-spacing:-1.2px;color:#222;}
+.complete_contents .complete_text span em {font-weight:bold;}
+.complete_contents .mk_event_tbl .tbl_td {display:table-cell;height:147px;}
+.complete_contents .mk_event_tbl {margin-top:14px;}
+.complete_contents .link_btn_box {width:100%;text-align:center;}
+.complete_contents .link_btn_box .link_btn {display:inline-block;width:100%;margin:0 3.5px;max-width:200px;height:50px;line-height:50px;border:1px solid #666;border-radius:3px;text-align:center;}
+.complete_contents .link_btn_box .link_btn .btn_g {font-size:15px;font-weight:bold;letter-spacing:-1.2px;color:#222;}
+.complete_contents .link_btn_box .btn_blue {background:#0061af;border:1px solid #0061af;}
+.complete_contents .link_btn_box .btn_blue .btn_g {color:#fff;}
+.complete_contents .complete_agree {padding:40px 0 0 0;margin-top:50px;border-top:1px solid #ddd;}
+.complete_contents .complete_agree .agree_tit {font-size:20px;letter-spacing:-1.2px;color:#222;font-weight:bold;}
+.complete_contents .complete_agree .agree_date {margin-top:18px;font-size:13px;color:#888;font-weight:normal;letter-spacing:-1.2px;}
+.complete_contents .complete_agree .agree_date .date {margin-left:8px;margin-right:10px;font-weight:normal;letter-spacing:normal;}
+.complete_contents .complete_agree .agree_info_text {padding-top:10px;font-size:13px;letter-spacing:-1.2px;line-height:1.31;}
+.complete_contents .complete_agree .agree_info_text a {color:#0061af;text-decoration:underline;}
+.complete_contents .info_box {width:100%;text-align:center;margin-bottom:40px;}
+.complete_contents .info_box p {max-width:428px;margin:auto;letter-spacing:-1.2px;font-size:15px;line-height:1.6;}
+.complete_contents .info_box p span.emp {color:#0061af;font-weight:bold;}
+.complete_contents .info_box p span.emp .num {letter-spacing:normal;font-weight:bold;}
+
+/*회원가입 수정 마케팅 이용동의*/
+.complete_contents.marketing .complete_agree {margin:0;padding:0;border:0}
+.complete_contents.marketing .marketing_info_text {padding-top:20px;font-size:13px;letter-spacing:-1.2px;line-height:1.31}
+.complete_contents.marketing .marketing_info_text a {color:#0061af;text-decoration:underline;}
+.box_btn.marketing {margin:50px auto 0;max-width:200px}
+.box_btn.marketing .btn_g {background:#0061af;border-radius:3px;height:20px;line-height:20px;font-size:15px;letter-spacing:-1.5px;}
+
+/* 비지니스 회원가입 */
+.biz_info_txt p {letter-spacing:-1.2px;color:#444;line-height:1.43;margin-top:8px;}
+.biz_info_txt p:first-child {margin-top:0;}
+.biz_info_txt em {font-weight:bold;}
+.biz.mk_event_tbl .tbl_td {height:147px;}
+#wrap.n_content .wrap_join_box .list_join .biz_num2 .inp_txt {width:33.33%;}
+#wrap.n_content .wrap_join_box .list_join .biz_num2 .bar {width:8px;}
+#wrap.n_content .wrap_join_box .list_join .biz_num2 {padding:0 8px;}
+#wrap.n_content .wrap_join_box .list_join .biz_num2:after {display:block;content:"";clear:both;}
+#wrap.n_content .wrap_join_box .list_join .biz_num2 .fst {margin-left:-8px;}
+#wrap.n_content .wrap_join_box .list_join .biz_num2 .lst {margin-right:-8px;}
+#wrap.n_content .wrap_join_box .list_join.text_field dd {height:46px;line-height:46px;font-size:14px;font-weight:bold;letter-spacing:-1.2px;color:#222;}
+#wrap.n_content .wrap_join_box .list_join.text_field dd.no_spacing {letter-spacing:normal;}
+#wrap.n_content .v_b {margin-bottom:18px}
+
+
+/* 비지니스 회원가입 완료 */
+.biz .complete_text span {max-width:366px;}
+.biz.complete_contents .info_box {margin-top:40px;}
+
+/* 신문 광고주 정보 이용 동의 */
+.use_agree_txt {display:block;margin-top:20px;font-size:14px;line-height:1.57;letter-spacing:-1.2px;color:#666;}
+
+/* 서비스 이용동의 */
+#wrap.n_content .user_agree #Body {box-sizing: border-box;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;}
+#wrap.n_content .wrap_join_box .list_join.address dd.input_s {margin-top:12px;}
+#wrap.n_content .wrap_join_box .list_join.recommend {padding:12px 0 0 160px;}
+#wrap.n_content .wrap_join_box .list_join.recommend .inner_half {padding:0 4px;}
+#wrap.n_content .wrap_join_box .list_join.recommend .inner_half .opt_select {float:left;width:50%;}
+#wrap.n_content .wrap_join_box .list_join.recommend .inner_half .bar {float:left;width:8px;}
+#wrap.n_content .wrap_join_box .list_join.recommend .inner_half .opt_select.first {margin-left:-4px;}
+#wrap.n_content .wrap_join_box .list_join.recommend .inner_half .opt_select.last {margin-right:-4px;}
+#wrap.n_content .wrap_join_box .list_join.recommend dd.input_s.name {margin-top:12px;}
+
+
+/* 회원정보 수정 */
+.agree_radio {float:right;font-size:14px;margin-top:-8px;}
+.agree_radio .lab_radio {padding:8px 5px;}
+.agree_section {padding:15px 15px;border-bottom:1px solid #ddd;}
+.agree_section p {font-weight:bold;}
+.wrap_join_box.no_border {border:none;border-top:2px solid #616f81;}
+.agree_time {padding-top:10px;margin-bottom:-5px;font-size:13px;letter-spacing:-1px;color:#888}
+.wrap_join_box.no_border .mod .tbl_td {padding:0 15px;}
+.wrap_join_box.no_border .biz_mod .tbl_td {padding:0 15px;}
+.wrap_join_box.no_border .mk_event_tbl .tbl_td {height:175px;}
+.wrap_join_box.no_border .biz.mk_event_tbl .tbl_td {height:180px;}
+
+
+/* 야알바 회원가입 */
+#Yaalba {font-family:'맑은 고딕', 'Malgun Gothic';}
+#Yaalba .join-header__title {width:109px}
+#Yaalba .bi_group li {width:114px;height:41px;background: url("//image.findall.co.kr/FACache/member/join/ya_logo_05.png") no-repeat 50% 50%;}
+#Yaalba .select-contents__item {height:310px;}
+#Yaalba .select-contents__link {margin-top:20px;}
+
+
+/* new footer */
+.n_footer {padding:120px 0 40px 0;max-width:780px;width:100%;margin:auto;font-family:'맑은 고딕', 'Malgun Gothic';}
+.n_footer div {box-sizing: border-box;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;}
+.footer_list {max-width:500px;text-align:center;font-size:12px;line-height:1.67;color:#888;margin:auto;}
+.footer_list:after {display:block;content:"";clear:both;}
+.footer_list .foot_link {float:left;max-width:353px;margin:auto;}
+.footer_list .foot_link:after {display:block;content:"";clear:both;}
+.footer_list .foot_link li {float:left;margin:0 15px;}
+.footer_list a {position:relative;font-size:13px;line-height:1.54;letter-spacing:-1.2px;color:#666;}
+.footer_list a em {font-weight:bold;}
+.footer_list a:after {position:absolute;top:4px;right:-18px;display:block;content:"";width:1px;height:12px;background:#ddd;}
+.footer_list .copyright {float:left;margin-left:13px;}
+.bi_group.w_mo {display:none;position:static;margin-top:0;text-align:center;margin-bottom:25px;}
+.bi_group.w_mo li {width:25%;height:40px;margin-left:0;}
+
+
+/* new 회원가입 20180820  추가  끝 ***********************/
+
+/************** 브랜드관 서비스이용동의 추가 2022.06.22 *********************/
+.agree_cont {word-break: keep-all;}
+.agree_cont .agree_check_list {}
+.agree_cont .agree_check_list ul {}
+.agree_cont .agree_check_list ul li {margin-bottom: 60px;}
+.agree_cont .agree_check_list ul li > .tit {margin-bottom: 18px; font-size: 18px; font-weight: bold;}
+.agree_cont .agree_check_list ul li.all {margin-bottom: 20px; border-bottom: 1px solid #ddd}
+.agree_cont .agree_check_list ul li.all > .tit {margin-bottom: 18px; font-size: 20px; color: #222; letter-spacing: -1px;}
+.agree_cont .agree_check_list ul li.all .agree_check .tit {font-size: 15px;}
+.agree_check {display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px;}
+.agree_check .tit {flex: 1; margin-right: 20px; font-size: 15px; color: #222; letter-spacing: -0.9px;}
+.agree_check .tit span {margin-right: 10px;}
+.agree_check .tit strong {font-size: 18px;}
+.agree_check .tit .alert {display: inline-block; font-size: 13px; color: #ff0c3c; line-height: 1.69; letter-spacing: -1.2px;}
+.agree_cont .agree_check_list ul li .box_all_view {height: 120px; background: #f9f9f9; font-size: 13px; color: #666; letter-spacing: -1.2px; overflow-y: auto}
+.agree_cont .agree_check_list ul li .box_all_view .overflow_y {overflow-y: scroll}
+#wrap.n_content #mArticle .agree_cont .tit_join {padding:0; margin: 60px 0 18px; }
+
+.agree_cont .mk_event_tbl,
+.agree_cont .mk_event_tbl2 {display: none;}
+
+/************** // 브랜드관 서비스이용동의 추가 2022.06.22 *********************/
+
+
+
+/**************  new modified 회원가입 프로세스 변경 수정 2018.08.30 시작 *********************/
+
+/* 모바일 */  /* new modified */
+@media all and (max-width:859px) {
+/*.join-footer {padding:30px 0}*/
+.join-footer__copyright {font-size:12px;text-align:center;letter-spacing:-0.3px;color:#888}
+.header-title-link {width:225px;height:50px;margin:0 auto}
+.title-image {height:50px}
+.title-image--pc {display:none}
+.title-image--mo {display:block}
+.join-contents {min-width:320px;width:auto;}/* 2018.08.17 */
+.join-sprite {margin:18px 0 8px 0;height:55px;}
+/*.join-sprite {background: url('//image.findall.co.kr/FACache/member/join/general-icon.png') no-repeat 50% 0;background-size:300px 200px}*//* new modified */
+.join-sprite--person {background: url('//image.findall.co.kr/FACache/member/join/general-icon.png') no-repeat 50% 0;background-size:55px 55px;}/* new modified */
+.join-sprite--company {background: url('//image.findall.co.kr/FACache/member/join/business-icon.png') no-repeat 50% 0;background-size:55px 55px;}/* new modified */
+
+
+/* 회원가입 선택 */
+.select-contents {width:100%;padding:0 22px 0 22px;box-sizing:border-box}
+.select-contents__msg {padding:40px 0 24px;font-size:13px;letter-spacing:-1.2px;color:#888;line-height:1.54;}/* new modified */
+.select-contents__item {width:100%;height:auto;min-height:280px;box-sizing:border-box;padding:0 0 43px 0;}/* new modified */
+.select-contents__item:first-child {margin:0 0 10px}
+.select-contents__item-text {padding-top:20px;font-size:12px;line-height:1.54;}/* new modified */
+.join-contents-guide {text-align:left;letter-spacing:-0.5px;line-height:1.2}
+.join-contents-guide--bottom {margin-bottom:15px}
+.join-contents-guide--top {padding-top:15px}
+.join-select-btn {display:block;position:relative;bottom:0;left:0;width:100%;margin:0 auto 0;font-size:18px;box-sizing:border-box;}/* new modified */
+.join-select-btn span {width:125px;}/* new modified */
+.join-select-btn--company span {width:158px;}/* new modified */
+.select-contents__link {margin:16px auto 0;padding:16px 0 0 0;}/* new modified */
+.select-contents__link .p_txt {font-size:12px;}/* new modified */
+.select-contents__sns-icon a {margin:0 6.5px;}
+.select-contents__link .paper_ad {font-size:14px;}
+.msg-color {font-size:22px;padding-bottom:10px;}/* new modified */
+
+/**************  new modified 회원가입 프로세스 변경 수정 2018.08.30 끝 *********************/
+
+
+
+
+
+
+/* 회원가입 완료 */
+.complete-contents {width:100%;box-sizing:border-box;}
+.complete-contents__msg {width:100%;padding-top:40px;background-image:none}
+.complete-contents__result-text {margin-bottom:40px}
+.complete-contents__bottom-box {padding:0 20px}
+.complete-contents__innerbox {width:100%;height:auto;padding:40px 20px 20px;box-sizing:border-box}
+.complete-contents__item:first-child {margin:30px 0 10px}
+.complete-contents__type-box {height:auto;padding:15px;text-align:left;line-height:1.3}
+.complete-contents__type-item {float:none}
+.complete-contents__type-item:first-child {margin:0}
+.complete-contents__coupon-item {float:none;width:190px;height:88px;margin:12px auto 0;background-size:190px 88px}
+.complete-contents__coupon-item--first {margin-top:0;background-image:url('//image.findall.co.kr/FAImage/findjob/member/m_coupon1.png')}
+.complete-contents__coupon-item--second {background-image:url('//image.findall.co.kr/FAImage/findjob/member/m_coupon2.png')}
+.complete-contents__coupon-item--third {background-image:url('//image.findall.co.kr/FAImage/findjob/member/m_coupon3.png')}
+.complete-contents__list {position:relative;bottom:0;width:auto}
+.complete-contents__item {float:none}
+.join-complete-btn {width:100%;box-sizing:border-box}
+.join-complete-btn--resume {margin:0 0 10px;line-height:50px;background-color:#0061af;color:#fff}
+.join-complete-btn--home {height:50px;line-height:50px}
+.text-handling {display:none}
+.line-switch {padding-top:20px}
+}
+
+/* iphone5 */
+@media all and (max-width:320px) {
+	.join-notice-layer__contents {top:0;margin-top:0}
+	.join-notice-layer__text {margin-bottom:20px}
+	.join-notice-layer__guide {height:172px}
+	.join-notice-layer__select-box {padding-top:30px}
+	.complete_contents .coupon_box .coupon_area {margin:10px 10.5px 0 10.5px;}
+	.complete_contents .coupon_box .coupon_area:first-child {margin-top:0;}
+}
+
+
+
+
+
+
+/**************  new modified 회원가입 프로세스 추가 2018.08.30 시작 *********************/
+
+/* w_787 media mobile */
+@media screen and (min-width:0px) and (max-width:787px) {
+	/* header */
+	.join-header__inner {width:100%;margin:0;padding:0;height:60px !important;}/* new modified */
+	.join-header__title {width:100%;height:60px !important;line-height:60px !important;font-size:17px;margin-left:0;text-align:center;}/* new modified */
+	.join-header__nav {display:none}
+	.join-header .home_btn {display:block;}
+
+
+	/* 가입 */
+	#wrap.n_content .opt_select .txt, #wrap.n_content .inp_txt {/*font-size:15px;*/}
+	#wrap.n_content .wrap_join_box .list_join.vm_8 {padding-top:8px;}
+	#wrap.n_content {width:auto;min-width:320px;}
+	#wrap.n_content #Body {padding:40px 0 26px;font-size:22px;}
+	#wrap.n_content #mArticle {padding:32px 18px 28px 22px;margin:0 10px;}
+	#wrap.n_content #mArticle .tit_join {padding:40px 0 0;font-size:17px;}
+	#wrap.n_content #mArticle .agree_wrap, #wrap.n_content #mArticle .biz_info_txt {margin-top:20px;}
+	#wrap.n_content #mArticle .agree_wrap p {width:65%;font-size:15px;}
+	#wrap.n_content #mArticle .wrap_join_box .list_check li .agree_tit {font-size:15px;}
+	#wrap.n_content #mArticle .wrap_join_box .list_check li {padding:32px 0 0 0;}
+	#wrap.n_content #mArticle .wrap_join_box .list_check li:first-child {padding-top:32px;}
+	#wrap.n_content #mArticle .wrap_join_box .list_check .alert {display:block;padding-left:0;}
+	#wrap.n_content #mArticle .etc_list .lab_check {width:100%;height:auto;}
+	#wrap.n_content #mArticle .agree_wrap .lab_check {margin:25px 0 0 0;}
+	#wrap.n_content .wrap_join_box .list_join {flex-direction: column; padding:20px 0 0 0;}
+	#wrap.n_content .wrap_join_box .list_join dt {top:0;margin-top: 0; padding-top:0; line-height: 38px;}
+	#wrap.n_content .wrap_join_box .list_join .inpbtn {padding-right:0;}
+	#wrap.n_content .wrap_join_box .list_join .input_s {position:relative;padding-right:0;}
+	#wrap.n_content .wrap_join_box .list_join .select {padding-right:0;}
+	#wrap.n_content .wrap_join_box .list_join .opt_ymd {padding-right:10px;}
+	#wrap.n_content .wrap_join_box .list_join.etc_list {padding:0;}
+	#wrap.n_content .wrap_join_box .list_join .option_select {padding-right:0;}
+	#wrap.n_content .wrap_join_box .list_join .box_phone_noti {margin-top:12px; padding-top:0; margin-right:0;}	/* 20180917 수정 */
+	#wrap.n_content .wrap_join_box .list_join .box_phone_noti .confirm {padding:0 50px 0 0;}
+	#wrap.n_content .wrap_join_box .alert {width:100%;}
+	#wrap.n_content .opt_select {/*height:50px;line-height:50px;*/}
+	#wrap.n_content .wrap_join_box .list_check .box_all_view {font-size:13px;}
+	#wrap.n_content .wrap_join_box .list_join .phone_num .inner {padding:0 4px;box-sizing: border-box;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;}
+	#wrap.n_content .wrap_join_box .list_join .phone_num .opt_select {width:35%;margin-left:-4px;}
+	#wrap.n_content .wrap_join_box .list_join .inpbtn .btn {width:100%;margin-top:8px;position:static;}
+	#wrap.n_content .wrap_join_box .list_join .phone_num .btn {width:100%;margin-top:8px;position:static;}
+	#wrap.n_content .wrap_join_box .list_join .phone_num {padding:0;}
+	#wrap.n_content .wrap_join_box .list_join .inp_txt {/*height:50px;line-height:50px;*/}
+	#wrap.n_content .wrap_join_box .list_join .phone_num .inp_txt {width:65%;margin-right:-4px;}
+	#wrap.n_content .wrap_join_box .list_join .email {padding:0}
+	#wrap.n_content .wrap_join_box .list_join .phone_num .email .inp_txt {width:44%;margin:0}
+	#wrap.n_content .wrap_join_box .list_join .email .inp_txt {width:44%;margin:0}
+	#wrap.n_content .wrap_join_box .list_join .email .bar {width:12%}
+	#wrap.n_content .wrap_join_box .list_join .btn_g {height:46px;line-height:46px;}
+	#wrap.n_content .wrap_join_box .list_join .inpbtn .btn_g {width:100%;}
+	#wrap.n_content .wrap_join_box .list_join .phone_num .btn_g {width:100%;}
+	#wrap.n_content .wrap_join_box .list_join .certification {padding-right:0;margin-top:18px;}
+	#wrap.n_content .wrap_join_box .list_join .certification .btn {position:static;width:100%;margin-top:8px;}
+	#wrap.n_content .wrap_join_box .list_join .certification .btn .btn_g {width:100%;}
+	#wrap.n_content .box_btn button {width:100%;}
+	#wrap.n_content .box_btn .btn_g {font-size:16px;letter-spacing:normal;}
+	#wrap.n_content .biz.mk_event_tbl .tbl_td {height:auto;}
+	#wrap.n_content .biz.mk_event_tbl2 .tbl_td {height:auto;}
+
+	/* 20180917 추가 */
+	#wrap.n_content .wrap_join_box .list_join .certification.two_btn {padding-right:0;}
+	#wrap.n_content .wrap_join_box .list_join .certification.two_btn .re_send_btn {position:static;margin-top:8px;width:100%;}
+	#wrap.n_content .wrap_join_box .list_join .certification.two_btn .re_send_btn .btn_g {width:100%;}
+	#wrap.n_content .wrap_join_box .list_join .certification.two_btn .txt.noti {padding-right:30px;}
+	/* 20180917 추가 끝*/
+
+	/* 비지니스 가입 */
+	.biz_info_txt p {font-size:13px;margin-top:4px;}
+	#wrap.n_content .company_sel .lab_radio {font-size:15px;height:40px;line-height:40px;width:100%;}
+	#wrap.n_content .company_sel .lab_radio:first-child {margin-top:0;}
+	#wrap.n_content .company_sel .lab_radio .ico {height:40px;}
+	/*#wrap.n_content .list_join.text_field {padding:0 0 0 120px;}*/
+	/*#wrap.n_content .list_join.text_field:first-child {margin-top:20px;}*/
+	/*#wrap.n_content .wrap_join_box .list_join.text_field dt {position:absolute;top-1px0;padding-top:14px;}*/
+
+	/* 가입완료 */
+	.complete_contents {padding:50px 18px 30px 18px;margin:0 10px;width:auto;min-width:300px;font-size:14px;}
+	.complete_contents .mk_event_tbl .tbl_td {height:auto;padding:15px 22px;}
+	.complete_contents .mk_event_tbl2 .tbl_td {height:auto;padding:15px 22px;}
+	.result_text {padding:10px 0 0 0;font-size:13px;}
+	.complete_contents .complete_text span {font-size:16px;max-width:303px;}
+	.complete_contents .link_btn_box .link_btn .btn_g {font-size:16px;}
+	.complete_contents .complete_agree {margin-top:32px;padding:32px 0 0 0;}
+	.complete_contents .complete_text {padding:24px 10px 20px 10px;}
+	.complete_contents .complete_agree .agree_date {margin-top:8px;}
+	.complete_contents .complete_agree .agree_info_text {padding-top:12px;}
+	.new_complete_msg h2 {font-size:22px;}
+	.new_complete_msg {padding:40px 0 26px;}
+	.complete_contents .complete_agree .agree_tit {font-size:17px;}
+	.mk_event_tbl div.use {width:100%;}
+	.mk_event_tbl div.per_unit {width:100%;border-top:1px solid #ddd;}
+	.mk_event_tbl div.period {width:100%;border-top:1px solid #ddd;}
+	.mk_event_tbl .tbl_td {display:table-cell;width:100%;height:auto;padding:15px 20px;vertical-align:middle;}
+	.mk_event_tbl2 div.use {width:100%;}
+	.mk_event_tbl2 div.per_unit {width:100%;border-top:1px solid #ddd;}
+	.mk_event_tbl2 div.period {width:100%;border-top:1px solid #ddd;}
+	.mk_event_tbl2 .tbl_td {width:100%;height:auto;padding:15px 20px;vertical-align:middle;text-align:center;}
+	.complete_contents .info_box {padding:0 25px;margin-bottom:20px;}
+	.complete_contents .link_btn_box .link_btn {display:block;margin:16px auto 0}
+	.complete_contents .link_btn_box .link_btn:first-child {margin-top:0;}
+	.complete_contents .coupon_box .coupon_area {margin-top:20px;}
+	.complete_contents .coupon_box .coupon_area:first-child {margin-top:0;}
+
+	/* 이용동의 */
+	#wrap.n_content .user_agree #Body {padding:40px 10px 26px;}
+	.user_agree_tit {display:block;padding:0 42px;}
+	.use_agree_txt {padding:0 27px;margin-top:10px;font-size:13px;color:#888;}
+	#wrap.n_content .wrap_join_box .list_join.address .inpbtn .btn {/*padding-top:8px;*/}
+	#wrap.n_content .wrap_join_box .list_join.address .inpbtn {/*padding-bottom:10px;*/}
+	#wrap.n_content .wrap_join_box .list_join.address dd.input_s {margin-top:8px;}
+	#wrap.n_content .wrap_join_box .list_join.recommend {padding:20px 0 0 0;}
+
+	/* 기업정보인증 */
+	#wrap.n_content .wrap_join_box.corp_certi {}
+	#wrap.n_content .wrap_join_box .list_join .address_area {}
+	#wrap.n_content .wrap_join_box .list_join .address_area .basic {display: flex; align-items: center; flex-direction: column;}
+	#wrap.n_content .wrap_join_box .list_join .address_area .basic .inp_txt {flex: 1; margin-right: 0; margin-bottom: 10px;}
+	#wrap.n_content .wrap_join_box .list_join .address_area .basic .btn {width: 100%; margin-top:0; padding-top: 0;}
+
+	.corp_certi .upload_file.on {display: flex; justify-content: center;}
+
+	.corp_certi .btn_area ul {width: 100%;}
+	/* // 기업정보인증 */
+
+
+	/* 기업인증 추가 */
+	.certi_type dl {flex-direction: column; padding-bottom: 0;}
+	.certi_type dd {margin-top: 16px;}
+	.certi_type_wrap .upload_file {margin-top: 20px;}
+	.nts_certifi dl {margin-top: 10px;}
+
+
+
+
+	/* 야알바 회원가입 */
+	#Yaalba .join-header__title {width:100%;text-align:center;}
+	#Yaalba .bi_group.w_mo {display:block;}
+	#Yaalba .bi_group.w_mo li {width:100%;}
+
+	/* footer */
+	.n_footer {padding:50px 0 40px 0;}
+	/* footer logo list */
+	.bi_group.w_pc {display:none;}
+	.bi_group.w_mo {display:block;width:306px;min-width:300px;padding-bottom:10px;border-bottom:1px solid #ddd;margin:auto;box-sizing: border-box;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;text-align:center;}
+	.bi_group.w_mo li {height:28px;margin-left:4px;background:none;box-sizing: border-box;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;display: inline-block;float: none;}
+	.bi_group.w_mo li:hover {background:none;}
+	.bi_group.w_mo li a img {width:auto;height:100%;}
+	.bi_group.w_mo li.bi_01 {width:60px;}
+	.bi_group.w_mo li.bi_02 {width:96px;}
+	.bi_group.w_mo li.bi_03 {width:90px;}
+	.bi_group.w_mo li.bi_04 {width:48px}
+	.bi_group.w_mo li:first-child {margin-left:0;}
+
+	/* 푸터리스트 */
+	.footer_list {min-width:300px;}
+	.footer_list a {font-size:13px;}
+	.footer_list .foot_link {float:none;max-width:273px;padding:18px 0 0 0;}
+	.footer_list .foot_link li {margin:0 0 0 16px;}
+	.footer_list .foot_link li:first-child {margin-left:0;}
+	.footer_list .foot_link li a:after {right:-10px;}
+	.footer_list .foot_link li:last-child a:after {display:none;}
+	.footer_list .copyright {float:none;margin-left:0;margin-top:14px;text-align:center;}
+
+	/*회원가입 개선 190402 추가*/
+	.mk_event_tbl .tbl_td {text-align:center;word-break:keep-all;}
+}
+
+
+
+
+@media screen and (min-width:0px) and (max-width:560px) {
+	/* 회원정보 수정 */
+	.agree_radio {float:none;font-size:14px;margin-top:15px;}
+	.agree_radio .lab_radio {padding:8px 10px 8px 0;}
+	.wrap_join_box.no_border .mk_event_tbl .tbl_td {height:auto;padding:15px 25px;}
+	.wrap_join_box.no_border .biz.mk_event_tbl .tbl_td {height:auto;padding:15px 25px;}
+	.wrap_join_box.no_border .mk_event_tbl2 .tbl_td {height:auto;padding:15px 25px;}
+	.wrap_join_box.no_border .biz.mk_event_tbl2 .tbl_td {height:auto;padding:15px 25px;}
+
+}
+
+
+
+
+/* iphone5 */
+@media all and (max-width:320px) {
+	.complete_contents .coupon_box .coupon_area {margin:20px 10.5px 0 10.5px;}
+	.complete_contents .coupon_box .coupon_area:first-child {margin-top:0;}
+	.footer_list .foot_link {float:none;max-width:285px;}
+	.footer_list .foot_link li {margin: 0 10px;}
+	.footer_list .foot_link li:last-child {margin-right:0;}
+	.footer_list a:after {top:3px;right:-16px;}
+	.footer_list .foot_link li:last-child a:after {display:none;}
+	.footer_list .copyright {float:none;margin-left:0;padding-top:8px;}
+	#wrap.n_content #mArticle .agree_wrap p {font-size:14px;}
+	#wrap.n_content #mArticle .wrap_join_box .list_check li .agree_tit {display:inline-block;width:75%;}
+	.user_agree_tit {padding:0 20px;}
+	.use_agree_txt {padding:0 17px;}
+
+}
+
+
+/**************  new modified 회원가입 프로세스 추가 2018.08.30 끝 *********************/
+
+/*181030 사업자등록번호 도용 금지문구*/
+.fc_316fe4 {color:#316fe4;}
+
+
+
+
+/*개인정보 취급방침 개선*/
+.stipulation table.p_table_new {margin-top:5px;width:100%;padding-bottom:5px;}
+.stipulation table.p_table_new th, .stipulation table.p_table_new td {border:1px solid #f2f2f2;}
+.stipulation table.p_table_new th {padding:9px 0 10px;}
+.stipulation table.p_table_new td {padding:9px 10px 10px}
+.stipulation table.p_table_new .align_l {text-align:left}
+.stipulation table.p_table_new .align_c {text-align:center;}
+.stipulation #findall_stipulation .box-con {border:1px solid #f2f2f2;box-sizing:border-box;padding:5px;margin-top:10px;}
+.stipulation #findall_stipulation .box-con ol li {padding:0;}
+
+/* 2022.10.14 추가 _ 링크 */
+.stipulation table.p_table_new td a {display: block; text-decoration: underline;}
+.stipulation table.p_table_new td a.link {margin: 3px 0 0; color: #2489ff;}
+/* //2022.10.14 추가 _ 링크 */
+
+
+/*190404 개인정보 수집 동의 */
+.notice {font-size:12px;margin-top:12px;line-height:22px;letter-spacing:-0.96px;color:#444;}
+.notice + .notice {margin-top:2px;} /* 21.11.18 회원가입>이용약관 개선진행건 (15세이상..) */
+.mk_event_tbl--agree div.use {width:20%;}
+.mk_event_tbl--agree div.per_unit {width:50%;}
+.mk_event_tbl--agree div.period {width:30%;}
+.response-tb--multiple {border:1px solid #ddd;margin-top:18px;}
+.response-tb--multiple tr th {height:44px;text-align:center;vertical-align:center;font-size:13px;font-weight:bold;line-height:44px;letter-spacing:-1.2px;background:#f5f6f7;border-bottom:1px solid #eee;border-right:1px solid #eee;color:#888}
+.response-tb--multiple tr th,.response-tb--multiple tr td {word-break:keep-all;}
+.response-tb--multiple tr td {font-size:13px;font-weight:normal;line-height:1.31;letter-spacing:-1.2px;color:#666;padding:10px;border-top:1px solid #eee;border-left:1px solid #eee;}
+.response-tb--multiple tr:first-child td {border-top:none;}
+.response-tb--multiple tr td:first-child {border-left:none;}
+.response-tb--multiple .table-top {width:100%;}
+.response-tb--multiple .table-top td.response-cell {font-size:15.6px;letter-spacing:-1px;}
+.response-tb--multiple .table-bottom {display:none;}
+
+.response-tb--multiple.all-person tr td.per_unit {width:24%;}
+.response-tb--multiple.all-person tr td.use {width:55%;}
+.response-tb--multiple.all-person tr td.period {width:auto;}
+
+
+@media screen and (min-width:0px) and (max-width:787px) {	
+	.mk_event_tbl--agree div.use {width:100%;}
+	.mk_event_tbl--agree div.per_unit {width:100%;}
+	.mk_event_tbl--agree div.period {width:100%;}
+	.response-tb--multiple .table-top {width:100%;border-bottom:none;}
+	.response-tb--multiple .table-top tr td {width:50%;}
+	.response-tb--multiple .table-bottom {display:table;width:100%;float:none;border-top:1px solid #eee;}
+	.response-tb--multiple .table-bottom tr th {border-right:none;}
+	.response-tb--multiple .table-bottom tr td {font-size:15.6px;}
+	.response-tb--multiple .response-cell {display:none;letter-spacing:-1px;}
+	.response-tb--multiple.all-person tr td.per_unit {width:40%;}
+	.response-tb--multiple.all-person tr td.use {width:60%;}
+}
+
+/*table width*/
+.mk_event_tbl div.per10 {width:10%;}
+.mk_event_tbl div.per15 {width:15%;}
+.mk_event_tbl div.per20 {width:20%;}
+.mk_event_tbl div.per25 {width:25%;}
+.mk_event_tbl div.per30 {width:30%;}
+.mk_event_tbl div.per35 {width:35%;}
+.mk_event_tbl div.per40 {width:40%;}
+.mk_event_tbl div.per45 {width:45%;}
+.mk_event_tbl div.per50 {width:50%;}
+.mk_event_tbl div.per55 {width:55%;}
+.mk_event_tbl div.per60 {width:60%;}
+.mk_event_tbl div.per65 {width:65%;}
+.mk_event_tbl div.per70 {width:70%;}
+.mk_event_tbl div.per75 {width:75%;}
+.mk_event_tbl div.per80 {width:80%;}
+.mk_event_tbl div.per85 {width:85%;}
+.mk_event_tbl div.per90 {width:90%;}
+.mk_event_tbl div.per95 {width:95%;}
+.mk_event_tbl div.per100 {width:100%;}
+.mk_event_tbl2 div.per10 {width:10%;}
+.mk_event_tbl2 div.per15 {width:15%;}
+.mk_event_tbl2 div.per20 {width:20%;}
+.mk_event_tbl2 div.per25 {width:25%;}
+.mk_event_tbl2 div.per30 {width:30%;}
+.mk_event_tbl2 div.per35 {width:35%;}
+.mk_event_tbl2 div.per40 {width:40%;}
+.mk_event_tbl2 div.per45 {width:45%;}
+.mk_event_tbl2 div.per50 {width:50%;}
+.mk_event_tbl2 div.per55 {width:55%;}
+.mk_event_tbl2 div.per60 {width:60%;}
+.mk_event_tbl2 div.per65 {width:65%;}
+.mk_event_tbl2 div.per70 {width:70%;}
+.mk_event_tbl2 div.per75 {width:75%;}
+.mk_event_tbl2 div.per80 {width:80%;}
+.mk_event_tbl2 div.per85 {width:85%;}
+.mk_event_tbl2 div.per90 {width:90%;}
+.mk_event_tbl2 div.per95 {width:95%;}
+.mk_event_tbl2 div.per100 {width:100%;}
+
+@media screen and (min-width:0px) and (max-width:787px) {
+	.mk_event_tbl div.per10,.mk_event_tbl div.per15,.mk_event_tbl div.per20,.mk_event_tbl div.per25,.mk_event_tbl div.per30,
+	.mk_event_tbl div.per35,.mk_event_tbl div.per40,.mk_event_tbl div.per45,.mk_event_tbl div.per50,.mk_event_tbl div.per55,
+	.mk_event_tbl div.per60,.mk_event_tbl div.per65,.mk_event_tbl div.per70,.mk_event_tbl div.per75,.mk_event_tbl div.per80,
+	.mk_event_tbl div.per85,.mk_event_tbl div.per90,.mk_event_tbl div.per95,.mk_event_tbl div.per100
+	{width:100%;}
+	.mk_event_tbl2 div.per10,.mk_event_tbl2 div.per15,.mk_event_tbl2 div.per20,.mk_event_tbl2 div.per25,.mk_event_tbl2 div.per30,
+	.mk_event_tbl2 div.per35,.mk_event_tbl2 div.per40,.mk_event_tbl2 div.per45,.mk_event_tbl2 div.per50,.mk_event_tbl2 div.per55,
+	.mk_event_tbl2 div.per60,.mk_event_tbl2 div.per65,.mk_event_tbl2 div.per70,.mk_event_tbl2 div.per75,.mk_event_tbl2 div.per80,
+	.mk_event_tbl2 div.per85,.mk_event_tbl2 div.per90,.mk_event_tbl2 div.per95,.mk_event_tbl2 div.per100
+	{width:100%;}
+
+  .mk_event_tbl .tbl_th br {display:none;}
+  .wrap_join_box.no_border .biz.mk_event_tbl .tbl_td {height: auto;padding: 15px 25px;}
+}
+
+/*경찰청안전지킴이 줄바꿈처리*/
+.text-indent--police {display:inline-block;width:292px;vertical-align:top;}
+
+/* 회원가입대행(기업) - 2020.10.22 */
+.wrap-accor .item-accor + li{margin-top:20px}
+.wrap-accor .head-accor::after{content:'';display:block;clear:both;}
+.wrap-accor .head-accor{position:relative;}
+.wrap-accor .head-accor .btn-accor{width:20px;height:20px;background:url(https://image.findall.co.kr/FACache/member/join/ico-arrow-down.png) no-repeat 50% / 12px 6px;text-indent:-99em;overflow:hidden;float:right}
+.wrap-accor .body-accor{overflow:hidden;display:none;}
+.wrap-accor .head-accor.active .btn-accor{transform:rotate(180deg);}
+
+#wrap.n_content.biz .emph-bold, .wrap-lpop.biz .emph-bold{font-weight:700;}
+#wrap.n_content.biz .emph-r{color:#ff4800}
+#wrap.n_content.biz .emph-star{font-size:0;}
+#wrap.n_content.biz .emph-star::before{content:'*';font-size:22px;color:#ff4800;display:inline-block;line-height:1;vertical-align:top;}
+#wrap.n_content.biz .opt_select{background:url(https://image.findall.co.kr/FACache/member/icon/icon_arrow_down.png) no-repeat right 14px top 50%; background-size: 14px 14px; color:#222;}
+#wrap.n_content.biz #mArticle .lab_check .ico{background:url(https://image.findall.co.kr/FACache/member/join/chk-normal.png) no-repeat 0 0 / 100%;}
+#wrap.n_content.biz #mArticle .lab_check.on .ico{background:url(https://image.findall.co.kr/FACache/member/join/chk-selected.png) no-repeat 0 0 / 100%;}
+#wrap.n_content.biz .list_join{/*font-size:0;*/}
+#wrap.n_content.biz .list_join .mark{width:14px;display:inline-block;vertical-align:middle;font-size:12px;color:#222;margin:0 5px;}
+
+#wrap.n_content.biz #Body{padding-bottom:50px;}
+#wrap.n_content.biz #Body>span{display:block; line-height: 1.3;}
+#wrap.n_content.biz #Body .txt{font-size:14px;color:#666;display:block;margin-top:20px;}
+#wrap.n_content.biz #mArticle .tit_join:first-child{padding-bottom:34px;}
+#wrap.n_content.biz #mArticle .tit_join .emph-star{font-size:20px;}
+#wrap.n_content.biz #mArticle .tit_join .emph-star::before{display:none;}
+
+#wrap.n_content.biz .wrap_join_box .list_join{/*padding:0;*/}
+#wrap.n_content.biz .fm-email,
+#wrap.n_content.biz .opt_select{display:inline-block;vertical-align:middle;}
+#wrap.n_content.biz .fm-email .inp_txt{width:226px;vertical-align: middle;}
+#wrap.n_content.biz .fm-email .mark{margin:0 8px;}
+#wrap.n_content.biz .fm-email .mark + input{width:161px;}
+#wrap.n_content.biz .opt_select{width:271px;margin-left:10px;}
+
+#wrap.n_content.biz .head-accor .btn-accor{display:none;}
+#wrap.n_content.biz .body-accor{display:block;}
+
+#wrap.n_content.biz #mArticle .lab_check{display:block;float:none;overflow:hidden;}
+#wrap.n_content.biz #mArticle .lab_check .ico{float:right;}
+#wrap.n_content.biz #mArticle .agree_wrap .lab_check.lab_check_all{margin:0;position:absolute;top:0;right:0;}
+#wrap.n_content.biz #mArticle .lab_check .emph-r{color:#222;}
+
+#wrap.n_content.biz #mArticle .wrap_join_box .list_check .agree_tit{float:left;color:#222;font-size:15px;font-weight:400;}
+#wrap.n_content.biz #mArticle .wrap_join_box .list_check .agree_tit strong {font-size: 18px; line-height: 1.22; letter-spacing: -1.08px;}
+#wrap.n_content.biz #mArticle .wrap_join_box .list_check h4{margin:49px 0 20px;font-size:15px;}
+#wrap.n_content.biz .wrap_join_box .list_check .box_all_view{font-size:13px;letter-spacing:-1.2px;padding:0;}
+#wrap.n_content.biz .wrap_join_box .list_check .box_all_view.bx-tbl{background:#fff;height:auto;}
+#wrap.n_content.biz .wrap_join_box .list_check .box_all_view.bx-tbl .mk_event_tbl{margin-top:0;}
+#wrap.n_content.biz .wrap_join_box .list_check .box_all_view.bx-tbl .mk_event_tbl2{margin-top:0;}
+#wrap.n_content.biz .btn-biz-join,#wrap.n_content.biz .btn-confirm{width:200px;height:50px;border-radius:3px;color:#fff;background:#0061af;display:block;font-weight:700;margin:0 auto;}
+#wrap.n_content.biz .btn-biz-join{margin-top:50px;}
+
+#wrap.n_content.biz .cont-comp{position:relative;}
+#wrap.n_content.biz .bx-comp{width:788px;height:270px;background:#fff;position:relative;margin-top:193px;text-align:center;}
+#wrap.n_content.biz .bx-comp .txt-guide{font-size:32px;color:#222;display:block;letter-spacing:-1px;position:absolute;top:-90px;width:100%;}
+#wrap.n_content.biz .bx-comp .txt-sub{font-size:15px;color:#222;letter-spacing:-.6px;padding:70px 0 40px;display:block;line-height:1;}
+#wrap.n_content.biz .bx-comp .txt-sub .emph-bold{color:#0061af;}
+#wrap.n_content.biz .btn-confirm{position: absolute;bottom:86px;left:0;right:0;margin:auto;}
+
+/* 회원가입대행 - 2020.12.10 */
+#wrap.n_content.member .wrap_join_box .alert{font-size:12px;color:#ff2020;position:relative;padding:0 0 0 15px;margin-top:10px;line-height:1.5;}
+#wrap.n_content.member .wrap_join_box .alert::before{content:'※';display:block;width:12px;height:12px;position:absolute;top:0;left:0;}
+#wrap.n_content.member #mArticle .tit_join.pb30{padding:50px 0 30px;}
+#wrap.n_content.member #mArticle .tit_join:first-child{padding:0 0 18px;}
+#wrap.n_content.member .biz_info_txt p{line-height:1;}
+#wrap.n_content.member .list_join.biz-num>*{vertical-align:middle;}
+#wrap.n_content.member .list_join.biz-num .inp_txt{width:115px;}
+#wrap.n_content.member .list_join.biz-num .inp_txt + input{margin-left:10px;}
+#wrap.n_content.member .list_join.biz-num .btn_g.sm{background-color:#0061af;width:82px;height:46px;border-radius:3px;line-height:40px;display:inline-block;font-size:15px;font-weight:700;margin-left:10px;}
+#wrap.n_content.member .alert + .box_btn{margin-top:30px;}
+
+/* 브랜드관 이용약관 - 2022.06.21 */
+#wrap.n_content.biz.member .wrap_join_box .list_join {/*padding: 7px 0 0 160px;*/}
+
+@media screen and (min-width:0px) and (max-width:787px) {
+
+  /* 회원가입대행 - 비지니스, 회원 */
+  #wrap.n_content.biz{background:#fff;padding-bottom:0;}
+  #wrap.n_content.biz #Body{padding:50px 0 40px;background-color:#fff;}
+  #wrap.n_content.biz #mArticle{margin:0 15px;padding:0;border:none;}
+  #wrap.n_content.biz #mArticle .tit_join{line-height:1;padding-bottom:0;}
+  #wrap.n_content.biz #mArticle .tit_join:first-child{padding-bottom:12px;}
+  #wrap.n_content.biz #mArticle .tit_join .emph-star{font-size:0;}
+  #wrap.n_content.biz #mArticle .tit_join .emph-star::before{display:inline-block;}
+
+  #wrap.n_content.biz #Body .tit{font-size:24px;letter-spacing:-1px;line-height:1}
+  #wrap.n_content.biz #Body .txt{font-size:14px;line-height:21px;letter-spacing:-.6px;margin-top:15px;font-weight:400;word-break:keep-all;}
+  #wrap.n_content.biz .fm-email{margin-bottom:8px;display:block;}
+  #wrap.n_content.biz .fm-email .inp_txt{width:calc(50% - 15px)!important;border-color:#e7e7e7;vertical-align:middle;font-size:14px;color:#222;}
+  #wrap.n_content.biz .opt_select{margin-left:0;width:100%;background:url(https://image.findall.co.kr/FACache/member/icon/icon_arrow_down.png) no-repeat right 12px top 50% / 14px 14px;color:#222;}
+
+  #wrap.n_content.biz .head-accor .btn-accor{display:block;}
+  #wrap.n_content.biz .body-accor{display:none;}
+
+  #wrap.n_content.biz #mArticle .agree_wrap{margin-top:12px;border-bottom:none;}
+  #wrap.n_content.biz #mArticle .agree_wrap p{width:75%;color:#999;font-size:13px;letter-spacing:-1.5px;}
+  #wrap.n_content.biz #mArticle .agree_wrap .lab_check.lab_check_all{top:-32px;}
+
+  #wrap.n_content.biz #mArticle .lab_check{min-width:auto;float:none;display:inline;}
+  #wrap.n_content.biz #mArticle .lab_check .lab-tit{display:none;}
+  #wrap.n_content.biz #mArticle .lab_check .ico{margin:0;float:none;}
+
+  #wrap.n_content.biz #mArticle .wrap_join_box .list_check .agree_tit{font-size:14px;color:#000;float:none;}
+  #wrap.n_content.biz #mArticle .wrap_join_box .list_check h4{padding-top:25px;margin:25px 0 15px;border-top:1px solid #eee;line-height:1;font-weight:700;color:#000;}
+  #wrap.n_content.biz #mArticle .wrap_join_box .list_check li:first-child,
+  #wrap.n_content.biz #mArticle .wrap_join_box .list_check li{padding-top:0;}
+  #wrap.n_content.biz #mArticle .wrap_join_box .list_check li .emph-r{font-size:12px;color:#ff2020;}
+  #wrap.n_content.biz #mArticle .wrap_join_box .box_all_view{padding:0;background:#fff;margin-top:8px;}
+  #wrap.n_content.biz #mArticle .wrap_join_box .box_all_view #findall_stipulation{margin:0;}
+  #wrap.n_content.biz .btn-biz-join,
+  #wrap.n_content.biz .btn-confirm{width:calc(100% + 40px);margin:50px -20px 0;background:#006fc9;height:60px;color:#fff;font-size:17px;font-weight:700;}
+
+  #wrap.n_content.biz .cont-comp{display:flex;flex-direction:column;height:100%;}
+  #wrap.n_content.biz .bx-comp{width:100%;text-align:center;height:150px;position:absolute;top:40%;left:0;transform:translateY(-40%);margin-top:0;}
+  #wrap.n_content.biz .bx-comp::before{content:'';display:block;width:37px;height:45px;margin:0 auto;background:url(https://image.findall.co.kr/FACache/member/join/ico-finish.png) no-repeat 0 0 / 100% auto;}
+  #wrap.n_content.biz .bx-comp .txt-guide{font-size:24px;color:#000;margin:34px 0 16px;display:block;letter-spacing:-1px;position:static;}
+  #wrap.n_content.biz .bx-comp .txt-sub{font-size:14px;color:#888;letter-spacing:-.6px;padding:0;}
+  #wrap.n_content.biz .btn-confirm{width:100%;margin:auto 0 0;position:static;}
+
+  .full-layout, .full-layout body, .full-layout #wrap,
+  .full-layout #content, .full-layout .wrap-comp, .full-layout .cont-comp {height:100%}
+  .full-layout body{overflow:hidden;}
+  .full-layout #wrap{padding:0;}
+
+  #wrap.n_content.biz.member #Body {background-color: #f5f6f7}
+  #wrap.n_content.member #mArticle .tit_join{padding:40px 0 18px;}
+  #wrap.n_content.member #mArticle .wrap_join_box .box_all_view.bg-g{padding:14px 33px 0 18px;background:#f9f9f9;margin-top:8px;}
+
+  #wrap.n_content.biz.member #mArticle {margin: 0 10px; padding: 32px 18px 28px 22px;}
+
+
+	/************** 브랜드관 서비스이용동의 추가 2022.06.22 *********************/
+	#wrap.n_content.biz.member #Body {padding: 50px 10px 40px; box-sizing: border-box;}
+	#wrap.n_content .agree_cont .table_col_type {display: none;}
+	
+	.agree_cont .agree_check_list ul li {margin-bottom: 30px;}
+	.agree_cont .agree_check {align-items: baseline;}
+	.agree_cont .agree_check .tit .alert {display: block; margin-top: -2px;}
+
+	#wrap.n_content.member #mArticle .agree_cont .tit_join {padding: 0; margin-top: 30px; font-size: 18px;}
+	#wrap.n_content.biz.member .agree_cont .wrap_join_box .list_join {padding: 0;}
+	#wrap.n_content .agree_cont .wrap_join_box .list_join dd {display:flex; flex-wrap: wrap; flex-direction: column; width: 100%;}
+	#wrap.n_content .agree_cont .wrap_join_box .list_join dd .inp_txt {width: 100%;}	
+	
+	#wrap.n_content .agree_cont .mk_event_tbl,
+	#wrap.n_content .agree_cont .mk_event_tbl2 {display: block;}
+	#wrap.n_content .agree_cont .tbl_td {word-break: keep-all;}
+	#wrap.n_content .agree_cont .per_unit {border-left: 0; border-color: #eee;}
+	#wrap.n_content .agree_cont .per_unit:first-child {border-top: 0;}
+	#wrap.n_content .agree_cont .wrap_join_box .list_join .phone_num .inner {display: flex;}
+	/************** // 브랜드관 서비스이용동의 추가 2022.06.22 *********************/
+}
+
+@media screen and (min-width:0px) and (max-width:560px) {
+  /* 회원가입대행 - 비지니스, 회원 */
+  #wrap.n_content.member #mArticle .agree_wrap, #wrap.n_content #mArticle .biz_info_txt{margin-top:0;}
+  #wrap.n_content.member .biz_info_txt p{line-height:1.5}
+  #wrap.n_content.member .list_join.biz-num .inp_txt{width: calc(33.333% - 10px - 28px);}
+
+}
+
+
+.systemLayer_popup {position:fixed;left: 50%; top:50%; margin:-130px 0 0 -165px;  background: #fff;z-index:19999;display: none;}
+.systemLayer_popup .tit {text-align:center;font-size: 17px; font-weight: bold; letter-spacing: -0.5px;color: #222;padding: 22px 0 15px;}
+.systemLayer_popup .btn_close {position:absolute; right: 10px; top: 10px; width: 35px; height: 35px; background: url('https://image.findall.co.kr/FACache/All/New/member/btn_layerClose_01.png') center center / 15px 15px no-repeat; text-indent:-9999px;overflow:hidden;}
+.systemLayer_popup.phoneModify {width: 330px;}
+.systemLayer_popup.phoneModify .ct {padding: 0 18px 0px;}
+.systemLayer_popup.phoneModify .text { font-size: 13px; line-height: 1.46;  letter-spacing: -0.3px; color: #222; margin-bottom: 24px;}
+.systemLayer_popup.phoneModify .label_tit {font-size: 14px; font-weight: bold; line-height: 1.43;letter-spacing: -0.32px;color: #000; display:block; margin-bottom: 8px;}
+.systemLayer_popup.phoneModify .opt_select, .systemLayer_popup .phoneModify .inp_txt { float: left;}
+.systemLayer_popup.phoneModify .inp_txt { float: left; margin-left: 8px;}
+.systemLayer_popup .btn_w {display: flex;clear:both;}
+.systemLayer_popup .btn_w button {width: 50%; background-color:#ccc; height: 50px;color:#fff;font-size: 17px;font-weight: bold;}
+.systemLayer_popup .btn_w button.btn_auth {background-color:#6f7e91;}
+.systemLayer_popup.phoneModify input[type="number"]::-webkit-outer-spin-button, 
+.systemLayer_popup.phoneModify input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; -moz-appearance: none; appearance: none; } 
+.systemLayer_popup.phoneModify input[type=number] { -moz-appearance: textfield; }
+.dimmed {position:fixed; left: 0; top:0; right: 0; bottom:0; z-index:9999;background-color:#000; opacity:0.5;display: none;}
+
+.join_hd {position:relative;overflow: hidden;}
+.join_hd .tit_join {float: left; padding-bottom:0 !important;}
