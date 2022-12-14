@@ -1,0 +1,1352 @@
+@charset "euc-kr";
+* {-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;outline:none;}
+body,div,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,address,img,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,input,textarea,button,select,b {margin:0; padding:0;line-height:normal;}
+body,input,textarea,select,button,h1,h2,h3,h4,h5,h6,label {font-family:'맑은 고딕', 'Malgun Gothic';}
+table {padding:0;border-spacing:0;border:0;border-collapse:collapse;}
+th,td {padding:0;}
+input:-ms-input-placeholder {color:#aaa;font-size:14px;letter-spacing:-1.2px;}
+input::-webkit-input-placeholder {color:#aaa;font-size:14px;letter-spacing:-1.2px;}
+input::-moz-input-placeholder {color:#aaa;font-size:14px;letter-spacing:-1.2px;}
+input::placeholder {color:#aaa;font-size:14px;letter-spacing:-1.2px;}
+input[type=text]::-ms-clear {display:none;width:0;height:0;}
+input[type=text]::-ms-reveal {display:none;width:0;height:0;}
+label:focus-within {outline:none;}
+.inp-txt {border:1px solid #ddd;outline:none;}
+.blind {text-indent:-9999px;display:inline-block}
+#wrap {min-width:1000px;width:100%;background:#f6f6f6;padding-bottom:124px;}
+.mCSB_inside > .mCSB_container {margin-right:0;}
+.mCSB_scrollTools {width:30px;margin:10px 0;}
+/*position aiign center*/
+.vc {position:absolute;top:0;bottom:0;margin-top:auto;margin-bottom:auto;left:0;right:0;margin-left:auto;margin-right:auto;}
+
+/*letter-spacing:0*/
+.normal-spacing {letter-spacing:0 !important;}
+
+/* float clear */
+.clr_float:after {display:block;content:"";clear:both;}
+
+/*emphasis txt*/
+.emphasis--orange {color:#ff4800;}
+.emphasis--blue {color:#006fc9;}
+.emphasis--grayblue {color:#a3b5c9;}
+.emphasis--red {color:#ff2020;}
+
+/*font-weight*/
+.weight-normal {font-weight:normal;}
+
+/*bg-color*/
+.bg--blue {background-color:#f3f8fc;}
+.bg--blue2 {background-color:#e2effa;}
+
+/*chk button custom*/
+.lab_check {display:inline-block;vertical-align:top;font-weight:normal;font-size:13px;letter-spacing:-1.2px;line-height:20px;color:#555;cursor:pointer}
+.lab_check .ico--inp {display:inline-block;position:relative;vertical-align:top;}
+.lab_check .ico--inp input {position:absolute;top:1px;left:1px;opacity:0;-moz-opacity:0;filter:alpha(opacity=0);cursor:pointer;}
+.lab_check.disable,
+.lab_check.disable .ico--inp,
+.lab_check.disable .ico--inp input {cursor:default;}
+.lab_check--circle .ico--inp {width:20px;height:20px;margin-right:3px;background:url('//image.findall.co.kr/FACache/job/2018/jobRegist/sprite-chk-circle.png') 0 0 no-repeat;vertical-align:-4px;margin-right:8px;}
+.lab_check--circle .ico--inp input {width:20px;height:20px;margin-right:0;}
+.lab_check--circle.on .ico--inp {background-position:0 -20px;}
+.lab_check--circle.disable {color:#999;}
+.lab_check--circle.disable .ico--inp {background:#f7f7f7;width:20px;height:20px;border:1px solid #d8d8d8;border-radius:100%;}
+.lab_check--circle.sm {line-height:18px;}
+.lab_check--circle.sm .ico--inp {width:18px;height:18px;background:url('//image.findall.co.kr/FACache/job/2018/jobRegist/ico-sprite-checksmall.png') 0 0 no-repeat;vertical-align:-4px;margin-right:8px;background-size:18px;}
+.lab_check--circle.sm .ico--inp input {width:18px;height:18px;margin-right:0;}
+.lab_check--circle.sm.on .ico--inp {background-position:0 -18px;}
+.lab_check--circle.sm.disable {color:#999;}
+.lab_check--circle.sm.disable .ico--inp {background:#f7f7f7;width:18px;height:18px;border:1px solid #d8d8d8;border-radius:100%;}
+.lab_check--square .ico--inp {width:18px;height:18px;background:url('//image.findall.co.kr/FACache/job/2018/jobRegist/sprite-chk-square-N.png') 0 0 no-repeat;background-size:18px;vertical-align:-4px;margin-right:8px;}
+.lab_check--square.on .ico--inp {background-position:0 -18px;}
+.lab_check--square .ico--inp input {width:18px;height:18px;}
+.lab_check--square.disable .ico--inp {background-position:0 -36px;}
+.lab_check--txt {border:1px solid #ddd;color:#000;border-radius:2px;font-size:15px;text-align:center;height:40px;line-height:40px;width:115px;background:#fff;letter-spacing:-1.2px;margin-left:10px;}
+.lab_check--txt:first-child {margin-left:0;}
+.lab_check--txt.on {border:1px solid #2f7fe8;color:#006fc9}
+
+
+/*radio button custom*/
+.lab_radio {display:inline-block;vertical-align:top;font-weight:normal;font-size:13px;letter-spacing:-1.2px;line-height:20px;color:#555;cursor:pointer}
+.lab_radio .ico--inp {display:inline-block;position:relative;vertical-align:top;}
+.lab_radio .ico--inp input {position:absolute;top:3px;left:0;opacity:0;-moz-opacity:0;filter:alpha(opacity=0);cursor:pointer;}
+.lab_radio--circle .ico--inp {width:20px;height:20px;margin-right:3px;background:url('//image.findall.co.kr/FACache/job/2018/jobRegist/sprite-chk-circle.png') 0 0 no-repeat;vertical-align:-4px;margin-right:8px;}
+.lab_radio--circle .ico--inp input {width:20px;height:20px;}
+.lab_radio--circle.on .ico--inp {background-position:0 -20px;}
+.lab_radio--square .ico--inp {width:18px;height:18px;background:url('//image.findall.co.kr/FACache/job/2018/jobRegist/sprite-chk-square.png') 0 0 no-repeat;vertical-align:-4px;margin-right:8px;}
+.lab_radio--square.on .ico--inp {background-position:0 -18px;}
+.lab_radio--square .ico--inp input {width:18px;height:18px;}
+.lab_radio--txt {border:1px solid #ddd;color:#000;border-radius:2px;font-size:15px;text-align:center;height:40px;line-height:40px;width:115px;background:#fff;letter-spacing:-1.2px;margin-left:10px;}
+.lab_radio--txt:first-child {margin-left:0;}
+.lab_radio--txt.on {border:1px solid #2f7fe8;color:#006fc9}
+.lab_radio--txt.long {width:160px;}
+.lab_radio--txt.longest {width:180px;}
+.lab_radio--circleL .ico--inp {width:18px;height:18px;margin-right:3px;background:url('//image.findall.co.kr/FACache/job/2018/jobRegist/sprite-chk-circle-N.png') 0 0 no-repeat;vertical-align:-4px;margin-right:8px;background-size:18px;}
+.lab_radio--circleL .ico--inp input {width:18px;height:18px;}
+.lab_radio--circleL.on .ico--inp {background-position:0 -18px;}
+.lab_radio--circleL.disable .ico--inp {background-position:0 -36px;}
+.lab_radio--circleS .ico--inp input {width:14px;height:14px;}
+.lab_radio--circleS.on .ico--inp {background-position:0 -14px;}
+.lab_radio--icon {border:1px solid #ddd;color:#000;border-radius:2px;font-size:12px;text-align:center;height:95px;width:126px;background:#fff;letter-spacing:-1.2px;margin-left:10px;padding-top:23px;}
+.lab_radio--icon:first-child {margin-left:0;}
+.lab_radio--icon.on {border:1px solid #ff4800;color:#ff4800}
+.lab_radio--icon .ico--inp {width:30px;height:22px;background:url('//image.findall.co.kr/FACache/job/2018/jobRegist/ico-sprite-charge.png')  no-repeat;display:block;margin:0 auto;background-position:0 -3px;}
+.lab_radio--icon .ico--account {background-position:-30px -4px;}
+.lab_radio--icon .ico--mobile {background-position:-60px -4px;}
+.lab_radio--icon.on .ico--inp {background-position:0 -33px;}
+.lab_radio--icon.on .ico--account {background-position:-30px -34px;}
+.lab_radio--icon.on .ico--mobile {background-position:-60px -34px;}
+.lab_radio--tab {width:100%;font-size:14px;letter-spacing:-1.2px;color:#888;font-weight:bold;height:60px;line-height:60px;outline:none;text-align:center;}
+
+.dayopt2 {font-size:0;}
+.dayopt2 .lab_radio, .dayopt2 .lab_check {width:53px;height:40px;margin-left:0;border-radius:0;line-height:40px;font-size:13px;letter-spacing:-1.2px;color:#000;}
+.dayopt2 .lab_radio + .lab_radio, .dayopt2 .lab_check + .lab_check {border-left:none;}
+.dayopt2 .lab_radio:first-child , .dayopt2 .lab_check:first-child {border-left:1px solid #ddd;}
+.dayopt2 .lab_radio.on , .dayopt2 .lab_check.on {border:1px solid #006fc9;color:#006fc9;}
+.dayopt2 .lab_radio.on + .lab_radio.on  , .dayopt2 .lab_check.on + .lab_check.on {border-left:none;}
+
+/*default select*/
+.default-select {display:inline-block;}
+.default-select select {width:142px;height:40px;border:1px solid #333;padding-left:14px;font-size:14px;-webkit-appearance:none;-moz-appearance:none;appearance:none;background:url('//image.findall.co.kr/FACache/Job/2018/JobRegist/ico-select-dropdown.png') no-repeat right 12px top 50%;}
+.default-select select::-ms-expand {display:none;}
+/*selectbox custom*/
+.custom-select {display:inline-block;width:178px;height:40px;}
+.custom-select:focus-within {outline: -webkit-focus-ring-color auto 5px;}
+.custom-select .nice-select {width:inherit;height:inherit;}
+.custom-select .nice-select .list {width:inherit;max-height:367px;overflow-y:auto;}
+.custom-select .nice-select .list .option:last-of-type {padding-bottom:8px;}
+#mCSB_1_scrollbar_vertical {margin:10px 0;}
+
+/*button custom*/
+.btn {border:none;background:none;cursor:pointer;vertical-align:top;text-decoration:none;color:inherit;display:inline-block;text-align:center;}
+a:active, a:hover, a:focus {text-decoration:none;}
+.btn--normal {width:180px;height:58px;line-height:58px;font-size:16px;letter-spacing:-1.48px;font-weight:bold;}
+.btn--medium {width:150px;height:42px;line-height:42px;font-size:13px;letter-spacing:-1.5px;font-weight:bold;}
+.btn--small {width:82px;height:40px;line-height:40px;font-size:13px;letter-spacing:-1.11px;font-weight:bold;}
+.btn--smallM {width:120px;height:40px;line-height:40px;font-size:13px;letter-spacing:-1.11px;font-weight:bold;}
+.btn--orange {background:#f37920;color:#fff;border:1px solid #f37920;}
+.btn--blue {background:#2f7fe8;color:#fff;border:1px solid #2f7fe8;}
+.btn--blue:link, .btn--blue:visited {color:#fff;}
+.btn--gray {background:#aaa;color:#fff;border:1px solid #aaa;}
+.btn--border {background:#fff;border:1px solid #a3a3a3;color:#222;}
+.btn--radius {border-radius:3px;}
+.btn--blueborder {height:40px;font-size:13px;font-weight:bold;letter-spacing:-1.3px;color:#006fc9;border:1px solid #006fc9;}
+.btn--popup {width:100px;height:42px;line-height:40px;font-size:14px;letter-spacing:-1.29px;color:#fff;font-weight:bold;}
+.btn--link .txt {font-size:14px;letter-spacing:-1.2px;color:#006fc9;border-bottom:1px solid #006fc9;}
+.btn--link .ico--dropdown {margin-left:6px;vertical-align:-1px;}
+.btn--white {height:31px;background-color:#fff;font-size:12px;letter-spacing:-1.2px;color:#333;border:1px solid #ccc;}
+.btn--black {height:31px;background-color:#333;font-size:12px;letter-spacing:-1.2px;color:#fff;border:1px solid #333;}
+
+/*icon*/
+.ico {font-style:normal;text-indent:-9999px;display:inline-block;vertical-align:middle;}
+.ico--complete {width:25px;height:25px;background:url('//image.findall.co.kr/FACache/job/2018/jobRegist/ico-check.png') no-repeat;}
+.ico--tempsave {width:25px;height:25px;background:url('//image.findall.co.kr/FACache/job/2018/jobRegist/ico-save.png') no-repeat;}
+.ico--auto {width:14px;height:14px;background:url('//image.findall.co.kr/FACache/job/2018/jobRegist/ico-auto.png') no-repeat;}
+.ico--auto-black {width:14px;height:14px;background:url('1//image.findall.co.kr/FACache/job/2018/jobRegist/ico-auto-black.png') no-repeat;}
+.ico--close--borderdark {width:19px;height:18px;background:url('//image.findall.co.kr/FACache/job/2018/jobRegist/ico-close-dark.png') no-repeat;}
+.ico--close--borderlight {width:19px;height:18px;background:url('//image.findall.co.kr/FACache/job/2018/jobRegist/ico-close-light.png') no-repeat center;}
+.ico--popup--close {width:22px;height:22px;background:url('//image.findall.co.kr/FACache/job/2018/jobRegist/ico-popup-close.png') no-repeat;}
+.ico--popup--close--small {width:15px;height:15px;background:url('//image.findall.co.kr/FACache/job/2018/jobRegist/ico-close-layer-small.png') no-repeat;}
+.ico--close--white {width:13px;height:13px;background:url('//image.findall.co.kr/FACache/job/2018/jobRegist/ico-close-white.png') no-repeat;}
+.ico--close--darkblack {width:12px;height:12px;background:url('//image.findall.co.kr/FACache/job/2018/jobRegist/ico-close-darkblack.png') no-repeat;background-size:12px;}
+.ico--notice {width:30px;height:30px;background:url('//image.findall.co.kr/FACache/job/2018/jobRegist/ico-notice.png') no-repeat;}
+.ico--notice2 {width:23px;height:23px;background:url('//image.findall.co.kr/FACache/job/2018/jobRegist/ico-notice2.png') no-repeat;background-size:23px;}
+.ico--arrow--link {width:5px;height:18px;background:url('//image.findall.co.kr/FACache/job/2018/jobRegist/ico-arrow-link.png') no-repeat;}
+.ico--dropdown {width:12px;height:12px;background:url('//image.findall.co.kr/FACache/job/2018/jobRegist/ico-dropdown-blue.png') no-repeat;}
+.ico--plus--blue {width:12px;height:12px;background:url('//image.findall.co.kr/FACache/job/2018/jobRegist/ico-plus-blue.png') no-repeat;background-size:10px;}
+.ico--plus--black {width:9px;height:9px;background:url('//image.findall.co.kr/FACache/job/2018/jobRegist/ico-plus-black.png') no-repeat;}
+.ico--attention {width:14px;height:14px;background:url('//image.findall.co.kr/FACache/job/2018/jobRegist/ico-attention.png') no-repeat;}
+.ico--img {width:30px;height:30px;background:url('//image.findall.co.kr/FACache/job/2018/jobRegist/ico-image.png') no-repeat;}
+.ico--search {width:20px;height:20px;background:url('//image.findall.co.kr/FACache/job/2018/jobRegist/ico-btn-search.png') no-repeat;}
+.ico--minus {width:40px;height:40px;background:url('//image.findall.co.kr/FACache/job/2018/jobRegist/ico-btn-minus.png') no-repeat;}
+.ico--plus {width:40px;height:40px;background:url('//image.findall.co.kr/FACache/job/2018/jobRegist/ico-btn-plus.png') no-repeat;}
+.ico--refresh--blue {width:14px;height:14px;background:url('//image.findall.co.kr/FACache/job/2018/jobRegist/ico-refresh-blue.png') no-repeat;}
+.ico--refresh--gray {width:14px;height:14px;background:url('//image.findall.co.kr/FACache/job/2018/jobRegist/ico-refresh-gray.png') no-repeat;}
+.ico--area--blue {width:14px;height:14px;background:url('//image.findall.co.kr/FACache/job/2018/jobRegist/ico-area-blue.png') no-repeat;}
+.ico--minus--gray {width:40px;height:40px;background:url('//image.findall.co.kr/FACache/job/2018/jobRegist/ico-btn-minus-gray.png') no-repeat;}
+.ico--plus--gray {width:40px;height:40px;background:url('//image.findall.co.kr/FACache/job/2018/jobRegist/ico-btn-plus-gray.png') no-repeat;}
+.ico--prev {width:16px;height:16px;background:url('//image.findall.co.kr/FACache/job/2018/jobRegist/ico-page-prev.png') no-repeat;}
+.ico--next {width:16px;height:16px;background:url('//image.findall.co.kr/FACache/job/2018/jobRegist/ico-page-next.png') no-repeat;}
+.ico--pcmo {width:33px;height:22px;background:url('//image.findall.co.kr/FACache/job/2018/jobRegist/ico-pcmo.png') no-repeat;margin-right:14px;vertical-align:-5px;}
+.ico--pc {width:27px;height:20px;background:url('//image.findall.co.kr/FACache/job/2018/jobRegist/ico-pc.png') no-repeat;margin-right:14px;vertical-align:-5px;}
+.ico--mobile {width:13px;height:22px;background:url('//image.findall.co.kr/FACache/job/2018/jobRegist/ico-mobile.png') no-repeat;margin-right:14px;vertical-align:-5px;}
+.ico--arrowL {width:25px;height:25px;background:url('//image.findall.co.kr/FACache/job/2018/jobRegist/ico-btn-arrow-left.png') no-repeat;vertical-align:-6.5px;margin-right:10px;}
+.ico--arrowR {width:25px;height:25px;background:url('//image.findall.co.kr/FACache/job/2018/jobRegist/ico-btn-arrow-right.png') no-repeat;vertical-align:-6.5px;margin-left:10px;}
+.ico--search--black {width:16px;height:16px;background:url('//image.findall.co.kr/FACache/job/2018/jobRegist/ico-search-black.png') no-repeat;}
+.ico--question {width:16px;height:16px;background:url('//image.findall.co.kr/FACache/job/2018/jobRegist/ico-question.png') no-repeat;}
+.ico--attention--big {width:30px;height:30px;background:url('//image.findall.co.kr/FACache/job/2018/jobRegist/ico-attention-big.png') no-repeat;}
+.ico--attention--red {width:14px;height:14px;background:url('//image.findall.co.kr/FAImage/findjob/w/job/important_icon_new.png') no-repeat;background-size:14px;vertical-align:-2px;}
+
+/*floatingBanner*/
+.flotingBanner__wrap {display:inline-block;position:relative;position:fixed;right:50%;margin-right:-680px;bottom:50px;}
+.flotingBanner {width:68px;height:68px;background:url('//image.findall.co.kr/FACache/job/2018/jobRegist/ico-floatingBanner.png') no-repeat;position:relative;outline:none;}
+.flotingBanner__layer {position:absolute;bottom:-6px;right:0;width:208px;height:148px;background:url('//image.findall.co.kr/FACache/job/2018/jobRegist/bg-floatingBanner.png') no-repeat;padding:20px 20px 34px;text-align:left;}
+.flotingBanner__layer .tit {font-size:15px;font-weight:bold;color:#fff;letter-spacing:-1.3px;}
+.flotingBanner__layer .tit:after {display:inline-block;content:'';width:16px;height:16px;background:url('//image.findall.co.kr/FACache/job/2018/jobRegist/ico-help.png') no-repeat;margin-left:6px;vertical-align:-2px;}
+.flotingBanner__layer .con {font-size:13px;color:#fff;letter-spacing:-1.2px;margin-top:10px;line-height:20px;}
+.flotingBanner__layer .link {font-size:12px;color:#fff;letter-spacing:-1.11px;margin-top:10px;}
+.flotingBanner__layer .flotingBanner__layer__close {position:absolute;top:13px;right:13px;}
+
+/*header*/
+.regist-header {position:relative;overflow:hidden;padding-bottom:66px;background:#fff;box-shadow:0 2px 4px 0 rgba(0,0,0,0.13)}
+.regist-header h1 {width:1000px;margin:0 auto;padding:20px 0;}
+.regist-header h1 img {width:147px;}
+.regist-header .progress {position:absolute;left:0;bottom:0;top:auto;width:100%;height:66px;border-top:1px solid #ececec;border-bottom:1px solid #ececec;background-color:#fff;box-shadow:0 2px 4px 0 rgba(0,0,0,0.13);z-index:100;}
+.regist-header.fixed .progress {position:fixed;top:0;bottom:auto;border-top:none;}
+.progress__step {width:1000px;margin:0 auto;}
+.progress__step li {position:relative;float:left;height:66px;z-index:15;}
+.progress__step li a {display:block;width:100%;line-height:64px;font-weight:bold;color:#555555;box-sizing:border-box;text-align:center;position:relative;font-size:17px;letter-spacing:-1.36px;font-weight:bold;}
+.progress__step li a strong {font-size:25px;margin-right:8px;vertical-align:-2.5px;}
+.progress__step li a:after {content:'';display:inline-block;width:16px;height:65px;background-image:url('//image.findall.co.kr/FACache/job/2018/jobRegist/line-shape.png');position:absolute;right:-16px;z-index:19}
+.progress__step li.active a {position:relative;border:none !important;background-color:#006fc9;color:#fff;height:65px;}
+.progress__step li a:hover, .progress__step li a:focus, .progress__step li a:active {text-decoration:none;}
+.progress__step li.active a:after {display:block;content:'';position:absolute;top:0;right:-14px;width:14px;height:64px;background-position:50% 0;opacity:1;background-color:#fff;background-image:url('//image.findall.co.kr/FACache/job/2018/jobRegist/line-shape_active.png')}
+.progress__step li:first-child a {border-left:1px dashed #ececec;}
+.progress__step li.final-step a:after {background-image:none;border-right:1px solid #ececec;}
+.progress__step li.final-step.active a:after {background-image:none;border-right:none;background-color:#006fc9;}
+.progress__step5 li {width:20%;}
+.progress__step2 li {width:50%;}
+.progress__step1 li {width:100%;}
+.regist-header .progress__bar--left {position:absolute;overflow:hidden;left:0;bottom:-1px;height:65px;padding-right:14px;background-color:#006fc9;background-repeat:no-repeat;background-position:100% 0;z-index:10;}
+.regist-header .progress__bar--right {position:absolute;overflow:hidden;left:0;bottom:-1px;height:65px;background-color:#006fc9;background-repeat:no-repeat;z-index:10;display:none;}
+.regist-header .progress__bar--right:after {display:block;content:'';width:16px;height:65px;background-color:#fff;background-image:url('//image.findall.co.kr/FACache/job/2018/jobRegist/line-shape_active.png');position:absolute;right:0;background-repeat:no-repeat}
+.regist-header.fixed .progress__bar--left,
+.regist-header.fixed .progress__bar--right,
+.regist-header.fixed .progress__bar--right:after {bottom:0;}
+
+/*quick menu*/
+.quickMenu {width:140px;position:fixed;top:286px;right:50%;margin-right:-680px;}
+.quickMenu__btn {width:100%;height:48px;line-height:48px;font-size:13px;letter-spacing:-1.2px;font-weight:bold;}
+.quickMenu__btn .ico {width:21px;height:21px;background-size:21px;vertical-align:-6px;margin-right:8px;}
+.quickMenu__btn--tempsave {margin-top:5px;}
+.quickMenu__infoRule {border:1px solid #ddd;width:140px;height:46px;line-height:46px;font-size:13px;letter-spacing:-1.3px;color:#000;margin-top:20px;background:#fff;}
+.quickMenu__infoRule .ico--notice {vertical-align:-10px;background-position:-2px center;}
+.quickMenu__infoRule .ico--arrow--link {vertical-align:-8px;margin-left:6px;}
+.quickMenu__consultant {margin-top:5px;background:#fff;border:1px solid #ddd;padding:13px 17px 17px 15px;}
+.quickMenu__consultant .name {font-size:13px;letter-spacing:-1.2px;color:#000;line-height:21px;}
+.quickMenu__consultant .num {color:#2f7fe8;font-size:16px;letter-spacing:-0.2px;font-family:Helvetica, sans-serif;margin-top:9px;}
+.quickMenu__preview {border:1px solid #ccc;border-radius:3px;height:42px;width:100%;background:#fff;font-weight:bold;font-size:13px;color:#444;}
+.quickMenu__preview--pc {margin-top:20px;}
+.quickMenu__preview--mobile {margin-top:5px;}
+
+/* content */
+.contents {width:1000px;margin:30px auto;}
+.section {background:#fff;padding-bottom:20px;border:1px solid #ddd;padding:10px 50px 50px}
+.section:first-of-type {margin-top:34px;}
+.section .section__division {padding:0 0 40px;max-width:1050px;}
+.article {margin-top:30px;font-size:0;}
+.article:after {display:block;content:"";clear:both;}
+.article .article__tit  {float:left;font-size:15px;letter-spacing:-1.2px;font-weight: bold;width:140px;padding-top:10px;line-height:19px;color:#999;}
+.article .article__tit.essential {color:#000;}
+.article .article__tit .emphasis--orange {font-size:22px;vertical-align:-5px;}
+.article .article__tit .select-option {font-size:12px;letter-spacing:-1.2px;color:#aaa;font-weight:normal;}
+.article .article__tit .btn--refresh {display:block;margin-top:7px;font: size 12px;letter-spacing:-1px;color:#444;}
+.article .article__tit .btn--refresh .ico {vertical-align:-2px;}
+.article .article__con {float:left;width:880px;position:relative;}
+.article .article__con:after {display:block;content:"";clear:both;}
+.article--full .article__tit {float:none;width:auto;}
+.article--full .article__con {float:none;width:100%;margin-top:20px;}
+.article.invalid .article__tit ,.article.invalid .article__tit span {color:#ff2020;}
+.article.invalid > .inp-txt__wrap {border:1px solid #ff2020;}
+.article.invalid .keywordBox, .article.invalid .inp-txt__wrap , .article.invalid .inp-num__wrap {border:1px solid #ff2020;}
+.article.invalid .extraBox .inp-txt__wrap , .article.invalid .extraBox .inp-num__wrap {border:1px solid #ddd;}
+.section .section__division--half {padding:0 0 40px 0;font-size:0;}
+.section .section__division--half .article__wrap {display:inline-block;width:50%;padding:0 40px 0 60px;vertical-align:top;}
+.section .section__division--half .article__wrap +  .article__wrap {padding:0 60px 0 0;}
+.section .section__division--half .article__tit {float:none;}
+.section .section__division--half .article__con {float:none;width:auto;margin-top:20px;}
+.section .section__division--half .custom-select {width:400px;}
+.step_keyword .article {margin-top:20px;}
+.step_keyword .article--loadmethod {margin-top:30px;}
+
+/*업직종*/
+.article--jobCategory {position:relative;}
+.keywordBox {width:100%;min-height:40px;border:1px solid #ddd;padding:13px 20px 8px;position:relative;cursor:pointer;}
+.keywordBox.valued {cursor:default;}
+.keywordBox ul li {margin-top:13px;line-height:20px;}
+.keywordBox ul li:first-child {margin-top:0;}
+.keywordBox ul li:first-child .keyword_S {padding-right:100px;}
+.keywordBox .keyword_M {font-size:14px;font-weight:bold;letter-spacing:-1.2px;color:#000;float:left;margin-right:14px;}
+.keywordBox .keyword_M::after {content:'\003E';display:inline-block;width:9px;height:18px;margin-left:6px;font-family:dotum;}
+.keywordBox .keyword_S {display:block;overflow:hidden;}
+.keywordBox .keyword {font-size:14px;letter-spacing:-1.2px;color:#000;margin:0 17px 5px 0;display:inline-block;}
+.keywordBox .keyword:first-child {padding-left:0;}
+.keywordBox .keyword .btn--close--border {margin-left:5px;vertical-align:1px}
+.keywordBox .keywordBox__btn {position:absolute;top:10px;right:20px;}
+.keywordBox .keywordBox__btn .txt {font-size:14px;letter-spacing:-1.2px;color:#006fc9;border-bottom:1px solid #006fc9;}
+.keywordBox .keywordBox__btn .ico--dropdown {margin-left:6px;vertical-align:-1px;}
+.keywordBox .keywordBox__btn .ico--plus--blue {margin-left:6px;vertical-align:-2px;}
+.keywordBox.active .keywordBox__btn .ico--dropdown {transform:rotateZ(-180deg)}
+.inp-txt__wrap {display:inline-block;width:100%;position:relative;border:1px solid #ddd;height:40px;padding:10px 20px 0 20px;vertical-align:top;background:#fff;}
+.inp-txt[type="text"] {width:100%;font-size:14px;letter-spacing:-1.2px;border:none;color:#000;border:none;height:auto;padding:0;}
+.inp-txt[type="text"]:-ms-input-placeholder {color:#aaa;}
+.counter {position:absolute;right:16px;top:9px;font-size:16px;color:#aaa;}
+.counter .num {color:#444;}
+.layer--jobCategory {/*width:740px;*/width:880px;height:571px;border:1px solid #888;position:absolute;bottom:-580px;background:#fff;z-index:50;display:none;}
+.layer--jobCategory .jobCategory {padding:21px 21px 0;}
+.layer--jobCategory .jobCategory_close {height:50px;width:100%;background:#f6f6f6;margin-top:20px;position:relative;}
+.layer--jobCategory .jobCategory_close button {position:absolute;top:16px;right:20px;letter-spacing:-1.29px;}
+.layer--jobCategory .jobCategory_close button .ico {vertical-align:-3px;margin-left:7.9px;}
+.search-form {float:right;position:relative;}
+.search-form .inp-txt__wrap {width:466px;height:48px;border:1px solid #ddd;}
+.search-form .inp-txt__wrap .inp-txt {width:395px;border:none;}
+.search-form .inp-txt__wrap button {width:48px;height:47px;position:absolute;top:0;right:0;}
+.searchWord {background:#fff;width:466px;min-height:277px;border:1px solid #666;position:absolute;top:48px;left:0;z-index:10;display:none;}
+.searchWord__tit {padding:26px 0 20px 21px;font-size:16px;letter-spacing:-1.2px;color:#222;}
+.searchWord__con {height:138px;overflow-y:hidden;}
+.searchWord__con .mCustomScrollBox {overflow:initial;}
+.searchWord__con ul li {height:28px;line-height:27px;}
+.searchWord__con ul li:first-child {margin-top:0;}
+.searchWord__con ul li.nodata {text-align:center;padding-top:40px;font-size:13px;letter-spacing:-1.2px;line-height:20px;height:auto;}
+.searchWord__con ul li:hover, .searchWord__con ul li:active, .searchWord__con ul li:focus-within {background:#f3f8fc;}
+.searchWord__con ul li .searchResult {padding-left:21px;width:100%;vertical-align:-6px;text-align:left;}
+.searchWord__con ul li .searchResult:before {display:inline-block;content:'';width:18px;height:18px;background:url('//image.findall.co.kr/FACache/job/2018/jobRegist/sprite-chk-square.png') 0 0 no-repeat;vertical-align:-4px;margin-right:8px;}
+.searchWord__con ul li .searchResult.on:before {background-position:0 -18px;}
+.searchWord__con ul li .searchResult .focus {color:#0061af;}
+.job_choose {border-top:1px solid #888;border-bottom:1px solid #888;height:337px;clear:both;overflow:hidden;margin-top:11px;}
+.job_choose:after {display:block;content:"";clear:both;}
+.job_choose dl {float:left;width:33.3%;border-left:1px solid #ddd;}
+.job_choose dl dt {font-size:13px;font-weight:bold;letter-spacing:-1.2px;color:#222;height:49px;line-height:49px;background-color:#f6f6f6;text-align:center;}
+.job_choose dl:first-child {border-left:none;}
+.job_choose dl dt span {display:inline-block;position:relative;padding-right:20px;color:#222;}
+.job_choose dl dt span:after {display:block;position:absolute;top:0;right:8px;content:"·";width:5px;height:5px;font-weight:bold;color:#888;}
+.job_choose dl dd {overflow-y:auto;height:288px;text-align:center;vertical-align:middle;}
+.job_choose dl dd span.no_list {display:inline-block;margin-top:150px;font-size:12px;line-height:1.67;letter-spacing:-1.2px;color:#888;}
+.job_choose dl dd .list {width:100%;padding-top:9px;padding-bottom:30px;}
+.job_choose dl dd .list a {display:block;padding:6px 0 6px 26px;text-align:left;font-size:13px;color:#222;letter-spacing:-1.2px;}
+.job_choose dl dd .list .on {background:#f3f8fc;}
+.job_choose dl dd .list .on a {font-weight:bold;color:#0061af;}
+.job_choose dl.third_step dd .list li  {position:relative;text-align:left;font-size:13px;color:#222;letter-spacing:-1.2px;padding:3px 0 4px 0;}
+.job_choose dl.third_step dd .list .on {background:none;}
+.job_choose label {position:relative;font-size:13px;color:#222;font-family:'맑은 고딕', 'Malgun Gothic'}
+.job_choose dl.third_step label.lab_check{width:100%;position:relative;font-size:13px;color:#222;letter-spacing:-1.2px;padding-left:26px;}
+.job_choose dl.third_step label.lab_check.active{color:#0061af;font-weight:bold;}
+.job_choose dl.third_step label.lab_check label {display:block;padding-left:20px;}
+.job_choose dl.third_step input[type="checkbox"] {position:absolute;top:0;left:-999999px;text-indent:-999999px;width:0;height:0;}
+.job_choose dl.third_step label.lab_check input[type="checkbox"]:disabled + span {color:#ccc;cursor:default;text-decoration:none;}
+.job_choose dl.third_step label.lab_check label:hover  {text-decoration:underline;}
+/*담당업무*/
+.article--job .inp-txt__wrap {padding-right:80px;}
+/*연령*/
+.view {margin-top:24px;}
+.view__btn,
+.view__btn:link,
+.view__btn:visited {color:#6099e4;font-size:12px;letter-spacing:-1.5px;border-bottom:1px solid #6099e4;margin-right:26px;vertical-align:top;}
+.view-additional {color:#aaa;font-size:13px;letter-spacing:-1.5px;margin-top:14px;line-height:20px;padding-left:0.5em;text-indent:-0.5em;}
+.view-additional.red {color:#ff2020;line-height:normal;}
+.view-additional.red + .red {margin-top:8px;}
+.view-additional--blue {color:#006fc9;font-size:13px;letter-spacing:-1.5px;margin-top:20px;line-height:20px;padding-left:0.5em;text-indent:-0.5em;}
+.view-additional--List {font-size:13px;color:#888;letter-spacing:-1.04px;margin-top:20px;}
+.view-additional--List li {line-height:24px;}
+
+.view-additional--List.inline_type {display: inline-block; margin-top: 8px; margin-left: 10px; vertical-align: middle;}
+.article--age .age-option {display:inline-block;height:48px;line-height:48px;}
+.article--age .lab_check {margin-top:13px;}
+.article--age .lab_check.first {margin-left:26px;}
+.article--age .lab_check.second {margin-left:43px;}
+.article--age .lab_check.third {margin-left:31px;}
+.article--age .view-additional {margin-top:14px;}
+/*복리후생*/
+.recommend {margin-top:15px;font-size:12px;letter-spacing:-1.11px;color:#222}
+.recommend dt {float:left;margin:8px 12px 0 0;}
+.recommend dd {display:block;overflow:hidden;font-size:0;}
+.recommend button {border-radius:18px;border:1px solid #ddd;height:34px;padding:0 12px;font-size:12px;margin-right:12px;}
+.recommend button .ico--plus--black {margin-left:5px;vertical-align:0px;}
+.recommend button.on {border-color:#2f7fe8;}
+.recommend button.on .ico--plus--black {background-image:url(//image.findall.co.kr/FACache/job/2018/jobRegist/ico-plus-black-on.png);background-size:9px;}
+/*급여*/
+.inp-num__wrap {display:inline-block;width:177px;padding-left:18px;height:40px;padding-top:10px;border:1px solid #ddd;font-size:14px;color:#000;vertical-align:top;position:relative;background:#fff;}
+.inp-num[type="text"] {border:none;text-align:right;font-size:14px;width:100%;vertical-align:0;outline:none;height:auto;padding:0;}
+.inp-num__unit {padding:10px 16px 0 0;position:absolute;top:0;right:0;}
+.article--pay .article__tit {padding-top:30px;}
+.article--pay .attention {font-weight:bold;font-size:12px;letter-spacing:-1.5px;position:relative;margin-top: 15px;}
+.article--pay .attention .emphasis--blue {letter-spacing:0;}
+.article--pay .attention .ico--attention {margin-right:6px;vertical-align:-2px;}
+.article--pay .attention .view__btn {vertical-align:0px;margin-left:6px;}
+.article--pay .pay__select {margin-top:18px;}
+.article--pay .pay__select .custom-select {display:inline-block;}
+.article--pay .pay__select button {position:relative; vertical-align: top; height: 48px; line-height: 48px; margin-left: 20px; padding-left: 20px;}
+.article--pay .pay__select button i {position:absolute; top:18px; left:0; max-width:16px;}
+.ico_pay1 {width: 16px; height: 16px; background: url(//image.findall.co.kr/FACache/job/2018/job/ico_pay1@2x.png) no-repeat;background-size: contain;}
+.ico_pay2 {width: 16px; height: 16px; background: url(//image.findall.co.kr/FACache/job/2018/job/ico_pay2@2x.png) no-repeat;background-size: contain;}
+.article--pay .pay__select button span {font-size: 14px;letter-spacing: -1.2px;color: #0075d4;display: inline-block;line-height: 1;padding-bottom: 2px;border-bottom: 1px solid #0075d4;}
+.article--pay .pay__select .more_layer {height: 48px; vertical-align: top; margin-left: 3px; padding-top: 16.25px; word-break: keep-all;}
+.article--pay .pay__select .more_layer.noti a.more {display: inline-block; width: 18px; height: 18px; background: url(//image.findall.co.kr/FACache/Job/2018/job/ico_noti@2x.png) no-repeat 0 0; background-size: contain; vertical-align: -2px;}
+.article--pay .inp-num__wrap {margin-left:10px;padding-right:40px;}
+.article--pay .pay__select .payMore {margin-top:14px;margin-left:10px;}
+.article--pay .pay__option {margin-top:12px;}
+.article--pay .pay__option .second, .article--pay .pay__option .third {margin-left:50px;}
+.article--pay .pay__option .forth {margin-left:26px;}
+.article--pay .pay__option .fifth {margin-left:49px;}
+.article--pay .pay__option label {display: inline-block; margin-left: 49px !important;}
+.article--pay .pay__option label:first-child {margin-left:0 !important;}
+.attention_notice--text {padding-left: 22px;line-height: 1.5;}
+.attention_notice--text strong {color: #ff2020;}
+.attention_notice--text span {display: inline-block; border-bottom: 1px solid #444;line-height:1.3}
+/*근무요일*/
+.article--day .day__option {margin-top:14px;height:42px;line-height:40px;}
+.article--day .day__option .lab_check {margin-right:11px;margin-top:10px;}
+.article--day .day__option .lab_check.fifth {margin-right:13px;}
+.article--day .day__option .inp-txt__wrap {width:365px;height:40px;padding-top:10px;}
+.article--day .day__option .inp-txt__wrap input[type=text].inp-txt::placeholder {letter-spacing:-1.5px;font-size:13px;}
+/*근무시간*/
+.article--time .time__select .time__select__detail {font-size:12px;letter-spacing:0;vertical-align:2px;}
+.article--time .time__option {margin-top:15px;}
+.article--time .time__option .lab_check.first {margin-right:49px;}
+/*근무지 위치*/
+.article--location .article__tit {padding-top:0}
+.article--location .lab_check + .lab_check {margin-left:22px;}
+.article--location .location__address {font-size:0;margin-top:15px;}
+.article--location .location__address + .location__address {margin-top:10px;}
+.article--location .more_layer {margin-top:2px;}
+.article--location .location__address .inp-txt__wrap--address {margin-right:10px;}
+.article--location .location__address .inp-txt__wrap {width:365px;font-size:14px;letter-spacing:-1.2px;}
+.article--location .map {margin-top:20px;}
+.article--location .map .mapBox .mapBox__tit {font-size:14px;font-weight:bold;letter-spacing:-1.2px;clear:both;display:block;}
+.article--location .map .mapBox .mapBox__tit:before {display:inline-block;content:'';width:3px;height:14px;background:#000;vertical-align:-1px;margin-right:17px;}
+.article--location .map .mapBox .mapBox__con {border:1px solid #888;font-size:12px;padding:20px 20px 25px;margin-top:20px;width:740px;}
+.article--location .map .mapBox .mapBox__con .map__view {width:700px;height:280px;overflow:hidden;border:1px solid #c5c5c5;}
+.article--location .map .mapBox .mapBox__con .map__view .no_cordinate {width:100%;height:100%;background:rgba(0,0,0,0.65);text-align:center;padding-top:82px;}
+.article--location .map .mapBox .mapBox__con .map__view .no_cordinate dt {font-size:20px;font-weight:bold;color:#fff;letter-spacing:-2px;}
+.article--location .map .mapBox .mapBox__con .map__view .no_cordinate dd {margin-top:20px;}
+.article--location .map .mapBox .mapBox__con .map__view .no_cordinate dd button {width:120px;height:40px;background:#2f7fe8;color:#fff;font-size:13px;color:#fff;letter-spacing:-1.11px;}
+.article--location .map .mapBox .mapBox__con .lab_check {float:left;margin-top:20px;}
+.map__btn {margin-top:15px;font-size:0;text-align:right;float:right;}
+.article--location .map .mapBox .mapBox__con .map__btn button {width:105px;height:31px;border:1px solid #ccc;font-size:12px;letter-spacing:-1.2px;color:#333;border-radius:3px;}
+.article--location .map .mapBox .mapBox__con .map__btn button + button {margin-left:4px;}
+.article--location .map .mapBox .mapBox__con .map__btn button .ico {margin-right:4px;}
+.article--location .map .mapBox .mapBox__con .map__btn button .ico--refresh--blue {vertical-align:-2px;}
+.article--location .map .mapBox .mapBox__con .map__btn button .ico--area--blue {vertical-align:-3px;}
+/*주변 지하철역*/
+.article--subway .subway__list > li + li {margin-top:10px;}
+.article--subway .subway__list .custom-select {width:145px;}
+.article--subway .subway__list .custom-select:nth-child(1) {width:92px;}
+.article--subway .subway__list .custom-select:nth-child(2) {width:148px;}
+.article--subway .subway__list .custom-select:nth-child(3) {width:180px;}
+.article--subway .subway__list .custom-select + .custom-select {margin-left:6px;}
+.article--subway .subway__list .inp-num__wrap {width:86px;padding-right:59px;margin:0 6px;padding-left:10px;}
+.article--subway .subway__list .inp-num__wrap + .custom-select {width:114px;}
+.article--subway .subway__list .inp-num__wrap .inp-num__unit {padding:10px 11px 0 0;}
+.article--subway button {margin-left:11px;}
+.article--subway .custom-select  + span + span button {margin-left:4px;}
+/*모집마감일*/
+#ui-datepicker-div {width:286px;height:320px;font-family:'맑은 고딕','Malgun Gothic';padding:0;border-radius:0;border:1px solid #888;margin:22px 0 0 -16px;background:#fff;}
+.ui-datepicker .ui-datepicker-header {height:60px;background:#fff;border-radius:0;border:none;padding:17px 0 14px;}
+.ui-datepicker-title {background:#fff;}
+.ui-datepicker-title span {font-size:22px;font-weight:normal;}
+.ui-datepicker table {font-size:13px;margin:0;}
+.ui-datepicker th {background:#f8f8f8;height:26px;}
+.ui-datepicker tbody tr td:first-child a {color:#dd0000;}
+.ui-datepicker tbody tr:first-child td {padding-top:15px;}
+.ui-datepicker tbody tr td {padding:0;}
+.ui-datepicker td span, .ui-datepicker td a {padding:0;}
+.ui-datepicker-week-end .ui-state-default {color:#007ff0;font-size:13px;padding:0;}
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {border:none;background:none;text-align:center;width:26px;height:26px;margin-top:5px;margin-left:8px;line-height:26px;border-radius:50%;}
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {border:none;background:none;text-align:center;width:26px;height:26px;margin-top:5px;margin-left:8px;line-height:26px;border-radius:50%;}
+.ui-widget-content .ui-state-highlight {background-color:#71adfb;color:#fff;}
+.ui-datepicker-current-day .ui-state-active {background-color:#2f7fe8;color:#fff;}
+.ui-datepicker .ui-datepicker-prev {left:19px;top:50%;margin-top:-13px;cursor:pointer;}
+.ui-datepicker .ui-datepicker-next {right:19px;top:50%;margin-top:-13px;cursor:pointer;}
+.ui-datepicker .ui-datepicker-prev span {background:url(//image.findall.co.kr/FACache/job/2018/jobRegist/ico-datepicker-left.png) no-repeat center;width:26px;height:26px;margin:-13px 0 0 -13px;}
+.ui-datepicker .ui-datepicker-next span {background:url(//image.findall.co.kr/FACache/job/2018/jobRegist/ico-datepicker-right.png) no-repeat center;width:26px;height:26px;margin:-13px 0 0 -13px;}
+.ui-datepicker .ui-datepicker-prev:hover, .ui-datepicker .ui-datepicker-next:hover {background:none;border:none;}
+.datepicker {cursor:pointer;}
+/*모집인원*/
+.article--volume .inp-num__wrap {width:115px;}
+.article--volume  .inp-num {width:64px;}
+.article--volume .lab_radio {margin-top:10px;letter-spacing:0;}
+.article--volume .lab_radio.first {margin-left:20px;}
+.article--volume .lab_radio.second {margin-left:62px;}
+/*지원방법*/
+.article--method .view-additional {margin-top:20px;}
+/*근무회사명*/
+.article--name .inp-txt__wrap {width:365px;padding-right:80px;}
+.article--name .btn--link {margin-left:25px;margin-top:14px;}
+/*사업내용*/
+.article--business .inp-txt__wrap {padding-right:80px;}
+/*대표전화*/
+.article--call select {width:142px;height:40px;border:1px solid #333;}
+.article--call .inp-txt__wrap {width:240px;padding-right:20px;margin-left:10px;}
+.article--call .inp-txt__wrap input[type=text], .article--call .inp-txt__wrap input[type=text]::placeholder {letter-spacing:0}
+.article--call .lab_check {margin:12px 0 0 20px;}
+.article--call .lab_check + .number_paper {margin-top:10px;}
+.article--call .number_paper .inp-txt__wrap {margin-left:0;width:327px;}
+.article--call .number_paper .number_paper__vns {font-size:13px;color:#888;margin-top:10px;}
+.article--call .number_paper .number_paper__vns span {letter-spacing:-1.2px;}
+.article--call .number_paper .number_paper__btn {margin-top:10px;}
+.article--call .number_paper .number_paper__btn .btn {width:139px;height:40px;font-weight:bold;font-size:13px;letter-spacing:-1.11px;}
+.article--call .number_paper .number_paper__btn .btn span {letter-spacing:0;}
+/*팩스*/
+.article--fax .custom-select {width:142px;}
+.article--fax .nice-select {letter-spacing:0;}
+.article--fax .nice-select .list {letter-spacing:0;}
+.article--fax .inp-txt__wrap {width:240px;padding-right:20px;margin-left:10px;}
+.article--fax .inp-txt__wrap input[type=text], .article--fax .inp-txt__wrap input[type=text]::placeholder {letter-spacing:0}
+.article--fax .lab_check {margin:14px 0 0 20px;}
+/*홈페이지*/
+.article--homepage .inp-txt {letter-spacing:0;}
+/*근무회사 로고 사진*/
+.article--pic .article__tit {padding-top:0;}
+.imgBox-wrap {display:inline-block;}
+.imgBox-wrap .imgBox {position:relative;display:block;width:115px;height:115px;border:1px dashed #ddd;}
+.imgBox-wrap .imgBox button {position:absolute;}
+.imgBox-wrap--logo {float:left;}
+.imgBox-wrap--logo .imgBox.default {background:#f8f8f8;border:none;}
+.imgBox-wrap--logo .imgBox.default:after {content:'';display:inline-block;width:30px;height:30px;background:url('//image.findall.co.kr/FACache/job/2018/jobRegist/ico-camera.png') no-repeat center center;position:absolute;top:50%;left:50%;margin-top:-15px;margin-left:-15px;}
+.imgBox-wrap--logo .imgBox img {width:113px;height:43px;}
+.imgBox-wrap--logo .imgBox button {top:-1px;right:-1px;}
+.imgBox-wrap--pic {float:left;}
+.imgBox-wrap--pic dt {float:left;font-size:15px;font-weight:bold;letter-spacing:-1.2px;color:#999;}
+.imgBox-wrap--pic dd {float:left;margin-left:30px;}
+.imgBox-wrap--pic .imgBox.default {border:1px dashed #ddd;background:transparent;text-align:left;z-index:0;}
+.imgBox-wrap--pic .imgBox.default:after {content:'IMAGE';display:inline-block;font-size:16px;font-weight:bold;color:#cdcdcd;width:100%;text-align: center;position:absolute;left:0;top:50%;margin-top:-10.5px;z-index:-1;}
+.imgBox-wrap--pic .imgBox img {width:113px;height:85px;}
+.imgBox-wrap--pic .btn--close--dark {position:absolute;top:-1px;right:0;}
+.imgBox-wrap--pic .pic__list {clear:both;overflow:hidden;*zoom:1;}
+.imgBox-wrap--pic .pic__list .pic {float:left;display:inline-block;margin-left:10px;}
+.imgBox-wrap--pic .pic__list .pic:first-child {margin-left:0;}
+.imgBox-wrap--pic .pic__list .pic:first-child .imgBox.default {margin-left:0;border:none;background:#f8f8f8;}
+.imgBox-wrap--pic .pic__list .pic:first-child .imgBox.default:after {content:'';display:inline-block;width:30px;height:30px;background:url('//image.findall.co.kr/FACache/job/2018/jobRegist/ico-image.png') no-repeat center center;position:absolute;top:50%;left:50%;margin-top:-15px;margin-left:-15px;}
+.imgBox-wrap--pic .pic__list .pic:first-child .imgBox button {top:0;right:0;}
+.imgBox-wrap .btn__wrap {margin-top:10px;}
+.imgBox-wrap--pic p {font-size:12px;letter-spacing:-0.96px;color:#000;margin-top:10px;}
+/*담당자명*/
+.article--manager .inp-txt__wrap {width:240px;}
+.article--manager .lab_check {margin:14px 0 0 20px;}
+/*담당자 이메일*/
+.article--managerMail .inp-txt__wrap--mail1 {width:229px;}
+.article--managerMail .inp-txt__wrap--mail2 {width:229px;}
+.article--managerMail .inp-txt__wrap input[type=text]::placeholder {letter-spacing:0}
+.article--managerMail .at {display:inline-block;vertical-align:top;font-size:14px;letter-spacing:-1.2px;margin:15px 4px 0 4px;}
+.article--managerMail .custom-select {margin-left:10px;}
+.article--managerMail .custom-select .nice-select {letter-spacing:0;}
+.article--managerMail .lab_check {margin:10px 0 0 20px;}
+/*담당자 번호*/
+.article--managerNum .custom-select {width:142px;}
+.article--managerNum .nice-select {letter-spacing:0;}
+.article--managerNum .inp-txt__wrap {width:240px;margin-left:10px;}
+.article--managerNum .inp-txt__wrap .inp-txt {letter-spacing:0;}
+.article--managerNum .inp-txt__wrap input[type=text]::placeholder {letter-spacing:0}
+.article--managerNum .lab_check {margin:14px 0 0 20px;}
+.article--managerNum .view-additional {color:#ff2020;}
+/*제목*/
+.article--title {position:relative;}
+.article--title .inp-txt__wrap {padding-right:82px;}
+.article--title .law-view {margin-top:24px;}
+.article--title .law-view .view-additional {float:left;margin-top:0;}
+.article--title .law-view .btn--link {float:right;}
+.article--title .law-view .btn--link .txt {font-size:12px;letter-spacing:-1.5px;}
+.article--title .view-caution {margin-top:14px;}
+.article--title .view-caution .ico {margin-right:7px;}
+.article--title .view-caution__tit {font-size:13px;letter-spacing:-1px;color:#000;font-weight:bold;}
+.article--title .view-caution__con {font-size:13px;line-height:22px;letter-spacing:-1.5px;color:#ff2020}
+.article--title .view-caution__tit + .view-caution__con {margin-top:5px;}
+.article--title .view-additional--List {margin-top:8px;line-height:22px;letter-spacing:-1.2px;}
+.article--title .view-additional--List span {color:#000;}
+
+/*모집내용*/
+.article--detail .article__tit {padding-top:24px;}
+.article--detail .article__con {margin-top:30px;width:100%;}
+.article--detail .tab {font-size:0;}
+.article--detail .tab .tabLinks {display:inline-block;width:292.5px;border:1px solid #ddd;border-bottom:1px solid #888;border-right:none;}
+.article--detail .tab .tabLinks.on {border:1px solid #888;border-bottom:none;color:#222;}
+.article--detail .tab .tabLinks.on + .tabLinks {border-left:none;}
+.article--detail .tab .tabLinks--third {border-right:1px solid #ddd;}
+.article--detail .tab .tabLinks.on .lab_radio {color:#222;height:61px;}
+.article--detail .tabCont {padding:40px 43px 45px;border:1px solid #888;border-top:none;min-height:538px;width:878px;}
+.article--detail .tabCont .tabCont__form {visibility:hidden;overflow:hidden;width:0;height:0;}
+.article--detail .tabCont .tabCont__form.active {visibility:visible;overflow:auto;width:auto;height:auto;}
+.article--detail .tabCont .tabCont__form h3 {font-size:14px;letter-spacing:-1.2px;color:#222;}
+.tabCont__form--direct .direct {font-size:0;margin-top:20px;}
+.tabCont__form--direct .direct__btn {display:inline-block;width:698px;}
+.tabCont__form--direct .direct__btn + button {width:80px;margin-left:10px;margin-top:2px;}
+.tabCont__form--direct li {display:inline-block;width:25%;border:1px solid #ddd;border-left:none;background:#f8f8f8;}
+.tabCont__form--direct li:first-child {border-left:1px solid #ddd;}
+.tabCont__form--direct li .lab_check {display:inline-block;width:100%;height:42px;line-height:42px;text-align:center;font-size:13px;letter-spacing:-1.2px;color:#222;}
+.tabCont__form--direct li .lab_check--circle .ico--inp {vertical-align:-5px;}
+.tabCont__form--direct textarea {resize:none;width:100%;overflow-y:auto;margin-top:10px;padding:13px 20px;height:360px;}
+.tabCont__form--templete dl {margin-top:30px;}
+.tabCont__form--templete dl:first-child {margin-top:0;}
+.tabCont__form--templete dl dt {font-size:14px;font-weight:bold;letter-spacing:-1.2px;color:#222;}
+.tabCont__form--templete dl dd {margin-top:20px;}
+.select-templete .templete-list {font-size:0;}
+.select-templete .templete-list li {display:inline-block;width:118px;height:118px;margin-left:16px;vertical-align:top;}
+.select-templete .templete-list li:first-child {margin-left:0;}
+.select-templete .templete-list .lab_radio--pic {border:1px solid #ddd;padding:6px;width:118px;height:90px;}
+.select-templete .templete-list .lab_radio--pic img {width:100%;height:100%;}
+.select-templete .templete-list .lab_radio--pic.on {border:4px solid #6099e4;}
+.select-topImg .default,
+.preview .default {border:1px dashed #ddd;width:100%;font-size:13px;letter-spacing:-1.2px;color:#999;text-align:center}
+.select-topImg .default .ico {vertical-align:-9px;margin-right:8px;}
+.select-topImg .default a {display:block;width:100%;height:100%;height:70px;line-height:70px;}
+.select-topImg img {height:320px;width:auto;}
+.btn--apply {display:block;margin:20px auto 0;width:170px;}
+.preview .default {height:112px;line-height:112px;}
+.preview .default .ico {vertical-align:-9px;margin-right:8px;}
+.tabCont__form--html #ir1 {width:100%;height:100%;}
+.tabCont__form--html > iframe {margin-top:20px;width:100% !important;min-height:340px !important;}
+.detailBtn {position:absolute;right:173px;top:-51px;} 
+.detailBtn .btn {font-weight:bold;}
+.detailBtn .btn + .btn {margin-left:10px;}
+.detailBtn .btn--white {width:130px;}
+.detailBtn .btn--black {width:66px;}
+
+/*추가입력사항*/
+.extraBox {background:#f3f8fc;height:60px;margin-top:20px;padding:10px 20px;}
+.extraBox dl {display:inline-block;}
+.extraBox dt {display:inline-block;width:105px;font-size:13px;letter-spacing:-1.2px;color:#333;height:inherit;margin:12px 0}
+.extraBox dd {display:inline-block;vertical-align:top;line-height:40px;font-size:13px;letter-spacing:-1.2px;}
+.extraBox .custom-select, .extraBox dd {height:40px;}
+.extraBox .custom-select .nice-select {line-height:38px;}
+.extraBox .custom-select select {}
+.extraBox .hyphen {color:#333;font-size:13px;display:inline-block;height:40px;line-height:40px;vertical-align:top;margin:0 8px;}
+.extraBox .inp-num__wrap {height:40px;}
+.extraBox .inp-txt__wrap {height:40px;padding:9px 15px 0 15px;}
+.extraBox .inp-num__wrap {width:76px;padding:10px 40px 0 10px;}
+.extraBox .inp-num__wrap .inp-num {width:100%;font-size:13px;height:auto;padding:0;border:none;}
+.extraBox .inp-num__unit {padding-top:10px;font-size:13px;letter-spacing:-1.2px;}
+.extraBox .inp-txt__wrap--calendar {width:170px;}
+.extraBox .inp-txt__wrap--calendar .inp-txt {letter-spacing:0;}
+.extraBox--experience .custom-select {width:115px;}
+.extraBox--experience .lab_check {margin-left:25px;margin-top:10px;}
+.extraBox--age .custom-select {width:115px;}
+.extraBox--age .custom-select .nice-select {padding-right:36px;}
+.extraBox--age .custom-select .nice-select .option {padding-right:36px;}
+.extraBox--pay .lab_check {margin-top:10px;}
+.extraBox--pay .inp-txt__wrap {width:215px;padding-top:10px;margin-left:16px;}
+.extraBox--pay .inp-txt__wrap .counter {font-size:14px;top:7px;right:10px;}
+.extraBox--day dd {font-size:0;}
+.extraBox--timeDirect .custom-select {width:170px;}
+.extraBox--timeDirect .custom-select .nice-select {letter-spacing:0;}
+.extraBox--timeDirect .custom-select .nice-select .current {letter-spacing:-1.2px;}
+.extraBox--timeDirect .custom-select .nice-select .list .option:first-child {letter-spacing:-1.2px;}
+.extraBox--timeTotal button {margin-left:12px;}
+.extraBox--timeTotal button + button {margin-left:4px;}
+.extraBox--timeTotal .emphasis--grayblue {font-size:13px;letter-spacing:-2px;margin-left:10px;vertical-align:top;display:inline-block;margin-top:12px;}
+.extraBox--timeTotal .lab_check {margin:11px 0 0 20px;}
+.extraBox--period dd {font-size:13px;letter-spacing:-1.2px;}
+.extraBox--period input[type=text].inp-txt::placeholder {letter-spacing:0;}
+.extraBox--period .inp-txt__wrap--calendar {margin-right:10px;}
+.extraBox--method .inp-txt__wrap {width:595px;}
+.extraBox--method .inp-txt {letter-spacing:0;}
+.extraBox.extraBox--day.invalid {border: 1px solid #ff2020;}
+/*테이블*/
+.table-st table thead tr th {background:#f6f6f6;font-size:13px;letter-spacing:-1.2px;border:1px solid #ddd;height:49px;}
+.table-st table tbody tr td {border:1px solid #ddd;font-size:13px;letter-spacing:0;height:49px;}
+.table--horizontal {border-top:1px solid #444;}
+.table--horizontal + .table--horizontal {margin-top:21px;}
+.table--horizontal table tbody tr th {background:#f6f6f6;font-size:14px;letter-spacing:-1.5px;border:1px solid #ddd;height:60px;}
+.table--horizontal table tbody tr th {text-align:left;padding-left:30px;}
+.table--horizontal table tbody tr td {padding:10px 10px 10px 20px;border:1px solid #ddd;font-size:15px;letter-spacing:0;height:49px;}
+.table--horizontal table tbody tr:first-child th,
+.table--horizontal table tbody tr:first-child td {border-top:none;}
+.table--horizontal table tbody tr th:first-child {border-left:none;}
+.table--horizontal table tbody tr td:last-child {border-right:none;padding-right:0;}
+.table--horizontal table tbody tr .price {color:#ff4800;font-size:14px;}
+.table--horizontal .price strong {font-size:22px;}
+.table--horizontal .account {font-size:14px;letter-spacing:-1.2px;color:#ff4800;}
+.table--horizontal .account .num {letter-spacing:0;}
+.table--horizontal .account .bar {color:#000;font-size:14px;vertical-align:1px;margin:0 7px;}
+
+.table--horizontal02 {width:400px;}
+.table--horizontal02 table tbody tr th {font-size:13px;color:#222;letter-spacing:-1.2px;border:1px solid #ddd;height:40px;padding-left:26px;text-align:left;}
+.table--horizontal02 table tbody tr td {border:1px solid #ddd;font-size:14px;color:#000;text-align:right;height:40px;padding-right:15px;}
+.table--horizontal02__tit {font-size:13px;letter-spacing:-1.2px;padding-bottom:15px;}
+.table--horizontal02__tit.blue {color:#006fc9;}
+.table--horizontal02 .inp-cell {padding:1px 11px;}
+.table--horizontal02 .inp-txt__wrap {height:29px;padding:0 3px;}
+.table--horizontal02 .inp-txt__wrap .inp-txt {text-align:right;height:27px;line-height:27px;letter-spacing:0;}
+
+.table--horizontal03 {border-top:1px solid #444;}
+.table--horizontal03 table tbody tr th {font-size:14px;letter-spacing:-1.5px;color:#000;border-bottom:1px solid #ddd;border-right:1px solid #ddd;font-weight:normal;}
+.table--horizontal03 table tbody tr td {border-bottom:1px solid #ddd;font-size:14px;letter-spacing:-1.5px;color:#000;padding:14px 0 14px 30px;}
+.table--horizontal03 table tbody tr td .emphasis--blue {display:block;font-size:13px;letter-spacing:-1.5px;margin-top:3px;}
+.table--horizontal03 table tbody tr td .lab_radio--circleL {width:233px;}
+.table--horizontal03 table tbody tr td .lab_radio--circleL + .lab_radio--circleL {margin-left:55px;}
+.table--horizontal03 .lab_check-wrap {display:inline-block;min-width:135px;vertical-align:top;}
+.table--horizontal03 .opt--icon {margin-left:10px;}
+.table--horizontal03 .opt--icon::before {content:'\0028';font-size:13px;letter-spacing:-1.2px;color:#222;margin-right:5px;}
+.table--horizontal03 .opt--icon::after {content:'\0029';font-size:13px;letter-spacing:-1.2px;color:#222;margin-left:5px;}
+.table--horizontal03 .opt--icon .lab_radio + .lab_radio {margin-left:10px;}
+
+.table--vertical {border-top:1px solid #444;}
+.table--vertical table thead tr th:first-child,
+.table--vertical table tbody tr td:first-child {border-left:none;}
+.table--vertical table thead tr th:last-child,
+.table--vertical table tbody tr td:last-child {border-right:none;}
+
+/*레이어팝업*/
+.layer__wrap {display:none;position:fixed;top:0;left:0;width:100%;height:100%;z-index:100;}
+.layer__wrap.layer {position:absolute;top:auto;left:auto;width:auto;height:auto;}
+.layer {padding:40px 50px;position:absolute;z-index:10;background:#fff;border:1px solid #888;border-radius:3px;top:0;bottom:0;margin-top:auto;margin-bottom:auto;left:0;right:0;margin-left:auto;margin-right:auto;}
+.layer__tit {font-size:24px;letter-spacing:-1.2px;color:#222;}
+.layer__tit.underline {padding-bottom:26px;border-bottom:1px solid #ddd;}
+.layer__con {margin-top:22px;text-align:center;position:relative;}
+.layer__con .layer__btn--reset {position:absolute;top:-44px;right:0;}
+.layer__con .layer__btn--reset .ico {vertical-align:-2px;}
+.layer__con .layer__form {border:1px solid #ddd;text-align:left;}
+.layer__con .layer__form dt {height:49px;font-size:13px;letter-spacing:-1.2px;padding:0 25px;line-height:49px;background:#f6f6f6;font-weight:bold;color:#222;}
+.layer__con .layer__form dd {padding:16px 22px 9px 25px;}
+.layer__con .layer__form + dl {border-top:none;}
+.layer__con .layer__form dd + dd {border-top:1px solid #ddd;}
+.layer__con .lab_check.on {font-weight:bold;color:#0061af;}
+.layer__con .lab_check {width:145px;margin-bottom:15px;}
+.layer__con .lab_check.divide {width:119px;}
+.layer__con .img__info--size {font-weight:bold;font-size:14px;letter-spacing:-1.2px;color:#666;margin-top:20px;}
+.layer__con .img__info--size span {letter-spacing:0;}
+.layer__con .img__info--detail {margin-top:30px;text-align:left;font-size:13px;letter-spacing:-1.5px;color:#aaa;}
+.layer__con .img__info--detail span {letter-spacing:0;}
+.layer__con .img__info--detail li + li {margin-top:8px;}
+.layer__con .layer__con__txt {font-size:13px;letter-spacing:-1.2px;line-height:22px;color:#222;text-align:left;margin-top:26px;}
+.layer__con .layer__con__tit {font-size:13px;letter-spacing:-1.2px;color:#222;margin-top:18px;text-align:left;padding-bottom:14px;}
+.layer__con .layer__con__law {border:1px solid #ddd;text-align:left;margin-top:27px;}
+.layer__con .layer__con__law dt {height:49px;line-height:49px;background:#f6f6f6;padding:0 25px;font-size:13px;font-weight:bold;letter-spacing:-1.2px;color:#222;}
+.layer__con .layer__con__law dd {padding:20px 28px 30px 25px;}
+.layer__con .layer__con__law dd ul li {font-size:13px;line-height:22px;letter-spacing:-1.2px;color:#222;}
+.layer__con .layer__con__law dd ul li span {vertical-align:2px;}
+.layer__btn {margin-top:26px;}
+.layer__btn .btn--popup + .btn--popup {margin-left:10px;}
+.layer__close {position:absolute;top:50px;right:50px;}
+.layer__close2 {position:absolute;top:20px;right:20px;}
+.layer__dimmed {display:block;width:100%;height:100%;background-color:#000;opacity:0.4;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";}
+
+#layerWage.layer {width:454px;height:455px;right:20px;top:20px;margin-top:10px;}
+#layerWage .layer__btn .btn--popup {width:218px;color:#fff;}
+#layerCondition .layer {width:732px;height:565px;}
+#layerBenefits .layer {width:732px;height:748px;}
+#layerLogoReg .layer {width:572px;height:470px;}
+#layerLogoReg .fileUpload {position:relative;}
+#layerLogoReg .fileUpload .img__wrap {position:relative;}
+#layerLogoReg .fileUpload input {width:1px;height:1px;position:absolute;left:0;top:0;opacity:0;cursor:pointer;}
+#layerLogoReg .holder {width:472px;height:150px;}
+#layerLogoReg .holder img {height:100%;width:auto;max-height:152px;max-width:470px;}
+#layerLogoReg .img__wrap {width:472px;height:152px;border:1px dashed #ddd;cursor:pointer;display:inline-block;}
+#layerLogoReg .img__wrap.default {border:none;background:#f8f8f8;z-index:0;}
+#layerLogoReg .img__wrap.default::after {content:'이미지 업로드';display:block;width:70px;background:url('//image.findall.co.kr/FACache/job/2018/jobRegist/ico-camera.png') no-repeat top center;background-size:30px;position:absolute;top:50px;padding-top:34px;font-size:12px;font-weight:bold;letter-spacing:-1.5px;color:#999;left:50%;margin-left:-35px;z-index:-1;}
+#layerLogoReg .btn--close {position:absolute;top:0px;right:-2px;}
+
+#layerPicReg .layer {width:732px;height:495px;}
+#layerPicReg .fileUpload {position:relative;}
+#layerPicReg .fileUpload .imgBox {position:relative;}
+#layerPicReg .fileUpload input {width:1px;height:1px;position:absolute;left:0;top:0;opacity:0;cursor:pointer;}
+#layerPicReg .holder {display:table-cell;width:150px;height:150px;line-height:150px;vertical-align:middle;}
+#layerPicReg .holder img {width:100%;height:auto;max-height:150px;max-width:150px;}
+#layerPicReg .imgBox-wrap--pic {float:none;margin-left:0;font-size:0;}
+#layerPicReg .imgBox-wrap--pic .imgBox {width:150px;height:150px;cursor:pointer;}
+#layerPicReg .imgBox-wrap--pic .pic:first-child .imgBox.default::after{content:'이미지 업로드';display:inline-block;width:100%;background:url('//image.findall.co.kr/FACache/job/2018/jobRegist/ico-image.png') no-repeat center top;background-size:30px;position:absolute;top:50px;padding-top:36px;font-size:12px;font-weight:bold;letter-spacing:-1.5px;color:#999;margin:0;left:0;}
+#layerLogoReg2 .layer {width:572px;height:150px;height:150px;}
+#layerLogoReg2 .layer {width:572px;height:470px;}
+#layerLogoReg2 .img__wrap {width:472px;height:150px;border:1px dashed #ddd;position:relative;}
+#layerLogoReg2 .img__wrap img {width:156px;height:60px;}
+#layerLogoReg2 .img__wrap.default {background:#f8f8f8;position:relative;border:none;}
+#layerLogoReg2 .img__wrap.default:after {display:inline-block;content:'';width:30px;height:30px;background:url('//image.findall.co.kr/FACache/job/2018/jobRegist/ico-camera.png') no-repeat center center;position:absolute;top:50%;margin-top:-15px;left:50%;margin-left:-15px;}
+#layerPicReg2 .layer {width:732px;height:495px;}
+#layerPicReg2 .imgBox-wrap--pic {float:none;margin-left:0;font-size:0;}
+#layerPicReg2 .imgBox-wrap--pic .imgBox {width:150px;height:150px;}
+#layerPicReg2 .imgBox-wrap--pic .imgBox img {width:148px;height:111px;}
+#layerLawGender .layer {width:732px;height:494px;}
+#layerLawGender .layer__btn .btn--popup {width:369px;}
+#layerLawAge .layer {width:732px;height:769px;}
+#layerLawAge .layer__btn .btn--popup {width:398px;}
+#layerLawAge .layer__con__law {margin-top:0;}
+#layerLawAge .layer__con__law + .layer__con__law {border-top:none;}
+#layerLawTitle .layer {width:732px;height:688px;}
+#layerLawTitle .layer__con__txt .emphasis--blue span {letter-spacing:0;}
+#layerLawTitle .layer__btn .btn--popup {width:209px;}
+#tempSave .layer {width:400px;height:291px;padding:40px 35px;}
+#tempSave .layer__con {margin-top:0;}
+#tempSave .layer__btn {margin-top:35px;font-size:0;}
+#tempSave .layer__btn .btn {width:159px;color:#fff;}
+#tempSave .layer__close {top:20px;right:20px;}
+#tempSave dl dt {font-size:18px;color:#222;line-height:24px;letter-spacing:-1.5px;font-weight:bold;}
+#tempSave dl dd {margin-top:15px;color:#222;line-height:22px;font-size:13px;letter-spacing:-1.2px;}
+#tempSave dl dd span {color:#888;}
+#tempSave .layer__close2 .ico {width:20px;height:20px;background-size:20px;}
+#postNotice .layer {width:400px;height:340px;padding:0 20px;}
+#postNotice .layer__tit {border-bottom:1px solid #ddd;font-size:17px;letter-spacing:-1.5px;color:#222;text-align:center;padding:20px 0;}
+#postNotice .layer__tit .ico {vertical-align:-1px;margin-right:8px;}
+#postNotice .layer__con {margin-top:20px;}
+#postNotice p {font-size:13px;line-height:22px;color:#888;letter-spacing:-1.2px;text-align:left;}
+#postNotice p  + p {margin-top:25px;}
+#postNotice p span {color:#222;}
+#postNotice .layer__btn {background:#f7f7f7;position:absolute;bottom:0;left:0;right:0;height:36px;line-height:36px;padding:0 20px;}
+#postNotice .layer__btn .ico--inp {vertical-align:-5px;}
+#postNotice .layer__btn label {vertical-align:baseline;line-height:36px;outline:none;font-size:13px;letter-spacing:-1.5px;color:#000;}
+#postNotice .layer__btn button {position:absolute;top:9px;right:20px;font-size:13px;letter-spacing:-1.5px;color:#000;}
+#postNotice .layer__btn button .ico {width:12px;height:12px;background-size:12px;margin-left:3px;}
+#postNotice .layer__close2 .ico {width:15px;height:15px;background-size:15px;}
+
+/*이전에 작성한 일자리 불러오기*/
+.bring-offter {background:#fff;height:68px;line-height:40px;display:block;overflow:hidden;font-size:15px;font-weight:bold;letter-spacing:-1.2px;color:#000;border:1px solid #2f7fe8;padding:13px 60px;}
+.bring-offter .btn--bring {float:right;width:120px;height:40px;font-weight:bold;font-size:13px;letter-spacing:-1.11px;}
+
+.table-style01 {border-top:1px solid #444;}
+.table-style01 table thead tr th {height:50px;background:#f6f6f6;font-size:13px;letter-spacing:-1.2px;color:#000;border-left:1px solid #ddd;}
+.table-style01 table  thead tr th:first-child {border-left:none;}
+.table-style01 table  tbody tr {border-bottom:1px solid #ddd;}
+.table-style01 table  tbody tr td {height:50px;border-left:1px solid #ddd;padding:0 15px;font-size:14px;letter-spacing:-1.5px;color:#000;}
+.table-style01 table  tbody tr td:first-child {border-left:none;}
+.table-style01 table  tbody tr td a {text-decoration:underline;}
+.table-style01 .ellipsis {overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:13px;letter-spacing:-1.2px;}
+
+.table-style02 {border:1px solid #ddd;}
+.table-style02 table thead tr th {font-size:13px;height:49px;font-weight:bold;color:#222;letter-spacing:-1.2px;text-align:left;background:#f6f6f6;padding:0 25px;}
+.table-style02 table tbody tr td {padding:16px 25px 26px;}
+
+.pagination {margin-top:30px;font-size:0;}
+.pagination .btn {width:28px;height:28px;line-height:28px;border:1px solid #e4e4e4;text-align:center;padding:6px;}
+.pagination a {font-size:16px;letter-spacing:-0.57px;color:#222;vertical-align:top;height:28px;line-height:28px;}
+.pagination a:hover span, .pagination a:focus span,
+.pagination a:active span, .pagination a.on span{font-weight:bold;text-decoration:underline;}
+.pagination a + a {margin:0 9px;}
+.pagination .btn--prev {margin-right:15px;}
+.pagination .btn--next {margin-left:15px;}
+
+#layerbringOffter .layer {width:732px;height:672px;}
+#layerbringOffter .layer__tab {font-size:0;}
+#layerbringOffter .layer__tab .tabLinks {display:inline-block;width:25%;border-bottom:1px solid #888;}
+#layerbringOffter .layer__tab .tabLinks button {width:100%;height:46px;font-size:13px;letter-spacing:-1.2px;color:#888;font-weight:bold;}
+#layerbringOffter .layer__tab .tabLinks.on {bordeR:1px solid #888;border-bottom:none;}
+#layerbringOffter .layer__tab .tabLinks.on button {color:#222;height:47px;}
+#layerbringOffter .layer__tabCont > div {display:none;padding-top:20px;}
+#layerPersonality .layer {width:732px;height:687px;}
+#layerPersonality .layer__con .layer__form dd {padding:16px 22px 1px 25px;}
+
+/*일자리 등록 효과*/
+.article--partnerReg .article__tit {float:none;width:auto;}
+.article--partnerReg .article__con {width:100%;}
+.article--partnerReg .partner {margin-top:25px;}
+.article--partnerReg .partner__list {margin-top:16px;}
+.article--partnerReg .partner__list dl {display:inline-block;width:212px;height:120px;border:1px solid #eee;}
+.article--partnerReg .partner__list dl + dl {margin-left:9.5px;}
+.article--partnerReg .partner__list dl dt {height:79px;line-height:79px;padding-top:22px;text-align:center;}
+.article--partnerReg .partner__list dl dd {font-size:13px;letter-spacing:-1.11px;color:#666;height:40px;border-top:1px solid #eee;text-align:center;line-height:40px;}
+.article--partnerReg .partner__list .lab_check {height:auto;font-size:0;}
+.article--partnerReg .partner__list .lab_check .ico--inp {vertical-align:5px;margin-right:12px;}
+.article--partnerReg .partner__list .partner--alba img {width:117px;height:auto;}
+.article--partnerReg .partner__list .partner--finance dt img {width:138px;height:auto;}
+.article--partnerReg .partner__list .partner--seniorTV dt img {width:97px;}
+.article--partnerReg .partner__list .partner--google {padding-top:2px}
+.article--partnerReg .partner__list .partner--google dt  img {width:102px;height:auto;}
+.article--partnerReg .view-additional {line-height:20px;margin-top:30px;}
+.article--partnerReg .table-style01 {margin-top:16px;}
+.article--partnerReg table {text-align:center;}
+.article--partnerReg .table-style01 table thead tr th {font-size:14px;letter-spacing:-1.5px;}
+.article--partnerReg .table-style01 .small {font-size:12px;letter-spacing:0;}
+.article--partnerReg .table-style01 table tbody tr td {  padding:20px 20px;font-size:14px;letter-spacing:-1.5px;line-height:22px;}
+.res_campaign {margin-top:24px;}
+.res_campaign .box_img {position:relative}
+.res_campaign .box_img img {width:100%;}
+.res_campaign .box_img .link_campaign {display:block;position:absolute;top:10px;right:20px;font-size:11px;letter-spacing:-1px;z-index:10}
+.res_campaign .box_check {overflow:hidden;padding:5px 0 8px;border:1px solid #dedfe0;border-top:0 none;background-color:#f5f5f5;font-weight:bold;text-align:center;vertical-align:top;color:#494949;font-size:12px;}
+.res_campaign .box_check {width:100%}
+.res_campaign .box_check .inp_campaign {display:inline-block;margin-top:6px;vertical-align:top}
+.res_campaign .box_check label {display:inline-block;padding-top:5px;vertical-align:top}
+.res_campaign .box_check input {display:inline-block;margin-top:6px;vertical-align:top;display:inline-block; width:15px; height:15px; margin-top:0px; margin-top:-2px\9;.margin-top:-3px; margin-right:5px;margin-right:3px\9;.margin-right:5px}
+.article--newspaperAd .article__tit .lab_check {font-size:15px;font-weight:bold;letter-spacing:-1.2px;}
+.article--newspaperAd .article__tit .lab_check .ico--inp {margin-left:12px;margin-right:0;}
+.extraBox--newspaperAd {background:none;padding:0;height:auto;}
+.extraBox--newspaperAd dl {background:#f3f8fc;height:60px;padding:10px 20px;}
+.extraBox--newspaperAd dl dt {width:282px;}
+.extraBox--newspaperAd dl dd {width:558px;font-size:0;}
+.extraBox--newspaperAd .custom-select {width:115px;}
+.extraBox--newspaperAd .inp-num__wrap {width:170px;margin-left:6px;}
+.extraBox--newspaperAd .table-style01 {margin-top:21px;}
+.extraBox--newspaperAd table tr th .lab_check {font-size:14px;letter-spacing:-1.5px;color:#000;font-weight:normal;}
+.extraBox--newspaperAd table tr td .lab_check,
+.extraBox--newspaperAd table tr td  {font-size:14px;letter-spacing:-2px;color:#000;}
+.extraBox--newspaperAd table tr td:first-child {padding:0;}
+.extraBox--newspaperAd .area--busan {text-align:center;}
+.extraBox--newspaperAd .area--daegu {text-align:center;}
+
+/*하단버튼*/
+.bottom-btn {text-align:center;margin-top:40px;font-size:0;}
+.bottom-btn .btn + .btn {margin-left:8px;}
+.bottom-btn .btn--complete .ico--complete {margin-right:8px;}
+.bottom-btn .btn--tempsave .ico--tempsave {margin-right:10px;}
+
+/*게재기간*/
+.extraBox--publish .inp-txt__wrap--calendar {width:135px;}
+.extraBox--publish .inp-txt__wrap--calendar + .lab_radio {margin-left:25px;}
+.extraBox--publish .lab_radio {margin-top:11px;}
+.extraBox--publish .lab_radio + .lab_radio {margin-left:16px;}
+.extraBox--publish .lab_radio + .lab_radio + .lab_radio {margin-left:10px;}
+.extraBox--publish .custom-select {width:95px;margin-left:6px;}
+.article--publish--free {font-size:14px;letter-spacing:-1.2px;}
+.article--publish--free .aritcle__con__txt {display:inline-block;margin-top:15px;}
+.article--publish--free .inp-txt__wrap--calendar {width:177px;padding:14.5px 30px 0 20px;margin-left:14px;}
+.article--publish--free .inp-txt__wrap--calendar input {letter-spacing:0;}
+.article--publish--free .inp-txt__wrap--calendar input:-ms-input-placeholder {letter-spacing:0;}
+.article--publish--free .inp-txt__wrap--calendar input::-webkit-input-placeholder {letter-spacing:0;}
+.article--publish--free .inp-txt__wrap--calendar .txt {position:absolute;top:14px;right:30px;}
+
+/*노출지역*/
+.article--exposure .custom-select {width:178px;}
+.article--exposure .custom-select + .custom-select {margin-left:10px;}
+.article--exposure .exposure__list li + li {margin-top:10px;}
+.article--exposure button {margin-left:12px;margin-top:4px;}
+.article--exposure button + button {margin-left:4px;}
+
+/*추천상품*/
+.article--recommendGoods .article__tit .ico {width:16px;height:16px;background-size:16px;vertical-align:-2.5px;}
+.article--recommendGoods .article__con {margin-top:21px;}
+.goodsList__item {display:inline-block;width:430px;height:302px;margin:0 20px 20px 0;}
+.goodsList__item.odd {margin-right:0;}
+.goods {border:1px solid #ddd;padding:30px;border-radius:6px;}
+.goods__effect {font-size:16px;font-weight:bold;color:#006fc9;letter-spacing:-1.5px;}
+.goods__effect .more_layer {position:relative;font-weight:normal;}
+.goods__effect .more_layer .more .ico {vertical-align:-2px;margin-left:6px;}
+.goods__effect .more_layer .box {display:none;height:76px;position:absolute;top:50%;margin-top:-35px;left:32px;width:208px;border:1px solid #444;border-radius:5px;background:#fff;font-size:12px;color:#444;line-height:19px;letter-spacing:-2px;padding:16px 16px 20px 11px;word-break:keep-all;}
+.goods__effect .more_layer .box:before {display:block;content:'';width:12px;height:12px;background:url(//image.findall.co.kr/FACache/Job/2018/job/layer-s-bullet.png) no-repeat 0 0;position:absolute;top:50%;margin-top:-8px;left:-8px;}
+.goods__effect .more_layer .more:hover + .box {display:block;}
+.goods__effect .more {display:inline-block;width:16px;height:16px;}
+.goods__info__tit {font-weight:900;font-size:20px;letter-spacing:-1.5px;color:#000;margin-top:17px;}
+.goods__info__tit .goodsLink-deatil {vertical-align:6px;margin-left:4px;}
+.goods__info__con {margin-top:9px;}
+.goods__info__con__list li {font-size:13px;line-height:20px;letter-spacing:-1.5px;color:#666;}
+.goods__btnMore {position:absolute;top:-39px;right:0;}
+.goods__btnMore .txt {font-size:14px;letter-spacing:-1.5px;color:#222;border-bottom:1px solid #222;}
+.goods__btnMore .ico {margin-left:4px;vertical-align:-1px;background-size:12px;width:12px;height:12px;}
+.goods__info__price {font-size:15px;color:#ff4800;margin-top:18px;}
+.goods__info__price strong {font-size:26px;font-weight:bold;}
+.goods__select {width:370px;height:48px;font-size:15px;font-weight:bold;color:#222;letter-spacing:-1.5px;margin-top:26px}
+.goods.on {border:2px solid #6099e4;}
+.goods.on .goods__select {background:#2f7fe8;color:#fff;border:none;}
+
+/*선택한 상품*/
+.section__division--goods {display:none;}
+.article--goodsDetail {position:relative;}
+.article--goodsDetail .btn--change {font-size:14px;letter-spacing:-1.5px;color:#222;float:right;margin-top:20px;}
+.article--goodsDetail .btn--change .txt {border-bottom:1px solid #222;}
+.article--goodsDetail .btn--change:after {content:'';display:inline-block;width:14px;height:14px;background:url('//image.findall.co.kr/FACache/job/2018/jobRegist/ico-auto-black.png') no-repeat;margin-left:6px;vertical-align:-2px;}
+.article--goodsDetail .btn--link {float:right;margin-top:22px;}
+.goodsBox {border:1px solid #ddd;border-top:1px solid #444;color:#000;margin-top:20px;}
+.goodsBox__tit {height:67px;line-height:67px;font-size:20px;letter-spacing:-1.3px;font-weight:bold;padding:0 30px;}
+.goodsBox__tit .goodsLink-detail {vertical-align:5px;} 
+.goodsBox__tit .goods-price {font-size:15px;font-weight:normal;float:right;height:68px;}
+.goodsBox__tit .goods-price strong {font-size:24px;letter-spacing:0;vertical-align:-1px;}
+.goodsBox__con {padding:0 30px;border-top:1px solid #ddd;}
+.goodsBox__con:after {content:'';clear:both;display:block;}
+.goodsBox__con .clr_float dt,
+.goodsBox__con .goodsBox__con--option__select > dt {font-weight:bold;width:160px;float:left;vertical-align:middle;font-size:15px;letter-spacing:-1.2px;}
+.goodsBox__con .clr_float dd,
+.goodsBox__con .goodsBox__con--option__select > dd {float:left;width:658px;font-size:15px;letter-spacing:-1.2px;}
+.goodsBox__con .custom-select {height:40px;width:123px;}
+.goodsBox__con .custom-select .nice-select {line-height:40px;}
+.goodsBox__con--info {padding:20px 30px;}
+.goodsBox__con--info > ul li {margin-top:10px;font-size:14px;letter-spacing:-1.2px;}
+.goodsBox__con--info > ul li + li {margin-top:14px;}
+.goodsBox__con--info ul li:first-child {margin-top:0;}
+.goodsBox__con--info ul li dl {font-size:15px;}
+.goodsBox__con--info .extra-benefit li {margin-top:10px;}
+.goodsBox__con--option {padding:20px 30px 22px;}
+.goodsBox__con--option__select {display:inline-block;}
+.goodsBox__con--option__select > dd {display:none;}
+.goodsBox__con--option .lab_check {font-size:15px;letter-spacing:-1.5px;color:#000;}
+.goodsBox__con--option .goodsBox-optionList {display:inline-block;width:235px;}
+.goodsBox__con--option .goodsBox-optionList > li {margin-top:14px;}
+.goodsBox__con--option .goodsBox-optionList > li:first-child {margin-top:0;}
+.goodsBox__con--option .goodsBox-optionList .lab_check--circle {outline:none;}
+.goodsBox__con--option .goodsBox-optionList .lab_check--circle .ico--inp {margin-right:3px;}
+.goodsBox__con--option .goodsBox-optionList .option-2depth {padding:8px 0 0;}
+.goodsBox__con--option .goodsBox-optionList .option-2depth:before {content:'';display:inline-block;width:6px;height:6px;background:url(//image.findall.co.kr/FACache/job/2018/jobRegist/bg-depth.png) 0 0 no-repeat;margin:0 7px 0 10px;vertical-align:4px;}
+.goodsBox__con--option .goodsBox-optionList .option-2depth label + label {margin-left:30px;}
+.goodsBox__con--option .goodsBox-optionList .option-2depth .lab_radio .ico--inp {margin-right:6px;}
+.goodsBox__con--option .goodsBox-optionList .option-name {display:inline-block;width:97px;}
+.goodsBox__con--option .goodsBox-optionList .option-price {letter-spacing:-0.5px;}
+.goodsBox__con--option .guide-option__preview,
+.goodsBox__con--option .guide-option__preview--ticket {float:right;width:422px;}
+.goodsBox__con--option .guide-option__preview .thum,
+.goodsBox__con--option .guide-option__preview--ticket .thum {display:inline-block;float:right;}
+.goodsBox__con--option .guide-option__preview .bbs_lst4,
+.goodsBox__con--option .guide-option__preview--ticket .bbs_lst4 {width:323px;}
+.goodsBox__con--option .guide-option__preview .thum .bbs_lst4 .area,
+.goodsBox__con--option .guide-option__preview--ticket .thum .bbs_lst4 .area {padding-left:13px;}
+.goodsBox__con--total {min-height:60px;line-height:60px;background:#f6f6f6;padding:10px 30px 0;}
+.goodsBox__con--total dt,.goodsBox__con--total dd {line-height:40px;}
+.goodsBox__con--total .custom-select {vertical-align:-14px;margin:0 16px 0 2px;}
+.goodsBox__con--total .goods-totalPrice {float:right;font-size:15px;letter-spacing:0;color:#ff4800;}
+.goodsBox__con--total .goods-totalPrice strong {font-size:26px;}
+.goodsBox__con--total .emphasis--txt {font-size:13px;letter-spacing:-1.5px;color:#888;margin:10px 0;}
+.goodsBox--commuterTicket .col {display:inline-block;}
+.goodsBox--commuterTicket .goodsBox__tit .col {text-align:center;font-size:15px;letter-spacing:-1.2px;vertical-align:top;}
+.goodsBox--commuterTicket .goodsBox__tit .col1 {width:270px;}
+.goodsBox--commuterTicket .goodsBox__tit .col2 {width:310px;margin-left:73px}
+.goodsBox--commuterTicket .goodsBox__tit .col3 {width:118px;margin-left:3px}
+.goodsBox--commuterTicket .goodsBox__con--select {padding:20px 30px;}
+.goodsBox--commuterTicket .goodsBox__con--select ul li {margin-top:14px;}
+.goodsBox--commuterTicket .goodsBox__con--select ul li:first-child {margin-top:0;}
+.goodsBox--commuterTicket .goodsBox__con--select ul li label {font-size:15px;color:#000;}
+.goodsBox--commuterTicket .goodsBox__con--select .col1 {width:409px;}
+.goodsBox--commuterTicket .goodsBox__con--select .col2 {width:215px;}
+.goodsBox--commuterTicket .goodsBox__con--select .col3 {text-align:center;width:185px}
+.goodsBox--commuterTicket .goodsBox__con--info {padding:20px 0 20px 30px;}
+.goodsBox--commuterTicket .goodsBox__con--info .col1 {width:409px;}
+.goodsBox--commuterTicket .goodsBox__con--info .col2 {width:435px;}
+
+/*결제*/
+.article--chargeInfo {margin-top:38px;}
+.article--chargeInfo .chargeInfo__list {border:3px solid #222;color:#000;}
+.article--chargeInfo .chargeInfo__list li + li {border-top:1px solid #ddd;}
+.article--chargeInfo .chargeInfo__list li:last-child {border-top:none;}
+.article--chargeInfo .chargeInfo__list li:first-child .chargeInfo {padding:27px 27px 20px;}
+.article--chargeInfo .chargeInfo {padding:20px 27px 21px;}
+.article--chargeInfo .chargeInfo:after {display:block;content:"";clear:both;}
+.article--chargeInfo .chargeInfo > dt {float:left;font-size:14px;letter-spacing:-1.5px;margin-right:54px;}
+.article--chargeInfo .chargeInfo > dd {float:left;font-size:14px;}
+.article--chargeInfo .chargeInfo--goods dl dt {font-weight:bold;letter-spacing:-1.5px;}
+.article--chargeInfo .chargeInfo--goods dl dt + dd {margin-top:6px;}
+.article--chargeInfo .chargeInfo--goods dl dd{font-size:13px;letter-spacing:-1.5px;line-height:20px;}
+.article--chargeInfo .chargeInfo--price dd,
+.article--chargeInfo .chargeInfo--discount dd,
+.article--chargeInfo .chargeInfo--total dd {float:right;}
+.article--chargeInfo .chargeInfo--total {background:#f8f8f8;padding:14px 27px 17px;}
+.article--chargeInfo .chargeInfo--total dt {font-size:15px;font-weight:bold;letter-spacing:-1.61px;margin-top:6px;}
+.article--chargeInfo .chargeInfo--total dd {color:#ff4800;}
+.article--chargeInfo .chargeInfo--total dd strong {font-size:22px;}
+
+/*세금계산서*/
+.article--taxbill .custom-select {width:115px;} 
+.article--taxbill .custom-select .nice-select {letter-spacing:0;}
+.article--taxbill .custom-select + .inp-txt__wrap {width:151px;margin-left:3px;}
+.article--taxbill .table--horizontal tr:last-child td:last-child .custom-select + .inp-txt__wrap {width:161px;}
+.article--taxbill .view-additional {margin-top:21px;}
+.article--taxbill .view-additional + .view-additional {margin-top:8px;}
+.article--taxbill .btn--link {vertical-align:-15px;margin-left:6px;}
+.article--taxbill .btn--link .txt {font-size:12px;letter-spacing:-1.5px;border-color:#6099e4;color:#6099e4;}
+.article--taxbill .agree-check {margin-top:30px;padding-bottom:20px;}
+.article--taxbill .agree-check li + li {margin-top:11px;}
+.article--taxbill .agree-check .lab_check--circle .ico--inp {vertical-align:-6px;}
+
+/*완료*/
+.msg-success {text-align:center;padding-top:148px;background:url(//image.findall.co.kr/FACache/Job/2018/jobRegist/ico-success.png) no-repeat center 66px;}
+.msg-success--fail {background-image:url(//image.findall.co.kr/FACache/Job/2018/jobRegist/ico-fail.png);}
+.msg-success__num {font-size:20px;font-weight:bold;letter-spacing:-1.41px;display:inline-block;background:url(//image.findall.co.kr/FACache/Job/2018/jobRegist/bg-msgNum.png) repeat-x left bottom;}
+.msg-success__num span {letter-spacing:0;}
+.msg-success__txt {font-size:27px;letter-spacing:-3px;color:#2f7fe8;margin-top:12px;}
+.msg-success__explain {font-size:18px;letter-spacing:-2px;color:#666;margin-top:6px;}
+.msg-success__cs {font-weight:bold;font-size:18px;color:#000;letter-spacing:0;margin-top:6px;}
+.msg-success__cs span {color:#666;letter-spacing:-2px;vertical-align:-1px;}
+.article--completeInfo {padding-bottom:20px;}
+.article--completeInfo .article__tit {font-size:17px;}
+.article--completeInfo .view-additional {margin-top:21px;}
+.article--completeInfo .view-additional + .view-additional {margin-top:8px;}
+.article--freeAd .article__tit {font-size:17px;clear:both;display:block;}
+.article--freeAd .article__tit .btn--link {float:right;}
+.article--freeAd .article__tit .btn--link  .txt{font-size:12px;letter-spacing:-1.5px;border-color:#6099e4;color:#6099e4;}
+.list-box {border:1px solid #ddd;border-top:1px solid #444;padding:20px 30px 26px;}
+.list-box li {font-size:14px;letter-spacing:-1.5px;color:#000;}
+.list-box li:before {content:'\2022';margin-right:10px;vertical-align:1px;}
+.list-box li + li {margin-top:12px;}
+
+/*정액권팝업*/
+#layerTicket .layer {width:732px;height:574px;}
+#layerTicket .layer td {font-size:13px;}
+#layerTicket .layer .btn-wrap {margin-top:30px;}
+#layerTicket .layer .btn--popup {width:180px;}
+
+/*admin 공통*/
+#ad_contents.ad__contents--jobRegsit {padding:0 30px 50px;background-color:#f6f6f6;min-width:1225px;}
+#ad_contents.ad__contents--jobRegsit h2 {background:none;margin-top:0;padding-left:0;line-height:normal;}
+#ad_contents.ad__contents--jobRegsit #location_navi {box-sizing:content-box}
+#ad_contents .section .section__title {text-align:left;font-size:25px;font-weight:bold;color:#006fc9;letter-spacing:-0.54px;line-height:normal;padding-bottom:18px;margin-top:40px;border-bottom:1px solid #ddd;}
+#ad_contents .section .section__helpText {color:#888;margin-top:15px;font-size:14px;letter-spacing:-1.2px;}
+#ad_contents .layer--jobCategory .jobCategory__top h2 {font-size:20px;letter-spacing:-1.85px;color:#222;float:left;margin-top:10px;}
+#ad_contents .btn_center {margin:15px 0 0 ;}
+
+.normal-txt {display:inline-block;font-size:15px;letter-spacing:-1.2px;color:#000;vertical-align:top;height:40px;line-height:38px;font-weight:normal;}
+.normal-txt + .inp-txt__wrap {margin-left:13px;}
+.normal-txt.emphasis--blue {color:#006fc9}
+.normal-txt.emphasis--red {color:#ff2020;}
+.normal-list li {font-size:15px;line-height:26px;letter-spacing:-1.2px;color:#000;}
+
+.extraBox .normal-txt {font-size:13px;letter-spacing:0;color:#333;height:40px;line-height:40px;}
+.inp-txt__wrap.short {width:140px;}
+.inp-txt__wrap.mid {width:240px;}
+.inp-txt__wrap.long {width:580px;}
+label + .schForm {margin-top:10px;}
+.schForm .inp-txt__wrap + .btn {margin-left:10px;}
+.schForm .normal-txt:first-of-type {margin-left:10px;}
+.schForm__txt {font-size:15px;letter-spacing:-1.2px;color:#000;padding-bottom:10px;}
+.align--title {padding-top:9px}
+.pricetable-wrap {position:relative;}
+.pricetable__right {position:absolute;bottom:0;left:420px;}
+.pricetable__right .normal-txt {color:#006fc9;font-size:13px;letter-spacing:-1.04px;vertical-align:bottom;}
+.pricetable__right .custom-select {margin-left:20px;width:200px;height:40px;}
+.pricetable__right .custom-select .nice-select {height:40px;line-height:40px;}
+.pricetable__right .custom-select .nice-select .current {font-size:13px;letter-spacing:-1px;color:#aaa;}
+.pricetable__right--coupon > div {padding-bottom:40px;}
+.pricetable__right--coupon .normal-txt {height:43px;}
+
+/*admin - 일자리 등록 전 확인 및 입력하세요.*/
+.section .section__division .normal-txt {margin-left: 16px}
+.article--officer .inp-txt__wrap {margin-left:22px;}
+.article--joinMap .emphasis--blue {color:#006fc9;}
+.section .section__division .article--joinMap span + span.normal-txt {margin-left: 0;}
+.article--joinMap span + span::before {content:'';display:inline-block;width:1px;height:15px;background-color:#ddd;margin:0 8px;vertical-align:-2px;}
+.article--privacy h3 {font-size:14px;font-weight:bold;color:#000;letter-spacing:-1.29px;margin-top:25px;}
+.article--privacy .table-style01 {margin-top:18px;}
+.article--privacy .table-style01 table tbody tr td {text-align:center;height:76px;word-break:keep-all;}
+.article--businessNum .extraBox--businessNum {font-size:13px;letter-spacing:-1.2px;color:#333;line-height:40px;}
+.article--paperOpt ul li {font-size:15px;letter-spacing:-1.2px;color:#000;}
+.article--paperOpt ul li + li {margin-top:6px;}
+.article--paidPeriod .article__con {font-size:15px;color:#000;}
+.article--paidPeriod .inp-txt__wrap {border:1px solid #333;}
+.article--paidPeriod .total-period {font-size:13px;letter-spacing:-1.2px;color:#006fc9;}
+.article--paidPeriod .normal-txt {margin-left:10px;vertical-align:top;}
+.article--paidPeriod .dayopt2 .lab_radio {height:34px;line-height:34px;}
+.article--paidPeriod .bg--cal {position:relative;padding:9px 13px 0 15px}
+.article--paidPeriod .bg--cal::after {content:'';display:inline-block;width:24px;height:26px;background:url(//image.findall.co.kr/FACache/Job/2018/jobRegist/ico-calendar.png);position:absolute;top:7px;right:10px;background-size:24px;}
+.article--paidPeriod .bg--cal input {position:relative;z-index:1;background:none}
+.article--paidPeriod .bg--cal + span {margin-left:15px;}
+.article--paidPeriod .extraBox--paidPeriod--reserve {font-size:0;}
+.article--paidPeriod .extraBox--paidPeriod--reserve .calendarGbn {font-size:13px;color:#000;display:inline-block;height:40px;line-height:40px;vertical-align:top;margin:0 10px;}
+.article--paidPeriod .extraBox--paidPeriod--reserve .calendarGbn--minute {margin-right:0;}
+.article--paidPeriod .extraBox--paidPeriod--reserve .inp-txt__wrap + div {margin-left:15px;}
+.article--paidPeriod .custom-select {width:87px;}
+.article--paidPeriod--exposure .extraBox{margin-top:0;font-size:0;}
+.article--registType label[for=rdoRegKind5] {width:155px;}
+.article--registType + .article--goods {margin-top:20px;}
+.article--reason .normal-txt {letter-spacing:-1.38px;}
+.article--reason .inp-txt__wrap {display:block;margin-left:0;}
+.article--goods h3 {font-size:15px;font-weight:bold;letter-spacing:-0.38px;color:#000;}
+.article--goods h3 strong {color:#ff2020}
+.article--goods h3 + .table-style02 {margin-top:21px;}
+.article--goods h3 .normal-txt {vertical-align:1px;line-height:normal;}
+.article--goods .table-style02 {width:630px;}
+.article--goods .table-style02 div + div {margin-top:17px;}
+.article--goods .table-style02 .lab_check-wrap {display:inline-block;width:156px;vertical-align:top;}
+.article--goods .table-style02 .lab_check-wrap--ico {width:auto;}
+.article--goods .table-style02 .lab_check-wrap--bg {width:auto;}
+.article--goods .table-style02 .opt--icon {margin-left:10px;}
+.article--goods .table-style02 .opt--icon::before {content:'\0028';font-size:13px;letter-spacing:-1.2px;color:#222;margin-right:5px;}
+.article--goods .table-style02 .opt--icon::after {content:'\0029';font-size:13px;letter-spacing:-1.2px;color:#222;margin-left:5px;}
+.article--goods .table-style02 .opt--icon .lab_radio + .lab_radio {margin-left:10px;}
+.article--goods--ecomm h3 {position:relative;}
+.article--goods--ecomm h3 a {position:absolute;top:16px;right:0;font-size:14px;letter-spacing:-1.2px;color:#222;}
+.article--goods--ecomm h3 a .ico {width:13px;height:13px;background-size:13px;vertical-align:-1px;margin-right:6px;}
+.article--goods--ecomm h3 + .table--horizontal03 {margin-top:20px;}
+.article--promotion .table--horizontal {width:880px;border:1px solid #ddd;border-bottom:none;}
+.article--promotion .table--horizontal table tbody tr th {height:40px;font-size:13px;letter-spacing:-1.2px;color:#222;}
+.article--promotion .table--horizontal table tbody tr td {height:40px;padding:0 0 0 20px;}
+.article--promotion .table--horizontal .col-first {margin-right:18px;}
+.article--promotion .table--horizontal .col-second {margin-right:15px;}
+.article--promotion .lab_check {width:223px;color:#222;}
+.article--registPrice .table--horizontal02 table tbody tr th.weight-normal {text-align:center;padding:0 10px;}
+.article--ecommTicket .ecommTicket__info {margin-top:20px;}
+.article--ecommTicket .ecommTicket__info .custom-select {width:520px;}
+.article--ecommTicket .ecommTicket__info .normal-txt {margin-left:10px;}
+.article--ecommTicket .ecommTicket__info .normal-txt span {text-decoration:underline;letter-spacing:0;}
+.article--confirmLogo .emphasis--blue {color:#006fc9;letter-spacing:-0.5px;}
+.article--confirmLogo .inp-txt__wrap {margin-top:10px;letter-spacing:0;}
+.filebox input[type="file"] {position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0;}
+.filebox label {display:inline-block;color:#fff;font-size:inherit;line-height:40px;vertical-align:middle;background-color:#2f7fe8;cursor:pointer;border:1px solid #2f7fe8;border-bottom-color:#e2e2e2;font-size:13px;font-weight:bold;width:115px;height:40px;border-radius:3px;text-align:center;margin-left:10px;}
+.filebox .upload-name {display:inline-block;font-size:inherit;font-family:inherit;line-height:normal;vertical-align:middle;background-color:#fff;border:1px solid #ddd;border-bottom-color:#e2e2e2;-webkit-appearance:none;-moz-appearance:none;appearance:none;width:365px;height:48px;font-size:14px;color:#000;text-align:right;padding:0 20px;}
+.article--exposureArea .default-select {width:142px;}
+.article--exposureArea .default-select + .default-select {margin-left:10px;}
+.article--exposureArea .area__list > li + li {margin-top:10px;}
+.article--exposureArea button {margin-left:12px;}
+.article--exposureArea button + button {margin-left:4px;}
+.article--paperAd textarea {width:880px;height:150px;resize:none;border:1px solid #ddd;padding:13px 20px;font-size:14px;letter-spacing:-1.2px;}
+.article--paperAd textarea::placeholder {font-size:14px;letter-spacing:-1.2px;color:#aaa;}
+.article--BoxAd .boxAd-img {width:115px;height:115px;display:inline-block;position:relative;}
+.article--BoxAd .boxAd-img img {height:115px;width:auto;}
+.article--BoxAd .boxAd-img.default {background:#f8f8f8;}
+.article--BoxAd .boxAd-img.default:after {content:'';display:inline-block;width:30px;height:30px;background:url('//image.findall.co.kr/FACache/job/2018/jobRegist/ico-image.png') no-repeat center center;position:absolute;top:50%;left:50%;margin-top:-15px;margin-left:-15px;}
+.article--branch .custom-select {width:240px;}
+.article--repOfficer .inp-txt__wrap {width:240px;}
+.article--chooseTicket .custom-select {width:240px;}
+.article--chooseTicket .custom-select + .custom-select {margin-left:10px;}
+.article--viewDate .inp-txt__wrap--calendar {width:240px;}
+.article--viewDate .inp-txt__wrap--calendar input {letter-spacing:0;background:transparent;position:relative;z-index:0}
+.article--viewDate .bg--cal {position:relative;background:transparent;padding-right:0;z-index:0;}
+.article--viewDate .bg--cal::after {content:'';display:inline-block;width:24px;height:26px;background:url(//image.findall.co.kr/FACache/Job/2018/jobRegist/ico-calendar.png);position:absolute;top:11px;right:10px;background-size:24px;z-index:-1;}
+.article--jobType .jobType__list li {line-height:26px}
+.article--keyword .pricetable-wrap {margin-top:12px;}
+.article--keyword .keywordList {margin-top:12px;}
+.article--keyword .keywordList li {font-size:15px;color:#000;letter-spacing:-1.2px;line-height:26px;}
+.article--keyword .williant_num {font-size:12px;letter-spacing:-1.2px;color:#aaa;letter-spacing:0;font-weight:normal;}
+
+
+
+/*템플릿 상단 이미지 팝업*/
+#layerTemplate .layer {width:820px;height:715px;}
+.selectImg {margin-top:26px;border:1px solid #ddd;width:720px;height:434px;}
+.selectImg__category {float:left;text-align:left;width:202px;padding:26px 0 26px 26px;}
+.selectImg__category li button {font-size:14px;letter-spacing:-1.2px;color:#222;font-weight:bold;}
+.selectImg__category li + li button {margin-top:15px;}
+.selectImg__category li.on button {color:#0061af;}
+.selectImg__category li.on button::after {content:'\003E';display:inline-block;font-size:13px;margin-left:6px;vertical-align:1px;}
+.selectImg__List {float:left;width:516px;height:432px;text-align:left;font-size:0;overflow-y:auto;}
+.selectImg__List .lab_radio {text-align:left;color:#222;}
+.selectImg__List .img-wrap {display:inline-block;width:150px;height:150px;border-radius:4px;border:1px solid #ddd;display:block;text-align:left;}
+.selectImg__List .img-wrap img {width:100%;height:100%:}
+.selectImg__List .lab_radio .ico--inp {margin:13px 5px 0 0;}
+.selectImg__List .lab_radio.on {color:#0061af;}
+.selectImg__List .lab_radio.on .img-wrap {border-color:#006fc9;}
+.selectImg__List label {margin-right:20px;margin-top:26px;}
+.selectImg__List label:nth-of-type(n+4) {margin-top:20px;}
+.selectImg__List label:nth-of-type(3n) {margin-right:0;}
+.selectImg__List .mCSB_scrollTools {width:4px;margin:8px 8px 8px 0;}
+
+/*미리보기*/
+#layerPreview .layer {width:1000px;height:710px;}
+#layerPreview .layer__con {margin-top:0;}
+#layerPreview .layer__close {top:40px;}
+#layerPreview .mCSB_scrollTools {margin-top:0;margin-bottom:40px;}
+.preview__tab {border-bottom:1px solid #ddd;}
+.preview__tab::after {content:'';display:block;clear:both;}
+.preview__tab li {float:left;}
+.preview__tab li button {font-size:17px;font-weight:bold;letter-spacing:-1.5px;color:#888;width:240px;padding-bottom:19px;}
+.preview__tab li.on button {color:#006fc9;border-bottom:2px solid #006fc9;}
+.preview__tabCont {margin-top:40px;overflow:hidden;text-align:left;}
+.preview__tabCont > div {display:none;height:583px;overflow-y:auto;}
+.preview-mobile__wrap {width:376px;border-radius:30px;border:3px solid #e6ebed;margin:0 auto;overflow:hidden;margin-bottom:60px;padding:26px 15px 34px;}
+.preview-mobile__wrap img {max-width:100%;width:auto;}
+
+/*더보기-말풍선*/
+.more_layer {position:relative;display:inline-block;vertical-align:-1px;}
+.more_layer a.more {display:inline-block;width:15px;height:15px;margin-left:5px;background: url("//image.findall.co.kr/FACache/Job/2018/job/more_btn.png") no-repeat 0 2px;}
+.more_layer a.more:hover {background: url("//image.findall.co.kr/FACache/Job/2018/job/more_hover_btn.png") no-repeat 0 2px;}
+.more_layer .box {display:none;position:absolute;top:50%;left:32px;width:382px;border:1px solid #444;background:#fff;border-radius:4px;z-index:50;padding:16px 18px 21px 17px;}
+.more_layer .box:before {display:block;content:"";position:absolute;top:50%;left:-8px;width:12px;height:12px;background: url("//image.findall.co.kr/FACache/Job/2018/job/layer-s-bullet.png") no-repeat 0 0;margin-top:-6px;}
+.more_layer .box .box__tit {display:block;margin-bottom:10px;font-size:13px;font-weight:bold;letter-spacing:-1.2px;color:#222;line-height:normal;}
+.more_layer .box .box__con {display:block;font-size:13px;letter-spacing:-1.2px;line-height:19px;color:#444;}
+.more_layer.question a.more {display:inline-block;width:17px;height:17px;background: url("//image.findall.co.kr/FACache/Job/2018/job/sub_question_btn.png") no-repeat 0 0;vertical-align:-2px;}
+.more_layer.question a.more:hover {background: url("//image.findall.co.kr/FACache/Job/2018/job/sub-question-btn_over.png") no-repeat 0 0;}
+
+
+/*키워드 검색광고*/
+.keyword-wrap {padding:0 30px 30px;width:942px;margin:0 auto;}
+.keyword-wrap .goodsBox__tit .goodsLink-detail {vertical-align:2px;}
+.keyword-wrap .goodsBox__con--option__select {display:block;}
+.keyword-wrap .goodsBox__con--option__select > dt {float:none;}
+.keyword-wrap .goodsBox__con--option__select > dd {width:100%;float:none;}
+.keyword-wrap .goodsBox__con--option {padding-top:26px;}
+.keyword-wrap .search-form {float:none;}
+.keyword-wrap .inp-txt__wrap {display:block;height:48px;padding:13px 20px 0;width:100%;}
+.keyword-wrap .inp-txt__wrap .inp-txt {font-size:14px;letter-spacing:-1.2px;color:#000;font-weight:bold;width:100%;}
+.keyword-wrap .inp-txt__wrap input::placeholder {color:#888;font-weight:normal;}
+.keyword-wrap .inp-txt__wrap input::-ms-input-placeholder {color:#888;font-weight:normal;}
+.keyword-wrap .inp-txt__wrap input:-ms-input-placeholder {color:#888;font-weight:normal;}
+.keyword-wrap .inp-txt__wrap.active {border-color:#006fc9;}
+.keyword-wrap .inp-txt__wrap2 {display:inline-block;width:240px;position:relative;border:1px solid #ddd;height:40px;padding:10px 20px 0 20px;vertical-align:top;background:#fff;}
+.keyword-wrap .inp-txt__wrap2 .inp-txt[type="text"] {width:100%;font-size:14px;letter-spacing:-1.2px;border:none;color:#000;border:none;height:auto;padding:0;}
+.keyword-wrap .inp-txt__wrap2 .inp-txt[type="text"]:-ms-input-placeholder {color:#aaa;}
+.keyword-wrap .inp-txt__wrap2 + .btn--small {margin-left:10px;}
+.keyword-wrap .btn--small + .btn--small {margin-left:10px;}
+.keyword-wrap .btn-wrap .btn--small {display:block;width:100px;height:42px;margin:30px auto 0;}
+
+.keyword__list {width:819px;height:auto;max-height:310px;border:1px solid #ccc;box-shadow:0 2px 6px 0 rgba(0,0,0,0.12);padding:15px 0;border-top:none;position:absolute;top:0;left:0;right:0;background-color:#fff;z-index:3;display:none;border-radius:0;overflow-y:scroll;}
+.keyword__list::-webkit-scrollbar {width:14px;background-color:transparent}
+.keyword__list::-webkit-scrollbar-button:start:decrement,
+.keyword__list::-webkit-scrollbar-button:end:increment {display:none;}
+.keyword__list::-webkit-scrollbar-scrollbar-track {background-color:transparent}
+.keyword__list::-webkit-scrollbar-thumb {width:4px;height:50px;background-color:#d8d8d8;border-radius:14px;background-clip:padding-box;border:5px solid transparent;overflow:hidden;}
+.keyword__list .ui-menu-item:focus, .keyword__list .ui-menu-item:hover {background-color:#f3f8fc;}
+.keyword__list .ui-menu-item a {display:block;padding:0 20px;height:28px;line-height:28px;font-size:13px;letter-spacing:-1.2px;color:#222;}
+.keyword__list .ui-menu-item a .focus {color:#006fc9;}
+
+.nokeyword {padding:20px 20px 23px;}
+.nokeyword__result {font-size:13px;font-weight:bold;color:#222;letter-spacing:-1.2px;}
+.nokeyword__result strong {color:#006fc9;}
+.nokeyword__help {margin-top:20px;font-size:13px;letter-spacing:-1.2px;color:#222;}
+.nokeyword__help li {line-height:24px;}
+.nokeyword__help li::before {content:'';display:inline-block;width:3px;height:3px;background-color:#000;border-radius:100%;vertical-align:4px;margin-right:8px;}
+
+.listKeyword {border-top:1px solid #222;border-bottom:1px solid #eee;margin-top:10px;position:relative;z-index:0;}
+.listKeyword .line {display:inline-block;width:1px;background-color:#eee;height:100%;position:absolute;top:0;bottom:0;}
+.listKeyword .line1 {left:296px;}
+.listKeyword .line2 {left:386px;}
+.listKeyword .line3 {left:505px;}
+.listKeyword .line4 {left:596px;}
+.listKeyword .line5 {left:716px;}
+.listKeyword__titlegroup li {float:left;background-color:#f8f8f8;font-size:13px;letter-spacing:-1.2px;color:#222;text-align:center;font-weight:bold;height:49px;line-height:49px;}
+.listKeyword__titlegroup li:nth-child(1){width:296px;}
+.listKeyword__titlegroup li:nth-child(2),
+.listKeyword__titlegroup li:nth-child(4) {width:91px;}
+.listKeyword__titlegroup li:nth-child(3),
+.listKeyword__titlegroup li:nth-child(5) {width:120px;}
+.listKeyword__titlegroup li:nth-child(6) {width:101px;}
+.listKeyword__titlegroup li:last-child::after {display:none;}
+.listKeyword__listgroup {max-height:290px;overflow-y:scroll;-ms-overflow-style:none;}
+.listKeyword__listgroup::-webkit-scrollbar {display:none;}
+.listKeyword__listgroup .listItem--tit {margin-top:15px;}
+.listKeyword__listgroup .listItem--tit + .listItem {margin-top:11px;}
+.listKeyword__listgroup .listItem + .listItem--tit {margin-top:11px;}
+.listKeyword__listgroup .listItem::after {content:'';display:block;clear:both;*zoom:1;}
+.listKeyword__listgroup .listItem > span {display:block;float:left;letter-spacing:0;font-size:13px;height:18px;}
+.listKeyword__listgroup .listItem + .listItem {margin-top:11px;}
+.listKeyword__listgroup .listItem:first-child {padding-top:15px;}
+.listKeyword__listgroup .listItem + .paging-wrap {margin-top:22px;}
+.listKeyword__listgroup .data-tit {font-size:13px;letter-spacing:-1.2px;color:#222;font-weight:bold;padding-left:20px;}
+.listKeyword__listgroup .data-tit::before {content:'';display:inline-block;width:0;height:0;border-top:6px solid #222;border-bottom:6px solid none;border-left:4px solid transparent;border-right:4px solid transparent;vertical-align:3px;margin-right:8px;}
+.listKeyword__listgroup .data-word {width:296px;padding-left:20px;font-size:0;}
+.listKeyword__listgroup .data-popular, 
+.listKeyword__listgroup .data-click {width:91px;text-align:center;}
+.listKeyword__listgroup .data-search,
+.listKeyword__listgroup .data-price {width:119px;text-align:right;}
+.listKeyword__listgroup .data-standby {width:101px;text-align:center;}
+.listKeyword__listgroup .data-popular {color:#006fc9;}
+.listKeyword__listgroup .data-search {padding-right:28px;}
+.listKeyword__listgroup .data-price {padding-right:20px;}
+.listKeyword__listgroup .lab_check {font-size:13px;letter-spacing:-1.2px;color:#222;margin-right:8px;}
+.listKeyword__listgroup .lab_check.disable {color:#999;}
+.listKeyword__listgroup .mark {display:inline-block;font-size:9px;text-align:center;vertical-align:1px;height:18px;line-height:16px;border-radius:2px;letter-spacing:-0.5px;border:1px solid;font-weight:bold;}
+.listKeyword__listgroup .mark + .mark {margin-left:5px;}
+.listKeyword__listgroup .mark--season {width:34px;color:#03c800;border-color:#5edf3e;}
+.listKeyword__listgroup .mark--special {width:26px;color:#973cfd;border-color:#a350ff;}
+.listKeyword__listgroup .mark--new {width:30px;color:#1183ff;border-color:#298fff;}
+.listKeyword__listgroup .mark--hot {width:30px;color:#ff3e44;border-color:#ff5b60;}
+.listKeyword__listgroup .mark--top3 {width:34px;color:#ff3e44;border-color:#ff5b60;}
+.listKeyword__listgroup .mark--top5 {width:34px;color:#ff3e44;border-color:#ff5b60;}
+.listKeyword__listgroup .mark--top10 {width:38px;color:#ff3e44;border-color:#ff5b60;}
+.listKeyword__listgroup .mark--best {width:34px;color:#ff6500;border-color:#ff7c1e;}
+.listKeyword__listgroup .mark--deal {width:34px;color:#5862e0;border-color:#737def;}
+.listKeyword__listgroup .standby {font-size:13px;letter-spacing:-1.2px;}
+.listKeyword__listgroup .standby--buy {color:#006fc9;}
+.listKeyword__listgroup .standby--black {color:#222;}
+.listKeyword__listgroup .standby--pos {color:#006fc9;text-decoration:underline;}
+.listKeyword__listgroup .standby--soldout {color:#999;}
+.listKeyword__listgroup .mCSB_scrollTools {width:6px;margin:10px 0;z-index:2;}
+.listKeyword__listgroup .mCSB_scrollTools .mCSB_dragger {width:4px;right:1px;}
+.listKeyword__listgroup .default {font-size:13px;letter-spacing:-1.2px;color:#888;height:230px;line-height:230px;text-align:center;}
+
+.paging-wrap {padding:12px 0;text-align:center;border-top:1px solid #eee;background-color:#fff;position:relative;z-index:1;}
+.paging-wrap .pageBtn {*zoom:1;display:inline-block;*display:inline;overflow:hidden;}
+.paging-wrap .pageBtn * {font-family:'맑은 고딕', 'Malgun Gothic', sans-serif;font-size:13px;letter-spacing:0;color:#222}
+.paging-wrap .pageBtn strong,
+.paging-wrap .pageBtn span {float:left;min-width:22px;height:22px;margin:0;border:none;}
+.paging-wrap .pageBtn strong {text-decoration:underline;padding:0 7px;line-height:22px}
+.paging-wrap .pageBtn span a {display:inline-block;padding:0 7px;line-height:22px;}
+.paging-wrap .pageBtn span a:hover {font-weight:bold;background-color:#fff}
+.paging-wrap .pageBtn a.prev,
+.paging-wrap .pageBtn a.next {float:left;width:22px;min-width:22px;height:22px;margin:0;border:1px solid #e4e4e4;border-radius:0;-webkit-border-radius:0;text-indent:-9999px}
+.paging-wrap .pageBtn a.prev {margin-right:13px;background:url('//image.findall.co.kr/FAImage/findjob/w/biz/prev_arrow.png') no-repeat center center}
+.paging-wrap .pageBtn a.next {margin-left:13px;background:url('//image.findall.co.kr/FAImage/findjob/w/biz/next_arrow.png') no-repeat center center}
+.paging-wrap .pageBtn a.prev:hover,
+.paging-wrap .pageBtn a.next:hover {background-color:#fff}
+.paging-wrap .pageBtn a.prev img,
+.paging-wrap .pageBtn a.next img {display:none}
+
+.resultKeyword {padding:15px 20px 10px;border-bottom:1px solid #eee;}
+.resultKeyword__box {font-weight:bold;font-size:13px;letter-spacing:-1.2px;}
+.resultKeyword__box::after {content:'';clear:both;display:block;overflow:hidden;}
+.resultKeyword__box + .resultKeyword__box {margin-bottom:5px;}
+.resultKeyword__box dt {float:left;}
+.resultKeyword__box dd {float:left;}
+.resultKeyword__box--selected {color:#006fc9;padding-bottom:2px;}
+.resultKeyword__box--selected dt {width:84px;}
+.resultKeyword__box--selected dd {width:calc(100% - 84px)}
+.resultKeyword__box--selected dd > span {margin-right:15px;font-size:0;display:inline-block;margin-bottom:5px}
+.resultKeyword__box--selected dd .txt {font-size:13px;margin-right:6px;}
+.resultKeyword__box--selected dd .ico--close--borderlight {width:16px;}
+.resultKeyword__box--standby {color:#aaa;}
+
+.btn-wrap {text-align:center;}
+.btn-wrap .btn {width:100px;}
+
+.job_choose dl dd .list .off a {color:#aaa;}
+
+.text_msg {font-size: 13px;line-height: 22px;letter-spacing: -1.5px;color: #ff2020;margin-top:5px;}
+.job_cate_notice {font-size: 12px; line-height: 1.5;margin-top: 10px;}
+.selectJob_wrap {position:relative;}
