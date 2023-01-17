@@ -1,0 +1,10 @@
+1.AD_KIND : 줄/박스 광고 구분
+2.LINEADNO : 광고 통합번호
+3.AREA_A : 서울시
+4.AREA_B : 도봉구
+5.TITLE : 제목
+6.PAYF : 급여조건 (연봉,월급..)
+7.PAY_TO : 최대급여
+8.PAY_FROM : 최소급여
+9.FIELD_6 : 상호명
+10.RECRUIT_END_DT : 모집 마감일

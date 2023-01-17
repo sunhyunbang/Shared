@@ -1,0 +1,12 @@
+https://test.member.findjob.co.kr/common/oauth/sns_member_chk.asp?sns_id=1996940344&sns_type=K&profile=http%3A%2F%2Fk.kakaocdn.net%2Fdn%2F40jU1%2Fbtq26m0F1PP%2FqiCmLjXAgAAxq5CddeI4AK%2Fimg_640x640.jpg&callback=?
+
+
+https://test.member.findjob.co.kr/common/oauth/auth_Kakao.asp?sns_id=1996940344&sns_type=K&profile=http%3A%2F%2Fk.kakaocdn.net%2Fdn%2F40jU1%2Fbtq26m0F1PP%2FqiCmLjXAgAAxq5CddeI4AK%2Fimg_640x640.jpg&returl=test.www.findjob.co.kr&callback=?
+
+https://test.member.findjob.co.kr/common/oauth/auth_Kakao.asp?sns_id=99999999&snstype=K&profile=http%3A%2F%2Fk.kakaocdn.net%2Fdn%2F40jU1%2Fbtq26m0F1PP%2FqiCmLjXAgAAxq5CddeI4AK%2Fimg_640x640.jpg&returl=test.www.findjob.co.kr&username=bangsunhyun&callback=?
+
+
+https://test.member.findjob.co.kr/join/sns/sns.asp?sns_id=77777777&snstype=K&profile=http%3A%2F%2Fk.kakaocdn.net%2Fdn%2F40jU1%2Fbtq26m0F1PP%2FqiCmLjXAgAAxq5CddeI4AK%2Fimg_640x640.jpg&returl=test.www.findjob.co.kr&callback=?
+
+
+https://test.member.findjob.co.kr/common/oauth/auth_Kakao.asp?sns_id=99999999&snstype=K&profile=http%3A%2F%2Fk.kakaocdn.net%2Fdn%2F40jU1%2Fbtq26m0F1PP%2FqiCmLjXAgAAxq5CddeI4AK%2Fimg_640x640.jpg&returl=test.www.findjob.co.kr&username=bangsunhyun&callback=?
