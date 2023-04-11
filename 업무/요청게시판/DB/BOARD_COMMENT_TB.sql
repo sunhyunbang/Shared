@@ -1,0 +1,29 @@
+USE [STATS]
+GO
+
+/****** Object:  Table [dbo].[BOARD_COMMENT_TB]    Script Date: 2023-04-11 ¿ÀÀü 9:56:38 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[BOARD_COMMENT_TB](
+	[IDX] [int] IDENTITY(100000,1) NOT NULL,
+	[B_IDX] [int] NULL,
+	[TITLE] [varchar](max) NULL,
+	[REGDT] [datetime] NULL,
+	[REGID] [varchar](50) NULL,
+	[REGNM] [varchar](50) NULL,
+	[REGIP] [varchar](20) NULL,
+	[DELYN] [char](1) NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[BOARD_COMMENT_TB] ADD  DEFAULT (getdate()) FOR [REGDT]
+GO
+
+ALTER TABLE [dbo].[BOARD_COMMENT_TB] ADD  DEFAULT ('N') FOR [DELYN]
+GO
+
+
