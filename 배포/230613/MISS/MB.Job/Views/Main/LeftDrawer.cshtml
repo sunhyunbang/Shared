@@ -1,0 +1,1923 @@
+﻿@inherits System.Web.Mvc.WebViewPage<dynamic>
+@using MediaWill._Pack;
+@{
+  Layout = null;
+
+  string rUrl = ViewBag.rUrl;
+  string strJobUrl = ViewBag.MobileJobDomain;
+  string strMemberUrl = ViewBag.MobileJobDomain_Member;
+  string strSSLUrl = ViewBag.MobileJobDomain_SSL;
+  string strRtnUrl = strMemberUrl + "/login/logout.asp?TargetPage=http://" + strJobUrl + "/?rUrl=" + strJobUrl + "/&FaHost=" + strJobUrl;
+
+  //업직종별, 지역별 페이지 에서만 사용되는 파라미터
+  string USE_COOKIE_PARAM = "?USE_COOKIE=Y";
+  string SEARCH_AREA_PARAM = string.Empty;
+  string SEARCH_CATE_PARAM = string.Empty;
+
+  string _Host = System.Web.HttpContext.Current.Request.Url.Host;
+  string _AbsolutePath = System.Web.HttpContext.Current.Request.Url.AbsolutePath;
+  string _AbsolutePathToLower = _AbsolutePath.ToLower(); //소문자 변환
+
+  string strMemberSiteLogOutMove = ViewBag.getMemberSiteLogOutMove;
+  string version = ViewBag.version;
+  string match = ViewBag.match;
+  string notice = ViewBag.notice;
+  string CUID = MemberInfo.GetInstance.CUID;
+
+  SEARCH_AREA_PARAM = USE_COOKIE_PARAM + "&SEARCH_LOCATION=AREA";
+  SEARCH_CATE_PARAM = USE_COOKIE_PARAM + "&SEARCH_LOCATION=CATE";
+
+  string mid = ((ViewBag.mid == null) ? "" : ViewBag.mid);
+
+  // 즐겨찾기를 정렬하여 저장
+  // 추가한 순서 : 0, 전체 리스트 순서: 1
+  string bookMartSort = "0";
+
+  // 메뉴 진입 직전 페이지 1뎁스 표시
+  string lastSelect = "1";
+  string preUrl = rUrl.Replace(strJobUrl, "");
+  preUrl = preUrl.Replace("https:///", "");
+  preUrl = preUrl.Replace("http:///", "");
+
+  //ADD GTM 2023.06.01
+  string strGoogleTagID = ViewBag.ServiceType.ToUpper() == "WEB" ? "GTM-PBFMJ9G" : "GTM-WRX4T44";
+  string strCuid = MemberInfo.GetInstance.CUID;
+
+  if (preUrl.Trim() != "")
+  {
+    if (preUrl.IndexOf("/") > 0)
+    {
+      preUrl = preUrl.Substring(0, preUrl.IndexOf("/"));
+    }
+
+    if (preUrl == "Recruit" || preUrl == "Specialist" || preUrl == "Lately")
+    {
+      // 일자리정보
+      lastSelect = "1";
+    }
+    else if (preUrl == "JobGuide")
+    {
+      // 취업가이드
+      lastSelect = "2";
+    }
+    else if (preUrl == "resume" || preUrl == "Resume" || preUrl == "Service")
+    {
+      // 개인회원
+      lastSelect = "4";
+    }
+    else if (preUrl == "Advertiser" || preUrl == "AdRegistNew" || preUrl == "AdManage" || preUrl == "AdApplyList" || preUrl == "Common" || preUrl == "adRegistNew")
+    {
+      // 기업회원
+      lastSelect = "5";
+    }
+    else
+    {
+      // 메인홈에서 진입시 ?mid= 값이 들어옴
+      if (MemberInfo.GetInstance.IsBiz_Job == "Y")
+      {
+        // 기업회원
+        lastSelect = "5";
+      }
+    }
+  }
+  else if (MemberInfo.GetInstance.IsBiz_Job == "Y")
+  {
+    // 기업회원
+    lastSelect = "5";
+  }
+}
+<!DOCTYPE HTML>
+<html lang="ko" class="@(ViewBag.ServiceType) @(ViewBag.DeviceClass)">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="robots" content="INDEX,FOLLOW" />
+    <meta name="classification" content="GENERAL" />
+    <meta name="revisit" content="1 days" />
+    <meta name="distribution" content="GLOBAL" />
+    <meta name="subject" content="#" />
+    <meta name="author" content="#" />
+    <meta name="google-site-verification" content="WeVun0VsM7bcubT3g6DHYvxE69vrcUiEK7W839sMJtQ" />
+    <meta name="Description" content="@(ViewBag.Description)" />
+    <meta name="Keywords" content="@(ViewBag.Keywords)" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>@(@ViewBag.Title)</title>
+
+    <link rel="shortcut icon" href="@(ViewBag.GLB_IMAGE_URL)/M_Paper_Job/common/home_icon_New.png" />
+    <link rel="apple-touch-icon-precomposed" href="@(ViewBag.GLB_IMAGE_URL)/M_Paper_Job/common/home_icon_New.png" />
+
+    <script type="text/javascript" src="/Scripts/ReNew/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="/Scripts/ReNew/common.js?v=@(ViewBag.ScriptEditVer)"></script>
+    <script type="text/javascript" src="/Scripts/Log_banner.js"></script>
+
+    <link href="@Url.Content("~/Styles/ReNew/directory.css?v=1" + ViewBag.CssEditVer)" rel="stylesheet" />
+
+    <!--[if lt IE 9]>
+    <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="https://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    <![endif]-->
+    <!-- Google Analytics -->
+    @if (ViewBag.ServiceType.ToString().ToLower().Equals("app"))
+    {
+        <script src="@Url.Content("~/Scripts/networklog_App.js")" type="text/javascript"></script>
+    }
+    else
+    {
+        <script src="@Url.Content("~/Scripts/networklog.js")" type="text/javascript"></script>
+    }
+    <!-- //Google Analytics -->
+
+    <!-- Google Tag Manager 2023.06.01 -->
+    <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window, document, 'script', 'dataLayer', '@(strGoogleTagID)');
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <script>
+        dataLayer = window.dataLayer || [];
+        dataLayer.push({
+          'user_id': '@(strCuid)',
+          'crm_id': '@(strCuid)',
+        });
+    </script>
+
+    <script type="text/javascript">
+
+      $(document).ready(function () {
+        $("a[search=tag_BookMark]").click(function () {
+          fn_BookMark($(this));
+        });
+        $("button[search=tag_BookMark]").click(function () {
+          fn_BookMark($(this));
+        });
+
+        if ("@(ViewBag.ServiceType)" == "app") {
+          $("#bookmark").val("@(ViewBag.BookMark)");
+        }
+        else {
+          $("#bookmark").val(getCookie("bookmark"));
+        }
+
+        // 다른페이지에서 설정페이지 열도록 처리 20220218
+        if ("@(ViewBag.pLinkType)" != "") {
+          fnActionJob_Target_NewWindow("@(ViewBag.pLinkType)");
+        }
+
+        init_BookMark();
+      });
+
+      // FN_LM_CLOSE_AND_MAIN_REDIRECT : 드로워메뉴 닫으면서 Request경로로 메인 변경 (로그인/로그아웃/회원가입/회원정보수정[sns/일반]/로그인유도-맞춤일자리/로그인유도-스크랩/로그인유도-공고등록/로그인유도-공고관리/비즈니스회원전환/로그인유도-기업정보관리)
+      function fnActionMember_Target_Main(pLinkType) {
+
+        var strFaHost = '@(HttpUtility.UrlEncode(strJobUrl))';
+        var strRetrunUrl = '@(HttpUtility.UrlEncode(rUrl))';
+
+        var strAppStoreConfirm = "@(ViewBag.Job_Version_IOS_appstore_Confirm)";
+        var strPalyStoreConfirm = "@(ViewBag.Job_Version_Adroid_playstore_Confirm)";
+        var strtStoreConfirm = "@(ViewBag.Job_Version_Adroid_tstore_Confirm)";
+
+        var strMemberParms = '?TargetPage=' + strRetrunUrl + '&FaHost=' + strFaHost;
+
+        //IOS 10.3 버전 인코딩 문제로 분리 (새로셋팅)
+        var strCallString_Add = '@@TargetPage=@Html.Raw(rUrl)@@FaHost=@Html.Raw(strJobUrl)';
+
+        var strUrl = '';
+        var strSetUrl = '';
+
+        if (pLinkType == 'logout') { // 로그아웃
+          strMemberParms = '?TargetPage=@(HttpUtility.UrlEncode("http://" + strJobUrl + "/" + ViewBag.DefaultParams))&FaHost=' + strFaHost;
+          strCallString_Add = '@@TargetPage=@Html.Raw("http://" + strJobUrl + "/" + ViewBag.DefaultParams)@@FaHost=@Html.Raw(strJobUrl)';
+          strUrl = '@(strMemberUrl)/login/logout.asp';
+        }
+        else if (pLinkType == 'login') { // 로그인
+          ClickLog('MDC_1_1', '@(Request.Url.AbsolutePath.ToLower())');
+          strMemberParms = '?TargetPage=@(HttpUtility.UrlEncode("http://" + strJobUrl + "/" + ViewBag.DefaultParams))&FaHost=' + strFaHost;
+          strCallString_Add = '@@TargetPage=@Html.Raw("http://" + strJobUrl + "/" + ViewBag.DefaultParams)@@FaHost=@Html.Raw(strJobUrl)';
+          strUrl = '@(strMemberUrl)/login/login.asp';
+        }
+        else if (pLinkType == 'join') { // 회원가입
+          ClickLog('MDC_1_2', '@(Request.Url.AbsolutePath.ToLower())');
+          strMemberParms = '?TargetPage=@(HttpUtility.UrlEncode("http://" + strJobUrl + "/" + ViewBag.DefaultParams))&FaHost=' + strFaHost;
+          strCallString_Add = '@@TargetPage=@Html.Raw("http://" + strJobUrl + "/" + ViewBag.DefaultParams)@@FaHost=@Html.Raw(strJobUrl)';
+          strUrl = '@(strMemberUrl)/join/';
+        }
+        else if (pLinkType == 'sns_mod') {
+          strMemberParms = '?TargetPage=@(HttpUtility.UrlEncode("http://" + strJobUrl + "/" + ViewBag.DefaultParams))&FaHost=' + strFaHost;
+          strCallString_Add = '@@TargetPage=@Html.Raw("http://" + strJobUrl + "/" + ViewBag.DefaultParams)@@FaHost=@Html.Raw(strJobUrl)';
+          strUrl = '@(strMemberUrl)/join/sns/sns_modform.asp';
+        }
+        else if (pLinkType == 'memberinfo') { // 회원정보관리
+          var strqueater = $("#hdqueater").val();
+          if (strqueater == 'memberinfo_person')
+          {
+            ClickLog('MDC_4_10', '@(Request.Url.AbsolutePath.ToLower())');
+          }
+          else if (strqueater == 'memberinfo_biz')
+          {
+            ClickLog('MDC_5_9', '@(Request.Url.AbsolutePath.ToLower())');
+          }
+        strMemberParms = '?TargetPage=@(HttpUtility.UrlEncode("http://" + strJobUrl + "/" + ViewBag.DefaultParams))&FaHost=' + strFaHost;
+          strCallString_Add = '@@TargetPage=@Html.Raw("http://" + strJobUrl + "/" + ViewBag.DefaultParams)@@FaHost=@Html.Raw(strJobUrl)';
+          strUrl = '@(strMemberUrl)/join/memberinfo.asp';
+        }
+        else if (pLinkType == 'login_matchlist') {
+          strMemberParms = '';
+          strCallString_Add = '@@TargetPage=@Html.Raw("http://" + strJobUrl + "/Service/MatchLogin" + ViewBag.DefaultParams)@@FaHost=@Html.Raw(strJobUrl)';
+          strUrl = 'http://@(strJobUrl)/Service/MatchLogin';
+        }
+        else if (pLinkType == 'login_scrap') {
+          strMemberParms = '?TargetPage=@(HttpUtility.UrlEncode("http://" + strJobUrl + "/Service/Scrap" + ViewBag.DefaultParams))&FaHost=' + strFaHost;
+          strCallString_Add = '@@TargetPage=@Html.Raw("http://" + strJobUrl + "/Service/Scrap" + ViewBag.DefaultParams)@@FaHost=@Html.Raw(strJobUrl)';
+          strUrl = '@(strMemberUrl)/login/login.asp';
+        }
+        else if (pLinkType == 'login_adreg') {
+          strMemberParms = '?TargetPage=@(HttpUtility.UrlEncode("http://" + strJobUrl + ViewBag.AdRegistLink + ViewBag.AddParams))&FaHost=' + strFaHost;
+          strCallString_Add = '@@TargetPage=@Html.Raw("http://" + strJobUrl + ViewBag.AdRegistLink + ViewBag.AddParams)@@FaHost=@Html.Raw(strJobUrl)';
+          strUrl = '@(strMemberUrl)/login/login.asp';
+        }
+        else if (pLinkType == 'login_ad_manage') {
+          strMemberParms = '?TargetPage=@(HttpUtility.UrlEncode("http://" + strJobUrl + "/AdManage" + ViewBag.DefaultParams))&FaHost=' + strFaHost;
+          strCallString_Add = '@@TargetPage=@Html.Raw("http://" + strJobUrl + "/AdManage" + ViewBag.DefaultParams)@@FaHost=@Html.Raw(strJobUrl)';
+          strUrl = '@(strMemberUrl)/login/login.asp';
+        }
+        else if (pLinkType == 'login_coupon') {
+          strMemberParms = '?TargetPage=@(HttpUtility.UrlEncode("http://" + strJobUrl + "/Common/CouponList" + ViewBag.DefaultParams))&FaHost=' + strFaHost;
+          strCallString_Add = '@@TargetPage=@Html.Raw("http://" + strJobUrl + "/Common/CouponList" + ViewBag.DefaultParams)@@FaHost=@Html.Raw(strJobUrl)';
+          strUrl = '@(strMemberUrl)/login/login.asp';
+        }
+        else if (pLinkType == 'login_mainbiz_chg') {
+          strMemberParms = '?TargetPage=@(HttpUtility.UrlEncode("http://" + strJobUrl + "/Advertiser/Mainbiz_chg" + ViewBag.DefaultParams))&FaHost=' + strFaHost;
+          strCallString_Add = '@@TargetPage=@Html.Raw("http://" + strJobUrl + "/Advertiser/Mainbiz_chg" + ViewBag.DefaultParams)@@FaHost=@Html.Raw(strJobUrl)';
+          strUrl = '@(strMemberUrl)/login/login.asp';
+        }
+        else if (pLinkType == 'biz_change') { // 비즈니스회원전환
+          ClickLog('MDC_4_11', '@(Request.Url.AbsolutePath.ToLower())');
+          if("@(MemberInfo.GetInstance.IsLogin)" == "False")
+          {// 비로그인일때
+            alert("개인회원 서비스입니다. 개인회원으로 로그인해 주세요.");
+            strMemberParms = '?TargetPage=@(HttpUtility.UrlEncode(strMemberUrl + "/change/biz_change_main.asp" + ViewBag.DefaultParams))&FaHost=' + strFaHost;
+            strCallString_Add = '@@TargetPage=@Html.Raw(strMemberUrl + "change/biz_change_main.asp" + ViewBag.DefaultParams)@@FaHost=@Html.Raw(strJobUrl)';
+            strUrl = '@(strMemberUrl)/login/login.asp';
+          }
+          else if("@(MemberInfo.GetInstance.IsBiz_Job)" == "N")
+          {// 개인회원 로그인 일때
+            strUrl = '@(strMemberUrl)/change/biz_change_main.asp';
+          }
+          else
+          {// 기업회원 로그인 일때
+            alert("개인회원 서비스입니다. 개인회원으로 로그인해 주세요.");
+            return;
+          }
+      }
+      else if (pLinkType == 'person') {
+        strMemberParms = '?TargetPage=@(HttpUtility.UrlEncode("http://" + strJobUrl + "/Resume/Home" + ViewBag.DefaultParams))&FaHost=' + strFaHost;
+          strCallString_Add = '@@TargetPage=@Html.Raw("http://" + strJobUrl + "/Resume/Home" + ViewBag.DefaultParams)@@FaHost=@Html.Raw(strJobUrl)';
+          strUrl = '@(strMemberUrl)/login/login.asp';
+        }
+        else if (pLinkType == 'resume') {
+          strMemberParms = '?TargetPage=@(HttpUtility.UrlEncode("http://" + strJobUrl + "/Resume/Resume_List" + ViewBag.DefaultParams))&FaHost=' + strFaHost;
+          strCallString_Add = '@@TargetPage=@Html.Raw("http://" + strJobUrl + "/Resume/Resume_List" + ViewBag.DefaultParams)@@FaHost=@Html.Raw(strJobUrl)';
+          strUrl = '@(strMemberUrl)/login/login.asp';
+        }
+
+  strSetUrl = strUrl + strMemberParms;
+
+        //&amp;의 영향으로 리턴값을 textarea 객체에 담아서 전달
+  var textArea = document.createElement('textarea');
+  textArea.innerHTML = strSetUrl;
+
+  if ('@(ViewBag.ServiceType)' == 'app') {
+          var callString = '@@Action=FN_LM_CLOSE_AND_MAIN_REDIRECT@@Param1=' + textArea.value + '@@Param2=@@Param3=@@rURL=';
+          if ('@(ViewBag.Device)' == 'IOS_APP') {
+
+            //IOS_APP
+            if (strAppStoreConfirm == "Y") {
+              if (pLinkType == 'logout') {
+                callString = '@@Action=FN_LM_CLOSE_AND_MAIN_REDIRECT_LOGOUT@@Param1=' + textArea.value + '@@Param2=@@Param3=@@rURL=';
+              }
+
+              var strIOS_version = "@(ViewBag.OS_Version)";
+              var arrIOS_version = strIOS_version.split(".");
+
+              if (arrIOS_version.length > 0) {
+                if (arrIOS_version[0] != "") {
+                  // ios 8버전 이하에서는 모바일웹구성처럼
+                  if (parseInt(arrIOS_version[0]) <= 8) {
+                    if (getCookie("osversioncheck") != "Y") {
+                      alert("벼룩시장구인구직 앱은 iOS 10에 최적화 되어 있습니다.\nOS를 업데이트 하신 후 이용해 주세요.");
+                      setCookie("osversioncheck", "Y", 1);
+                    }
+                    location.href = textArea.value;
+                    return false;
+                  }
+                }
+              }
+              //IOS 10.3 버전 인코딩 문제로 분리 (새로셋팅)
+              textArea.innerHTML = strUrl;
+              callString = '@@Action=FN_LM_CLOSE_AND_MAIN_REDIRECT@@Param1=' + textArea.value + '@@Param2=@@Param3=@@rURL=' + strCallString_Add;
+              window.location = 'jscall://' + callString;
+            } else {
+              location.href = textArea.value;
+            }
+          }
+          else {
+            //ANDROID_APP
+            if (strPalyStoreConfirm == "Y") {
+              window.android.FN_LM_CLOSE_AND_MAIN_REDIRECT(callString);
+            }
+            else if (strtStoreConfirm == "Y") {
+              window.android.FN_LM_CLOSE_AND_MAIN_REDIRECT(callString);
+            }
+            else {
+              location.href = textArea.value;
+            }
+          }
+        }
+        else {
+          location.href = textArea.value;
+        }
+
+        return false;
+      }
+
+      //이력서 등록/관리 가 같은 Target을 사용하기에 ClickLog 따로따로 사용하기 위해 분기만듬
+      function fnActionJob_Target_Quarter(pLinkType) {
+        $("#hdqueater").val(pLinkType);
+      }
+
+      function fnActionJob_Target_Alarm(pLinkType) {
+        $("#hdqueater").val(pLinkType);
+      }
+
+      function fnActionMember_Target_Logout(pLinkType)
+      {
+        ClickLog(pLinkType, '/');
+        fnActionMember_Target_Main('logout');
+      }
+
+      // FN_LM_CLOSE_AND_MAIN_REDIRECT : 드로워메뉴 닫으면서 Request경로로 메인 변경 (홈이동/공고관리/게재중공고/대기공고/쿠폰/기업정보관리/맞춤일자리/스크랩/구인정보홈/지역별/업직종별/오늘의일자리/역세권/테마관/브랜드관/우리동네일자리/최근본일자리/공지사항[리스트/상세])
+      function fnActionJob_Target_Main(pLinkType, pOtherUrl) {
+        var strAppStoreConfirm = "@(ViewBag.Job_Version_IOS_appstore_Confirm)";
+        var strPalyStoreConfirm = "@(ViewBag.Job_Version_Adroid_playstore_Confirm)";
+        var strtStoreConfirm = "@(ViewBag.Job_Version_Adroid_tstore_Confirm)";
+
+        var strUrl = '';
+        if (pLinkType == 'home') {
+          ClickLog('MDC_1_3', '@(Request.Url.AbsolutePath.ToLower())');
+          strUrl = 'http://@(strJobUrl + "/" + ViewBag.DefaultParams)';
+        }
+          //-- 기업회원 --//
+        else if (pLinkType == 'biz_home') { // 기업 서비스 홈
+          if("@(MemberInfo.GetInstance.IsLogin)" == "True" && "@(MemberInfo.GetInstance.IsBiz_Job)" != "Y")
+          {
+            alert("비즈니스 회원 서비스입니다. 비즈니스회원으로 로그인해 주세요.");
+            return;
+          }
+          ClickLog('MDC_5_1', '@(Request.Url.AbsolutePath.ToLower())');
+          strUrl = 'http://@(strJobUrl + "/Advertiser/MainBiz" + ViewBag.DefaultParams)';
+        }
+        else if (pLinkType == 'adreg') { // 유료 상품안내
+          if("@(MemberInfo.GetInstance.IsLogin)" == "True" && "@(MemberInfo.GetInstance.IsBiz_Job)" != "Y")
+          {
+            alert("비즈니스 회원 서비스입니다. 비즈니스회원으로 로그인해 주세요.");
+            return;
+          }
+          var strqueater = $("#hdqueater").val();
+          if (strqueater == 'adreg_biz')
+          {
+            ClickLog('MDC_5_2', '@(Request.Url.AbsolutePath.ToLower())');
+          }
+          else if (strqueater == 'adreg_app')
+          {
+            ClickLog('MDC_10', '@(Request.Url.AbsolutePath.ToLower())');
+          }
+
+        strUrl = 'http://@(strJobUrl + "/AdRegistNew/AdInfoNew" + ViewBag.DefaultParams)';
+        }
+        else if (pLinkType == 'adregNew') { // 일자리등록
+          if("@(MemberInfo.GetInstance.IsLogin)" == "True" && "@(MemberInfo.GetInstance.IsBiz_Job)" != "Y")
+          {
+            alert("비즈니스 회원 서비스입니다. 비즈니스회원으로 로그인해 주세요.");
+            return;
+          }
+          ClickLog('MDC_5_3', '@(Request.Url.AbsolutePath.ToLower())');
+          strUrl = 'http://@(strJobUrl + ViewBag.AdRegistLinkNew + ViewBag.DefaultParams)';
+        }
+        else if (pLinkType == 'ad_manage') { // 일자리 관리
+          if("@(MemberInfo.GetInstance.IsLogin)" == "True" && "@(MemberInfo.GetInstance.IsBiz_Job)" != "Y")
+          {
+            alert("비즈니스 회원 서비스입니다. 비즈니스회원으로 로그인해 주세요.");
+            return;
+          }
+          ClickLog('MDC_5_4', '@(Request.Url.AbsolutePath.ToLower())');
+          strUrl = 'http://@(strJobUrl + "/AdManage" + ViewBag.DefaultParams)';
+        }
+        else if (pLinkType == 'adapply') { //지원자 관리
+          if("@(MemberInfo.GetInstance.IsLogin)" == "True" && "@(MemberInfo.GetInstance.IsBiz_Job)" != "Y")
+          {
+            alert("비즈니스 회원 서비스입니다. 비즈니스회원으로 로그인해 주세요.");
+            return;
+          }
+          ClickLog('MDC_5_5', '@(Request.Url.AbsolutePath.ToLower())');
+          strUrl = 'http://@(strJobUrl + "/AdManage/AdApplyList" + ViewBag.DefaultParams)';
+        }
+        else if (pLinkType == 'coupon') { // 쿠폰관리
+          if("@(MemberInfo.GetInstance.IsLogin)" == "True" && "@(MemberInfo.GetInstance.IsBiz_Job)" != "Y")
+          {
+            alert("비즈니스 회원 서비스입니다. 비즈니스회원으로 로그인해 주세요.");
+            return;
+          }
+          ClickLog('MDC_5_6', '@(Request.Url.AbsolutePath.ToLower())');
+          strUrl = 'http://@(strJobUrl + "/Common/CouponList" + ViewBag.DefaultParams)';
+        }
+        else if (pLinkType == 'fat') { // 정액권 관리
+          if("@(MemberInfo.GetInstance.IsLogin)" == "True" && "@(MemberInfo.GetInstance.IsBiz_Job)" != "Y")
+          {
+            alert("비즈니스 회원 서비스입니다. 비즈니스회원으로 로그인해 주세요.");
+            return;
+          }
+          ClickLog('MDC_5_7', '@(Request.Url.AbsolutePath.ToLower())');
+          strUrl = 'http://@(strJobUrl + "/adRegistNew/FatHaveList" + SEARCH_AREA_PARAM + ViewBag.AddParams)';
+        }
+        else if (pLinkType == 'mainbiz_chg') { // 기업정보 관리
+          if("@(MemberInfo.GetInstance.IsLogin)" == "True" && "@(MemberInfo.GetInstance.IsBiz_Job)" != "Y")
+          {
+            alert("비즈니스 회원 서비스입니다. 비즈니스회원으로 로그인해 주세요.");
+            return;
+          }
+          ClickLog('MDC_5_8', '@(Request.Url.AbsolutePath.ToLower())');
+          strUrl = 'http://@(strJobUrl + "/Advertiser/Mainbiz_chg" + ViewBag.DefaultParams)';
+        }
+          //-- 기업회원 --//
+          //-- 개인회원 --//
+        else if (pLinkType == 'person') { // 개인서비스 홈
+          if("@(MemberInfo.GetInstance.IsLogin)" == "True" && "@(MemberInfo.GetInstance.IsBiz_Job)" == "Y")
+          {
+            alert("일반회원 회원 서비스입니다. 일반회원으로 로그인해 주세요.");
+            return;
+          }
+          ClickLog('MDC_4_1', '@(Request.Url.AbsolutePath.ToLower())');
+          strUrl = 'http://@(strJobUrl + "/Resume/Home" + ViewBag.DefaultParams)';
+        }
+        else if (pLinkType == 'resume') { // 관리
+          if("@(MemberInfo.GetInstance.IsLogin)" == "True" && "@(MemberInfo.GetInstance.IsBiz_Job)" == "Y")
+          {
+            alert("일반회원 회원 서비스입니다. 일반회원으로 로그인해 주세요.");
+            return;
+          }
+          var strqueater = $("#hdqueater").val();
+
+          ClickLog('MDC_4_3', '@(Request.Url.AbsolutePath.ToLower())');
+
+          strUrl = 'http://@(strJobUrl + "/Resume/Resume_List" + ViewBag.DefaultParams)';
+        }
+        else if (pLinkType == 'resume_regist') { // 이력서 등록 2021-11-22 오연정 과장님 요청 등록 메뉴 클릭시 등록 페이지로 이동
+          if("@(MemberInfo.GetInstance.IsLogin)" == "True" && "@(MemberInfo.GetInstance.IsBiz_Job)" == "Y")
+          {
+            alert("일반회원 회원 서비스입니다. 일반회원으로 로그인해 주세요.");
+            return;
+          }
+          var strqueater = $("#hdqueater").val();
+
+          ClickLog('MDC_4_2', '@(Request.Url.AbsolutePath.ToLower())');
+
+          strUrl = 'http://@(strJobUrl + "/Resume/Regist_Start" + ViewBag.DefaultParams)';
+        }
+        else if (pLinkType == 'apply') { // 입사지원 현황
+          if("@(MemberInfo.GetInstance.IsLogin)" == "True" && "@(MemberInfo.GetInstance.IsBiz_Job)" == "Y")
+          {
+            alert("일반회원 회원 서비스입니다. 일반회원으로 로그인해 주세요.");
+            return;
+          }
+          ClickLog('MDC_4_4', '@(Request.Url.AbsolutePath.ToLower())');
+          strUrl = 'http://@(strJobUrl + "/Resume/Apply_List" + ViewBag.DefaultParams)';
+        }
+        else if (pLinkType == 'interview') { // 면접제의 현황
+          if("@(MemberInfo.GetInstance.IsLogin)" == "True" && "@(MemberInfo.GetInstance.IsBiz_Job)" == "Y")
+          {
+            alert("일반회원 회원 서비스입니다. 일반회원으로 로그인해 주세요.");
+            return;
+          }
+          ClickLog('MDC_4_5', '@(Request.Url.AbsolutePath.ToLower())');
+          strUrl = 'http://@(strJobUrl + "/Resume/Interview_List" + ViewBag.DefaultParams)';
+        }
+        else if (pLinkType == 'resume_open') { // 이력서 열람기업
+          if("@(MemberInfo.GetInstance.IsLogin)" == "True" && "@(MemberInfo.GetInstance.IsBiz_Job)" == "Y")
+          {
+            alert("일반회원 회원 서비스입니다. 일반회원으로 로그인해 주세요.");
+            return;
+          }
+          ClickLog('MDC_4_6', '@(Request.Url.AbsolutePath.ToLower())');
+          strUrl = 'http://@(strJobUrl + "/Resume/Resume_OpenCompany" + ViewBag.DefaultParams)';
+        }
+        else if (pLinkType == 'resume_block') { // 이력서 열람제한
+          if("@(MemberInfo.GetInstance.IsLogin)" == "True" && "@(MemberInfo.GetInstance.IsBiz_Job)" == "Y")
+          {
+            alert("일반회원 회원 서비스입니다. 일반회원으로 로그인해 주세요.");
+            return;
+          }
+          ClickLog('MDC_4_7', '@(Request.Url.AbsolutePath.ToLower())');
+          strUrl = 'http://@(strJobUrl + "/Resume/Resume_BlockCompany_List" + ViewBag.DefaultParams)';
+        }
+        else if (pLinkType == 'matchlist') { // 맞춤일자리
+          if("@(MemberInfo.GetInstance.IsLogin)" == "True" && "@(MemberInfo.GetInstance.IsBiz_Job)" == "Y")
+          {
+            alert("일반회원 회원 서비스입니다. 일반회원으로 로그인해 주세요.");
+            return;
+          }
+          ClickLog('MDC_4_8', '@(Request.Url.AbsolutePath.ToLower())');
+          strUrl = 'http://@(strJobUrl + "/Service/MatchList" + ViewBag.DefaultParams)';
+        }
+        else if (pLinkType == 'scrap') { // 스크랩
+          if("@(MemberInfo.GetInstance.IsLogin)" == "True" && "@(MemberInfo.GetInstance.IsBiz_Job)" == "Y")
+          {
+            alert("일반회원 회원 서비스입니다. 일반회원으로 로그인해 주세요.");
+            return;
+          }
+          ClickLog('MDC_4_9', '@(Request.Url.AbsolutePath.ToLower())');
+          strUrl = 'http://@(strJobUrl + "/Service/Scrap" + ViewBag.DefaultParams)';
+        }
+          //-- 개인회원 --//
+          //-- 일자리정보 --//
+        else if (pLinkType == 'recruit_area') { // 지역별
+          ClickLog('MDC_2_1', '@(Request.Url.AbsolutePath.ToLower())');
+          strUrl = 'http://@(strJobUrl + "/ConditionalSearch/Area" + SEARCH_AREA_PARAM + ViewBag.AddParams)';
+        }
+        else if (pLinkType == 'recruit_cate') { // 업직종별
+          ClickLog('MDC_2_2', '@(Request.Url.AbsolutePath.ToLower())');
+          strUrl = 'http://@(strJobUrl + "/ConditionalSearch/Cate" + SEARCH_CATE_PARAM + ViewBag.AddParams )';
+        }
+        else if (pLinkType == 'part_time') { // 파트타임
+          ClickLog('MDC_2_12', '@(Request.Url.AbsolutePath.ToLower())');
+          strUrl = 'http://@(strJobUrl + "/Specialist/Special?SpID=1096")';
+        }
+        else if (pLinkType == 'ourtownjob') { // 우리동네일자리
+          ClickLog('MDC_2_4', '@(Request.Url.AbsolutePath.ToLower())');
+          strUrl = '@(strSSLUrl + "/OurTownJob/MapList" + ViewBag.DefaultParams)';
+        }
+        else if (pLinkType == 'recruit_subway') { // 역세권
+          ClickLog('MDC_2_5', '@(Request.Url.AbsolutePath.ToLower())');
+          strUrl = 'http://@(strJobUrl + "/Recruit/Subway" + ViewBag.DefaultParams)';
+        }
+        else if (pLinkType == 'specialist_home') { // 전문관
+          ClickLog('MDC_2_6', '@(Request.Url.AbsolutePath.ToLower())');
+          strUrl = 'http://@(strJobUrl + "/Specialist/Home" + ViewBag.DefaultParams)';
+        }
+        else if (pLinkType == 'recruit_brank') { // 브랜드 채용관
+          ClickLog('MDC_2_7', '@(Request.Url.AbsolutePath.ToLower())');
+          strUrl = 'http://@(strJobUrl + "/Recruit/Brand" + ViewBag.DefaultParams)';
+        }
+        else if (pLinkType == 'recruit_today') { // 오늘의 일자리
+          ClickLog('MDC_2_8', '@(Request.Url.AbsolutePath.ToLower())');
+          strUrl = 'http://@(strJobUrl + "/Recruit/Today" + ViewBag.DefaultParams)';
+        }
+        else if (pLinkType == 'recommendjobs') { // AI 추천일자리
+          ClickLog('MDC_2_11', '@(Request.Url.AbsolutePath.ToLower())');
+          strUrl = 'http://@(strJobUrl + "/Recruit/RecommendJobs" + ViewBag.DefaultParams)';
+        }
+        else if (pLinkType == 'latelylist') { // 최근 본 일자리
+          ClickLog('MDC_2_10', '@(Request.Url.AbsolutePath.ToLower())');
+          strUrl = 'http://@(strJobUrl + "/Lately/LatelyList" + ViewBag.DefaultParams)';
+        }
+        else if (pLinkType == 'publicgov') { // 공공기관 일자리
+          ClickLog('MDC_2_3', '@(Request.Url.AbsolutePath.ToLower())');
+          strUrl = 'http://@(strJobUrl + "/PublicGov/Index" + ViewBag.DefaultParams)';
+        }
+          //-- 일자리정보 --//
+          //-- 취업가이드 --//
+        else if (pLinkType == 'jobguide') { // 취업가이드 홈
+          ClickLog('MDC_3_1', '@(Request.Url.AbsolutePath.ToLower())');
+          strUrl = 'http://@(strJobUrl + "/JobGuide/" + ViewBag.DefaultParams)';
+        }
+        else if (pLinkType == 'jobguide7') { // 국민내일배움카드
+          ClickLog('MDC_3_2', '@(Request.Url.AbsolutePath.ToLower())');
+          strUrl = 'http://@(strJobUrl + "/JobGuide/Info/?GCODE=7" + ViewBag.AddParams)';
+        }
+        else if (pLinkType == 'jobguide8') { // 실업급여
+          ClickLog('MDC_3_3', '@(Request.Url.AbsolutePath.ToLower())');
+          strUrl = 'http://@(strJobUrl + "/JobGuide/Info/?GCODE=8" + ViewBag.AddParams)';
+        }
+        else if (pLinkType == 'jobguide9') { // 취업성공패키지
+          ClickLog('MDC_3_4', '@(Request.Url.AbsolutePath.ToLower())');
+          strUrl = 'http://@(strJobUrl + "/JobGuide/Info/?GCODE=9" + ViewBag.AddParams)';
+        }
+        else if (pLinkType == 'jobguide2') { // 중장년 교육정보
+          ClickLog('MDC_3_5', '@(Request.Url.AbsolutePath.ToLower())');
+          strUrl = 'http://@(strJobUrl + "/JobGuide/List/?GCODE=2" + ViewBag.AddParams)';
+        }
+        else if (pLinkType == 'jobguide3') { // 채용행사
+          ClickLog('MDC_3_6', '@(Request.Url.AbsolutePath.ToLower())');
+          strUrl = 'http://@(strJobUrl + "/JobGuide/List/?GCODE=3" + ViewBag.AddParams)';
+        }
+        else if (pLinkType == 'jobguide4') { // 추천직업
+          ClickLog('MDC_3_7', '@(Request.Url.AbsolutePath.ToLower())');
+          strUrl = 'http://@(strJobUrl + "/JobGuide/List/?GCODE=4" + ViewBag.AddParams)';
+        }
+        else if (pLinkType == 'jobguide12') { // 취업뉴스
+          ClickLog('MDC_3_8', '@(Request.Url.AbsolutePath.ToLower())');
+          strUrl = 'http://@(strJobUrl + "/JobGuide/JobNews/?GCODE=12" + ViewBag.AddParams)';
+        }
+        else if (pLinkType == 'jobguide6') { // 취업생활정보
+          ClickLog('MDC_3_9', '@(Request.Url.AbsolutePath.ToLower())');
+          strUrl = 'http://@(strJobUrl + "/JobGuide/Life/?GCODE=6" + ViewBag.AddParams)';
+        }
+        else if (pLinkType == 'jobguide10') { // 출산·육아지원 제도
+          ClickLog('MDC_3_12', '@(Request.Url.AbsolutePath.ToLower())');
+          strUrl = 'http://@(strJobUrl + "/JobGuide/Info/?GCODE=10" + ViewBag.AddParams)';
+        }
+        else if (pLinkType == 'jobguide13') { // 취업동영상
+          ClickLog('MDC_3_10', '@(Request.Url.AbsolutePath.ToLower())');
+          strUrl = 'http://@(strJobUrl + "/JobGuide/JobVideo/?GCODE=13" + ViewBag.AddParams)';
+        }
+        else if (pLinkType == 'jobguide14') { // 함께 웃어요 캠페인
+          strUrl = 'http://www.findjob.co.kr/event/2016/1019/job_campaign.asp';
+        }
+        else if (pLinkType == 'jobguide15') { // 허위공고 주의 캠페인
+          strUrl = 'http://www.findjob.co.kr/event/2016/1019/job_falseAd.asp';
+        }
+        else if (pLinkType == 'jobguide16') { // 임금체불사업주 명단
+          strUrl = 'http://www.findjob.co.kr/event/2016/1019/job_blacklist.asp';
+        }
+        else if (pLinkType == 'keywordsearch') { //키워드사움
+          ClickLog('MDC_8_1', '@(Request.Url.AbsolutePath.ToLower())');
+          strUrl = 'http://@(strJobUrl + "/AdManage/Adkeyword" + ViewBag.DefaultParams)';
+        }
+        else if (pLinkType == 'jobguide11') { // 근로/노동 법령 사례
+          ClickLog('MDC_3_11', '@(Request.Url.AbsolutePath.ToLower())');
+          strUrl = 'http://@(strJobUrl + "/JobGuide/Regal/?GCODE=11" + ViewBag.AddParams)';
+        }
+          //-- 취업가이드 --//
+          //-- 고객센터 --//
+        else if (pLinkType == 'notice') { // 공지사항
+          ClickLog('MDC_6_1', '@(Request.Url.AbsolutePath.ToLower())');
+          strUrl = 'http://@(strJobUrl + "/Notice/NoticeList?Page=1&PageSize=1" + ViewBag.AddParams)';
+        }
+        else if (pLinkType == 'appdown') { // 앱 다운로드
+          ClickLog('MDC_6_3', '@(Request.Url.AbsolutePath.ToLower())');
+          strUrl = 'http://@(strJobUrl + "/Main/AppDown")';
+        }
+          //-- 고객센터 --//
+          //-- 메뉴에 없음 --//
+        else if (pLinkType == 'ad_manage_ing') {
+          strUrl = 'http://@(strJobUrl + "/AdManage?PublishKind=1" + ViewBag.AddParams)';
+        }
+        else if (pLinkType == 'ad_manage_wait') {
+          strUrl = 'http://@(strJobUrl + "/AdManage?PublishKind=2" + ViewBag.AddParams)';
+        }
+        else if (pLinkType == 'recruit_home') {
+          strUrl = 'http://@(strJobUrl + "/Recruit/Home" + ViewBag.DefaultParams)';
+        }
+        else if (pLinkType == 'theme_home') {
+          strUrl = 'http://@(strJobUrl + "/Theme/Home" + ViewBag.DefaultParams)';
+        }
+        else if (pLinkType == 'today_fortune') {
+          ga('send', 'event', 'button', 'Click', 'nav_fortune');
+          strUrl = 'http://@(ViewBag.DevelopmentSubDomain)m.event.findall.co.kr/fortuneservice/?section=4@(Html.Raw(ViewBag.AddParams))&osversion=@(ViewBag.OS_Version)&version=@(ViewBag.App_Version)';
+        }
+        else if (pLinkType == 'notice_list') {
+          strUrl = 'http://@(strJobUrl + "/Notice/NoticeList?Page=1&PageSize=1" + ViewBag.AddParams)';
+        }
+        else if (pLinkType == 'notice_detail') {
+          strUrl = pOtherUrl;
+        }
+        else if (pLinkType == 'recruit_job_info') {
+          strUrl = 'http://@(strJobUrl + "/ConditionalSearch/Area" + SEARCH_AREA_PARAM + ViewBag.AddParams)';
+        }
+        else if (pLinkType == 'alarmlist') { // 알람
+          strUrl = 'http://@(strJobUrl + "/Alarm/AlarmList" + ViewBag.DefaultParams)';
+        }
+          //-- 메뉴에 없음 --//
+        else {
+          if (pOtherUrl != "") {
+            strUrl = pOtherUrl;
+          }
+          else {
+            strUrl = "#";
+          }
+        }
+
+        //&amp;의 영향으로 리턴값을 textarea 객체에 담아서 전달
+  var textArea = document.createElement('textarea');
+  textArea.innerHTML = strUrl;
+
+  if ('@(ViewBag.ServiceType)' == 'app') {
+          var callString = '@@Action=FN_LM_CLOSE_AND_MAIN_REDIRECT@@Param1=' + textArea.value + '@@Param2=@@Param3=@@rURL=';
+          if ('@(ViewBag.Device)' == 'IOS_APP') {
+            //IOS_APP
+            if (strAppStoreConfirm == "Y") {
+              var strIOS_version = "@(ViewBag.OS_Version)";
+              var arrIOS_version = strIOS_version.split(".");
+              if (arrIOS_version.length > 0) {
+                if (arrIOS_version[0] != "") {
+                  // ios 8버전 이하에서는 모바일웹구성처럼
+                  if (parseInt(arrIOS_version[0]) <= 8) {
+                    if (getCookie("osversioncheck") != "Y") {
+                      alert("벼룩시장구인구직 앱은 iOS 10에 최적화 되어 있습니다.\nOS를 업데이트 하신 후 이용해 주세요.");
+                      setCookie("osversioncheck", "Y", 1);
+                    }
+                    location.href = textArea.value;
+                    return false;
+                  }
+                }
+              }
+              window.location = 'jscall://' + callString;
+            } else {
+              location.href = textArea.value;
+            }
+          }
+          else {
+            //ANDROID_APP
+            if (strPalyStoreConfirm == "Y") {
+              window.android.FN_LM_CLOSE_AND_MAIN_REDIRECT(callString);
+            }
+            else if (strtStoreConfirm == "Y") {
+              window.android.FN_LM_CLOSE_AND_MAIN_REDIRECT(callString);
+            }
+            else {
+              location.href = textArea.value;
+            }
+          }
+        }
+        else {
+          location.href = textArea.value;
+        }
+
+        return false;
+      }
+
+      // FN_LM_BLANK_REDIRECT : 드로워메뉴 유지하면서 Request경로로 새웹창 (배너)
+      function fnActionJob_Target_Blank(pLinkType, pOtherUrl) {
+        ClickLog('MDC_6_2', '@(Request.Url.AbsolutePath.ToLower())');
+        var strAppStoreConfirm = "@(ViewBag.Job_Version_IOS_appstore_Confirm)";
+        var strPalyStoreConfirm = "@(ViewBag.Job_Version_Adroid_playstore_Confirm)";
+        var strtStoreConfirm = "@(ViewBag.Job_Version_Adroid_tstore_Confirm)";
+
+        var strUrl = '';
+        if (pLinkType == 'banner' || pLinkType == 'simple_ad') {
+          strUrl = pOtherUrl;
+        }
+
+        //&amp;의 영향으로 리턴값을 textarea 객체에 담아서 전달
+        var textArea = document.createElement('textarea');
+        textArea.innerHTML = strUrl;
+
+        if ('@(ViewBag.ServiceType)' == 'app') {
+          var callString = '@@Action=FN_LM_BLANK_REDIRECT@@Param1=' + textArea.value + '@@Param2=@@Param3=@@rURL=';
+          if ('@(ViewBag.Device)' == 'IOS_APP') {
+            //IOS_APP
+            if (strAppStoreConfirm == "Y") {
+              var strIOS_version = "@(ViewBag.OS_Version)";
+              var arrIOS_version = strIOS_version.split(".");
+              if (arrIOS_version.length > 0) {
+                if (arrIOS_version[0] != "") {
+                  // ios 8버전 이하에서는 모바일웹구성처럼
+                  if (parseInt(arrIOS_version[0]) <= 8) {
+                    if (getCookie("osversioncheck") != "Y") {
+                      alert("벼룩시장구인구직 앱은 iOS 10에 최적화 되어 있습니다.\nOS를 업데이트 하신 후 이용해 주세요.");
+                      setCookie("osversioncheck", "Y", 1);
+                    }
+                    var blank = window.open(textArea.value);
+                    return false;
+                  }
+                }
+              }
+              window.location = 'jscall://' + callString;
+            } else {
+              var blank = window.open(textArea.value);
+            }
+          }
+          else {
+            //ANDROID_APP
+            if (strPalyStoreConfirm == "Y") {
+              window.android.FN_LM_BLANK_REDIRECT(callString);
+            }
+            else if (strtStoreConfirm == "Y") {
+              window.android.FN_LM_BLANK_REDIRECT(callString);
+            }
+            else {
+              var blank = window.open(textArea.value);
+            }
+          }
+        }
+        else {
+          //location.href = textArea.value;
+          //setTimeout(function () { window.open(textArea.value); }, 250);
+          var blank = window.open(textArea.value);
+        }
+
+        return false;
+      }
+
+      // FN_LM_NEWWINDOW_REDIRECT : 드로워메뉴 유지하면서 Request경로로 새웹뷰 (앱 설정)
+      function fnActionJob_Target_NewWindow(pLinkType) {
+        ClickLog('MDC_7_1', '@(Request.Url.AbsolutePath.ToLower())');
+        var strAppStoreConfirm = "@(ViewBag.Job_Version_IOS_appstore_Confirm)";
+        var strPalyStoreConfirm = "@(ViewBag.Job_Version_Adroid_playstore_Confirm)";
+        var strtStoreConfirm = "@(ViewBag.Job_Version_Adroid_tstore_Confirm)";
+
+        var strUrl = '';
+        if (pLinkType == 'app_setting') {
+          strUrl = 'http://@(strJobUrl + "/Service/Set" + ViewBag.DefaultParams)';
+        }
+        else if (pLinkType == 'alarmlist') { // 알람
+          strUrl = 'http://@(strJobUrl + "/Alarm/AlarmList" + ViewBag.DefaultParams)';
+        }
+
+        //&amp;의 영향으로 리턴값을 textarea 객체에 담아서 전달
+        var textArea = document.createElement('textarea');
+        textArea.innerHTML = strUrl;
+
+        if ('@(ViewBag.ServiceType)' == 'app') {
+
+          if ('@(ViewBag.Device)' == 'IOS_APP') {
+            //IOS_APP
+            if (strAppStoreConfirm == "Y") {
+              var callString = '@@Action=FN_LM_NEWWINDOW_REDIRECT@@Param1=' + textArea.value + '@@Param2=' + '@(CUID)' + '@@Param3=@@rURL=';
+
+              var strIOS_version = "@(ViewBag.OS_Version)";
+              var arrIOS_version = strIOS_version.split(".");
+              if (arrIOS_version.length > 0) {
+                if (arrIOS_version[0] != "") {
+                  // ios 8버전 이하에서는 모바일웹구성처럼
+                  if (parseInt(arrIOS_version[0]) <= 8) {
+                    if (getCookie("osversioncheck") != "Y") {
+                      alert("벼룩시장구인구직 앱은 iOS 10에 최적화 되어 있습니다.\nOS를 업데이트 하신 후 이용해 주세요.");
+                      setCookie("osversioncheck", "Y", 1);
+                    }
+                    location.href = textArea.value;
+                    return false;
+                  }
+                }
+              }
+              window.location = 'jscall://' + callString;
+            }
+            else {
+              location.href = textArea.value;
+            }
+          }
+          else {
+            //ANDROID_APP
+            if (strPalyStoreConfirm == "Y") {
+              var callString = '@@Action=FN_LM_NEWWINDOW_REDIRECT@@Param1=' + textArea.value + '@@Param2=' + '@(CUID)' + '@@Param3=@@rURL=';
+              window.android.FN_LM_NEWWINDOW_REDIRECT(callString);
+            }
+            else if (strtStoreConfirm == "Y") {
+              var callString = '@@Action=FN_LM_NEWWINDOW_REDIRECT@@Param1=' + textArea.value + '@@Param2=' + '@(CUID)' + '@@Param3=@@rURL=';
+              window.android.FN_LM_NEWWINDOW_REDIRECT(callString);
+            }
+            else {
+              location.href = textArea.value;
+            }
+          }
+        }
+        else {
+          location.href = textArea.value;
+        }
+
+        return false;
+      }
+
+      // FN_LM_TEL : 전화걸기
+      function fnActionJob_Tel(pTelNo) {
+        ClickLog('MDC_6_4', '@(Request.Url.AbsolutePath.ToLower())');
+          var strAppStoreConfirm = "@(ViewBag.Job_Version_IOS_appstore_Confirm)";
+          var strPalyStoreConfirm = "@(ViewBag.Job_Version_Adroid_playstore_Confirm)";
+          var strtStoreConfirm = "@(ViewBag.Job_Version_Adroid_tstore_Confirm)";
+
+          if ('@(ViewBag.ServiceType)' == 'app') {
+            var callString = '@@Action=FN_LM_TEL@@Param1=' + pTelNo + '@@Param2=@@Param3=@@rURL=';
+            if ('@(ViewBag.Device)' == 'IOS_APP') {
+            //IOS_APP
+            if (strAppStoreConfirm == "Y") {
+              var strIOS_version = "@(ViewBag.OS_Version)";
+              var arrIOS_version = strIOS_version.split(".");
+              if (arrIOS_version.length > 0) {
+                if (arrIOS_version[0] != "") {
+                  // ios 8버전 이하에서는 모바일웹구성처럼
+                  if (parseInt(arrIOS_version[0]) <= 8) {
+                    if (getCookie("osversioncheck") != "Y") {
+                      alert("벼룩시장구인구직 앱은 iOS 10에 최적화 되어 있습니다.\nOS를 업데이트 하신 후 이용해 주세요.");
+                      setCookie("osversioncheck", "Y", 1);
+                    }
+                    //location.href = 'tel:' + pTelNo;
+                    return true;
+                  }
+                }
+              }
+              window.location = 'jscall://' + callString;
+            } else {
+              //location.href = 'tel:' + pTelNo;
+              return true;
+            }
+          }
+          else {
+            //ANDROID_APP
+            callString = '@@Action=FN_LM_TEL@@Param1=tel:' + pTelNo + '@@Param2=@@Param3=@@rURL=';
+            if (strPalyStoreConfirm == "Y") {
+              window.android.FN_LM_TEL(callString);
+            }
+            else if (strtStoreConfirm == "Y") {
+              window.android.FN_LM_TEL(callString);
+            }
+            else {
+              //location.href = 'tel:' + pTelNo;
+              return true;
+            }
+          }
+
+          return false;
+        }
+        else {
+          //location.href = 'tel:' + pTelNo;
+          return true;
+        }
+      }
+
+      // FN_LM_CLOSE : 드로워메뉴 닫기 (닫기)
+      function fnActionJob_Close() {
+        ClickLog('MDC_1_4', '@(Request.Url.AbsolutePath.ToLower())');
+        var strAppStoreConfirm = "@(ViewBag.Job_Version_IOS_appstore_Confirm)";
+        var strPalyStoreConfirm = "@(ViewBag.Job_Version_Adroid_playstore_Confirm)";
+        var strtStoreConfirm = "@(ViewBag.Job_Version_Adroid_tstore_Confirm)";
+
+        //&amp;의 영향으로 리턴값을 textarea 객체에 담아서 전달
+        var textArea = document.createElement('textarea');
+        textArea.innerHTML = '@(rUrl)';
+
+        if ('@(ViewBag.ServiceType)' == 'app') {
+          var callString = '@@Action=FN_LM_CLOSE@@Param1=@@Param2=@@Param3=@@rURL=';
+          if ('@(ViewBag.Device)' == 'IOS_APP') {
+            //IOS_APP
+            if (strAppStoreConfirm == "Y") {
+              var strIOS_version = "@(ViewBag.OS_Version)";
+              var arrIOS_version = strIOS_version.split(".");
+              if (arrIOS_version.length > 0) {
+                if (arrIOS_version[0] != "") {
+                  // ios 8버전 이하에서는 모바일웹구성처럼
+                  if (parseInt(arrIOS_version[0]) <= 8) {
+                    if (getCookie("osversioncheck") != "Y") {
+                      alert("벼룩시장구인구직 앱은 iOS 10에 최적화 되어 있습니다.\nOS를 업데이트 하신 후 이용해 주세요.");
+                      setCookie("osversioncheck", "Y", 1);
+                    }
+                    location.href = textArea.value;
+                    return false;
+                  }
+                }
+              }
+              window.location = 'jscall://' + callString;
+            } else {
+              location.href = textArea.value;
+            }
+          }
+          else {
+            //ANDROID_APP
+            if (strPalyStoreConfirm == "Y") {
+              window.android.FN_LM_CLOSE(callString);
+            }
+            else if (strtStoreConfirm == "Y") {
+              window.android.FN_LM_CLOSE(callString);
+            }
+            else {
+              location.href = textArea.value;
+            }
+          }
+        }
+        else {
+          location.href = textArea.value;
+        }
+
+        return false;
+      }
+  </script>
+</head>
+<body>
+    <input type="hidden" name="bookmark" id="bookmark" value="">
+    <input type="hidden" name="hdqueater" id="hdqueater" value="">
+    <section class="directory">
+        <h1 class="hide">디렉토리</h1>
+        <header class="directory__header">
+            <h2 class="hide">디렉토리 헤더</h2>
+            @if (MemberInfo.GetInstance.IsLogin)
+            {
+            <!-- 로그인 후 노출-->
+            <div class="directory__member-info">
+              <p class="directory__user-info">
+                <strong class="directory__info-name">@((MemberInfo.GetInstance.IsBiz_Job == "Y") ? MemberInfo.GetInstance.BizName_Job : MemberInfo.GetInstance.UserName)님</strong>
+              </p>
+            </div>
+            <!-- //로그인 후 노출-->
+            }
+            else
+            {
+            <!-- 비로그인 노출-->
+            <div class="directory__nonmember-menu">
+              <a href="#" onclick="return fnActionMember_Target_Main('login');" class="directory__nonmember-menu-btn directory__nonmember-menu-btn--login">로그인</a>
+              <a href="#" onclick="return fnActionMember_Target_Main('join');" class="directory__nonmember-menu-btn directory__nonmember-menu-btn--join">회원가입</a>
+            </div>
+            <!-- //비로그인 전 노출-->
+            }
+            <div class="directory__header-btn-area">
+              <a href="#" onclick="fnActionJob_Target_Alarm('alarmlist'); return fnActionJob_Target_Main('alarmlist', '');" class="directory__header-btn directory__header-btn--alarm">
+                <span class="hide">알림</span>
+                <em class="alarm-num">@(ViewBag.AlarmReadCount)</em>
+              </a>              
+              <a href="#" onclick="return fnActionJob_Target_Main('home', '');" class="directory__header-btn directory__header-btn--job"><span class="hide">홈으로 이동</span></a>
+              <a href="#" onclick="return fnActionJob_Close();" class="directory__header-btn directory__header-btn--close"><span class="hide">메뉴 닫기</span></a>
+            </div>
+        </header>
+        <article class="directory__bookmark">
+          <h2 class="directory__bookmark-tit">
+            즐겨찾기
+            <div class="directory__bookmark-util">
+              <button type="button" class="btn-edit" onclick="ClickLog('MDC_1_5', '@(Request.Url.AbsolutePath.ToLower())');menuMode('edit');"><i class="ic ic--menuEdit" ></i>메뉴편집</button>
+              <div class="editbtn-wrap">
+                <button type="button" onclick="ClickLog('MDC_1_6', '@(Request.Url.AbsolutePath.ToLower())');bookmarkReset();"><i class="ic ic--reset"></i>초기화</button>
+                <button type="button" onclick="ClickLog('MDC_1_7', '@(Request.Url.AbsolutePath.ToLower())');menuMode('view');">닫기</button>
+              </div>
+            </div>
+          </h2>
+          <!-- 메인 즐겨찾기 -->
+          <ul class="bookmark__list bookmark__listView" id="bookmark__listView"></ul>
+          <!-- 편집 즐겨찾기 -->
+          <ul class="bookmark__list bookmark__listEdit" id="bookmark__listEdit"></ul>
+        </article>
+        <!--즐겨찾기 팝업-->
+        <div class="layerP layerP_mark">
+          <h3 class="layerP__tit">전체서비스 <button type="button" class="layerP__close" onclick="ClickLog('MDC_1_53', '/'); LayerCont('close','layerP_mark')">닫기</button></h3>
+          <!--개인회원-->
+          @if (!MemberInfo.GetInstance.IsLogin || MemberInfo.GetInstance.IsBiz_Job != "Y")
+          {
+            <dl class="markBox">
+              <dt class="markBox__tit">개인회원</dt>
+              <dd class="markBox__con">
+                <a href="javascript:void(0)" class="mark" name="icm--individual" search="tag_BookMark" flag="person" no="01" onclick="ClickLog('MDC_1_30', '/');"><i class="icm icm--individual"></i>개인서비스홈</a>
+                <a href="javascript:void(0)" class="mark" name="icm--resumeR"    search="tag_BookMark" flag="person" no="02" onclick="ClickLog('MDC_1_31', '/');"><i class="icm icm--resumeR"></i>이력서등록</a>
+                <a href="javascript:void(0)" class="mark" name="icm--resumeM"    search="tag_BookMark" flag="person" no="03" onclick="ClickLog('MDC_1_32', '/');"><i class="icm icm--resumeM"></i>이력서관리</a>
+                <a href="javascript:void(0)" class="mark" name="icm--apply"      search="tag_BookMark" flag="person" no="04" onclick="ClickLog('MDC_1_33', '/');"><i class="icm icm--apply"></i>입사지원현황</a>
+                <a href="javascript:void(0)" class="mark" name="icm--interview"  search="tag_BookMark" flag="person" no="05" onclick="ClickLog('MDC_1_34', '/');"><i class="icm icm--interview"></i>면접제의현황</a>
+                <a href="javascript:void(0)" class="mark" name="icm--resumeC"    search="tag_BookMark" flag="person" no="06" onclick="ClickLog('MDC_1_35', '/');"><i class="icm icm--resumeC"></i>이력서열람기업</a>
+                <a href="javascript:void(0)" class="mark" name="icm--resumeV"    search="tag_BookMark" flag="person" no="07" onclick="ClickLog('MDC_1_36', '/');"><i class="icm icm--resumeV"></i>이력서열람제한</a>
+                <a href="javascript:void(0)" class="mark" name="icm--customJ"    search="tag_BookMark" flag="person" no="08" onclick="ClickLog('MDC_1_37', '/');"><i class="icm icm--customJ"></i>맞춤일자리</a>
+                <a href="javascript:void(0)" class="mark" name="icm--scrap"      search="tag_BookMark" flag="person" no="09" onclick="ClickLog('MDC_1_38', '/');"><i class="icm icm--scrap"></i>스크랩</a>
+                <a href="javascript:void(0)" class="mark" name="icm--infoM"      search="tag_BookMark" flag="person" no="19" onclick="ClickLog('MDC_1_39', '/');"><i class="icm icm--infoM"></i>회원정보관리</a>
+                <a href="javascript:void(0)" class="mark" name="icm--chBiz"      search="tag_BookMark" flag="person" no="10" onclick="ClickLog('MDC_1_40', '/');"><i class="icm icm--chBiz"></i>비즈니스회원전환</a>
+              </dd>
+            </dl><!--//개인회원-->
+          }
+
+          @if (!MemberInfo.GetInstance.IsLogin || MemberInfo.GetInstance.IsBiz_Job == "Y")
+          { <!--기업회원-->
+            <dl class="markBox">
+              <dt class="markBox__tit">기업회원</dt>
+              <dd class="markBox__con">
+                <a href="javascript:void(0)" class="mark" name="icm--biz"       search="tag_BookMark" flag="biz" no="11" onclick="ClickLog('MDC_1_41', '/');"><i class="icm icm--biz"></i>기업서비스홈</a>
+                <a href="javascript:void(0)" class="mark" name="icm--goods"     search="tag_BookMark" flag="biz" no="12" onclick="ClickLog('MDC_1_42', '/');"><i class="icm icm--goods"></i>유료상품안내</a>
+                <a href="javascript:void(0)" class="mark" name="icm--jobregist" search="tag_BookMark" flag="biz" no="13" onclick="ClickLog('MDC_1_43', '/');"><i class="icm icm--jobregist"></i>일자리등록</a>
+                <a href="javascript:void(0)" class="mark" name="icm--jobM"      search="tag_BookMark" flag="biz" no="14" onclick="ClickLog('MDC_1_44', '/');"><i class="icm icm--jobM"></i>일자리관리</a>
+                <a href="javascript:void(0)" class="mark" name="icm--jobK"      search="tag_BookMark" flag="biz" no="20" onclick="ClickLog('MDC_1_54', '/');"><i class="icm icm--jobK"></i>키워드검색광고관리</a>  
+                <a href="javascript:void(0)" class="mark" name="icm--applicant" search="tag_BookMark" flag="biz" no="15" onclick="ClickLog('MDC_1_45', '/');"><i class="icm icm--applicant"></i>지원자관리</a>
+                <a href="javascript:void(0)" class="mark" name="icm--coupon"    search="tag_BookMark" flag="biz" no="16" onclick="ClickLog('MDC_1_46', '/');"><i class="icm icm--coupon"></i>쿠폰관리</a>
+                <a href="javascript:void(0)" class="mark" name="icm--ticket"    search="tag_BookMark" flag="biz" no="17" onclick="ClickLog('MDC_1_47', '/');"><i class="icm icm--ticket"></i>정액권관리</a>
+                <a href="javascript:void(0)" class="mark" name="icm--compnay"   search="tag_BookMark" flag="biz" no="18" onclick="ClickLog('MDC_1_48', '/');"><i class="icm icm--compnay"></i>기업정보관리</a>
+                <a href="javascript:void(0)" class="mark" name="icm--infoM"     search="tag_BookMark" flag="biz" no="19" onclick="ClickLog('MDC_1_49', '/');"><i class="icm icm--infoM"></i>회원정보관리</a>
+              </dd>
+            </dl>
+          }
+          <!--//기업회원-->
+          <!--일자리정보-->
+          <dl class="markBox">
+            <dt class="markBox__tit">일자리정보</dt>
+            <dd class="markBox__con">
+              <a href="javascript:void(0)" class="mark" name="icm--recom" search="tag_BookMark" no="27" onclick="ClickLog('MDC_1_55', '/');"><i class="icm icm--recom"></i>AI 추천일자리</a>
+              <a href="javascript:void(0)" class="mark" name="icm--region"  search="tag_BookMark" no="20" onclick="ClickLog('MDC_1_9', '/');"><i class="icm icm--region"></i>지역별</a>
+              <a href="javascript:void(0)" class="mark" name="icm--jobtype" search="tag_BookMark" no="21" onclick="ClickLog('MDC_1_10', '/');"><i class="icm icm--jobtype"></i>업직종별</a>
+              <!-- 0113 알바 파트타임 메뉴 추가 -->
+              <a href="javascript:void(0)" class="mark" name="icm--partjob" search="tag_BookMark" no="45" onclick="ClickLog('MDC_2_12', '/');"><i class="icm icm--none"></i>알바관</a>
+              <a href="javascript:void(0)" class="mark" name="icm--townjob" search="tag_BookMark" no="22" onclick="ClickLog('MDC_1_12', '/');"><i class="icm icm--townjob"></i>우리동네일자리</a>
+              <a href="javascript:void(0)" class="mark" name="icm--staion"  search="tag_BookMark" no="23" onclick="ClickLog('MDC_1_13', '/');"><i class="icm icm--staion"></i>역세권</a>
+              <a href="javascript:void(0)" class="mark" name="icm--special" search="tag_BookMark" no="24" onclick="ClickLog('MDC_1_14', '/');"><i class="icm icm--special"></i>전문관</a>
+              <a href="javascript:void(0)" class="mark" name="icm--brand"   search="tag_BookMark" no="25" onclick="ClickLog('MDC_1_15', '/');"><i class="icm icm--brand"></i>브랜드관</a>
+              <!-- FJ002-1056 업데이트 -->
+              <a href="javascript:void(0)" class="mark" name="icm--public"   search="tag_BookMark" no="44" onclick="ClickLog('MDC_1_11', '/');"><i class="icm icm--public"></i>공공기관일자리</a>
+              <a href="javascript:void(0)" class="mark" name="icm--today"   search="tag_BookMark" no="26" onclick="ClickLog('MDC_1_16', '/');"><i class="icm icm--today"></i>오늘의일자리</a>              
+              <a href="javascript:void(0)" class="mark" name="icm--lately"  search="tag_BookMark" no="28" onclick="ClickLog('MDC_1_18', '/');"><i class="icm icm--lately"></i>최근본일자리</a>
+            </dd>
+          </dl>
+          <!--//일자리정보-->
+          <!--취업가이드--> 
+          <dl class="markBox">
+            <dt class="markBox__tit">취업가이드</dt>
+            <dd class="markBox__con">
+              <a href="javascript:void(0)" class="mark" name="icm--guide"        search="tag_BookMark" no="29" onclick="ClickLog('MDC_1_19', '/');"><i class="icm icm--guide"></i>취업가이드 홈</a>
+              <a href="javascript:void(0)" class="mark" name="icm--learningcard" search="tag_BookMark" no="30" onclick="ClickLog('MDC_1_20', '/');"><i class="icm icm--learningcard"></i>국민내일배움카드</a>
+              <a href="javascript:void(0)" class="mark" name="icm--unemployment" search="tag_BookMark" no="31" onclick="ClickLog('MDC_1_21', '/');"><i class="icm icm--unemployment"></i>실업급여</a>
+              <a href="javascript:void(0)" class="mark" name="icm--success"      search="tag_BookMark" no="32" onclick="ClickLog('MDC_1_22', '/');"><i class="icm icm--success"></i>국민취업지원제도</a>
+              <a href="javascript:void(0)" class="mark" name="icm--edu"          search="tag_BookMark" no="33" onclick="ClickLog('MDC_1_23', '/');"><i class="icm icm--edu"></i>교육정보</a>
+              <a href="javascript:void(0)" class="mark" name="icm--festival"     search="tag_BookMark" no="34" onclick="ClickLog('MDC_1_24', '/');"><i class="icm icm--festival"></i>채용행사</a>
+              <a href="javascript:void(0)" class="mark" name="icm--recommendjob" search="tag_BookMark" no="35" onclick="ClickLog('MDC_1_25', '/');"><i class="icm icm--recommendjob"></i>추천직업</a>
+              <a href="javascript:void(0)" class="mark" name="icm--jobnews"      search="tag_BookMark" no="36" onclick="ClickLog('MDC_1_26', '/');"><i class="icm icm--jobnews"></i>취업뉴스</a>
+              <a href="javascript:void(0)" class="mark" name="icm--lifeInfo"     search="tag_BookMark" no="37" onclick="ClickLog('MDC_1_27', '/');"><i class="icm icm--lifeInfo"></i>취업생활정보</a>
+              <a href="javascript:void(0)" class="mark" name="icm--jobvideo"     search="tag_BookMark" no="38" onclick="ClickLog('MDC_1_28', '/');"><i class="icm icm--jobvideo"></i>취업동영상</a>
+              <a href="javascript:void(0)" class="mark" name="icm--joblaw"       search="tag_BookMark" no="39" onclick="ClickLog('MDC_1_29', '/');"><i class="icm icm--joblaw"></i>근로/노동법령사례</a>
+              @*클래스확인필요*@
+              <a href="javascript:void(0)" class="mark" name="icm--birthsupport" search="tag_BookMark" no="40" onclick="ClickLog('MDC_1_56', '/');"><i class="icm icm--birthsupport"></i>출산·육아지원 제도</a>
+            </dd>
+          </dl>
+          <!--//취업가이드-->
+          <!--고객센터-->
+          <dl class="markBox">
+            <dt class="markBox__tit">고객센터</dt>
+            <dd class="markBox__con">
+              <a href="javascript:void(0)" class="mark" name="icm--notice" search="tag_BookMark" no="40" onclick="ClickLog('MDC_1_50', '/');"><i class="icm icm--notice"></i>공지사항</a>
+              <!--<a href="javascript:void(0)" class="mark" name="icm--center" search="tag_BookMark" no="41"><i class="icm icm--center"></i>고객센터</a>-->
+              <a href="javascript:void(0)" class="mark" name="icm--hepler" search="tag_BookMark" no="42" onclick="ClickLog('MDC_1_51', '/');"><i class="icm icm--hepler"></i>등록도우미</a>
+              @if (ViewBag.ServiceType != "app")
+              {
+                  <a href="javascript:void(0)" class="mark" name="icm--app" search="tag_BookMark" no="43" onclick="ClickLog('MDC_1_52', '/');"><i class="icm icm--app"></i>앱 다운로드</a>
+              }
+            </dd>
+          </dl>
+          <!--//고객센터-->
+        </div>
+        <!--//즐겨찾기 팝업-->
+        <article class="menuBox">
+          <div class="tab">
+            @if (!MemberInfo.GetInstance.IsLogin || MemberInfo.GetInstance.IsBiz_Job != "Y")
+            {
+              <a class="tab-btn" href="javascript:void(0)" lastSelect="1">일자리정보</a>
+              <a class="tab-btn" href="javascript:void(0)" lastSelect="2">취업가이드</a>
+              <a class="tab-btn" href="javascript:void(0)" lastSelect="4">개인회원</a>
+              <a class="tab-btn" href="javascript:void(0)" lastSelect="3">고객센터</a>
+              //if (ViewBag.ServiceType == "app")
+              //{
+              //<a href="javascript:void(0)" id="app_Setting">앱 설정</a>
+              <a href="javascript:void(0)" onclick="return fnActionJob_Target_NewWindow('app_setting');" class="btn--appSetting">설정</a>
+              //}
+            }
+            else
+            {
+              <a class="tab-btn" href="javascript:void(0)" lastSelect="5">기업회원</a>
+              <a class="tab-btn" href="javascript:void(0)" lastSelect="1">일자리정보</a>
+              <a class="tab-btn" href="javascript:void(0)" lastSelect="2">취업가이드</a>
+              <a class="tab-btn" href="javascript:void(0)" lastSelect="3">고객센터</a>
+              if (ViewBag.ServiceType == "app")
+              {
+              <a href="javascript:void(0)" onclick="return fnActionJob_Target_NewWindow('app_setting');" class="btn--appSetting">설정</a>
+              }
+              <button href="" onclick="fnActionJob_Target_Quarter('adreg_app'); return fnActionJob_Target_Main('adreg', '');" class="btn--regist">일자리등록</button>
+            }
+            @if (!MemberInfo.GetInstance.IsLogin)
+            {
+            <button href="#" onclick="fnActionJob_Target_Quarter('adreg_app'); return fnActionJob_Target_Main('adreg', '');" class="btn--regist">일자리등록</button>
+            }
+          </div>
+          @if (MemberInfo.GetInstance.IsBiz_Job == "Y")
+          {
+          <!--기업회원-->
+          <div class="tabCon">
+            <div class="nav-items">
+              <a href="#" onclick="return fnActionJob_Target_Main('biz_home', '');">기업서비스 홈</a>
+              <button type="button" class="bookmark" name="icm--biz" search="tag_BookMark" flag="biz" onclick="ClickLog('MDC_5_1_1', '@(Request.Url.AbsolutePath.ToLower())');">즐겨찾기</button>
+            </div>
+            @if (!ViewBag.Device.Equals("IOS_APP"))
+            {
+              <div class="nav-items">
+                <a href="#" onclick="fnActionJob_Target_Quarter('adreg_biz'); return fnActionJob_Target_Main('adreg', '');">유료 상품안내</a>
+                <button type="button" class="bookmark" name="icm--goods" search="tag_BookMark" flag="biz" onclick="ClickLog('MDC_5_2_1', '@(Request.Url.AbsolutePath.ToLower())');">즐겨찾기</button>
+              </div>
+            }
+            <div class="nav-items">
+              <a href="#" onclick="return fnActionJob_Target_Main('adregNew', '');">일자리등록</a>
+              <button type="button" class="bookmark" name="icm--jobregist" search="tag_BookMark" flag="biz" onclick="ClickLog('MDC_5_3_1', '@(Request.Url.AbsolutePath.ToLower())');">즐겨찾기</button>
+            </div>
+            <div class="nav-items">
+              <a href="#" onclick="return fnActionJob_Target_Main('ad_manage', '');">일자리 관리</a>
+              <button type="button" class="bookmark" name="icm--jobM" search="tag_BookMark" flag="biz" onclick="ClickLog('MDC_5_4_1', '@(Request.Url.AbsolutePath.ToLower())');">즐겨찾기</button>
+            </div>
+            <div class="nav-items">
+              <a href="#" onclick="return fnActionJob_Target_Main('keywordsearch', '');">키워드 검색광고 관리</a>
+              <button type="button" class="bookmark" name="icm--jobK" search="tag_BookMark" flag="biz" onclick="ClickLog('MDC_8_1_1', '@(Request.Url.AbsolutePath.ToLower())');">즐겨찾기</button>
+            </div>
+            <div class="nav-items">
+              <a href="#" onclick="return fnActionJob_Target_Main('adapply', '');">지원자 관리</a>
+              <button type="button" class="bookmark" name="icm--applicant" search="tag_BookMark" flag="biz" onclick="ClickLog('MDC_5_5_1', '@(Request.Url.AbsolutePath.ToLower())');">즐겨찾기</button>
+            </div>
+            <div class="nav-items">
+              <a href="#" onclick="return fnActionJob_Target_Main('coupon', '');">쿠폰관리</a>
+              <button type="button" class="bookmark" name="icm--coupon" search="tag_BookMark" flag="biz" onclick="ClickLog('MDC_5_6_1', '@(Request.Url.AbsolutePath.ToLower())');">즐겨찾기</button>
+            </div>
+            <div class="nav-items">
+              <a href="#" onclick="return fnActionJob_Target_Main('fat', '');">정액권 관리</a>
+              <button type="button" class="bookmark" name="icm--ticket" search="tag_BookMark" flag="biz" onclick="ClickLog('MDC_5_7_1', '@(Request.Url.AbsolutePath.ToLower())');">즐겨찾기</button>
+            </div>
+            <div class="nav-items">
+              <a href="#" onclick="return fnActionJob_Target_Main('mainbiz_chg', '');">기업정보 관리</a>
+              <button type="button" class="bookmark" name="icm--compnay" search="tag_BookMark" flag="biz" onclick="ClickLog('MDC_5_8_1', '@(Request.Url.AbsolutePath.ToLower())');">즐겨찾기</button>
+            </div>
+            <div class="nav-items">
+              <a href="#" onclick="fnActionJob_Target_Quarter('memberinfo_biz'); return fnActionMember_Target_Main('memberinfo');">회원정보관리</a>
+              <button type="button" class="bookmark" name="icm--infoM" search="tag_BookMark" flag="biz" onclick="ClickLog('MDC_5_9_1', '@(Request.Url.AbsolutePath.ToLower())');">즐겨찾기</button>
+            </div>
+            @if (MemberInfo.GetInstance.IsLogin)
+            {
+            <div class="nav-items">
+              @*<a href="javascript:void(0)" onclick="confirm('로그아웃 하시겠습니까?') ? location.href='@(strRtnUrl)' : false;">로그아웃</a>*@
+              @*<a href="#" onclick="fn_LoginOut();" class="app-setting__link logout">로그아웃</a>*@
+              <a href="javascript:void(0)" onclick="confirm('로그아웃 하시겠습니까?') ? fnActionMember_Target_Logout('MDC_5_10') : false;">로그아웃</a>
+            </div>
+            }
+          </div>
+          <!--//기업회원-->
+          }
+          <!--일자리정보-->
+          <div class="tabCon">
+            <div class="nav-items">
+              <a href="#" onclick="return fnActionJob_Target_Main('recommendjobs', '');" class="">AI 추천일자리</a>
+              <button type="button" class="bookmark" name="icm--recom" search="tag_BookMark" onclick="ClickLog('MDC_2_11_1', '@(Request.Url.AbsolutePath.ToLower())');">즐겨찾기</button>
+            </div>
+            <div class="nav-items">
+              <a href="#" onclick="return fnActionJob_Target_Main('recruit_area', '');" class="">지역별</a>
+              <button type="button" class="bookmark" name="icm--region" search="tag_BookMark" onclick="ClickLog('MDC_2_1_1', '@(Request.Url.AbsolutePath.ToLower())');">즐겨찾기</button>
+            </div>
+            <div class="nav-items">
+              <a href="#" onclick="return fnActionJob_Target_Main('recruit_cate', '');" class="">업직종별</a>
+              <button type="button" class="bookmark" name="icm--jobtype" search="tag_BookMark" onclick="ClickLog('MDC_2_2_1', '@(Request.Url.AbsolutePath.ToLower())');">즐겨찾기</button>
+            </div>
+            <!-- 0113 알바 파트타임 메뉴 추가 -->
+            <div class="nav-items">
+                <a href="#" onclick="return fnActionJob_Target_Main('part_time', '');" class="">알바관</a>
+            </div>
+            <div class="nav-items">
+              <a href="#" onclick="return fnActionJob_Target_Main('ourtownjob', '');" class="">우리동네일자리</a>
+              <button type="button" class="bookmark" name="icm--townjob" search="tag_BookMark" onclick="ClickLog('MDC_2_4_1', '@(Request.Url.AbsolutePath.ToLower())');">즐겨찾기</button>
+            </div>
+            <div class="nav-items">
+              <a href="#" onclick="return fnActionJob_Target_Main('recruit_subway', '');" class="">역세권</a>
+              <button type="button" class="bookmark" name="icm--staion" search="tag_BookMark" onclick="ClickLog('MDC_2_5_1', '@(Request.Url.AbsolutePath.ToLower())');">즐겨찾기</button>
+            </div>
+            <div class="nav-items">
+              <a href="#" onclick="return fnActionJob_Target_Main('specialist_home', '');" class="">전문관</a>
+              <button type="button" class="bookmark" name="icm--special" search="tag_BookMark" onclick="ClickLog('MDC_2_6_1', '@(Request.Url.AbsolutePath.ToLower())');">즐겨찾기</button>
+            </div>
+            <div class="nav-items">
+              <a href="#" onclick="return fnActionJob_Target_Main('recruit_brank', '');" class="">브랜드관</a>
+              <button type="button" class="bookmark" name="icm--brand" search="tag_BookMark" onclick="ClickLog('MDC_2_7_1', '@(Request.Url.AbsolutePath.ToLower())');">즐겨찾기</button>
+            </div>
+            <!-- FJ002-1056 업데이트 -->
+            <div class="nav-items">
+              <a href="#" onclick="return fnActionJob_Target_Main('publicgov', '');" class="">공공기관 일자리</a>
+              <button type="button" class="bookmark" name="icm--public" search="tag_BookMark" onclick="ClickLog('MDC_2_3_1', '@(Request.Url.AbsolutePath.ToLower())');">즐겨찾기</button>
+            </div>
+            <div class="nav-items">
+              <a href="#" onclick="return fnActionJob_Target_Main('recruit_today', '');" class="">오늘의 일자리</a>
+              <button type="button" class="bookmark" name="icm--today" search="tag_BookMark" onclick="ClickLog('MDC_2_8_1', '@(Request.Url.AbsolutePath.ToLower())');">즐겨찾기</button>
+            </div>
+            <div class="nav-items">
+              <a href="#" onclick="return fnActionJob_Target_Main('latelylist', '');" class="">최근 본 일자리</a>
+              <button type="button" class="bookmark" name="icm--lately" search="tag_BookMark" onclick="ClickLog('MDC_2_10_1', '@(Request.Url.AbsolutePath.ToLower())');">즐겨찾기</button>
+            </div>
+          </div>
+          <!--//일자리정보-->
+          <!--취업가이드-->
+          <div class="tabCon">
+            <div class="nav-items">
+              <a href="#" onclick="return fnActionJob_Target_Main('jobguide', '');">취업가이드 홈</a>
+              <button type="button" class="bookmark" name="icm--guide" search="tag_BookMark" onclick="ClickLog('MDC_3_1_1', '@(Request.Url.AbsolutePath.ToLower())');">즐겨찾기</button>
+            </div>
+            <dl class="depth2">
+              <dt class="depth2__tit">취업지원정책</dt>
+              <dd class="depth2__con">
+                <div class="nav-items">
+                  <a href="#" onclick="return fnActionJob_Target_Main('jobguide7', '');">국민내일배움카드</a>
+                  <button type="button" class="bookmark" name="icm--learningcard" search="tag_BookMark" onclick="ClickLog('MDC_3_2_1', '@(Request.Url.AbsolutePath.ToLower())');">즐겨찾기</button>
+                </div>
+                <div class="nav-items">
+                  <a href="#" onclick="return fnActionJob_Target_Main('jobguide8', '');">실업급여</a>
+                  <button type="button" class="bookmark" name="icm--unemployment" search="tag_BookMark" onclick="ClickLog('MDC_3_3_1', '@(Request.Url.AbsolutePath.ToLower())');">즐겨찾기</button>
+                </div>
+                <div class="nav-items">
+                  <a href="#" onclick="return fnActionJob_Target_Main('jobguide9', '');">국민취업지원제도</a>
+                  <button type="button" class="bookmark" name="icm--success" search="tag_BookMark" onclick="ClickLog('MDC_3_4_1', '@(Request.Url.AbsolutePath.ToLower())');">즐겨찾기</button>
+                </div>
+                <div class="nav-items">
+                  <a href="#" onclick="return fnActionJob_Target_Main('jobguide10', '');">출산·육아지원 제도</a>
+                  <button type="button" class="bookmark" name="icm--birthsupport" search="tag_BookMark" onclick="ClickLog('MDC_3_12_1', '@(Request.Url.AbsolutePath.ToLower())');">즐겨찾기</button>
+                </div>
+              </dd>
+            </dl>
+            <dl class="depth2">
+              <dt class="depth2__tit">교육행사</dt>
+              <dd class="depth2__con">
+                <div class="nav-items">
+                  <a href="#" onclick="return fnActionJob_Target_Main('jobguide2', '');">중장년 교육정보</a>
+                  <button type="button" class="bookmark" name="icm--edu" search="tag_BookMark" onclick="ClickLog('MDC_3_5_1', '@(Request.Url.AbsolutePath.ToLower())');">즐겨찾기</button>
+                </div>
+                <div class="nav-items">
+                  <a href="#" onclick="return fnActionJob_Target_Main('jobguide3', '');">채용행사</a>
+                  <button type="button" class="bookmark" name="icm--festival" search="tag_BookMark" onclick="ClickLog('MDC_3_6_1', '@(Request.Url.AbsolutePath.ToLower())');">즐겨찾기</button>
+                </div>
+              </dd>
+            </dl>
+            <dl class="depth2">
+              <dt class="depth2__tit">취업연구소</dt>
+              <dd class="depth2__con">
+                <div class="nav-items">
+                  <a href="#" onclick="return fnActionJob_Target_Main('jobguide4', '');">추천직업</a>
+                  <button type="button" class="bookmark" name="icm--recommendjob" search="tag_BookMark" onclick="ClickLog('MDC_3_7_1', '@(Request.Url.AbsolutePath.ToLower())');">즐겨찾기</button>
+                </div>
+              </dd>
+            </dl>
+            <dl class="depth2">
+              <dt class="depth2__tit">노동법령정보</dt>
+              <dd class="depth2__con">
+                <div class="nav-items">
+                  <a href="#" onclick="return fnActionJob_Target_Main('jobguide11', '');">근로/노동 법령 사례</a>
+                  <button type="button" class="bookmark" name="icm--joblaw" search="tag_BookMark" onclick="ClickLog('MDC_3_11_1', '@(Request.Url.AbsolutePath.ToLower())');">즐겨찾기</button>
+                </div>
+              </dd>
+            </dl>
+            <dl class="depth2">
+              <dt class="depth2__tit">취업소식</dt>
+              <dd class="depth2__con">
+                <div class="nav-items">
+                  <a href="#" onclick="return fnActionJob_Target_Main('jobguide12', '');">취업뉴스</a>
+                  <button type="button" class="bookmark" name="icm--jobnews" search="tag_BookMark" onclick="ClickLog('MDC_3_8_1', '@(Request.Url.AbsolutePath.ToLower())');">즐겨찾기</button>
+                </div>
+                <div class="nav-items">
+                  <a href="#" onclick="return fnActionJob_Target_Main('jobguide6', '');">취업생활정보</a>
+                  <button type="button" class="bookmark" name="icm--lifeInfo" search="tag_BookMark" onclick="ClickLog('MDC_3_9_1', '@(Request.Url.AbsolutePath.ToLower())');">즐겨찾기</button>
+                </div>
+                <div class="nav-items">
+                  <a href="#" onclick="return fnActionJob_Target_Main('jobguide13', '');">취업동영상</a>
+                  <button type="button" class="bookmark" name="icm--jobvideo" search="tag_BookMark" onclick="ClickLog('MDC_3_10_1', '@(Request.Url.AbsolutePath.ToLower())');">즐겨찾기</button>
+                </div>
+              </dd>
+            </dl>
+            <dl class="depth2">
+              <dt class="depth2__tit">함께 만드는 벼룩시장</dt>
+              <dd class="depth2__con">
+                <div class="nav-items">
+                  <a href="#" onclick="return fnActionJob_Target_Main('jobguide14', '');">함께 웃어요 캠페인</a>
+                  <button type="button" class="bookmark" name="icm--joblaw" search="tag_BookMark">즐겨찾기</button>
+                </div>
+                <div class="nav-items">
+                  <a href="#" onclick="return fnActionJob_Target_Main('jobguide15', '');">허위공고 주의 캠페인</a>
+                  <button type="button" class="bookmark" name="icm--joblaw" search="tag_BookMark">즐겨찾기</button>
+                </div>
+                <div class="nav-items">
+                  <a href="#" onclick="return fnActionJob_Target_Main('jobguide16', '');">임금체불사업주 명단</a>
+                  <button type="button" class="bookmark" name="icm--joblaw" search="tag_BookMark">즐겨찾기</button>
+                </div>
+              </dd>
+            </dl>
+        </div>
+        <!--//취업가이드-->
+        @if (!MemberInfo.GetInstance.IsLogin || MemberInfo.GetInstance.IsBiz_Job != "Y")
+        {
+        <!--개인회원-->
+        <div class="tabCon">
+          <div class="nav-items">
+            <a href="#" onclick="return fnActionJob_Target_Main('person', '');">개인서비스 홈</a>
+            <button type="button" class="bookmark" name="icm--individual" search="tag_BookMark" flag="person" onclick="ClickLog('MDC_4_1_1', '@(Request.Url.AbsolutePath.ToLower())');">즐겨찾기</button>
+          </div>
+          <div class="nav-items">
+            <a href="#" onclick="fnActionJob_Target_Quarter('resumer'); return fnActionJob_Target_Main('resume_regist', '');">이력서 등록</a>
+            <button type="button" class="bookmark" name="icm--resumeR" search="tag_BookMark" flag="person" onclick="ClickLog('MDC_4_2_1', '@(Request.Url.AbsolutePath.ToLower())');">즐겨찾기</button>
+          </div>
+          <div class="nav-items">
+            <a href="#" onclick="fnActionJob_Target_Quarter('resumem'); return fnActionJob_Target_Main('resume', '');">이력서 관리</a>
+            <button type="button" class="bookmark" name="icm--resumeM" search="tag_BookMark" flag="person" onclick="ClickLog('MDC_4_3_1', '@(Request.Url.AbsolutePath.ToLower())');">즐겨찾기</button>
+          </div>
+          <div class="nav-items">
+            <a href="#" onclick="return fnActionJob_Target_Main('apply', '');">입사지원 현황</a>
+            <button type="button" class="bookmark" name="icm--apply" search="tag_BookMark" flag="person" onclick="ClickLog('MDC_4_4_1', '@(Request.Url.AbsolutePath.ToLower())');">즐겨찾기</button>
+          </div>
+          <div class="nav-items">
+            <a href="#" onclick="return fnActionJob_Target_Main('interview', '');">면접제의 현황</a>
+            <button type="button" class="bookmark" name="icm--interview" search="tag_BookMark" flag="person" onclick="ClickLog('MDC_4_5_1', '@(Request.Url.AbsolutePath.ToLower())');">즐겨찾기</button>
+          </div>
+          <div class="nav-items">
+            <a href="#" onclick="return fnActionJob_Target_Main('resume_open', '');">이력서 열람기업</a>
+            <button type="button" class="bookmark" name="icm--resumeC" search="tag_BookMark" flag="person" onclick="ClickLog('MDC_4_6_1', '@(Request.Url.AbsolutePath.ToLower())');">즐겨찾기</button>
+          </div>
+          <div class="nav-items">
+            <a href="#" onclick="return fnActionJob_Target_Main('resume_block', '');">이력서 열람제한</a>
+            <button type="button" class="bookmark" name="icm--resumeV" search="tag_BookMark" flag="person" onclick="ClickLog('MDC_4_7_1', '@(Request.Url.AbsolutePath.ToLower())');">즐겨찾기</button>
+          </div>
+          <div class="nav-items">
+            <a href="#" onclick="return fnActionJob_Target_Main('matchlist', '');">맞춤일자리</a>
+            <button type="button" class="bookmark" name="icm--customJ" search="tag_BookMark" flag="person" onclick="ClickLog('MDC_4_8_1', '@(Request.Url.AbsolutePath.ToLower())');">즐겨찾기</button>
+          </div>
+          <div class="nav-items">
+            <a href="#" onclick="return fnActionJob_Target_Main('scrap', '');">스크랩</a>
+            <button type="button" class="bookmark" name="icm--scrap" search="tag_BookMark" flag="person" onclick="ClickLog('MDC_4_9_1', '@(Request.Url.AbsolutePath.ToLower())');">즐겨찾기</button>
+          </div>
+          <div class="nav-items">
+            <a href="#" onclick="fnActionJob_Target_Quarter('memberinfo_person'); return fnActionMember_Target_Main('memberinfo');">회원정보관리</a>
+            <button type="button" class="bookmark" name="icm--infoM" search="tag_BookMark" flag="person" onclick="ClickLog('MDC_4_10_1', '@(Request.Url.AbsolutePath.ToLower())');">즐겨찾기</button>
+          </div>
+          <div class="nav-items">
+            <a href="#" onclick="return fnActionMember_Target_Main('biz_change');">비즈니스회원전환</a>
+            <button type="button" class="bookmark" name="icm--chBiz" search="tag_BookMark" flag="person" onclick="ClickLog('MDC_4_11_1', '@(Request.Url.AbsolutePath.ToLower())');">즐겨찾기</button>
+          </div>
+           @if (MemberInfo.GetInstance.IsLogin)
+           {
+          <div class="nav-items">
+            @*<a href="javascript:void(0)" onclick="confirm('로그아웃 하시겠습니까?') ? location.href='@(strRtnUrl)' : false;">로그아웃</a>*@
+            @*<a href="#" onclick="fn_LoginOut();" class="app-setting__link logout">로그아웃</a>*@
+            <a href="javascript:void(0)" onclick="confirm('로그아웃 하시겠습니까?') ? fnActionMember_Target_Logout('MDC_4_12') : false;">로그아웃</a>
+          </div>
+           }
+        </div>
+        <!--//개인회원-->
+        }
+        <!--고객센터-->
+        <div class="tabCon">
+          <div class="nav-items">
+            <a href="#" onclick="fnActionJob_Target_Main('notice', '');">공지사항</a>
+            <button type="button" class="bookmark" name="icm--notice" search="tag_BookMark" onclick="ClickLog('MDC_6_1_1', '@(Request.Url.AbsolutePath.ToLower())');">즐겨찾기</button>
+          </div>
+          <div class="nav-items">
+            <a href="#" onclick="return fnActionJob_Target_Blank('simple_ad', 'http://@(ViewBag.MobileJobDomain_Pc)/advertiser/Regist_Simple_Ad_Reception.asp?ifr=M001');">등록도우미</a>
+            <button type="button" class="bookmark" name="icm--hepler" search="tag_BookMark" onclick="ClickLog('MDC_6_2_1', '@(Request.Url.AbsolutePath.ToLower())');">즐겨찾기</button>
+          </div>
+          @if (ViewBag.ServiceType != "app")
+          {
+          <div class="nav-items">
+            <a href="#" onclick="fnActionJob_Target_Main('appdown', '')">앱 다운로드</a>
+            <!--<a href="/html/appDown.html">앱 다운로드</a>-->
+            <button type="button" class="bookmark" name="icm--app" search="tag_BookMark" onclick="ClickLog('MDC_6_3_1', '@(Request.Url.AbsolutePath.ToLower())');">즐겨찾기</button>
+          </div>
+          }
+          <div class="nav-items">
+            <!--<a href="tel:02-3407-9700">광고문의 <span class="num">02.3407.9700</span></a>-->
+            <a href="tel:0234079700" onclick="return fnActionJob_Tel('0234079700');">광고문의 <span class="num">02.3407.9700</span></a>
+          </div>
+        </div>
+        <!--//고객센터-->
+        <!--앱 설정-->
+        <div class="tabCon">
+          <dl class="depth2">
+            <dt class="depth2__tit" onclick="return fnActionJob_Target_NewWindow('app_setting');">앱 설정</dt>
+            <dd class="depth2__con-switch">맞춤일자리
+              <label class="switch">
+                <input type="checkbox" id="chk_match" onclick="ClickLog('MDC_7_2', '/'); fn_Set('match');">
+                <span class="slider round"></span>
+              </label>
+		        </dd>
+            <dd class="depth2__con-switch">공지 및 이벤트
+              <label class="switch">
+                <input type="checkbox" id="chk_notice" onclick="ClickLog('MDC_7_3', '/'); fn_Set('notice');" >
+                <span class="slider round"></span>
+              </label>
+            </dd>
+            <dd class="depth2__con-switch">버전정보
+              <span class="num">ver 2.4.0</span>
+		        </dd>
+            <dd class="depth2__con-switch">
+              <a href="" target="_blank">오픈소스 라이선스</a>
+		        </dd>
+          </dl>
+        </div>
+        <!--//앱 설정-->
+
+      </article>
+    </section>
+
+    <!-- Google Tag Manager (noscript) 2023.06.01-->
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=@(strGoogleTagID)"
+              height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <script>
+      $(function(){
+        tabMenu('.tab',0);
+        MenuHeightInit();
+
+        // 마지막 선택된 tab메뉴 설정
+        //var lastSelect = getCookie("lastSelect");
+        var lastSelect = @(lastSelect);
+        if (lastSelect.toString().length > 0)
+          $("a[lastSelect=" + lastSelect + "]").trigger("click");
+      });
+      
+      function MenuHeightInit(){
+        if(window.matchMedia('(orientation:portrait').matches){
+          var minheight =$(document).outerHeight() - ($('.directory__header').outerHeight() + $('.directory__bookmark').outerHeight() + 7);
+          $('.menuBox, .tabCon').css('height', minheight);
+        } else {
+          var minheight =$(document).outerHeight() - ($('.directory__header').outerHeight() + $('.directory__bookmark').outerHeight() + 7);
+          $('.menuBox, .tabCon').css('height', minheight);
+        }
+      }
+      
+      $(window).resize(function(){
+        MenuHeightInit();
+      })
+
+      function LayerCont(type,className){
+        if(type == 'open'){
+          $('.'+className).show();
+          $('body').addClass('scrollOff');
+          allService();
+        } else {
+          $('.'+className).hide();
+          $('body').removeClass('scrollOff');
+        }
+      }      
+
+      //function bookMarkDel(obj){
+      //  $(obj).prev('.mark').remove();
+      //  $(obj).before("<a href='javascript:void(0)' class='default' onclick=\"LayerCont('open','layerP_mark')\">즐겨찾기 추가하기</a>");
+      //  $(obj).remove();
+      //}
+
+      function bookmarkReset(){
+        if (!$("#bookmark").val()) return;
+        if(confirm('즐겨찾기 메뉴를\n초기화 하시겠습니까?') == true){
+          $("#bookmark").val("");
+          init_BookMark();
+          fn_BookMarkSave();
+
+          //$('.bookmark__list li').each(function(){
+          //  if($(this).children('.mark').length > 0){
+          //    $(this).children('.mark, .btn--del').remove();
+          //    $(this).prepend("<a href='javascript:void(0)' class='default' onclick=\"LayerCont('open','layerP_mark')\">즐겨찾기 추가하기</a>");
+          //  }
+          //});
+        }
+      }
+
+      function tabMenu(e, num) {
+        var num = num || 0;
+        var menu = $(e).children('.tab-btn');
+        var con = $(e + 'Con');
+        var select = $(menu).eq(num);
+        var i = num;
+
+        select.addClass('on');
+        con.eq(num).show();
+
+        menu.click(function () {
+          if (select !== null) {
+            select.removeClass('on');
+            con.eq(i).hide();
+          }
+
+          select = $(this);
+          i = $(this).index();
+
+          select.addClass('on');
+          con.eq(i).show();
+          MenuHeightInit();
+        });
+      }
+
+      function menuMode(type){
+        if(type == 'edit'){
+          $('.btn-edit, .bookmark__listView').hide();
+          $('.editbtn-wrap, .bookmark__listEdit').show();
+
+          init_BookMark();
+        } else {
+          $('.btn-edit').show();
+          $('.btn-edit, .bookmark__listView').show();
+          $('.editbtn-wrap, .bookmark__listEdit').hide();
+        }
+        MenuHeightInit();
+      }
+
+      function allService(){
+        $('.markBox').each(function(){
+          var listNumber = $(this).find('a').length;
+          var listRemainder= listNumber  % 4;
+          if(listRemainder != 0){
+            $(this).find('a').slice(-listRemainder, listNumber).addClass('noborder');
+          }
+        });
+      }
+
+      var prevScrollTop = 0;
+      var nowScrollTop = 0;
+
+      function wheelDelta(){
+        return prevScrollTop - nowScrollTop > 0 ? 'up' : 'down'
+      }
+
+      $(window).on('scroll',function(){
+        nowScrollTop = $(this).scrollTop();
+        var menuScrollTop = $('.menuBox').offset().top;
+        if(wheelDelta() == 'down'){
+          if(nowScrollTop > 0 ){
+            $('.directory__header').addClass('active');
+          } else {
+            $('.directory__header').removeClass('active');
+          }
+        }
+        if(nowScrollTop >= menuScrollTop - 49){
+          $('.tab').addClass('fixed');
+        } else {
+          $('.tab').removeClass('fixed');
+        }
+      });
+
+      // 북마크 설정
+      function fn_BookMark(obj){
+
+        var name = $(obj).attr("name");
+        if(!name){name = $(obj).attr("id");}
+
+        // 북마크 해제
+        if ($("[name=" + name + "]").hasClass("on") == true || $("[name=" + name + "]").length == 0){
+          var arrBook = $("#bookmark").val().split(';');
+          var arrBookMark = "";
+
+          if(arrBook.length > 1){
+            arrBookMark = $("#bookmark").val().replace(name + ";", "");
+            arrBookMark = arrBookMark.replace(";" + name, "");
+          }
+          $("#bookmark").val(arrBookMark);
+        }
+        else{ // 북마크 설정
+          if($("#bookmark").val()){
+            if ($("#bookmark").val().split(";").length > 7){
+              alert("즐겨찾기 메뉴는\n8개까지 등록 가능합니다.");
+              return;
+            }
+            $("#bookmark").val($("#bookmark").val() + ";" + name);
+
+
+            // 즐겨찾기를 정렬하여 저장하려면
+            if ("@(bookMartSort)" == "1") {
+              var arr_bookmark = $("#bookmark").val().split(';');
+              var arr = new Array();
+              var result = "";
+              for (var i = 0; i < arr_bookmark.length; i++) {
+                arr[i] = new Array();
+                arr[i][0] = $("a[name=" + arr_bookmark[i] + "]").attr("no");
+                arr[i][1] = arr_bookmark[i];
+              }
+              arr.sort();
+              for (var i = 0; i < arr.length; i++) {
+                if (i > 0) {
+                  result = result + ';';
+                }
+                result = result + arr[i][1];
+              }
+              $("#bookmark").val(result);
+            }
+
+          }
+          else{
+            $("#bookmark").val(name);
+          }
+        }
+
+        init_BookMark();
+        fn_BookMarkSave();
+        MenuHeightInit()
+      }
+
+      function init_BookMark(){
+
+        // 즐겨찾기 초기화
+        $("#bookmark__listView").html('');
+        $("#bookmark__listEdit").html('');
+        $("button[search=tag_BookMark]").removeClass("on");
+        $("a[search=tag_BookMark]").removeClass("on");
+
+        var arr_bookmark = $("#bookmark").val().split(';');
+
+        if(!$("#bookmark").val()){ // 즐겨찾기가 없는경우
+          $("#bookmark__listView").append("<li class=\"bookmark__list-empty\"><a href=\"javascript:void(0)\" onclick=\"ClickLog('MDC_1_8', '/');LayerCont('open','layerP_mark');\">즐겨찾는 메뉴를 추가해주세요</a></li>");
+
+          $("#bookmark__listEdit").append("<li><a href=\"javascript:void(0)\" class=\"default\" onclick=\"LayerCont('open','layerP_mark')\">즐겨찾기 추가하기</a></li>");
+          $("#bookmark__listEdit").append("<li><a href=\"javascript:void(0)\" class=\"default\" onclick=\"LayerCont('open','layerP_mark')\">즐겨찾기 추가하기</a></li>");
+          $("#bookmark__listEdit").append("<li><a href=\"javascript:void(0)\" class=\"default\" onclick=\"LayerCont('open','layerP_mark')\">즐겨찾기 추가하기</a></li>");
+          $("#bookmark__listEdit").append("<li><a href=\"javascript:void(0)\" class=\"default\" onclick=\"LayerCont('open','layerP_mark')\">즐겨찾기 추가하기</a></li>");
+          $("#bookmark__listEdit").append("<li><a href=\"javascript:void(0)\" class=\"default\" onclick=\"LayerCont('open','layerP_mark')\">즐겨찾기 추가하기</a></li>");
+          $("#bookmark__listEdit").append("<li><a href=\"javascript:void(0)\" class=\"default\" onclick=\"LayerCont('open','layerP_mark')\">즐겨찾기 추가하기</a></li>");
+          $("#bookmark__listEdit").append("<li><a href=\"javascript:void(0)\" class=\"default\" onclick=\"LayerCont('open','layerP_mark')\">즐겨찾기 추가하기</a></li>");
+          $("#bookmark__listEdit").append("<li><a href=\"javascript:void(0)\" class=\"default\" onclick=\"LayerCont('open','layerP_mark')\">즐겨찾기 추가하기</a></li>");
+        }
+        else { // 즐겨찾기가 있는경우
+
+          var json = {
+            'icm--individual': { value: '개인서비스홈', type: 'person', ret: 'person' }
+          , 'icm--resumeR': { value: '이력서등록', type: 'person', ret: 'resume' }
+          , 'icm--resumeM': { value: '이력서관리', type: 'person', ret: 'resume' }
+          , 'icm--apply': { value: '입사지원현황', type: 'person', ret: 'apply' }
+          , 'icm--interview': { value: '면접제의현황', type: 'person', ret: 'interview' }
+          , 'icm--resumeC': { value: '이력서열람기업', type: 'person', ret: 'resume_open' }
+          , 'icm--resumeV': { value: '이력서열람제한', type: 'person', ret: 'resume_block' }
+          , 'icm--customJ': { value: '맞춤일자리', type: 'person', ret: 'matchlist' }
+          , 'icm--scrap': { value: '스크랩', type: 'person', ret: 'scrap' }
+          , 'icm--infoM': { value: '회원정보관리', type: 'person', ret: 'memberinfo' }
+          , 'icm--chBiz': { value: '비즈니스회원전환', type: 'person', ret: 'biz_change' }
+          , 'icm--biz': { value: '기업서비스홈', type: 'biz', ret: 'biz_home' }
+          , 'icm--goods': { value: '유료상품안내', type: 'biz', ret: 'adreg' }
+          , 'icm--jobregist': { value: '일자리등록', type: 'biz', ret: 'adregNew' }
+          , 'icm--jobM': { value: '일자리관리', type: 'biz', ret: 'ad_manage' }
+          , 'icm--applicant': { value: '지원자관리', type: 'biz', ret: 'adapply' }
+          , 'icm--coupon': { value: '쿠폰관리', type: 'biz', ret: 'coupon' }
+          , 'icm--ticket': { value: '정액권관리', type: 'biz', ret: 'fat' }
+          , 'icm--compnay': { value: '기업정보관리', type: 'biz', ret: 'mainbiz_chg' }
+          , 'icm--infoM': { value: '회원정보관리', type: 'biz', ret: 'memberinfo' }
+          , 'icm--jobK': { value: '키워드검색광고관리', type: 'biz', ret: 'keywordsearch' }
+          }
+
+          for(var i = 0; i < arr_bookmark.length; i++){
+
+            $("[name=" + arr_bookmark[i] + "]").addClass("on");
+
+            var text = text = $.trim($("a[name=" + arr_bookmark[i] + "]").eq(0).text());
+            if (!text) {
+              text = json[arr_bookmark[i]]["value"];
+            }
+
+            var link = $.trim($("button[name=" + arr_bookmark[i] + "]").parent().children().eq(0).attr("onClick"));
+            if (!link) {
+              //var flag = $.trim($("a[name=" + arr_bookmark[i] + "]").attr("flag"));
+              var type = json[arr_bookmark[i]]["type"];
+              var ret = json[arr_bookmark[i]]["ret"];
+
+              //link = "fn_BookMark_MSG('" + type + "','" + ret + "');";
+              if (ret == "memberinfo" || ret == "biz_change") {
+                link = "fnActionMember_Target_Main('" + ret + "');";
+              }
+              else {
+                link = "fnActionJob_Target_Main('" + ret + "');";
+              }
+            }
+
+            $("#bookmark__listView").append("<li><a href=\"javascript:void(0);\" class=\"mark\" onclick=\"" + link + "\"><i class=\"icm " + arr_bookmark[i] + "\"></i>" + text + "</a></li>");
+            $("#bookmark__listEdit").append("<li><a href=\"javascript:void(0);\" class=\"mark\"><i class=\"icm " + arr_bookmark[i] + "\"></i>" + text + "</a><button tpye='button' class='btn--del' onclick='fn_BookMark(this);' id=\"" + arr_bookmark[i] + "\">삭제</button></li>");
+          }
+
+          // 즐겨찾기 추가 버튼
+          for(var i = arr_bookmark.length; i < 8; i++){
+            if(arr_bookmark.length < 4 && i < 4){
+              $("#bookmark__listView").append("<li><a href=\"javascript:void(0);\" class=\"mark\"><i></i></a></li>");
+            }
+            else if(arr_bookmark.length > 4){
+              $("#bookmark__listView").append("<li><a href=\"javascript:void(0);\" class=\"mark\"><i></i></a></li>");
+            }
+            $("#bookmark__listEdit").append("<li><a href=\"javascript:void(0)\" class=\"default\" onclick=\"LayerCont('open','layerP_mark')\">즐겨찾기 추가하기</a></li>");
+          }
+        }
+      }
+
+      // 북마크 저장
+      function fn_BookMarkSave(){
+        if("@(ViewBag.ServiceType)" == "app"){
+          $.ajax({
+            type: "POST",
+            url: "/Main/AjaxSaveBookMark",
+            data: {
+              'bookmark': $("#bookmark").val()
+              , 'mid': "@(mid)"
+            },
+            async: false,
+            success: function (result) {
+
+              if(result=="0"){
+                alert("즐겨찾기를 저장하는데 오류가 발생하였습니다.")
+              }
+              else if(result == "-1"){
+                alert("기기정보가 올바르지 않습니다.");
+              }
+              else{
+                //alert("성공");
+              }
+            },
+            error: function (request, status, error) {
+              //alert("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
+            }
+          });
+        }
+        else{
+          setCookie("bookmark", $("#bookmark").val(), 365);
+        }
+      }
+
+      function fn_BookMark_MSG(type, ret) {
+
+        if (ret == "memberinfo" || ret == "biz_change") {
+          if(type == "biz"){
+            alert("기업회원 서비스입니다.\n기업회원으로 로그인해 주세요.")
+          }
+          else if(type == "person"){
+            alert("개인회원 서비스입니다.\n개인회원으로 로그인해 주세요.")
+          }
+          fnActionMember_Target_Main(ret);
+        }
+        else {
+          fnActionJob_Target_Main(ret);
+        }
+      }
+
+      function fn_LoginOut(){
+        // 2021.04.05 오연정과장 요청
+        // 로그아웃시 메시지 출력후 확인 누르면 메인으로 이동되도록 수정
+        if (confirm('로그아웃 하시겠습니까?')){
+          location.href="@(strMemberSiteLogOutMove)";
+        }
+        else{
+          return;
+        }
+      }
+
+    </script>
+
+    @if (MemberInfo.GetInstance.IsLogin && MemberInfo.GetInstance.IsBiz_Job.Equals("Y"))
+    {
+        @* 비즈니스회원 집계정보 *@
+        <script type="text/javascript">          /*
+            jQuery(function ($) {
+              try {
+                $.post("/Main/getBizMemberInfoCount", {}, function (data) {
+                  if (data != "") {
+                    var list = data.split('|');
+                    setResultCount($("#cnt_adlist"), list[0]);
+                    setResultCount($("#cnt_adwait"), list[2]);
+                    setResultCount($("#cnt_coupon"), list[3]);
+                  }
+                }, "text").fail(function (eObj, eState, eThrow) { console.log(eState + " : " + eThrow); return false; });
+              }
+              catch (e) {
+                //alert(e.toString());
+                console.log("error : " + e.toString());
+              }
+            });
+            */
+        </script>
+    }
+
+    @if (MemberInfo.GetInstance.IsLogin && !MemberInfo.GetInstance.IsBiz_Job.Equals("Y"))
+    {
+        @* 개인회원 집계정보 *@
+        <script type="text/javascript">
+          /*
+        jQuery(function ($) {
+          try {
+            $.post("/Main/getPersonMemberInfoCount", {}, function (data) {
+              if (data != "") {
+                var list = data.split('|');
+
+                var cnt_match = list[0];
+                if (parseInt(cnt_match) >= 999)
+                  $("#cnt_match").text("+99");
+                else
+                  setResultCount($("#cnt_match"), cnt_match);
+
+                setResultCount($("#cnt_scrap"), list[1]);
+                setResultCount($("#cnt_resume"), list[2]);
+                setResultCount($("#cnt_apply"), list[3]);
+              }
+            }, "text").fail(function (eObj, eState, eThrow) { console.log(eState + " : " + eThrow); return false; });
+          }
+          catch (e) {
+            //alert(e.toString());
+            console.log("error : " + e.toString());
+          }
+        });*/
+        </script>
+    }
+
+    @{
+      if (MemberInfo.GetInstance.IsLogin)
+      {
+        string ymd_ck = ViewBag.getLoginCookies;
+        string ymd = DateTime.Now.ToString("yyyyMMdd");
+        if (ymd != ymd_ck)
+        {
+                <script type="text/javascript">
+                  jQuery(function ($) {
+                    try {
+                      // 로그인유지처리
+                      $.post("/Main/CheckMemberInfo", { url: "@(rUrl)" }, function (data) {
+                //로그인로그
+                if (data == "LOGOUT") {
+                  return fnActionMember_Target_Main('logout');
+                }
+              }, "text").fail(function (eObj, eState, eThrow) { console.log(eState + " : " + eThrow); return false; });
+            }
+            catch (e) {
+              //alert(e.toString());
+              console.log("error : " + e.toString());
+            }
+          });
+                </script>
+          }
+        }
+      }
+</body>
+</html>
