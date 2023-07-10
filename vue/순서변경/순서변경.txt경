@@ -1,0 +1,38 @@
+<template>
+  <div>
+    <button @click="addRow">행 추가</button>
+    <ul>
+      <li v-for="(row, index) in rows" :key="index">
+        {{ row }}
+        <button @click="moveRowUp(index)" :disabled="index === 0">위로</button>
+        <button @click="moveRowDown(index)" :disabled="index === rows.length - 1">아래로</button>
+      </li>
+    </ul>
+  </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const rows = ref([]);
+
+const addRow = () => {
+  rows.value.push(`행 ${rows.value.length + 1}`);
+};
+
+const moveRowUp = (index) => {
+  if (index > 0) {
+    const temp = rows.value[index];
+    rows.value.splice(index, 1);
+    rows.value.splice(index - 1, 0, temp);
+  }
+};
+
+const moveRowDown = (index) => {
+  if (index < rows.value.length - 1) {
+    const temp = rows.value[index];
+    rows.value.splice(index, 1);
+    rows.value.splice(index + 1, 0, temp);
+  }
+};
+</script>
