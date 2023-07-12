@@ -94,11 +94,11 @@ const rows = reactive([
 ]);
 
 const total = computed(() => {
-  return rows.reduce((acc, row) => acc + (row.total || 0), 0);
+  return rows.reduce((acc, row) => acc + (row.qty * row.price || 0), 0);
 });
 
 const taxtotal = computed(() => {
-  return rows.reduce((acc, row) => acc + (row.tax_amount || 0), 0);
+  return rows.reduce((acc, row) => acc + (row.qty * row.price * row.tax / 100 || 0), 0);
 });
 
 const delivery = ref(40);
@@ -134,14 +134,19 @@ const getData = () => {
   // Perform AJAX request with data
 };
 
+let sortableInstance;
+
 watch(rows, () => {
   // Reinitialize sortable when rows change
   nextTick(() => {
-    const el = document.querySelector(".table tbody");
-    Sortable.create(el, {
+    if (sortableInstance) {
+      sortableInstance.destroy();
+    }
+    sortableInstance = new Sortable(document.querySelector(".table tbody"), {
       draggable: "tr",
       onUpdate: (evt) => {
-        const movedRow = rows.splice(evt.oldIndex, 1)[0];
+        const movedRow = rows[evt.oldIndex];
+        rows.splice(evt.oldIndex, 1);
         rows.splice(evt.newIndex, 0, movedRow);
       },
     });
