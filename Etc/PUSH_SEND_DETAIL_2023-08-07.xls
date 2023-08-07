@@ -1,0 +1,191 @@
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>FindAll MobilePush Admin</title>
+<script type="text/javascript" src="/js/jquery-1.9.1.min.js"></script>
+
+<body id="mag">
+
+  <!-- S: table_list -->
+  <table width="100%" border="1" cellspacing="0" cellpadding="0" style="word-break:break-all;width: 99% !important; width: 99%; margin: 30px 0 0 5px; table-layout: fixed; border-collapse:collapse;">
+		<colgroup>
+			<col width="130">
+			<col width="350">
+			<col width="130">
+			<col width="*">
+		</colgroup>   
+
+			<tr>
+				<th>제목</th>
+				<td class="geje_agency">
+					<span>📢 비밀번호 변경 권고 안내</span>
+				</td>
+        <th>발송자</th>
+        <td class="geje_agency">
+          <span>yeahrim(장예림)</span>
+        </td>
+			</tr>
+      <tr>
+				<th>수신자</th>
+				<td class="geje_agency">
+					<span>직접 등록</span>
+				</td>
+        <th>디바이스</th>
+        <td class="geje_agency">
+          <span>전체</span>
+        </td>
+			</tr>
+			<tr>
+				<th>랜딩 URL</th><!-- 0:사용안함(null), 1:사용(self), 2:사용&새창(inneropen) 2이면 랜딩 URL 값이 있는지 체크-->
+				<td colspan="3" class="geje_agency">
+					<span>https://member.findjob.co.kr/join/member_confirm.asp?src=/change/pw_change.asp&targetpage=http://m.findjob.co.kr/&fahost=m.findjob.co.kr</span>
+				</td>
+			</tr>			
+			<tr>
+				<th>내용</th>
+				<td colspan="3" class="geje_agency">
+					개인정보 보호를 위해 사용중인 비밀번호를 변경해주세요.
+				</td>
+			</tr>
+			<!--<tr>
+				<td colspan="4" class="geje_agency" style="text-align: center;">
+					<input type="button" value=" 목 록 " onClick="goList();">				  
+				  <input type="button" value=" 엑셀 다운로드 " onClick="javascript:alert('준비중');">
+				</td>
+			</tr>-->
+  </table>
+  <!-- // E: table_view -->
+
+  <br />
+  <!-- S: table_list -->
+  <label id="lbSumList">&nbsp;■ 수/발신 통계</label>
+  <table width="100%" border="1" cellspacing="0" cellpadding="0" style="word-break:break-all;width: 99% !important; width: 99%; margin: 30px 0 0 5px; table-layout: fixed; border-collapse:collapse;">
+  <colgroup>
+    <col width="100">
+    <col width="200">
+	  <col width="200">
+	  <col width="200">
+    <col width="200">
+  </colgroup>
+
+  <tr>
+    <th>구분</th>
+	  <th>발송 시도</th>
+	  <th>발송 성공</th>
+    <th>실패</th>
+	  <th>오픈</th>
+  </tr>
+  
+  <tr>
+    <td style="text-align:center;">개인 회원</td>
+		<td style="text-align:center;">3</td>
+	  <td style="text-align:center;">3</td>
+    <td style="text-align:center;">0</td>
+		<td style="text-align:center;">2</td>
+  </tr>
+  
+  <tr>
+    <td style="text-align:center;">비즈니스 회원</td>
+		<td style="text-align:center;">3</td>
+	  <td style="text-align:center;">3</td>
+    <td style="text-align:center;">0</td>
+		<td style="text-align:center;">3</td>
+  </tr>
+  
+  <tr>
+    <td style="text-align:center;">합계</td>
+		<td style="text-align:center;">6</td>
+	  <td style="text-align:center;">6</td>
+    <td style="text-align:center;">0</td>
+		<td style="text-align:center;">5</td>
+  </tr>
+  
+  </table>
+
+
+  <br />
+  <!-- S: table_list -->
+  <label id="lbSRList">&nbsp;■ 회원별 수/발신 내역</label>
+  <table width="100%" border="1" cellspacing="0" cellpadding="0" style="word-break:break-all;width: 99% !important; width: 99%; margin: 30px 0 0 5px; table-layout: fixed; border-collapse:collapse;">
+  <colgroup>
+    <col width="110">
+    <col width="70">
+	  <col width="150">
+	  <col width="150">
+	  <col width="200">
+	  <col width="200">
+  </colgroup>
+
+  <tr>
+    <th>발송일시</th>
+	  <th>성공여부</th>
+	  <th>수신자</th>
+	  <th>회원구분</th>
+	  <th>오픈 일시</th>
+	  <th>실패 원인</th>
+  </tr>
+  
+  <tr>
+    <td style="text-align:center;">2023-08-07 오전 11:20:46</td>
+		<td style="text-align:center;">True</td>
+	  <td style="text-align:center;">14281098</td>
+		<td style="text-align:center;">개인 회원</td>
+		<td style="text-align:center;">2023-08-07 오전 11:22:19</td>
+		<td style="text-align:center;"></td>
+  </tr>
+  
+  <tr>
+    <td style="text-align:center;">2023-08-07 오전 11:20:46</td>
+		<td style="text-align:center;">True</td>
+	  <td style="text-align:center;">14809401</td>
+		<td style="text-align:center;">비즈니스 회원</td>
+		<td style="text-align:center;">2023-08-07 오전 11:20:58</td>
+		<td style="text-align:center;"></td>
+  </tr>
+  
+  <tr>
+    <td style="text-align:center;">2023-08-07 오전 11:20:46</td>
+		<td style="text-align:center;">True</td>
+	  <td style="text-align:center;">15017038</td>
+		<td style="text-align:center;">개인 회원</td>
+		<td style="text-align:center;"></td>
+		<td style="text-align:center;"></td>
+  </tr>
+  
+  <tr>
+    <td style="text-align:center;">2023-08-07 오전 11:20:46</td>
+		<td style="text-align:center;">True</td>
+	  <td style="text-align:center;">15033660</td>
+		<td style="text-align:center;">개인 회원</td>
+		<td style="text-align:center;">2023-08-07 오전 11:20:54</td>
+		<td style="text-align:center;"></td>
+  </tr>
+  
+  <tr>
+    <td style="text-align:center;">2023-08-07 오전 11:20:46</td>
+		<td style="text-align:center;">True</td>
+	  <td style="text-align:center;">15195543</td>
+		<td style="text-align:center;">비즈니스 회원</td>
+		<td style="text-align:center;">2023-08-07 오전 11:21:42</td>
+		<td style="text-align:center;"></td>
+  </tr>
+  
+  <tr>
+    <td style="text-align:center;">2023-08-07 오전 11:20:46</td>
+		<td style="text-align:center;">True</td>
+	  <td style="text-align:center;">15227242</td>
+		<td style="text-align:center;">비즈니스 회원</td>
+		<td style="text-align:center;">2023-08-07 오전 11:22:04</td>
+		<td style="text-align:center;"></td>
+  </tr>
+    
+  </table>
+  <!-- // E: table_list -->
+
+
+</body>
+</html>
+
