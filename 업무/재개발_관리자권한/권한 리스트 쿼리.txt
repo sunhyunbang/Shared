@@ -1,0 +1,17 @@
+
+
+if LEVEL_YN = 'N'-- 사용자별 설정인 경우
+
+select U.USER_NM ,MT.MENU_ID ,MT.MENU_NM ,MT.DEPTH_LV ,MT.PARENT_ID ,MT.SORT_ODR ,MAT.AUTH_ID 
+from findjob.USER_INFO_TB as U
+cross JOIN findjob.menu_tb as mt 
+left join findjob.my_auth_tb as mat on U.USER_ID = MAT.USER_ID and MT.MENU_ID  = MAT.MENU_ID 
+order by U.USER_ID , MT.MENU_ID , MT.SORT_ODR 
+------------------------------------------------------------------------------------------------------------
+if LEVEL_YN = 'Y' -- 레벨별 설정인경우(사용자별 권한설정이 아닌경우)
+
+select lt.LEVEL_ID ,MT.MENU_ID ,MT.MENU_NM ,MT.DEPTH_LV ,MT.PARENT_ID ,MT.SORT_ODR ,MAT.AUTH_ID 
+from findjob.level_tb as lt  
+cross JOIN findjob.menu_tb as mt 
+left join findjob.my_auth_tb as mat on lt.LEVEL_ID = MAT.USER_ID and MT.MENU_ID  = MAT.MENU_ID 
+order by lt.LEVEL_ID , MT.MENU_ID , MT.SORT_ODR 
